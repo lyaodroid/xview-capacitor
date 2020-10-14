@@ -1,0 +1,36 @@
+{
+  "name": "xviewbrid",
+  "version": "0.0.1",
+  "description": "前端xviewsdk",
+  "main": "dist/plugin.js",
+  "module": "dist/esm/index.js",
+  "types": "dist/esm/index.d.ts",
+  "scripts": {
+    "build": "npm run clean && tsc && rollup -c rollup.config.js",
+    "clean": "rimraf ./dist",
+    "watch": "tsc --watch",
+    "prepublishOnly": "npm run build"
+  },
+  "author": "ly",
+  "license": "MIT",
+  "devDependencies": {
+    "@capacitor/core": "^3.0.0-alpha.5",
+    "@rollup/plugin-node-resolve": "^8.1.0",
+    "rimraf": "^3.0.0",
+    "rollup": "^2.21.0",
+    "typescript": "~3.8.3"
+  },
+  "peerDependencies": {
+    "@capacitor/core": "^3.0.0-alpha.5"
+  },
+  "files": [
+    "dist/"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "ssh://liuyao@47.98.60.181:29418/~liuyao/front/xviewbrid.git"
+  },
+  "bugs": {
+    "url": "ssh://liuyao@47.98.60.181:29418/~liuyao/front/xviewbrid.git/issues"
+  }
+}
