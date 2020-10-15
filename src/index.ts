@@ -24,13 +24,6 @@ import { ContactsWeb } from "./web/contacts";
 import { AudioWeb } from "./web/audio";
 import { HotCodePushWeb } from "./web/hot-code-push";
 
-import {
-    StatusBarStyle,
-    KeyboardResize,
-    KeyboardStyle,
-    NetworkStatus,
-} from "./xview-plugin-definitions";
-
 export * from "./xview-plugin-definitions";
 
 /**
@@ -49,14 +42,14 @@ const StatusBar = registerPlugin("StatusBar", {
     ios: Plugins.StatusBar,
 }).getImplementation();
 
-export { StatusBar, StatusBarStyle };
+export { StatusBar };
 
 const Keyboard = registerPlugin("Keyboard", {
     android: Plugins.Keyboard,
     ios: Plugins.Keyboard,
 }).getImplementation();
 
-export { Keyboard, KeyboardResize, KeyboardStyle };
+export { Keyboard };
 
 const Network = registerPlugin("Network", {
     android: Plugins.Network,
@@ -64,7 +57,7 @@ const Network = registerPlugin("Network", {
     web: new NetworkWeb(),
 }).getImplementation();
 
-export { Network, NetworkStatus };
+export { Network };
 
 const Clipboard = registerPlugin("Clipboard", {
     android: Plugins.Clipboard,
