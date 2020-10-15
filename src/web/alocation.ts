@@ -1,10 +1,7 @@
-import {
-    LocationWatchCallback,
-    ALocationPlugin,
-} from "./../xview-plugin-definitions";
 import { WebPlugin } from "@capacitor/core";
+import { ALocationPlugin, LocationWatchCallback } from "./../xview-plugin-definitions";
 
-export class ALocationPluginWeb extends WebPlugin
+export class ALocationWeb extends WebPlugin
     implements ALocationPlugin {
     constructor() {
         super({
@@ -20,7 +17,7 @@ export class ALocationPluginWeb extends WebPlugin
     }
 
     getCurrentPosition(options?: any): Promise<any> {
-        return ALocation.getCurrentPosition();
+        throw new Error("Method not implemented.");
     }
 
     watchPosition(options: any, callback: LocationWatchCallback): string {
@@ -32,7 +29,3 @@ export class ALocationPluginWeb extends WebPlugin
         return Promise.resolve();
     }
 }
-
-const ALocation = new ALocationPluginWeb();
-
-export { ALocation };

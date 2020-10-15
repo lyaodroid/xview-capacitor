@@ -1,5 +1,5 @@
-import { registerWebPlugin, WebPlugin } from "@capacitor/core";
-import { AudioPlugin, AudioProgressCallback } from "../xview-plugin-definitions";
+import { WebPlugin } from "@capacitor/core";
+import { AudioFileResult, AudioPlugin, AudioProgressCallback } from "../xview-plugin-definitions";
 
 export class AudioWeb extends WebPlugin implements AudioPlugin {
     constructor() {
@@ -11,7 +11,7 @@ export class AudioWeb extends WebPlugin implements AudioPlugin {
     startRecord(options: { format?: string; }, callback: AudioProgressCallback): string {
         throw new Error("Method not implemented.");
     }
-    stopRecord(options: { id: string; cancel?: boolean; }): Promise<import("../xview-plugin-definitions").AudioFileResult> {
+    stopRecord(options: { id: string; cancel?: boolean; }): Promise<AudioFileResult> {
         throw new Error("Method not implemented.");
     }
     startPlay(options: { filePath: string; }, callback: AudioProgressCallback): string {
@@ -25,8 +25,3 @@ export class AudioWeb extends WebPlugin implements AudioPlugin {
     }
 
 }
-
-const Audio = new AudioWeb();
-
-export { Audio };
-registerWebPlugin(Audio);

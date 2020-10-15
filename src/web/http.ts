@@ -1,4 +1,4 @@
-import { registerWebPlugin, WebPlugin } from "@capacitor/core";
+import { WebPlugin } from "@capacitor/core";
 import {
     HttpClearCookiesOptions,
     //HttpCookie,
@@ -18,7 +18,7 @@ import {
     HttpUploadFileOptions
 } from "../xview-plugin-definitions";
 
-export class HttpPluginWeb extends WebPlugin implements HttpPlugin {
+export class HttpWeb extends WebPlugin implements HttpPlugin {
     constructor() {
         super({
             name: "Http",
@@ -246,9 +246,3 @@ export class HttpPluginWeb extends WebPlugin implements HttpPlugin {
         };
     }
 }
-
-const Http = new HttpPluginWeb();
-
-export { Http };
-
-registerWebPlugin(Http);

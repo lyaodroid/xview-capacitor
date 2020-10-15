@@ -11,6 +11,12 @@ import { Plugin } from "@capacitor/core/dist/esm/definitions";
 
 declare module "@capacitor/core" {
     interface PluginRegistry {
+        StatusBar: StatusBarPlugin;
+        Keyboard: KeyboardPlugin;
+        Device: DevicePlugin;
+        Network: NetworkPlugin;
+        Clipboard: ClipboardPlugin;
+        Storage: StoragePlugin;
         XView: XViewPlugin;
         AliPay: AliPayPlugin;
         WeChat: WeChatPlugin;
@@ -32,6 +38,590 @@ declare module "@capacitor/core" {
         HotCodePush: HotCodePushPlugin;
     }
 }
+/**
+ * 官方维护的插件
+ */
+
+ //
+
+export interface StatusBarPlugin extends Plugin {
+    /**
+     *  Set the current style of the status bar
+     */
+    setStyle(options: StatusBarStyleOptions): Promise<void>;
+    /**
+     *  Set the background color of the status bar
+     */
+    setBackgroundColor(options: StatusBarBackgroundColorOptions): Promise<void>;
+    /**
+     * Show the status bar
+     */
+    show(options?: StatusBarAnimationOptions): Promise<void>;
+    /**
+     *  Hide the status bar
+     */
+    hide(options?: StatusBarAnimationOptions): Promise<void>;
+    /**
+     *  Get info about the current state of the status bar
+     */
+    getInfo(): Promise<StatusBarInfoResult>;
+    /**
+     *  Set whether or not the status bar should overlay the webview to allow usage of the space
+     *  around a device "notch"
+     */
+    setOverlaysWebView(options: StatusBarOverlaysWebviewOptions): Promise<void>;
+  }
+  
+  export interface StatusBarStyleOptions {
+    style: StatusBarStyle;
+  }
+  
+  export enum StatusBarStyle {
+    /**
+     * Light text for dark backgrounds.
+     */
+    Dark = 'DARK',
+    /**
+     * Dark text for light backgrounds.
+     */
+    Light = 'LIGHT'
+  }
+  
+  export interface StatusBarAnimationOptions {
+    /**
+     * iOS only. The type of status bar animation used when showing or hiding.
+     */
+    animation: StatusBarAnimation;
+  }
+  
+  export enum StatusBarAnimation {
+    /**
+     * No animation during show/hide.
+     */
+    None = 'NONE',
+    /**
+     * Slide animation during show/hide.
+     */
+    Slide = 'SLIDE',
+    /**
+     * Fade animation during show/hide.
+     */
+    Fade = 'FADE'
+  }
+  
+  export interface StatusBarBackgroundColorOptions {
+    color: string;
+  }
+  
+  export interface StatusBarInfoResult {
+    visible: boolean;
+    style: StatusBarStyle;
+    color?: string;
+    overlays?: boolean;
+    height?: number;
+  }
+  
+  export interface StatusBarOverlaysWebviewOptions {
+    overlay: boolean;
+  }
+/**
+ * 键盘处理
+ */
+export interface KeyboardPlugin extends Plugin {
+    /**
+     * Show the keyboard. This method is alpha and may have issues
+     */
+    show(): Promise<void>;
+    /**
+     * Hide the keyboard.
+     */
+    hide(): Promise<void>;
+    /**
+     * Set whether the accessory bar should be visible on the keyboard. We recommend disabling
+     * the accessory bar for short forms (login, signup, etc.) to provide a cleaner UI
+     */
+    setAccessoryBarVisible(options: { isVisible: boolean }): Promise<void>;
+    /**
+     * Programmatically enable or disable the WebView scroll
+     */
+    setScroll(options: { isDisabled: boolean }): Promise<void>;
+    /**
+     * Programmatically set the keyboard style
+     */
+    setStyle(options: KeyboardStyleOptions): Promise<void>;
+    /**
+     * Programmatically set the resize mode
+     */
+    setResizeMode(options: KeyboardResizeOptions): Promise<void>;
+  
+    addListener(eventName: 'keyboardWillShow', listenerFunc: (info: KeyboardInfo) => void): PluginListenerHandle;
+    addListener(eventName: 'keyboardDidShow', listenerFunc: (info: KeyboardInfo) => void): PluginListenerHandle;
+    addListener(eventName: 'keyboardWillHide', listenerFunc: () => void): PluginListenerHandle;
+    addListener(eventName: 'keyboardDidHide', listenerFunc: () => void): PluginListenerHandle;
+  
+    /**
+     * Remove all native listeners for this plugin
+     */
+    removeAllListeners(): void;
+  }
+  
+  export interface KeyboardInfo {
+    keyboardHeight: number;
+  }
+  
+  export interface KeyboardStyleOptions {
+    style: KeyboardStyle;
+  }
+  
+  export enum KeyboardStyle {
+    Dark = 'DARK',
+    Light = 'LIGHT'
+  }
+  
+  export interface KeyboardResizeOptions {
+    mode: KeyboardResize;
+  }
+  
+  export enum KeyboardResize {
+    Body = 'body',
+    Ionic = 'ionic',
+    Native = 'native',
+    None = 'none'
+  }
+  
+//
+
+export type OperatingSystem = 'ios' | 'android' | 'windows' | 'mac' | 'unknown';
+
+export interface DeviceInfo {
+  /**
+   * The name of the device. For example, "John's iPhone".
+   *
+   * This is only supported on iOS.
+   *
+   * @since 1.0.0
+   */
+  name?: string;
+
+  /**
+   * The device model. For example, "iPhone".
+   *
+   * @since 1.0.0
+   */
+  model: string;
+
+  /**
+   * The device platform (lowercase).
+   *
+   * @since 1.0.0
+   */
+  platform: 'ios' | 'android' | 'web';
+
+  /**
+   * The UUID of the device as available to the app. This identifier may change
+   * on modern mobile platforms that only allow per-app install UUIDs.
+   *
+   * @since 1.0.0
+   */
+  uuid: string;
+
+  /**
+   * The operating system of the device.
+   *
+   * @since 1.0.0
+   */
+  operatingSystem: OperatingSystem;
+
+  /**
+   * The version of the device OS.
+   *
+   * @since 1.0.0
+   */
+  osVersion: string;
+
+  /**
+   * The manufacturer of the device.
+   *
+   * @since 1.0.0
+   */
+  manufacturer: string;
+
+  /**
+   * Whether the app is running in a simulator/emulator.
+   *
+   * @since 1.0.0
+   */
+  isVirtual: boolean;
+
+  /**
+   * Approximate memory used by the current app, in bytes. Divide by
+   * 1048576 to get the number of MBs used.
+   *
+   * @since 1.0.0
+   */
+  memUsed?: number;
+
+  /**
+   * How much free disk space is available on the the normal data storage.
+   * path for the os, in bytes
+   *
+   * @since 1.0.0
+   */
+  diskFree?: number;
+
+  /**
+   * The total size of the normal data storage path for the OS, in bytes.
+   *
+   * @since 1.0.0
+   */
+  diskTotal?: number;
+}
+
+export interface DeviceBatteryInfo {
+  /**
+   * A percentage (0 to 1) indicating how much the battery is charged.
+   *
+   * @since 1.0.0
+   */
+  batteryLevel?: number;
+
+  /**
+   * Whether the device is charging.
+   *
+   * @since 1.0.0
+   */
+  isCharging?: boolean;
+}
+
+export interface DeviceLanguageCodeResult {
+  /**
+   * Two character language code.
+   *
+   * @since 1.0.0
+   */
+  value: string;
+}
+
+export interface DevicePlugin {
+  /**
+   * Return information about the underlying device/os/platform.
+   *
+   * @since 1.0.0
+   */
+  getInfo(): Promise<DeviceInfo>;
+
+  /**
+   * Return information about the battery.
+   *
+   * @since 1.0.0
+   */
+  getBatteryInfo(): Promise<DeviceBatteryInfo>;
+
+  /**
+   * Get the device's current language locale code.
+   *
+   * @since 1.0.0
+   */
+  getLanguageCode(): Promise<DeviceLanguageCodeResult>;
+}
+
+/**
+ * 网络状态监听
+ */
+export interface NetworkPlugin {
+    /**
+     * Query the current status of the network connection.
+     *
+     * @since 1.0.0
+     */
+    getStatus(): Promise<NetworkStatus>;
+  
+    /**
+     * Listen for changes in the network connection.
+     *
+     * @since 1.0.0
+     */
+    addListener(
+      eventName: 'networkStatusChange',
+      listenerFunc: (status: NetworkStatus) => void,
+    ): PluginListenerHandle;
+  
+    /**
+     * Remove all listeners (including the network status changes) for this plugin.
+     *
+     * @since 1.0.0
+     */
+    removeAllListeners(): void;
+  }
+  
+  /**
+   * Represents the state and type of the network connection.
+   *
+   * @since 1.0.0
+   */
+  export interface NetworkStatus {
+    /**
+     * Whether there is an active connection or not.
+     *
+     * @since 1.0.0
+     */
+    connected: boolean;
+  
+    /**
+     * The type of network connection currently in use.
+     *
+     * If there is no active network connection, `connectionType` will be `'none'`.
+     *
+     * @since 1.0.0
+     */
+    connectionType: NetworkStatusConnectionType;
+  }
+  
+  /**
+   * Callback to receive the status change notifications.
+   *
+   * @since 1.0.0
+   */
+  export type NetworkStatusChangeCallback = (status: NetworkStatus) => void;
+  
+  /**
+   * The type of network connection that a device might have.
+   *
+   * @since 1.0.0
+   */
+  export type NetworkStatusConnectionType =
+    | 'wifi'
+    | 'cellular'
+    | 'none'
+    | 'unknown';
+  
+/**
+ * 剪切板
+ */
+
+export interface ClipboardPlugin {
+    /**
+     * Write a value to the clipboard (the "copy" action)
+     *
+     * @since 1.0.0
+     */
+    write(options: ClipboardWriteOptions): Promise<void>;
+  
+    /**
+     * Read a value from the clipboard (the "paste" action)
+     *
+     * @since 1.0.0
+     */
+    read(): Promise<ClipboardReadResult>;
+  }
+  
+  /**
+   * Represents the data to be written to the clipboard.
+   *
+   * @since 1.0.0
+   */
+  export interface ClipboardWriteOptions {
+    /**
+     * Text value to copy.
+     *
+     * @since 1.0.0
+     */
+    string?: string;
+  
+    /**
+     * Image in [Data URL](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/Data_URIs) format to copy.
+     *
+     * @since 1.0.0
+     */
+    image?: string;
+  
+    /**
+     * URL string to copy.
+     *
+     * @since 1.0.0
+     */
+    url?: string;
+  
+    /**
+     * User visible label to accompany the copied data (Android Only).
+     *
+     * @since 1.0.0
+     */
+    label?: string;
+  }
+  
+  /**
+   * Represents the data read from the clipboard.
+   *
+   * @since 1.0.0
+   */
+  export interface ClipboardReadResult {
+    /**
+     * Data read from the clipboard.
+     *
+     * @since 1.0.0
+     */
+    value: string;
+  
+    /**
+     * Type of data in the clipboard.
+     *
+     * @since 1.0.0
+     */
+    type: string;
+  }
+
+  /**
+   * 数据存储
+   */
+  export interface ConfigureOptions {
+    /**
+     * Set the storage group.
+     *
+     * Storage groups are used to organize key/value pairs.
+     *
+     * Using the value 'NativeStorage' provides backwards-compatibility with
+     * [`cordova-plugin-nativestorage`](https://www.npmjs.com/package/cordova-plugin-nativestorage).
+     * WARNING: The `clear()` method can delete unintended values when using the
+     * 'NativeStorage' group.
+     *
+     * @default CapacitorStorage
+     * @since 1.0.0
+     */
+    group?: string;
+  }
+  
+  export interface GetOptions {
+    /**
+     * The key whose value to retrieve from storage.
+     *
+     * @since 1.0.0
+     */
+    key: string;
+  }
+  
+  export interface GetResult {
+    /**
+     * The value from storage associated with the given key.
+     *
+     * If a value was not previously set or was removed, value will be `null`.
+     *
+     * @since 1.0.0
+     */
+    value: string | null;
+  }
+  
+  export interface SetOptions {
+    /**
+     * The key to associate with the value being set in storage.
+     *
+     * @since 1.0.0
+     */
+    key: string;
+  
+    /**
+     * The value to set in storage with the associated key.
+     *
+     * @since 1.0.0
+     */
+    value: string;
+  }
+  
+  export interface RemoveOptions {
+    /**
+     * The key whose value to remove from storage.
+     *
+     * @since 1.0.0
+     */
+    key: string;
+  }
+  
+  export interface KeysResult {
+    /**
+     * The known keys in storage.
+     *
+     * @since 1.0.0
+     */
+    keys: string[];
+  }
+  
+  export interface MigrateResult {
+    /**
+     * An array of keys that were migrated.
+     *
+     * @since 1.0.0
+     */
+    migrated: string[];
+  
+    /**
+     * An array of keys that were already migrated or otherwise exist in storage
+     * that had a value in the Capacitor 2 Storage plugin.
+     *
+     * @since 1.0.0
+     */
+    existing: string[];
+  }
+  
+  export interface StoragePlugin {
+    /**
+     * Configure the storage plugin at runtime.
+     *
+     * Options that are `undefined` will not be used.
+     *
+     * @since 1.0.0
+     */
+    configure(options: ConfigureOptions): Promise<void>;
+  
+    /**
+     * Get the value from storage of a given key.
+     *
+     * @since 1.0.0
+     */
+    get(options: GetOptions): Promise<GetResult>;
+  
+    /**
+     * Set the value in storage for a given key.
+     *
+     * @since 1.0.0
+     */
+    set(options: SetOptions): Promise<void>;
+  
+    /**
+     * Remove the value from storage for a given key, if any.
+     *
+     * @since 1.0.0
+     */
+    remove(options: RemoveOptions): Promise<void>;
+  
+    /**
+     * Clear keys and values from storage.
+     *
+     * @since 1.0.0
+     */
+    clear(): Promise<void>;
+  
+    /**
+     * Return the list of known keys in storage.
+     *
+     * @since 1.0.0
+     */
+    keys(): Promise<KeysResult>;
+  
+    /**
+     * Migrate data from the Capacitor 2 Storage plugin.
+     *
+     * This action is non-destructive. It will not remove old data and will only
+     * write new data if they key was not already set.
+     *
+     * @since 1.0.0
+     */
+    migrate(): Promise<MigrateResult>;
+  }
+  
+
+
+
+
 
 export declare enum FilesystemDirectory {}
 
@@ -1535,7 +2125,7 @@ export interface AudioPlugin extends Plugin {
      * 暂停时 如果是取消 就 删除录制文件
      * @param options
      */
-    stopRecord(options: { id: string }): Promise<void>;
+    stopRecord(options: { id: string }): Promise<AudioFileResult>;
 
     startPlay(
         options: { filePath: string },

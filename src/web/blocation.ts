@@ -1,11 +1,10 @@
+import { WebPlugin } from "@capacitor/core";
 import {
     BLocationPlugin,
-    LocationWatchCallback,
+    LocationWatchCallback
 } from "./../xview-plugin-definitions";
-import { WebPlugin } from "@capacitor/core";
 
-export class BLocationPluginWeb extends WebPlugin
-    implements BLocationPlugin {
+export class BLocationWeb extends WebPlugin implements BLocationPlugin {
     constructor() {
         super({
             name: "BLocation",
@@ -20,7 +19,7 @@ export class BLocationPluginWeb extends WebPlugin
     }
 
     getCurrentPosition(options?: any): Promise<any> {
-        return BLocation.getCurrentPosition();
+        throw new Error("Method not implemented.");
     }
 
     watchPosition(options: any, callback: LocationWatchCallback): string {
@@ -32,7 +31,3 @@ export class BLocationPluginWeb extends WebPlugin
         return Promise.resolve();
     }
 }
-
-const BLocation = new BLocationPluginWeb();
-
-export { BLocation };
