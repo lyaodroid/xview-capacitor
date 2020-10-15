@@ -1,30 +1,55 @@
-import { registerPlugin, Plugins } from "@capacitor/core";
-import { DeviceWeb } from "./web/device";
-import { NetworkWeb } from "./web/network";
-import { ClipboardWeb } from "./web/clipboard";
-import { StorageWeb } from "./web/storage";
-import { XViewWeb } from "./web/xview";
+import { Plugins, registerPlugin } from "@capacitor/core";
 import { AliPayWeb } from "./web/aliPay";
-import { WeChatWeb } from "./web/wechat";
-import { QQWeb } from "./web/qq";
-import { PushNotifyWeb } from "./web/push-notify";
-import { SpeechWeb } from "./web/speech";
-
-import { HttpWeb } from "./web/http";
-import { CapacitorVideoPlayerWeb } from "./web/video-player";
 import { ALocationWeb } from "./web/alocation";
+import { AudioWeb } from "./web/audio";
 import { BLocationWeb } from "./web/blocation";
-import { NativeAudioWeb } from "./web/native-audio";
-import { WebviewOverlayWeb } from "./web/webview-overlay";
-import { WifiWeb } from "./web/wifi";
-import { ScannerWeb } from "./web/scanner";
+import { ClipboardWeb } from "./web/clipboard";
+import { ContactsWeb } from "./web/contacts";
+import { DeviceWeb } from "./web/device";
+import { HotCodePushWeb } from "./web/hot-code-push";
+import { HttpWeb } from "./web/http";
 import { MediaWeb } from "./web/media";
 import { MobileWeb } from "./web/mobile";
-import { ContactsWeb } from "./web/contacts";
-import { AudioWeb } from "./web/audio";
-import { HotCodePushWeb } from "./web/hot-code-push";
+import { NativeAudioWeb } from "./web/native-audio";
+import { NetworkWeb } from "./web/network";
+import { PushNotifyWeb } from "./web/push-notify";
+import { QQWeb } from "./web/qq";
+import { ScannerWeb } from "./web/scanner";
+import { SpeechWeb } from "./web/speech";
+import { StorageWeb } from "./web/storage";
+import { CapacitorVideoPlayerWeb } from "./web/video-player";
+import { WebviewOverlayWeb } from "./web/webview-overlay";
+import { WeChatWeb } from "./web/wechat";
+import { WifiWeb } from "./web/wifi";
+import { XViewWeb } from "./web/xview";
+
 
 export * from "./xview-plugin-definitions";
+export { Device };
+export { StatusBar };
+export { Keyboard };
+export { Network };
+export { Clipboard };
+export { Storage };
+export { XView };
+export { AliPay };
+export { WeChat };
+export { QQ };
+export { PushNotify };
+export { ALocation };
+export { BLocation };
+export { Speech };
+export { Http };
+export { Scanner };
+export { Media };
+export { Mobile };
+export { NativeAudio };
+export { CapacitorVideoPlayer };
+export { WebviewOverlay };
+export { Wifi };
+export { Contacts };
+export { Audio };
+export { HotCodePush };
 
 /**
  * 官方维护 插件
@@ -35,21 +60,18 @@ const Device = registerPlugin("Device", {
     web: new DeviceWeb(),
 }).getImplementation();
 
-export { Device };
 
 const StatusBar = registerPlugin("StatusBar", {
     android: Plugins.StatusBar,
     ios: Plugins.StatusBar,
 }).getImplementation();
 
-export { StatusBar };
 
 const Keyboard = registerPlugin("Keyboard", {
     android: Plugins.Keyboard,
     ios: Plugins.Keyboard,
 }).getImplementation();
 
-export { Keyboard };
 
 const Network = registerPlugin("Network", {
     android: Plugins.Network,
@@ -57,7 +79,6 @@ const Network = registerPlugin("Network", {
     web: new NetworkWeb(),
 }).getImplementation();
 
-export { Network };
 
 const Clipboard = registerPlugin("Clipboard", {
     android: Plugins.Clipboard,
@@ -65,7 +86,6 @@ const Clipboard = registerPlugin("Clipboard", {
     web: new ClipboardWeb(),
 }).getImplementation();
 
-export { Clipboard };
 
 const Storage = registerPlugin("Storage", {
     android: Plugins.Storage,
@@ -73,7 +93,6 @@ const Storage = registerPlugin("Storage", {
     web: new StorageWeb(),
 }).getImplementation();
 
-export { Storage };
 
 /**
  * 临时扩展小功能插件
@@ -85,7 +104,6 @@ const XView = registerPlugin("Storage", {
     web: new XViewWeb(),
 }).getImplementation();
 
-export { XView };
 
 /**
  * 第三方sdk 插件
@@ -97,7 +115,6 @@ const AliPay = registerPlugin("AliPay", {
     web: new AliPayWeb(),
 }).getImplementation();
 
-export { AliPay };
 
 const WeChat = registerPlugin("WeChat", {
     android: Plugins.WeChat,
@@ -105,7 +122,6 @@ const WeChat = registerPlugin("WeChat", {
     web: new WeChatWeb(),
 }).getImplementation();
 
-export { WeChat };
 
 const QQ = registerPlugin("WeChat", {
     android: Plugins.QQ,
@@ -113,7 +129,6 @@ const QQ = registerPlugin("WeChat", {
     web: new QQWeb(),
 }).getImplementation();
 
-export { QQ };
 
 const PushNotify = registerPlugin("PushNotify", {
     android: Plugins.PushNotify,
@@ -121,7 +136,6 @@ const PushNotify = registerPlugin("PushNotify", {
     web: new PushNotifyWeb(),
 }).getImplementation();
 
-export { PushNotify };
 
 const ALocation = registerPlugin("ALocation", {
     android: Plugins.ALocation,
@@ -129,7 +143,6 @@ const ALocation = registerPlugin("ALocation", {
     web: new ALocationWeb(),
 }).getImplementation();
 
-export { ALocation };
 
 const BLocation = registerPlugin("BLocation", {
     android: Plugins.BLocation,
@@ -137,7 +150,6 @@ const BLocation = registerPlugin("BLocation", {
     web: new BLocationWeb(),
 }).getImplementation();
 
-export { BLocation };
 
 const Speech = registerPlugin("Speech", {
     android: Plugins.Speech,
@@ -145,7 +157,6 @@ const Speech = registerPlugin("Speech", {
     web: new SpeechWeb(),
 }).getImplementation();
 
-export { Speech };
 
 /**
  * 扩展 插件
@@ -157,7 +168,6 @@ const Http = registerPlugin("Http", {
     web: new HttpWeb(),
 }).getImplementation();
 
-export { Http };
 
 const Scanner = registerPlugin("Scanner", {
     android: Plugins.Scanner,
@@ -165,7 +175,6 @@ const Scanner = registerPlugin("Scanner", {
     web: new ScannerWeb(),
 }).getImplementation();
 
-export { Scanner };
 
 const Media = registerPlugin("Media", {
     android: Plugins.Media,
@@ -173,7 +182,6 @@ const Media = registerPlugin("Media", {
     web: new MediaWeb(),
 }).getImplementation();
 
-export { Media };
 
 const Mobile = registerPlugin("Mobile", {
     android: Plugins.Mobile,
@@ -181,7 +189,6 @@ const Mobile = registerPlugin("Mobile", {
     web: new MobileWeb(),
 }).getImplementation();
 
-export { Mobile };
 
 const NativeAudio = registerPlugin("NativeAudio", {
     android: Plugins.NativeAudio,
@@ -189,7 +196,6 @@ const NativeAudio = registerPlugin("NativeAudio", {
     web: new NativeAudioWeb(),
 }).getImplementation();
 
-export { NativeAudio };
 
 const CapacitorVideoPlayer = registerPlugin("CapacitorVideoPlayer", {
     android: Plugins.CapacitorVideoPlayer,
@@ -197,7 +203,6 @@ const CapacitorVideoPlayer = registerPlugin("CapacitorVideoPlayer", {
     web: new CapacitorVideoPlayerWeb(),
 }).getImplementation();
 
-export { CapacitorVideoPlayer };
 
 const WebviewOverlay = registerPlugin("WebviewOverlay", {
     android: Plugins.WebviewOverlay,
@@ -205,7 +210,6 @@ const WebviewOverlay = registerPlugin("WebviewOverlay", {
     web: new WebviewOverlayWeb(),
 }).getImplementation();
 
-export { WebviewOverlay };
 
 const Wifi = registerPlugin("Wifi", {
     android: Plugins.Wifi,
@@ -213,7 +217,6 @@ const Wifi = registerPlugin("Wifi", {
     web: new WifiWeb(),
 }).getImplementation();
 
-export { Wifi };
 
 const Contacts = registerPlugin("Contacts", {
     android: Plugins.Contacts,
@@ -221,7 +224,6 @@ const Contacts = registerPlugin("Contacts", {
     web: new ContactsWeb(),
 }).getImplementation();
 
-export { Contacts };
 
 const Audio = registerPlugin("Audio", {
     android: Plugins.Audio,
@@ -229,12 +231,9 @@ const Audio = registerPlugin("Audio", {
     web: new AudioWeb(),
 }).getImplementation();
 
-export { Audio };
 
 const HotCodePush = registerPlugin("HotCodePush", {
     android: Plugins.HotCodePush,
     ios: Plugins.HotCodePush,
     web: new HotCodePushWeb(),
 }).getImplementation();
-
-export { HotCodePush };
