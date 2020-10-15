@@ -1,19 +1,15 @@
 import {
-    registerWebPlugin,
-    WebPlugin,
     PushNotificationDeliveredList,
     PushNotificationToken,
+    WebPlugin
 } from "@capacitor/core";
 import { PushNotifyPlugin } from "../xview-plugin-definitions";
 
 export class PushNotifyWeb extends WebPlugin implements PushNotifyPlugin {
     constructor() {
-        super({
-            name: "UPush",
-            platforms: ["web"],
-        });
+        super({ name: "UPush" });
     }
-    areNotificationsEnabled(): Promise<{ value: boolean; }> {
+    areNotificationsEnabled(): Promise<{ value: boolean }> {
         throw new Error("Method not implemented.");
     }
     register(options?: any): Promise<void> {
@@ -65,9 +61,3 @@ export class PushNotifyWeb extends WebPlugin implements PushNotifyPlugin {
         throw new Error("Method not implemented.");
     }
 }
-
-const PushNotify = new PushNotifyWeb();
-
-export { PushNotify };
-
-registerWebPlugin(PushNotify);

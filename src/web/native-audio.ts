@@ -1,18 +1,16 @@
 import { WebPlugin } from "@capacitor/core";
 import {
-    NativeAudioPlugin,
     ConfigureOptions,
-    PreloadSimpleOptions,
+    NativeAudioPlugin,
     PreloadComplexOptions,
+    PreloadSimpleOptions,
 } from "../xview-plugin-definitions";
 
-export class NativeAudioWeb extends WebPlugin
+export class NativeAudioWeb
+    extends WebPlugin
     implements NativeAudioPlugin {
     constructor() {
-        super({
-            name: "NativeAudio",
-            platforms: ["web"],
-        });
+        super({ name: "NativeAudio" });
     }
     configure(options: ConfigureOptions): Promise<void> {
         console.log(options);
@@ -47,10 +45,3 @@ export class NativeAudioWeb extends WebPlugin
         throw new Error("Method not implemented.");
     }
 }
-
-const NativeAudio = new NativeAudioWeb();
-
-export { NativeAudio };
-
-import { registerWebPlugin } from "@capacitor/core";
-registerWebPlugin(NativeAudio);

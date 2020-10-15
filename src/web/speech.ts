@@ -1,17 +1,14 @@
-import { registerWebPlugin, WebPlugin } from "@capacitor/core";
+import { WebPlugin } from "@capacitor/core";
 import {
     SpeechPlugin,
-    SpeechProgressCallback,
+    SpeechProgressCallback
 } from "../xview-plugin-definitions";
 
 export class SpeechWeb extends WebPlugin implements SpeechPlugin {
     constructor() {
-        super({
-            name: "Speech",
-            platforms: ["web"],
-        });
+        super({ name: "Speech" });
     }
-    clickMicRecognize(options: { appId: string; }): Promise<void> {
+    clickMicRecognize(options: { appId: string }): Promise<void> {
         throw new Error("Method not implemented.");
     }
 
@@ -25,8 +22,3 @@ export class SpeechWeb extends WebPlugin implements SpeechPlugin {
         throw new Error("Method not implemented.");
     }
 }
-
-const Speech = new SpeechWeb();
-
-export { Speech };
-registerWebPlugin(Speech);

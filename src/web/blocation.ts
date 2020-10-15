@@ -1,15 +1,12 @@
 import { WebPlugin } from "@capacitor/core";
 import {
     BLocationPlugin,
-    LocationWatchCallback
+    LocationWatchCallback,
 } from "./../xview-plugin-definitions";
 
 export class BLocationWeb extends WebPlugin implements BLocationPlugin {
     constructor() {
-        super({
-            name: "BLocation",
-            platforms: ["web"],
-        });
+        super({ name: "BLocation" });
     }
     setLocationServiceSetting(options?: any): void {
         throw new Error("Method not implemented.");

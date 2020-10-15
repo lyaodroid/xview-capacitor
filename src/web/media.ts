@@ -1,12 +1,9 @@
-import { registerWebPlugin, WebPlugin } from "@capacitor/core";
-import {MediaPlugin } from "../xview-plugin-definitions";
+import { WebPlugin } from "@capacitor/core";
+import { MediaPlugin } from "../xview-plugin-definitions";
 
 export class MediaWeb extends WebPlugin implements MediaPlugin {
     constructor() {
-        super({
-            name: "Media",
-            platforms: ["web"],
-        });
+        super({ name: "Media" });
     }
     previewImage(options: any): Promise<any> {
         throw new Error("Method not implemented.");
@@ -30,8 +27,3 @@ export class MediaWeb extends WebPlugin implements MediaPlugin {
         throw new Error("Method not implemented.");
     }
 }
-
-const Media= new MediaWeb();
-
-export { Media };
-registerWebPlugin(Media);

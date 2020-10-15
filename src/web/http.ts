@@ -3,7 +3,6 @@ import {
     HttpClearCookiesOptions,
     //HttpCookie,
     HttpDeleteCookieOptions,
-
     //HttpParams,
     HttpDownloadFileOptions,
     HttpDownloadFileResult,
@@ -11,19 +10,17 @@ import {
     HttpGetCookiesResult,
     HttpHeaders,
     HttpOptions,
-    HttpParams, HttpPlugin,
+    HttpParams,
+    HttpPlugin,
     HttpProgressCallback,
     HttpResponse,
     HttpSetCookieOptions,
-    HttpUploadFileOptions
+    HttpUploadFileOptions,
 } from "../xview-plugin-definitions";
 
 export class HttpWeb extends WebPlugin implements HttpPlugin {
     constructor() {
-        super({
-            name: "Http",
-            platforms: ["web", "electron"],
-        });
+        super({ name: "Http" });
     }
     uploadFile(
         options: HttpUploadFileOptions,

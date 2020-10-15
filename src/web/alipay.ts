@@ -1,34 +1,14 @@
-import { registerWebPlugin, WebPlugin } from '@capacitor/core';
-import { AliPayPlugin } from '../xview-plugin-definitions';
-
+import { WebPlugin } from "@capacitor/core";
+import { AliPayPlugin } from "../xview-plugin-definitions";
 
 export class AliPayWeb extends WebPlugin implements AliPayPlugin {
-  constructor() {
-    super({
-      name: 'AliPay',
-      platforms: ['web']
-    });
-
-  }
-
-  async login(options: any): Promise<any> {
-    console.log('ECHO', options);
-    return AliPay.login({aliLogin:"string"});
-  }
-
-  
-  /**
-   * value false时 code 为官方 resultStatus
-   * @param options 
-   */
-  async pay(options: any): Promise<{value: boolean,code?:string}> {
-    console.log('ECHO', options);
-    return AliPay.pay({aliPay: "string"});
-  }
+    constructor() {
+        super({ name: "AliPay" });
+    }
+    login(options: any): Promise<any> {
+        throw new Error("Method not implemented.");
+    }
+    pay(options: any): Promise<{ value: boolean; code?: string }> {
+        throw new Error("Method not implemented.");
+    }
 }
-
-const AliPay = new AliPayWeb();
-
-export { AliPay };
-
-registerWebPlugin(AliPay);

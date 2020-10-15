@@ -1,13 +1,12 @@
 import { WebPlugin } from "@capacitor/core";
-import { ALocationPlugin, LocationWatchCallback } from "./../xview-plugin-definitions";
+import {
+    ALocationPlugin,
+    LocationWatchCallback
+} from "./../xview-plugin-definitions";
 
-export class ALocationWeb extends WebPlugin
-    implements ALocationPlugin {
+export class ALocationWeb extends WebPlugin implements ALocationPlugin {
     constructor() {
-        super({
-            name: "ALocation",
-            platforms: ["web"],
-        });
+        super({ name: "ALocation" });
     }
     setLocationServiceSetting(options?: any): void {
         throw new Error("Method not implemented.");
