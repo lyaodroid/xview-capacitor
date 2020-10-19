@@ -15,7 +15,7 @@
   "license": "MIT",
   "devDependencies": {
     "@capacitor/core": "^3.0.0-alpha.5",
-    "@rollup/plugin-node-resolve": "^8.4.0",
+    "@rollup/plugin-node-resolve": "^9.0.0",
     "rimraf": "^3.0.2",
     "rollup": "^2.21.0",
     "typescript": "~3.8.3"
