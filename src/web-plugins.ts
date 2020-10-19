@@ -21,6 +21,7 @@ import { CapacitorVideoPlayerWeb } from "./web/video-player";
 import { WebviewOverlayWeb } from "./web/webview-overlay";
 import { WeChatWeb } from "./web/wechat";
 import { WifiWeb } from "./web/wifi";
+import { ShareWeb } from "./web/share";
 import { XViewWeb } from "./web/xview";
 
 export { Device };
@@ -29,6 +30,7 @@ export { Keyboard };
 export { Network };
 export { Clipboard };
 export { Storage };
+export { Share };
 export { XView };
 export { AliPay };
 export { WeChat };
@@ -91,12 +93,18 @@ const Storage = registerPlugin("Storage", {
     web: new StorageWeb(),
 }).getImplementation();
 
+const Share = registerPlugin("Share", {
+    android: Plugins.Share,
+    ios: Plugins.Share,
+    web: new ShareWeb(),
+}).getImplementation();
+
 
 /**
  * 临时扩展小功能插件
  */
 
-const XView = registerPlugin("Storage", {
+const XView = registerPlugin("XView", {
     android: Plugins.XView,
     ios: Plugins.XView,
     web: new XViewWeb(),
