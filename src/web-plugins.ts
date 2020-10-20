@@ -6,6 +6,7 @@ import { BLocationWeb } from "./web/blocation";
 import { ClipboardWeb } from "./web/clipboard";
 import { ContactsWeb } from "./web/contacts";
 import { DeviceWeb } from "./web/device";
+import { FilesystemWeb } from "./web/filesystem";
 import { HotCodePushWeb } from "./web/hot-code-push";
 import { HttpWeb } from "./web/http";
 import { MediaWeb } from "./web/media";
@@ -15,14 +16,15 @@ import { NetworkWeb } from "./web/network";
 import { PushNotifyWeb } from "./web/push-notify";
 import { QQWeb } from "./web/qq";
 import { ScannerWeb } from "./web/scanner";
+import { ShareWeb } from "./web/share";
 import { SpeechWeb } from "./web/speech";
 import { StorageWeb } from "./web/storage";
 import { CapacitorVideoPlayerWeb } from "./web/video-player";
 import { WebviewOverlayWeb } from "./web/webview-overlay";
 import { WeChatWeb } from "./web/wechat";
 import { WifiWeb } from "./web/wifi";
-import { ShareWeb } from "./web/share";
 import { XViewWeb } from "./web/xview";
+
 
 export { Device };
 export { StatusBar };
@@ -31,6 +33,7 @@ export { Network };
 export { Clipboard };
 export { Storage };
 export { Share };
+export { Filesystem };
 export { XView };
 export { AliPay };
 export { WeChat };
@@ -97,6 +100,12 @@ const Share = registerPlugin("Share", {
     android: Plugins.Share,
     ios: Plugins.Share,
     web: new ShareWeb(),
+}).getImplementation();
+
+const Filesystem = registerPlugin("Filesystem", {
+    android: Plugins.Filesystem,
+    ios: Plugins.Filesystem,
+    web: new FilesystemWeb(),
 }).getImplementation();
 
 
