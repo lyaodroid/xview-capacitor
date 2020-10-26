@@ -33,7 +33,8 @@
     "url": "ssh://liuyao@47.98.60.181:29418/~liuyao/front/xviewbrid.git/issues"
   },
   "publishConfig": {
-    "access": "public"
+    "access": "public",
+    "registry": "http://47.98.60.181:8324/repository/npm-hosted/"
   },
   "dependencies": {
     "@capacitor/core": "^3.0.0-alpha.5"
