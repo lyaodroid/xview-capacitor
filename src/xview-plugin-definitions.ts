@@ -25,6 +25,7 @@ declare module "@capacitor/core" {
         PushNotify: PushNotifyPlugin;
         ALocation: ALocationPlugin;
         BLocation: BLocationPlugin;
+        GLocation: GLocationPlugin;
         Http: HttpPlugin;
         Scanner: ScannerPlugin;
         Media: MediaPlugin;
@@ -1430,6 +1431,8 @@ export interface LocaitonPlugin {
 export interface ALocationPlugin extends Plugin, LocaitonPlugin {}
 
 export interface BLocationPlugin extends Plugin, LocaitonPlugin {}
+
+export interface GLocationPlugin extends Plugin, LocaitonPlugin {}
 
 export type LocationWatchCallback = (position: any, err?: any) => void;
 
@@ -2899,6 +2902,54 @@ export interface Contact {
     organizationRole?: string;
     birthday?: string;
 }
+
+/**
+ * 汉枫 配网 sdk 与 Cpp JNI 插件调用 -----------------------------------------------
+ */
+export interface LocationPlugin extends Plugin {
+    getContacts(): Promise<{ contacts: Contact[] }>;
+
+    chooseContacts(): Promise<Contact>;
+}
+
+
+export interface ApLinkPlugin extends Plugin {
+    getContacts(): Promise<{ contacts: Contact[] }>;
+
+    chooseContacts(): Promise<Contact>;
+}
+
+export interface ApWifiPlugin extends Plugin {
+    getContacts(): Promise<{ contacts: Contact[] }>;
+
+    chooseContacts(): Promise<Contact>;
+}
+export interface CPPlusPlugin extends Plugin {
+    getContacts(): Promise<{ contacts: Contact[] }>;
+
+    chooseContacts(): Promise<Contact>;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/**
+ * 汉枫 配网 sdk 与 Cpp JNI 插件调用 -----------------------------------------------
+ */
+
 
 /**
  * 完全翻译 cordova 热更新
