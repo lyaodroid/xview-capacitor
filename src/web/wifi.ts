@@ -1,5 +1,5 @@
 import { WebPlugin } from "@capacitor/core";
-import { WifiPlugin } from "../xview-plugin-definitions";
+import { WifiPlugin } from "../definitions";
 
 export class WifiWeb extends WebPlugin implements WifiPlugin {
     constructor() {
