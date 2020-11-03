@@ -1,3 +1,4 @@
+import { PluginListenerHandle } from "@capacitor/core";
 
 declare module "@capacitor/core" {
     interface PluginRegistry {
@@ -13,20 +14,164 @@ declare module "@capacitor/core" {
  */
 
 export interface ApLinkPlugin {
-    getContacts(): Promise<{ value: string }>;
+    /**
+     * 获取当前连接的WiFi名字
+     */
+    getConnectedSSID(): Promise<void>;
 
-    chooseContacts(): Promise<{ value: string }>;
+    /**
+     * 手动兼容老设备
+     * 走 WiFisdk udp
+     */
+    manualApLinkerStart(): Promise<void>;
+
+    /**
+     * 新设备走服务器
+     */
+    smartApLinkerStart(): Promise<void>;
+
+    /**
+     * 关闭配网
+     */
+    apLinkerStop(): Promise<void>;
+
+    /**
+     * 手动 去打开WiFi 连接
+     */
+    manualConnectWifi(): Promise<void>;
+
+    /**
+     * Listen for changes in the aplink connection.
+     *
+     * @since 1.0.0
+     */
+    addListener(
+        eventName: "apLinkStatusChange",
+        listenerFunc: (status: ApLinkStatusProgress) => void
+    ): PluginListenerHandle;
+
+    removeAllListeners(): void;
+}
+
+export interface ApLinkStatusProgress {
+    /**
+     * Whether there is an active connection or not.
+     *
+     * @since 1.0.0
+     */
+    status: ApLinkStatus;
+
+    ssid: string;
+
+    /**
+     * linking 中才会有进度回调
+     */
+    progress: LinkingProgress;
+
+    error: LinkingError;
+
+    module: LinkedModule;
+
+    /**
+     * The type of network connection currently in use.
+     *
+     * If there is no active network connection, `connectionType` will be `'none'`.
+     *
+     * @since 1.0.0
+     */
+    linkType: ApLinkStatusLinkType;
+}
+
+/**
+ * 配网两种类型  server 后面会启用
+ */
+export type ApLinkStatusLinkType = "wifi" | "server";
+
+export enum ApLinkStatus {
+    WIFILINK = "WIFILINK",
+    LINKING = "LINKING",
+    LINKED = "LINKED",
+    FINISHED = "FINISHED",
+    TIMEOUT = "TIMEOUT",
+    ERROR = "ERROR",
+}
+
+export enum LinkingProgress {
+    SCAN_AP = "SCAN_AP",
+    CONNECT_AP = "CONNECT_AP",
+    CONFIG_AP = "CONFIG_AP",
+    /**
+     * @deprecated the progress 'RESTART_AP' will be not invoked by {@link OnLinkListener#onProgress(LinkingProgress)}
+     */
+    RESTART_AP = "RESTART_AP",
+    CONNECT_ORIGINAL_AP = "CONNECT_ORIGINAL_AP",
+    FIND_DEVICE = "FIND_DEVICE",
+}
+
+export enum LinkingError {
+    NO_VALID_WIFI_CONNECTION = "NO_VALID_WIFI_CONNECTION",
+    AP_NOT_FOUND = "AP_NOT_FOUND",
+    AP_CONNECT_FAILED = "AP_CONNECT_FAILED",
+    AP_CONFIG_FAILED = "AP_CONFIG_FAILED",
+    AP_RESTART_FAILED = "AP_RESTART_FAILED",
+    CONNECT_ORIGINAL_AP_FAILED = "CONNECT_ORIGINAL_AP_FAILED",
+    FIND_DEVICE_FAILED = "FIND_DEVICE_FAILED",
+}
+
+export interface LinkedModule {
+    mac: string;
+    ip: string;
+    id: string;
 }
 
 export interface ApWifiPlugin {
-    getContacts(): Promise<{ contacts: { value: string } }>;
 
-    chooseContacts(): Promise<{ value: string }>;
+    openUdp(): Promise<void>;
+
+    closeUdp(): Promise<void>;
+
+    findLinkedModule(): Promise<void>;
+
+        /**
+     * Listen for changes in the aplink connection.
+     *
+     * @since 1.0.0
+     */
+    addListener(
+        eventName: "apWifiFindModule",
+        listenerFunc: (modules: ApWifiResult) => void
+    ): PluginListenerHandle;
+
+    removeAllListeners(): void;
 }
-export interface CPPlusPlugin {
-    getContacts(): Promise<{ contacts: { value: string } }>;
 
-    chooseContacts(): Promise<{ value: string }>;
+export interface ApWifiResult {
+    modules: LinkedModule[];
+}
+
+export interface CPPlusPlugin {
+    nativeStart(): Promise<void>;
+
+    nativeSend(): Promise<void>;
+
+    nativeStop(): Promise<void>;
+
+    /**
+     * Listen for changes in the cpp connection.
+     *
+     * @since 1.0.0
+     */
+    addListener(
+        eventName: "cppTcpReceived",
+        listenerFunc: (data: { value: string }) => void
+    ): PluginListenerHandle;
+
+    /**
+     * Remove all listeners (including the network status changes) for this plugin.
+     *
+     * @since 1.0.0
+     */
+    removeAllListeners(): void;
 }
 
 /**
