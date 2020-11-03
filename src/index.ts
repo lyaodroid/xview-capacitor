@@ -1,6 +1,8 @@
 import { Plugins, registerPlugin } from "@capacitor/core";
 import { WifiWeb } from "./web/wifi";
 
+export * from './definitions';
+
 const Wifi = registerPlugin("Wifi", {
     android: Plugins.Wifi,
     ios: Plugins.Wifi,
