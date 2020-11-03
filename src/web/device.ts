@@ -1,11 +1,11 @@
-import { UnsupportedBrowserException, WebPlugin } from '@capacitor/core';
+import { WebPlugin } from '@capacitor/core';
+
 import type {
   DeviceBatteryInfo,
   DeviceInfo,
   DeviceLanguageCodeResult,
-  DevicePlugin
+  DevicePlugin,
 } from '../xview-plugin-definitions';
-
 
 declare global {
   interface Navigator {
@@ -21,9 +21,7 @@ export class DeviceWeb extends WebPlugin implements DevicePlugin {
 
   async getInfo(): Promise<DeviceInfo> {
     if (typeof navigator === 'undefined' || !navigator.userAgent) {
-      throw new UnsupportedBrowserException(
-        'Device API not available in this browser',
-      );
+      throw this.unavailable('Device API not available in this browser');
     }
 
     const ua = navigator.userAgent;
@@ -42,9 +40,7 @@ export class DeviceWeb extends WebPlugin implements DevicePlugin {
 
   async getBatteryInfo(): Promise<DeviceBatteryInfo> {
     if (typeof navigator === 'undefined' || !navigator.getBattery) {
-      throw new UnsupportedBrowserException(
-        'Device API not available in this browser',
-      );
+      throw this.unavailable('Device API not available in this browser');
     }
     let battery: any = {};
 
