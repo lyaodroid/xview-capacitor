@@ -28,7 +28,7 @@ export interface ApLinkPlugin {
     /**
      * 新设备走服务器
      */
-    smartApLinkerStart(): Promise<void>;
+    smartApLinkerStart(options?:any): Promise<any>;
 
     /**
      * 关闭配网
@@ -38,7 +38,7 @@ export interface ApLinkPlugin {
     /**
      * 手动 去打开WiFi 连接
      */
-    manualConnectWifi(): Promise<void>;
+    manualConnectWifi(options?:any): Promise<void>;
 
     /**
      * Listen for changes in the aplink connection.
@@ -126,11 +126,11 @@ export interface LinkedModule {
 
 export interface ApWifiPlugin {
 
-    openUdp(options?:any): Promise<void>;
+    openUdp(options?:any): Promise<any>;
 
     closeUdp(options?:any): Promise<void>;
 
-    findLinkedModule(options?:any): Promise<void>;
+    findLinkedModule(options?:any): Promise<any>;
 
         /**
      * Listen for changes in the aplink connection.
@@ -150,11 +150,11 @@ export interface ApWifiResult {
 }
 
 export interface CPPlusPlugin {
-    nativeStart(options:any): Promise<void>;
+    nativeStart(options:any): Promise<any>;
 
-    nativeSend(options:any): Promise<void>;
+    nativeSend(options:any): Promise<any>;
 
-    nativeStop(options?:any): Promise<void>;
+    nativeStop(options?:any): void;
 
     /**
      * Listen for changes in the cpp connection.

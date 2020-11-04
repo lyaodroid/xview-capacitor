@@ -1,6 +1,6 @@
 {
   "name": "@xview/native_iot",
-  "version": "0.0.1-alpha.6",
+  "version": "1.0.0-alpha.6",
   "description": "物联网配网解决方案",
   "main": "dist/plugin.js",
   "module": "dist/esm/index.js",
