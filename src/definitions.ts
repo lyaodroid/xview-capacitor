@@ -23,7 +23,7 @@ export interface ApLinkPlugin {
      * 手动兼容老设备
      * 走 WiFisdk udp
      */
-    manualApLinkerStart(): Promise<void>;
+    manualApLinkerStart(options:any): Promise<void>;
 
     /**
      * 新设备走服务器
@@ -126,11 +126,11 @@ export interface LinkedModule {
 
 export interface ApWifiPlugin {
 
-    openUdp(): Promise<void>;
+    openUdp(options?:any): Promise<void>;
 
-    closeUdp(): Promise<void>;
+    closeUdp(options?:any): Promise<void>;
 
-    findLinkedModule(): Promise<void>;
+    findLinkedModule(options?:any): Promise<void>;
 
         /**
      * Listen for changes in the aplink connection.
@@ -150,11 +150,11 @@ export interface ApWifiResult {
 }
 
 export interface CPPlusPlugin {
-    nativeStart(): Promise<void>;
+    nativeStart(options:any): Promise<void>;
 
-    nativeSend(): Promise<void>;
+    nativeSend(options:any): Promise<void>;
 
-    nativeStop(): Promise<void>;
+    nativeStop(options?:any): Promise<void>;
 
     /**
      * Listen for changes in the cpp connection.
