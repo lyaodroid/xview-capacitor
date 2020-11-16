@@ -8,7 +8,50 @@ declare module "@capacitor/core" {
         Device: DevicePlugin;
         XView: XViewPlugin;
         HotCodePush: HotCodePushPlugin;
+        Permissions: PermissionsPlugin;
     }
+}
+
+export interface PermissionsPlugin {
+    query(options: PermissionsOptions): Promise<PermissionResult>;
+
+    request(
+        options: PermissionsOptions
+    ): Promise<PermissionsRequestResult>;
+}
+
+export interface PermissionsRequestResult {
+    results: any[];
+}
+
+/**
+ * 用Android 的别名
+ * 检查权限
+ */
+export enum PermissionType {
+    Camera = "camera",
+    Photos = "photos",
+    Geolocation = "geolocation",
+    Notifications = "notifications",
+    ClipboardRead = "clipboard-read",
+    ClipboardWrite = "clipboard-write",
+    Microphone = "microphone",
+}
+
+export interface PermissionsOptions {
+    /**
+     * ios 单独使用
+     */
+    name: PermissionType;
+    /**
+     * Android 权限
+     * 可以使用别名 和 插件权限值
+     */
+    permissions?: string[];
+}
+
+export interface PermissionResult {
+    state: "granted" | "denied" | "prompt";
 }
 
 export type OperatingSystem =

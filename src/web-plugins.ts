@@ -5,6 +5,7 @@ import { XViewWeb } from "./web/xview";
 export { Device };
 export { XView };
 export { HotCodePush };
+export { Permissions };
 
 /**
  * 官方维护 插件
@@ -13,6 +14,14 @@ const Device = registerPlugin("Device", {
     android: Plugins.Device,
     ios: Plugins.Device,
     web: new DeviceWeb(),
+}).getImplementation();
+
+/**
+ * 官方维护 插件
+ */
+const Permissions = registerPlugin("Permissions", {
+    android: Plugins.Permissions,
+    ios: Plugins.Permissions
 }).getImplementation();
 /**
  * 临时扩展小功能插件
