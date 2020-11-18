@@ -64,6 +64,11 @@ export interface ApLinkStatusProgress {
     ssid: string;
 
     /**
+     * wifi 频段 大概判断 
+     */
+    hertz: "2.4" | "5" ;
+
+    /**
      * linking 中才会有进度回调
      */
     progress: LinkingProgress;
