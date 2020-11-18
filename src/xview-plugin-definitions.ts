@@ -9,8 +9,18 @@ declare module "@capacitor/core" {
         XView: XViewPlugin;
         HotCodePush: HotCodePushPlugin;
         Permissions: PermissionsPlugin;
+        File: FilePlugin;
+
     }
 }
+
+export interface FilePlugin {
+    fileSelector(options:{multiple_selection:boolean,ext:string[]}):Promise<any>;
+    addListener(
+      eventName: 'onFilesSelected',
+      listenerFunc: (state: any) => void,
+    ): PluginListenerHandle;
+  }
 
 export interface PermissionsPlugin {
     query(options: PermissionsOptions): Promise<PermissionResult>;

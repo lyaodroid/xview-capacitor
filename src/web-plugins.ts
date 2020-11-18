@@ -6,7 +6,13 @@ export { Device };
 export { XView };
 export { HotCodePush };
 export { Permissions };
+export { File };
 
+
+const File = registerPlugin("File", {
+    android: Plugins.File,
+    ios: Plugins.File,
+}).getImplementation();
 /**
  * 官方维护 插件
  */
