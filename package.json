@@ -1,10 +1,16 @@
 {
   "name": "@xview/sdk",
-  "version": "0.0.1-alpha.6",
+  "version": "0.0.1-alpha.9",
   "description": "前端xviewsdk",
-  "main": "dist/plugin.js",
+  "main": "dist/plugin.cjs.js",
   "module": "dist/esm/index.js",
   "types": "dist/esm/index.d.ts",
+  "unpkg": "dist/plugin.js",
+  "keywords": [
+    "capacitor",
+    "plugin",
+    "native"
+  ],
   "scripts": {
     "build": "npm run clean && tsc && rollup -c rollup.config.js",
     "clean": "rimraf ./dist",
@@ -14,14 +20,14 @@
   "author": "ly",
   "license": "MIT",
   "devDependencies": {
-    "@capacitor/core": "^3.0.0-alpha.6",
-    "@rollup/plugin-node-resolve": "^9.0.0",
+    "@capacitor/core": "^3.0.0-alpha.9",
     "rimraf": "^3.0.2",
-    "rollup": "^2.21.0",
+    "rollup": "^2.32.0",
+    "swiftlint": "^1.0.1",
     "typescript": "~4.0.3"
   },
   "peerDependencies": {
-    "@capacitor/core": "^3.0.0-alpha.6"
+    "@capacitor/core": "^3.0.0-alpha.9"
   },
   "files": [
     "dist/"
