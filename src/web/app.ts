@@ -1,6 +1,6 @@
 import { WebPlugin } from '@capacitor/core';
 
-import type { AppInfo, AppPlugin, AppLaunchUrl, AppState } from './definitions';
+import type { AppInfo, AppPlugin, AppLaunchUrl, AppState } from '../definitions';
 
 export class AppWeb extends WebPlugin implements AppPlugin {
   constructor() {
