@@ -6,7 +6,10 @@ import type {
   Photo,
 } from './definitions';
 import { CameraSource, CameraDirection } from './definitions';
-import PermissionStatus from './definitions';
+
+import type {
+  PermissionStatus
+} from './definitions-common';
 
 export class CameraWeb extends WebPlugin implements CameraPlugin {
   async getPhoto(options: ImageOptions): Promise<Photo> {

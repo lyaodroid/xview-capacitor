@@ -21,7 +21,9 @@ import type {
   Directory,
 } from './definitions';
 
-import PermissionStatus from './definitions';
+import type {
+  PermissionStatus
+} from './definitions-common';
 
 export class FilesystemWeb extends WebPlugin implements FilesystemPlugin {
   DB_VERSION = 1;

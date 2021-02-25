@@ -1,13 +1,10 @@
 import type { PermissionState } from '@capacitor/core';
 
+import type { PermissionStatus  } from './definitions-common';
+
 export type CameraPermissionState = PermissionState | 'limited';
 
 export type CameraPermissionType = 'camera' | 'photos';
-
-export default interface PermissionStatus {
-  camera: CameraPermissionState;
-  photos: CameraPermissionState;
-}
 
 export interface CameraPluginPermissions {
   permissions: CameraPermissionType[];

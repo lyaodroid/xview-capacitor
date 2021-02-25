@@ -1,8 +1,5 @@
-import type { PermissionState } from '@capacitor/core';
 
-export default interface PermissionStatus {
-  publicStorage: PermissionState;
-}
+import type { PermissionStatus } from './definitions-common';
 
 export enum Directory {
   /**
