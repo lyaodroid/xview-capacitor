@@ -5,7 +5,7 @@ import type {
   DeviceInfo,
   DevicePlugin,
   GetLanguageCodeResult,
-} from '../definitions';
+} from './definitions';
 
 declare global {
   interface Navigator {
