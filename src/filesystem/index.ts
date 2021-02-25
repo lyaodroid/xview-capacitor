@@ -8,5 +8,3 @@ const Filesystem = registerPlugin<FilesystemPlugin>("Filesystem", {
 
 export * from "./definitions";
 export { Filesystem };
-
-export { PermissionStatus as FilePermissionStatus } from "./definitions-common";

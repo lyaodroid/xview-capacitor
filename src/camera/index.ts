@@ -8,5 +8,3 @@ const Camera = registerPlugin<CameraPlugin>('Camera', {
 
 export * from './definitions';
 export { Camera };
-
-export { PermissionStatus as CameraPermissionStatus} from './definitions-common';
