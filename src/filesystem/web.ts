@@ -8,7 +8,6 @@ import type {
   GetUriOptions,
   GetUriResult,
   MkdirOptions,
-  PermissionStatus,
   ReadFileOptions,
   ReadFileResult,
   ReaddirOptions,
@@ -21,6 +20,8 @@ import type {
   WriteFileResult,
   Directory,
 } from './definitions';
+
+import PermissionStatus from './definitions';
 
 export class FilesystemWeb extends WebPlugin implements FilesystemPlugin {
   DB_VERSION = 1;

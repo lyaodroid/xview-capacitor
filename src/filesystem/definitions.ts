@@ -1,6 +1,6 @@
 import type { PermissionState } from '@capacitor/core';
 
-export interface PermissionStatus {
+export default interface PermissionStatus {
   publicStorage: PermissionState;
 }
 

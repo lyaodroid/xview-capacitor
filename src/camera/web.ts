@@ -3,10 +3,10 @@ import { WebPlugin, CapacitorException } from '@capacitor/core';
 import type {
   CameraPlugin,
   ImageOptions,
-  PermissionStatus,
   Photo,
 } from './definitions';
 import { CameraSource, CameraDirection } from './definitions';
+import PermissionStatus from './definitions';
 
 export class CameraWeb extends WebPlugin implements CameraPlugin {
   async getPhoto(options: ImageOptions): Promise<Photo> {

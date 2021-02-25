@@ -4,7 +4,7 @@ export type CameraPermissionState = PermissionState | 'limited';
 
 export type CameraPermissionType = 'camera' | 'photos';
 
-export interface PermissionStatus {
+export default interface PermissionStatus {
   camera: CameraPermissionState;
   photos: CameraPermissionState;
 }
