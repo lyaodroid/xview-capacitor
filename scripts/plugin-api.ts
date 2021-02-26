@@ -23,7 +23,12 @@ async function buildPluginApiDocs(plugin: PluginInfo) {
   const apiContent = createApiPage(plugin.pluginId, readme, pkgJson);
   const fileName = `${plugin.pluginId}.md`;
   const filePath = path.join(API_DIR, fileName);
-  fs.writeFileSync(filePath, apiContent);
+
+  fs.exists(filePath, (exists) => {
+    if (!exists) {
+      fs.writeFileSync(filePath, apiContent);
+    }
+  });
 
   console.log(
     `Plugin API Files writeFileSync: fileName = ${fileName} filePath = ${filePath}`
