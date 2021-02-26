@@ -2,17 +2,17 @@ import path from "path";
 import fs from "fs";
 import fetch from "node-fetch";
 
-var shell = require('shelljs');
+var shell = require("shelljs");
 
 const API_DIR = path.join(__dirname, "apis");
 
 type PluginInfo = { pluginId: string; pluginName: string };
 
 const pluginApis: PluginInfo[] = [
+  { pluginId: "alipay", pluginName: "AliPayPlugin" },
   { pluginId: "app", pluginName: "AppPlugin" },
-  { pluginId: "app-launcher", pluginName: "AppLauncherPlugin" },
+  { pluginId: "keyboard", pluginName: "KeyboardPlugin" },
 ];
-
 
 async function buildPluginApiDocs(plugin: PluginInfo) {
   const [readme, pkgJson] = await Promise.all([
@@ -24,17 +24,14 @@ async function buildPluginApiDocs(plugin: PluginInfo) {
   const fileName = `${plugin.pluginId}.md`;
   const filePath = path.join(API_DIR, fileName);
 
-  fs.exists(filePath, (exists) => {
-    if (!exists) {
-      fs.writeFileSync(filePath, apiContent);
-    }
-  });
-
   console.log(
     `Plugin API Files writeFileSync: fileName = ${fileName} filePath = ${filePath}`
   );
+
+  fs.writeFileSync(filePath, apiContent);
+
   const pluginName = plugin.pluginName;
-  shell.exec(`docgen --api ${pluginName} --output-readme ${filePath}`)
+  shell.exec(`docgen --api ${pluginName} --output-readme ${filePath} --output-json scripts/docs/docs.json`);
 
 }
 
@@ -67,7 +64,7 @@ async function getReadme(pluginId: string) {
 }
 
 async function getPkgJsonData(pluginId: string) {
-  const url = `https://cdn.jsdelivr.net/npm/@capacitor/${pluginId}/package.json`;
+  const url = `https://cdn.jsdelivr.net/npm/@capacitor/app/package.json`;
   const rsp = await fetch(url);
   return rsp.json();
 }

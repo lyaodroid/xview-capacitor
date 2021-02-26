@@ -45,6 +45,17 @@ export interface AppState {
   isActive: boolean;
 }
 
+
+export interface AppStateTest {
+  /**
+   * Whether the AppStateTest is active or not.
+   *
+   * @since 1.0.0
+   */
+  isActiveTest: boolean;
+}
+
+
 export interface URLOpenListenerEvent {
   /**
    * The URL the app was opened with.
