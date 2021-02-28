@@ -11,7 +11,8 @@ type PluginInfo = { pluginId: string; pluginName: string };
 const pluginApis: PluginInfo[] = [
   { pluginId: "alipay", pluginName: "AliPayPlugin" },
   { pluginId: "app", pluginName: "AppPlugin" },
-  { pluginId: "keyboard", pluginName: "KeyboardPlugin" },
+  { pluginId: "filesystem", pluginName: "FilesystemPlugin" },
+  { pluginId: "camera", pluginName: "CameraPlugin" },
 ];
 
 async function buildPluginApiDocs(plugin: PluginInfo) {
@@ -31,7 +32,8 @@ async function buildPluginApiDocs(plugin: PluginInfo) {
   fs.writeFileSync(filePath, apiContent);
 
   const pluginName = plugin.pluginName;
-  shell.exec(`docgen --api ${pluginName} --output-readme ${filePath} --output-json scripts/docs/docs.json`);
+
+  shell.exec(`docgen --project scripts/tsconfig.json --api ${pluginName} --output-readme ${filePath} --output-json scripts/docs/${plugin.pluginId}.json`);
 
 }
 
@@ -55,9 +57,9 @@ ${readme}`.trim();
 }
 
 async function getReadme(pluginId: string) {
-  console.log(`Plugin API Files getReadme: ` + pluginId);
   const readMePath = "./README.md";
-  console.log(`Plugin API Files readMePath: ` + readMePath);
+
+  console.log(`Plugin API Files getReadme: ${pluginId} readMePath:  ${readMePath}`);
 
   const content = fs.readFileSync(readMePath, "utf-8");
   return content;
@@ -68,6 +70,8 @@ async function getPkgJsonData(pluginId: string) {
   const rsp = await fetch(url);
   return rsp.json();
 }
+
+
 
 async function writeListToIndex(pluginIds: any) {
   const indexPath = path.join(API_DIR, "index.md");

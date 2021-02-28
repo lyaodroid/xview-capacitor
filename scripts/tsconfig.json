@@ -5,21 +5,15 @@
     "allowUnreachableCode": true,
     "declaration": false,
     "experimentalDecorators": true,
-    "lib": [
-      "dom",
-      "es2017"
-    ],
+    "lib": ["dom", "es2017"],
     "moduleResolution": "node",
     "module": "commonjs",
     "target": "es2017",
     "noFallthroughCasesInSwitch": true,
     "noUnusedLocals": false,
-    "noUnusedParameters": false,
+    "noUnusedParameters": false
   },
-  "include": [
-    ".",
-  ],
-  "exclude": [
-    "node_modules"
-  ]
+  "include": ["."],
+  "files": ["../src/filesystem/index.ts"],
+  "exclude": ["node_modules"]
 }

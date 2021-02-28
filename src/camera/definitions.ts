@@ -1,6 +1,6 @@
 import type { PermissionState } from '@capacitor/core';
 
-import type { PermissionStatus  } from './definitions-common';
+import type { PermissionStatus } from "./definitions-common";
 
 export type CameraPermissionState = PermissionState | 'limited';
 
@@ -17,7 +17,7 @@ export interface CameraPlugin {
    *
    * @since 1.0.0
    */
-  getPhoto(options: ImageOptions): Promise<Photo>;
+  getPhoto(options: PhotoOptions): Promise<Photo>;
 
   /**
    * Check camera and photo album permissions
@@ -36,7 +36,7 @@ export interface CameraPlugin {
   ): Promise<PermissionStatus>;
 }
 
-export interface ImageOptions {
+export interface PhotoOptions {
   /**
    * The quality of image to return as JPEG, from 0-100
    *
@@ -238,7 +238,7 @@ export enum CameraResultType {
 export type CameraPhoto = Photo;
 
 /**
- * @deprecated Use `ImageOptions`.
+ * @deprecated Use `PhotoOptions`.
  * @since 1.0.0
  */
-export type CameraOptions = ImageOptions;
+export type CameraOptions = PhotoOptions;

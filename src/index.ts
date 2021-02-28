@@ -1,3 +1,6 @@
+// 注意 编译文档 只能一个一个编译
+export * from "./alipay/index";
+
 export * from "./app/index";
 
 export * from "./device/index";
@@ -18,8 +21,9 @@ export * from "./status-bar/index";
 
 export * from "./splash-screen/index";
 
+export * from "./camera/index";
+
 export * from "./filesystem/index";
 
-export * from "./camera/index";
 
 

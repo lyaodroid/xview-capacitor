@@ -1,6 +1,5 @@
-
 export interface AliPayPlugin {
-/**
+  /**
    * Check if an app can be opened with the given URL.
    *
    * On iOS you must declare the URL schemes you pass to this method by adding
@@ -14,28 +13,38 @@ export interface AliPayPlugin {
    *
    * @since 1.0.0
    */
-  canOpenUrl(options: CanOpenURLOptions): Promise<CanOpenURLResult>;
+  login(options: any): Promise<LoginResult>;
 
   /**
    * Open an app with the given URL.
    *
    * @since 1.0.0
    */
-  openUrl(options: OpenURLOptions): Promise<OpenURLResult>;
+  pay(options: any): Promise<PayResult>;
 }
 
-export interface CanOpenURLOptions {
-  url: string;
+export interface LoginResult {
+  /**
+   * The 返回唯一值.
+   *
+   * @since 1.0.0
+   */
+  uid: string;
 }
 
-export interface CanOpenURLResult {
+export interface PayResult {
+  /**
+   * The app version.
+   * 返回成功失败
+   *
+   * @since 1.0.0
+   */
   value: boolean;
-}
-
-export interface OpenURLOptions {
-  url: string;
-}
-
-export interface OpenURLResult {
-  completed: boolean;
+  /**
+   * The app version.
+   * 返回状态码 9000成功
+   *
+   * @since 1.0.0
+   */
+  code?: string;
 }
