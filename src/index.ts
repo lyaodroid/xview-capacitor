@@ -25,5 +25,7 @@ export * from "./camera/index";
 
 export * from "./filesystem/index";
 
+export * from "./geolocation/index";
+
 
 
