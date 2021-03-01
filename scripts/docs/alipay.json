@@ -7,63 +7,49 @@
     "methods": [
       {
         "name": "login",
-        "signature": "(options: any) => Promise<LoginResult>",
+        "signature": "(options: LoginOptions) => Promise<LoginResult>",
         "parameters": [
           {
             "name": "options",
-            "docs": "options = { aliLogin: \"后端生成 string\"}",
-            "type": "any"
+            "docs": "",
+            "type": "LoginOptions"
           }
         ],
         "returns": "Promise<LoginResult>",
         "tags": [
           {
-            "name": "param",
-            "text": "options options = { aliLogin: \"后端生成 string\"}"
-          },
-          {
-            "name": "description",
-            "text": "授权参数"
-          },
-          {
             "name": "since",
             "text": "1.0.0"
           }
         ],
-        "docs": "",
+        "docs": "支付宝登录",
         "complexTypes": [
-          "LoginResult"
+          "LoginResult",
+          "LoginOptions"
         ],
         "slug": "login"
       },
       {
         "name": "pay",
-        "signature": "(options: any) => Promise<PayResult>",
+        "signature": "(options: PayOptions) => Promise<PayResult>",
         "parameters": [
           {
             "name": "options",
-            "docs": "options = { aliPay: \"后端生成 string\" }",
-            "type": "any"
+            "docs": "",
+            "type": "PayOptions"
           }
         ],
         "returns": "Promise<PayResult>",
         "tags": [
           {
-            "name": "param",
-            "text": "options options = { aliPay: \"后端生成 string\" }"
-          },
-          {
-            "name": "description",
-            "text": "支付参数"
-          },
-          {
             "name": "since",
             "text": "1.0.0"
           }
         ],
-        "docs": "",
+        "docs": "支付宝支付",
         "complexTypes": [
-          "PayResult"
+          "PayResult",
+          "PayOptions"
         ],
         "slug": "pay"
       }
@@ -117,6 +103,27 @@
       ]
     },
     {
+      "name": "LoginOptions",
+      "slug": "loginoptions",
+      "docs": "",
+      "tags": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "aliLogin",
+          "tags": [
+            {
+              "text": "1.0.0",
+              "name": "since"
+            }
+          ],
+          "docs": "由后端生成 标准版授权参数",
+          "complexTypes": [],
+          "type": "string"
+        }
+      ]
+    },
+    {
       "name": "PayResult",
       "slug": "payresult",
       "docs": "",
@@ -143,7 +150,28 @@
               "name": "since"
             }
           ],
-          "docs": "返回状态码 9000成功",
+          "docs": "返回状态码  value = false时 使用",
+          "complexTypes": [],
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "name": "PayOptions",
+      "slug": "payoptions",
+      "docs": "",
+      "tags": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "aliPay",
+          "tags": [
+            {
+              "text": "1.0.0",
+              "name": "since"
+            }
+          ],
+          "docs": "由后端生成 支付参数",
           "complexTypes": [],
           "type": "string"
         }

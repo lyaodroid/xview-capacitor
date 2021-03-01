@@ -1,4 +1,13 @@
 
+export interface LoginOptions {
+  /**
+   * 由后端生成 标准版授权参数
+   *
+   * @since 1.0.0
+   */
+  aliLogin: string;
+}
+
 export interface LoginResult {
   /**
    * 返回支付宝用户信息唯一值.
@@ -22,6 +31,15 @@ export interface LoginResult {
   authCode: string;
 }
 
+export interface PayOptions {
+  /**
+   * 由后端生成 支付参数
+   *
+   * @since 1.0.0
+   */
+  aliPay: string;
+}
+
 export interface PayResult {
   /**
    * 返回成功失败
@@ -30,7 +48,7 @@ export interface PayResult {
    */
   value: boolean;
   /**
-   * 返回状态码 9000成功
+   * 返回状态码  value = false时 使用 
    *
    * @since 1.0.0
    */

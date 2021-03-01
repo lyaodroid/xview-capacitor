@@ -1,21 +1,17 @@
-import type { LoginResult, PayResult } from "./definitions-common";
+import type { LoginOptions , PayOptions , LoginResult, PayResult } from "./definitions-common";
 
 export interface AliPayPlugin {
   /**
-   * @param options options = { aliLogin: "后端生成 string"}
-   *
-   * @description 授权参数
-   *
+   * 支付宝登录
+   *   
    * @since 1.0.0
    */
-  login(options: any): Promise<LoginResult>;
+  login(options: LoginOptions): Promise<LoginResult>;
 
   /**
-   * @param options options = { aliPay: "后端生成 string" }
-   *
-   * @description 支付参数
-   *
+   * 支付宝支付
+   *   
    * @since 1.0.0
    */
-  pay(options: any): Promise<PayResult>;
+  pay(options: PayOptions): Promise<PayResult>;
 }

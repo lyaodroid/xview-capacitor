@@ -23,12 +23,14 @@ editApiUrl: https://github.com/ionic-team/capacitor-plugins/blob/main/alipay/src
 ### login(...)
 
 ```typescript
-login(options: any) => Promise<LoginResult>
+login(options: LoginOptions) => Promise<LoginResult>
 ```
 
-| Param         | Type             | Description                          |
-| ------------- | ---------------- | ------------------------------------ |
-| **`options`** | <code>any</code> | options = { aliLogin: "后端生成 string"} |
+支付宝登录
+
+| Param         | Type                                                  |
+| ------------- | ----------------------------------------------------- |
+| **`options`** | <code><a href="#loginoptions">LoginOptions</a></code> |
 
 **Returns:** <code>Promise&lt;<a href="#loginresult">LoginResult</a>&gt;</code>
 
@@ -40,12 +42,14 @@ login(options: any) => Promise<LoginResult>
 ### pay(...)
 
 ```typescript
-pay(options: any) => Promise<PayResult>
+pay(options: PayOptions) => Promise<PayResult>
 ```
 
-| Param         | Type             | Description                         |
-| ------------- | ---------------- | ----------------------------------- |
-| **`options`** | <code>any</code> | options = { aliPay: "后端生成 string" } |
+支付宝支付
+
+| Param         | Type                                              |
+| ------------- | ------------------------------------------------- |
+| **`options`** | <code><a href="#payoptions">PayOptions</a></code> |
 
 **Returns:** <code>Promise&lt;<a href="#payresult">PayResult</a>&gt;</code>
 
@@ -66,11 +70,25 @@ pay(options: any) => Promise<PayResult>
 | **`authCode`** | <code>string</code> | 返回授权码 可以换取其它参数使用 具体参考开发文档 | 1.0.0 |
 
 
+#### LoginOptions
+
+| Prop           | Type                | Description   | Since |
+| -------------- | ------------------- | ------------- | ----- |
+| **`aliLogin`** | <code>string</code> | 由后端生成 标准版授权参数 | 1.0.0 |
+
+
 #### PayResult
 
-| Prop        | Type                 | Description  | Since |
-| ----------- | -------------------- | ------------ | ----- |
-| **`value`** | <code>boolean</code> | 返回成功失败       | 1.0.0 |
-| **`code`**  | <code>string</code>  | 返回状态码 9000成功 | 1.0.0 |
+| Prop        | Type                 | Description             | Since |
+| ----------- | -------------------- | ----------------------- | ----- |
+| **`value`** | <code>boolean</code> | 返回成功失败                  | 1.0.0 |
+| **`code`**  | <code>string</code>  | 返回状态码 value = false时 使用 | 1.0.0 |
+
+
+#### PayOptions
+
+| Prop         | Type                | Description | Since |
+| ------------ | ------------------- | ----------- | ----- |
+| **`aliPay`** | <code>string</code> | 由后端生成 支付参数  | 1.0.0 |
 
 </docgen-api>
