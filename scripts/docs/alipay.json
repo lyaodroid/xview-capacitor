@@ -1,0 +1,115 @@
+{
+  "api": {
+    "name": "AliPayPlugin",
+    "slug": "alipayplugin",
+    "docs": "",
+    "tags": [],
+    "methods": [
+      {
+        "name": "login",
+        "signature": "(options: any) => Promise<LoginResult>",
+        "parameters": [
+          {
+            "name": "options",
+            "docs": "",
+            "type": "any"
+          }
+        ],
+        "returns": "Promise<LoginResult>",
+        "tags": [
+          {
+            "name": "since",
+            "text": "1.0.0"
+          }
+        ],
+        "docs": "Check if an app can be opened with the given URL.\n\nOn iOS you must declare the URL schemes you pass to this method by adding\nthe `LSApplicationQueriesSchemes` key to your app's `Info.plist` file.\nLearn more about configuring\n[`Info.plist`](https://capacitorjs.com/docs/ios/configuration#configuring-infoplist).\n\nThis method always returns false for undeclared schemes, whether or not an\nappropriate app is installed. To learn more about the key, see\n[LSApplicationQueriesSchemes](https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/LaunchServicesKeys.html#//apple_ref/doc/plist/info/LSApplicationQueriesSchemes).",
+        "complexTypes": [
+          "LoginResult"
+        ],
+        "slug": "login"
+      },
+      {
+        "name": "pay",
+        "signature": "(options: any) => Promise<PayResult>",
+        "parameters": [
+          {
+            "name": "options",
+            "docs": "",
+            "type": "any"
+          }
+        ],
+        "returns": "Promise<PayResult>",
+        "tags": [
+          {
+            "name": "since",
+            "text": "1.0.0"
+          }
+        ],
+        "docs": "Open an app with the given URL.",
+        "complexTypes": [
+          "PayResult"
+        ],
+        "slug": "pay"
+      }
+    ],
+    "properties": []
+  },
+  "interfaces": [
+    {
+      "name": "LoginResult",
+      "slug": "loginresult",
+      "docs": "",
+      "tags": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "uid",
+          "tags": [
+            {
+              "text": "1.0.0",
+              "name": "since"
+            }
+          ],
+          "docs": "The 返回唯一值.",
+          "complexTypes": [],
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "name": "PayResult",
+      "slug": "payresult",
+      "docs": "",
+      "tags": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "value",
+          "tags": [
+            {
+              "text": "1.0.0",
+              "name": "since"
+            }
+          ],
+          "docs": "The app version.\n返回成功失败",
+          "complexTypes": [],
+          "type": "boolean"
+        },
+        {
+          "name": "code",
+          "tags": [
+            {
+              "text": "1.0.0",
+              "name": "since"
+            }
+          ],
+          "docs": "The app version.\n返回状态码 9000成功",
+          "complexTypes": [],
+          "type": "string"
+        }
+      ]
+    }
+  ],
+  "enums": [],
+  "typeAliases": []
+}

@@ -13,7 +13,9 @@ xcuserdata
 
 # macOS files
 .DS_Store
-scripts/
+scripts/*.ts
+scripts/*.json
+.svn/
 
 
 
