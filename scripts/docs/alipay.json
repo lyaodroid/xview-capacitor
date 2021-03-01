@@ -11,18 +11,26 @@
         "parameters": [
           {
             "name": "options",
-            "docs": "",
+            "docs": "options = { aliLogin: \"后端生成 string\"}",
             "type": "any"
           }
         ],
         "returns": "Promise<LoginResult>",
         "tags": [
           {
+            "name": "param",
+            "text": "options options = { aliLogin: \"后端生成 string\"}"
+          },
+          {
+            "name": "description",
+            "text": "授权参数"
+          },
+          {
             "name": "since",
             "text": "1.0.0"
           }
         ],
-        "docs": "Check if an app can be opened with the given URL.\n\nOn iOS you must declare the URL schemes you pass to this method by adding\nthe `LSApplicationQueriesSchemes` key to your app's `Info.plist` file.\nLearn more about configuring\n[`Info.plist`](https://capacitorjs.com/docs/ios/configuration#configuring-infoplist).\n\nThis method always returns false for undeclared schemes, whether or not an\nappropriate app is installed. To learn more about the key, see\n[LSApplicationQueriesSchemes](https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/LaunchServicesKeys.html#//apple_ref/doc/plist/info/LSApplicationQueriesSchemes).",
+        "docs": "",
         "complexTypes": [
           "LoginResult"
         ],
@@ -34,18 +42,26 @@
         "parameters": [
           {
             "name": "options",
-            "docs": "",
+            "docs": "options = { aliPay: \"后端生成 string\" }",
             "type": "any"
           }
         ],
         "returns": "Promise<PayResult>",
         "tags": [
           {
+            "name": "param",
+            "text": "options options = { aliPay: \"后端生成 string\" }"
+          },
+          {
+            "name": "description",
+            "text": "支付参数"
+          },
+          {
             "name": "since",
             "text": "1.0.0"
           }
         ],
-        "docs": "Open an app with the given URL.",
+        "docs": "",
         "complexTypes": [
           "PayResult"
         ],
@@ -70,7 +86,31 @@
               "name": "since"
             }
           ],
-          "docs": "The 返回唯一值.",
+          "docs": "返回支付宝用户信息唯一值.",
+          "complexTypes": [],
+          "type": "string"
+        },
+        {
+          "name": "openid",
+          "tags": [
+            {
+              "text": "1.0.0",
+              "name": "since"
+            }
+          ],
+          "docs": "同 uid 一样使用 兼容 其它第三方登录使用",
+          "complexTypes": [],
+          "type": "string"
+        },
+        {
+          "name": "authCode",
+          "tags": [
+            {
+              "text": "1.0.0",
+              "name": "since"
+            }
+          ],
+          "docs": "返回授权码 可以换取其它参数使用 具体参考开发文档",
           "complexTypes": [],
           "type": "string"
         }
@@ -91,7 +131,7 @@
               "name": "since"
             }
           ],
-          "docs": "The app version.\n返回成功失败",
+          "docs": "返回成功失败",
           "complexTypes": [],
           "type": "boolean"
         },
@@ -103,7 +143,7 @@
               "name": "since"
             }
           ],
-          "docs": "The app version.\n返回状态码 9000成功",
+          "docs": "返回状态码 9000成功",
           "complexTypes": [],
           "type": "string"
         }

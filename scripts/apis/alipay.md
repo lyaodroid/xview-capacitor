@@ -5,19 +5,15 @@ editUrl: https://github.com/ionic-team/capacitor-plugins/blob/main/alipay/README
 editApiUrl: https://github.com/ionic-team/capacitor-plugins/blob/main/alipay/src/definitions.ts
 ---
 
-## [**`opendocs.alipay`**](https://opendocs.alipay.com/open/54/104509)
+# [*`opendocs.alipay`*](https://opendocs.alipay.com/open/54/104509)
 
 ## API
 
 <docgen-index>
 
-- [**`opendocs.alipay`**](#opendocsalipay)
-- [API](#api)
-  - [login(...)](#login)
-  - [pay(...)](#pay)
-  - [Interfaces](#interfaces)
-    - [LoginResult](#loginresult)
-    - [PayResult](#payresult)
+* [`login(...)`](#login)
+* [`pay(...)`](#pay)
+* [Interfaces](#interfaces)
 
 </docgen-index>
 
@@ -30,20 +26,9 @@ editApiUrl: https://github.com/ionic-team/capacitor-plugins/blob/main/alipay/src
 login(options: any) => Promise<LoginResult>
 ```
 
-Check if an app can be opened with the given URL.
-
-On iOS you must declare the URL schemes you pass to this method by adding
-the `LSApplicationQueriesSchemes` key to your app's `Info.plist` file.
-Learn more about configuring
-[`Info.plist`](https://capacitorjs.com/docs/ios/configuration#configuring-infoplist).
-
-This method always returns false for undeclared schemes, whether or not an
-appropriate app is installed. To learn more about the key, see
-[LSApplicationQueriesSchemes](https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/LaunchServicesKeys.html#//apple_ref/doc/plist/info/LSApplicationQueriesSchemes).
-
-| Param         | Type             |
-| ------------- | ---------------- |
-| **`options`** | <code>any</code> |
+| Param         | Type             | Description                          |
+| ------------- | ---------------- | ------------------------------------ |
+| **`options`** | <code>any</code> | options = { aliLogin: "后端生成 string"} |
 
 **Returns:** <code>Promise&lt;<a href="#loginresult">LoginResult</a>&gt;</code>
 
@@ -58,11 +43,9 @@ appropriate app is installed. To learn more about the key, see
 pay(options: any) => Promise<PayResult>
 ```
 
-Open an app with the given URL.
-
-| Param         | Type             |
-| ------------- | ---------------- |
-| **`options`** | <code>any</code> |
+| Param         | Type             | Description                         |
+| ------------- | ---------------- | ----------------------------------- |
+| **`options`** | <code>any</code> | options = { aliPay: "后端生成 string" } |
 
 **Returns:** <code>Promise&lt;<a href="#payresult">PayResult</a>&gt;</code>
 
@@ -76,16 +59,18 @@ Open an app with the given URL.
 
 #### LoginResult
 
-| Prop      | Type                | Description | Since |
-| --------- | ------------------- | ----------- | ----- |
-| **`uid`** | <code>string</code> | The 返回唯一值.  | 1.0.0 |
+| Prop           | Type                | Description               | Since |
+| -------------- | ------------------- | ------------------------- | ----- |
+| **`uid`**      | <code>string</code> | 返回支付宝用户信息唯一值.             | 1.0.0 |
+| **`openid`**   | <code>string</code> | 同 uid 一样使用 兼容 其它第三方登录使用   | 1.0.0 |
+| **`authCode`** | <code>string</code> | 返回授权码 可以换取其它参数使用 具体参考开发文档 | 1.0.0 |
 
 
 #### PayResult
 
-| Prop        | Type                 | Description                   | Since |
-| ----------- | -------------------- | ----------------------------- | ----- |
-| **`value`** | <code>boolean</code> | The app version. 返回成功失败       | 1.0.0 |
-| **`code`**  | <code>string</code>  | The app version. 返回状态码 9000成功 | 1.0.0 |
+| Prop        | Type                 | Description  | Since |
+| ----------- | -------------------- | ------------ | ----- |
+| **`value`** | <code>boolean</code> | 返回成功失败       | 1.0.0 |
+| **`code`**  | <code>string</code>  | 返回状态码 9000成功 | 1.0.0 |
 
 </docgen-api>
