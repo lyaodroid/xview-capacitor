@@ -27,9 +27,12 @@ export * from "./filesystem/index";
 
 export * from "./geolocation/index";
 
+export * from "./common/index";
+
 export * from "./qq/index";
 
-export * from "./common/index";
+export * from "./wechat/index";
+
 
 
 
