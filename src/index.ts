@@ -29,6 +29,8 @@ export * from "./geolocation/index";
 
 export * from "./qq/index";
 
+export * from "./common/index";
+
 
 
 
