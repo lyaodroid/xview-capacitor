@@ -7,12 +7,12 @@
     "methods": [
       {
         "name": "login",
-        "signature": "(options: LoginOptions) => Promise<LoginResult>",
+        "signature": "(options: AliPayOptions) => Promise<LoginResult>",
         "parameters": [
           {
             "name": "options",
             "docs": "",
-            "type": "LoginOptions"
+            "type": "AliPayOptions"
           }
         ],
         "returns": "Promise<LoginResult>",
@@ -25,18 +25,18 @@
         "docs": "支付宝登录",
         "complexTypes": [
           "LoginResult",
-          "LoginOptions"
+          "AliPayOptions"
         ],
         "slug": "login"
       },
       {
         "name": "pay",
-        "signature": "(options: PayOptions) => Promise<PayResult>",
+        "signature": "(options: AliPayOptions) => Promise<PayResult>",
         "parameters": [
           {
             "name": "options",
             "docs": "",
-            "type": "PayOptions"
+            "type": "AliPayOptions"
           }
         ],
         "returns": "Promise<PayResult>",
@@ -49,7 +49,7 @@
         "docs": "支付宝支付",
         "complexTypes": [
           "PayResult",
-          "PayOptions"
+          "AliPayOptions"
         ],
         "slug": "pay"
       }
@@ -72,7 +72,7 @@
               "name": "since"
             }
           ],
-          "docs": "返回支付宝用户信息唯一值.",
+          "docs": "返回 平台用户信息唯一值.",
           "complexTypes": [],
           "type": "string"
         },
@@ -89,26 +89,74 @@
           "type": "string"
         },
         {
-          "name": "authCode",
+          "name": "name",
           "tags": [
             {
               "text": "1.0.0",
               "name": "since"
             }
           ],
-          "docs": "返回授权码 可以换取其它参数使用 具体参考开发文档",
+          "docs": "昵称",
+          "complexTypes": [],
+          "type": "string"
+        },
+        {
+          "name": "gender",
+          "tags": [
+            {
+              "text": "1.0.0",
+              "name": "since"
+            }
+          ],
+          "docs": "性别 男 | 女",
+          "complexTypes": [],
+          "type": "string"
+        },
+        {
+          "name": "province",
+          "tags": [
+            {
+              "text": "1.0.0",
+              "name": "since"
+            }
+          ],
+          "docs": "省份",
+          "complexTypes": [],
+          "type": "string"
+        },
+        {
+          "name": "city",
+          "tags": [
+            {
+              "text": "1.0.0",
+              "name": "since"
+            }
+          ],
+          "docs": "城市",
           "complexTypes": [],
           "type": "string"
         }
       ]
     },
     {
-      "name": "LoginOptions",
-      "slug": "loginoptions",
+      "name": "AliPayOptions",
+      "slug": "alipayoptions",
       "docs": "",
       "tags": [],
       "methods": [],
       "properties": [
+        {
+          "name": "aliPay",
+          "tags": [
+            {
+              "text": "1.0.0",
+              "name": "since"
+            }
+          ],
+          "docs": "支付 使用 由后端生成支付参数",
+          "complexTypes": [],
+          "type": "string"
+        },
         {
           "name": "aliLogin",
           "tags": [
@@ -117,7 +165,7 @@
               "name": "since"
             }
           ],
-          "docs": "由后端生成 标准版授权参数",
+          "docs": "登录 使用 标准版授权参数",
           "complexTypes": [],
           "type": "string"
         }
@@ -126,7 +174,7 @@
     {
       "name": "PayResult",
       "slug": "payresult",
-      "docs": "",
+      "docs": "-----------------------------------------------------------------------------",
       "tags": [],
       "methods": [],
       "properties": [
@@ -151,27 +199,6 @@
             }
           ],
           "docs": "返回状态码  value = false时 使用",
-          "complexTypes": [],
-          "type": "string"
-        }
-      ]
-    },
-    {
-      "name": "PayOptions",
-      "slug": "payoptions",
-      "docs": "",
-      "tags": [],
-      "methods": [],
-      "properties": [
-        {
-          "name": "aliPay",
-          "tags": [
-            {
-              "text": "1.0.0",
-              "name": "since"
-            }
-          ],
-          "docs": "由后端生成 支付参数",
           "complexTypes": [],
           "type": "string"
         }

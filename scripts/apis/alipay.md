@@ -23,14 +23,14 @@ editApiUrl: https://github.com/ionic-team/capacitor-plugins/blob/main/alipay/src
 ### login(...)
 
 ```typescript
-login(options: LoginOptions) => Promise<LoginResult>
+login(options: AliPayOptions) => Promise<LoginResult>
 ```
 
 支付宝登录
 
-| Param         | Type                                                  |
-| ------------- | ----------------------------------------------------- |
-| **`options`** | <code><a href="#loginoptions">LoginOptions</a></code> |
+| Param         | Type                                                    |
+| ------------- | ------------------------------------------------------- |
+| **`options`** | <code><a href="#alipayoptions">AliPayOptions</a></code> |
 
 **Returns:** <code>Promise&lt;<a href="#loginresult">LoginResult</a>&gt;</code>
 
@@ -42,14 +42,14 @@ login(options: LoginOptions) => Promise<LoginResult>
 ### pay(...)
 
 ```typescript
-pay(options: PayOptions) => Promise<PayResult>
+pay(options: AliPayOptions) => Promise<PayResult>
 ```
 
 支付宝支付
 
-| Param         | Type                                              |
-| ------------- | ------------------------------------------------- |
-| **`options`** | <code><a href="#payoptions">PayOptions</a></code> |
+| Param         | Type                                                    |
+| ------------- | ------------------------------------------------------- |
+| **`options`** | <code><a href="#alipayoptions">AliPayOptions</a></code> |
 
 **Returns:** <code>Promise&lt;<a href="#payresult">PayResult</a>&gt;</code>
 
@@ -63,32 +63,31 @@ pay(options: PayOptions) => Promise<PayResult>
 
 #### LoginResult
 
-| Prop           | Type                | Description               | Since |
-| -------------- | ------------------- | ------------------------- | ----- |
-| **`uid`**      | <code>string</code> | 返回支付宝用户信息唯一值.             | 1.0.0 |
-| **`openid`**   | <code>string</code> | 同 uid 一样使用 兼容 其它第三方登录使用   | 1.0.0 |
-| **`authCode`** | <code>string</code> | 返回授权码 可以换取其它参数使用 具体参考开发文档 | 1.0.0 |
+| Prop           | Type                | Description             | Since |
+| -------------- | ------------------- | ----------------------- | ----- |
+| **`uid`**      | <code>string</code> | 返回 平台用户信息唯一值.           | 1.0.0 |
+| **`openid`**   | <code>string</code> | 同 uid 一样使用 兼容 其它第三方登录使用 | 1.0.0 |
+| **`name`**     | <code>string</code> | 昵称                      | 1.0.0 |
+| **`gender`**   | <code>string</code> | 性别 男 \| 女               | 1.0.0 |
+| **`province`** | <code>string</code> | 省份                      | 1.0.0 |
+| **`city`**     | <code>string</code> | 城市                      | 1.0.0 |
 
 
-#### LoginOptions
+#### AliPayOptions
 
-| Prop           | Type                | Description   | Since |
-| -------------- | ------------------- | ------------- | ----- |
-| **`aliLogin`** | <code>string</code> | 由后端生成 标准版授权参数 | 1.0.0 |
+| Prop           | Type                | Description     | Since |
+| -------------- | ------------------- | --------------- | ----- |
+| **`aliPay`**   | <code>string</code> | 支付 使用 由后端生成支付参数 | 1.0.0 |
+| **`aliLogin`** | <code>string</code> | 登录 使用 标准版授权参数   | 1.0.0 |
 
 
 #### PayResult
+
+-----------------------------------------------------------------------------
 
 | Prop        | Type                 | Description             | Since |
 | ----------- | -------------------- | ----------------------- | ----- |
 | **`value`** | <code>boolean</code> | 返回成功失败                  | 1.0.0 |
 | **`code`**  | <code>string</code>  | 返回状态码 value = false时 使用 | 1.0.0 |
-
-
-#### PayOptions
-
-| Prop         | Type                | Description | Since |
-| ------------ | ------------------- | ----------- | ----- |
-| **`aliPay`** | <code>string</code> | 由后端生成 支付参数  | 1.0.0 |
 
 </docgen-api>

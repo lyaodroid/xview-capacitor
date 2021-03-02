@@ -18,7 +18,7 @@ export interface AliPayPlugin {
 
 export interface AliPayOptions {
   /**
-   *  支付 使用 由后端生成支付参数
+   * 支付 使用 由后端生成支付参数
    *
    * @since 1.0.0
    */
