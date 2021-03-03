@@ -21,7 +21,7 @@ export interface ScannerPlugin {
    *
    * @since 1.0.0
    */
-  generateImageCode(options: ImageCodeOptions): Promise<{ value: string }>;
+  generateScanCode(options: ScanCodeOptions): Promise<{ value: string }>;
 }
 
 export interface ScannerOptions {
@@ -98,7 +98,7 @@ export interface AnalyzeOptions {
   path?: string;
 }
 
-export interface ImageCodeOptions {
+export interface ScanCodeOptions {
   /**
    * 生成二维码 内容
    *
