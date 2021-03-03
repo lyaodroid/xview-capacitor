@@ -1,12 +1,13 @@
-import { WebPlugin } from '@capacitor/core';
+import { WebPlugin } from "@capacitor/core";
 
-import type { ShareOptions, ShareResult } from './definitions-common';
-import type { SharePlugin } from './definitions';
+import type { ShareOptions, SharePlugin } from "./definitions";
+
+import ShareResult from "./definitions";
 
 export class ShareWeb extends WebPlugin implements SharePlugin {
   async share(options: ShareOptions): Promise<ShareResult> {
-    if (typeof navigator === 'undefined' || !navigator.share) {
-      throw this.unavailable('Share API not available in this browser');
+    if (typeof navigator === "undefined" || !navigator.share) {
+      throw this.unavailable("Share API not available in this browser");
     }
 
     await navigator.share({
