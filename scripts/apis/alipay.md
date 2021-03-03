@@ -5,6 +5,7 @@ editUrl: https://github.com/ionic-team/capacitor-plugins/blob/main/alipay/README
 editApiUrl: https://github.com/ionic-team/capacitor-plugins/blob/main/alipay/src/definitions.ts
 ---
 
+
 # [*`opendocs.alipay`*](https://opendocs.alipay.com/open/54/104509)
 
 ## API

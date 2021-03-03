@@ -16,7 +16,8 @@ xcuserdata
 scripts/*.ts
 scripts/*.json
 .svn/
-
+scripts/xviewbrid/
+scripts/xviewbrid/.svn/
 
 
 # Based on Android gitignore template: https://github.com/github/gitignore/blob/master/Android.gitignore

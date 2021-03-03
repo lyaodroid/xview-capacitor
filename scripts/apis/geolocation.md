@@ -5,6 +5,9 @@ editUrl: https://github.com/ionic-team/capacitor-plugins/blob/main/geolocation/R
 editApiUrl: https://github.com/ionic-team/capacitor-plugins/blob/main/geolocation/src/definitions.ts
 ---
 
+
+# [*`opendocs.alipay`*](https://opendocs.alipay.com/open/54/104509)
+
 ## API
 
 <docgen-index>
