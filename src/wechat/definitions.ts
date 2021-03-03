@@ -34,7 +34,7 @@ export interface WeChatPlugin {
    *
    * @since 1.0.0
    */
-  launchMiniProgram(options: any): Promise<any>;
+  launchMiniProgram(options: any): void;
 
   addListener(
     eventName: "app-parameter",
