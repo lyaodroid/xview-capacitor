@@ -34,7 +34,7 @@ export interface WeChatPlugin {
    *
    * @since 1.0.0
    */
-  launchMiniProgram(options: any): void;
+  launchMiniProgram(options: MiniProgramOptions): Promise<void>;
 
   addListener(
     eventName: "app-parameter",
@@ -114,4 +114,34 @@ export interface WeChatPayOptions {
    * 注意：取值RSA格式
    */
   sign: string;
+}
+
+
+export interface MiniProgramOptions {
+  /**
+   * 填移动应用(App)的 AppId，非小程序的 AppID
+   *
+   * @since 1.0.0
+   */
+  appId: string;
+
+  /**
+   * 填小程序原始id (gh_******)
+   *
+   * @since 1.0.0
+   */
+  userName: string;
+  /**
+   * 拉起小程序页面的可带参路径，不填默认拉起小程序首页，
+   *
+   * @since 1.0.0
+   */
+  path: string | "";
+
+  /**
+   * 小程序 版本0 正式 ， 1 测试 2 预览版 
+   *
+   * @since 1.0.0
+   */
+  miniType: 0 | 1 | 2;
 }
