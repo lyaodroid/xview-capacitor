@@ -39,7 +39,7 @@ export interface ShareOptions {
   dialogTitle?: string;
 }
 
-export default interface ShareResult {
+export interface ShareResult {
   /**
    * Identifier of the app that received the share action.
    * Can be an empty string in some cases.

@@ -7,12 +7,12 @@
     "methods": [
       {
         "name": "login",
-        "signature": "(options: WeChatLoginOptions) => Promise<LoginResult>",
+        "signature": "(options: { appId: string; appKey: string; }) => Promise<LoginResult>",
         "parameters": [
           {
             "name": "options",
             "docs": "",
-            "type": "WeChatLoginOptions"
+            "type": "{ appId: string; appKey: string; }"
           }
         ],
         "returns": "Promise<LoginResult>",
@@ -22,16 +22,15 @@
             "text": "1.0.0"
           }
         ],
-        "docs": "微信 登录",
+        "docs": "微信 登录 应用 appId 应用 appKey",
         "complexTypes": [
-          "LoginResult",
-          "WeChatLoginOptions"
+          "LoginResult"
         ],
         "slug": "login"
       },
       {
         "name": "share",
-        "signature": "(options: ShareMedia) => Promise<ShareResult>",
+        "signature": "(options: ShareMedia) => Promise<void>",
         "parameters": [
           {
             "name": "options",
@@ -39,23 +38,22 @@
             "type": "ShareMedia"
           }
         ],
-        "returns": "Promise<ShareResult>",
+        "returns": "Promise<void>",
         "tags": [
           {
             "name": "since",
             "text": "1.0.0"
           }
         ],
-        "docs": "微信 分享",
+        "docs": "微信 分享 catch (error) error.code == \"1\" 取消分享\n分享失败 状态码 查文档",
         "complexTypes": [
-          "ShareResult",
           "ShareMedia"
         ],
         "slug": "share"
       },
       {
         "name": "pay",
-        "signature": "(options: WeChatPayOptions) => Promise<PayResult>",
+        "signature": "(options: WeChatPayOptions) => Promise<void>",
         "parameters": [
           {
             "name": "options",
@@ -63,16 +61,15 @@
             "type": "WeChatPayOptions"
           }
         ],
-        "returns": "Promise<PayResult>",
+        "returns": "Promise<void>",
         "tags": [
           {
             "name": "since",
             "text": "1.0.0"
           }
         ],
-        "docs": "微信 支付",
+        "docs": "微信 支付 catch (error) error.code == \"1\" 取消支付\n支付失败 状态码 查文档",
         "complexTypes": [
-          "PayResult",
           "WeChatPayOptions"
         ],
         "slug": "pay"
@@ -199,7 +196,7 @@
               "name": "since"
             }
           ],
-          "docs": "昵称",
+          "docs": "昵称 支付宝没有",
           "complexTypes": [],
           "type": "string"
         },
@@ -211,7 +208,7 @@
               "name": "since"
             }
           ],
-          "docs": "性别 男 | 女",
+          "docs": "性别 男 | 女 支付宝没有",
           "complexTypes": [],
           "type": "string"
         },
@@ -223,7 +220,7 @@
               "name": "since"
             }
           ],
-          "docs": "省份",
+          "docs": "省份 支付宝没有",
           "complexTypes": [],
           "type": "string"
         },
@@ -235,73 +232,7 @@
               "name": "since"
             }
           ],
-          "docs": "城市",
-          "complexTypes": [],
-          "type": "string"
-        }
-      ]
-    },
-    {
-      "name": "WeChatLoginOptions",
-      "slug": "wechatloginoptions",
-      "docs": "",
-      "tags": [],
-      "methods": [],
-      "properties": [
-        {
-          "name": "appId",
-          "tags": [
-            {
-              "text": "1.0.0",
-              "name": "since"
-            }
-          ],
-          "docs": "应用 appId",
-          "complexTypes": [],
-          "type": "string"
-        },
-        {
-          "name": "appKey",
-          "tags": [
-            {
-              "text": "1.0.0",
-              "name": "since"
-            }
-          ],
-          "docs": "应用 appsecret",
-          "complexTypes": [],
-          "type": "string"
-        }
-      ]
-    },
-    {
-      "name": "ShareResult",
-      "slug": "shareresult",
-      "docs": "",
-      "tags": [],
-      "methods": [],
-      "properties": [
-        {
-          "name": "value",
-          "tags": [
-            {
-              "text": "1.0.0",
-              "name": "since"
-            }
-          ],
-          "docs": "返回成功失败",
-          "complexTypes": [],
-          "type": "boolean"
-        },
-        {
-          "name": "code",
-          "tags": [
-            {
-              "text": "1.0.0",
-              "name": "since"
-            }
-          ],
-          "docs": "返回状态码  value = false时 使用\n-1 是错误 1 是取消",
+          "docs": "城市 支付宝没有",
           "complexTypes": [],
           "type": "string"
         }
@@ -379,39 +310,6 @@
           "docs": "",
           "complexTypes": [],
           "type": "'text' | 'image' | 'webPage' | 'music' | 'video' | 'minApp'"
-        }
-      ]
-    },
-    {
-      "name": "PayResult",
-      "slug": "payresult",
-      "docs": "-----------------------------------------------------------------------------",
-      "tags": [],
-      "methods": [],
-      "properties": [
-        {
-          "name": "value",
-          "tags": [
-            {
-              "text": "1.0.0",
-              "name": "since"
-            }
-          ],
-          "docs": "返回成功失败",
-          "complexTypes": [],
-          "type": "boolean"
-        },
-        {
-          "name": "code",
-          "tags": [
-            {
-              "text": "1.0.0",
-              "name": "since"
-            }
-          ],
-          "docs": "返回状态码  value = false时 使用",
-          "complexTypes": [],
-          "type": "string"
         }
       ]
     },

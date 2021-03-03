@@ -1,33 +1,19 @@
-import type { LoginResult, PayResult } from "../common";
+import type { LoginResult } from "../common";
 
 export interface AliPayPlugin {
   /**
-   * 支付宝登录
+   * 支付宝 登录 value = 使用 标准版授权参数
    *
    * @since 1.0.0
    */
-  login(options: AliPayOptions): Promise<LoginResult>;
+  login(options: { value: string }): Promise<LoginResult>;
 
   /**
-   * 支付宝支付
+   * 支付宝 支付 value = 使用 由后端生成支付参数
+   * catch (error) error.code == "1" 取消支付 
+   * 支付失败 状态码 查文档
    *
    * @since 1.0.0
    */
-  pay(options: AliPayOptions): Promise<PayResult>;
-}
-
-export interface AliPayOptions {
-  /**
-   * 支付 使用 由后端生成支付参数
-   *
-   * @since 1.0.0
-   */
-  aliPay?: string;
-
-  /**
-   * 登录 使用 标准版授权参数
-   *
-   * @since 1.0.0
-   */
-  aliLogin?: string;
+  pay(options: { value: string }): Promise<void>;
 }

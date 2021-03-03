@@ -29,14 +29,14 @@ editApiUrl: https://github.com/ionic-team/capacitor-plugins/blob/main/wechat/src
 ### login(...)
 
 ```typescript
-login(options: WeChatLoginOptions) => Promise<LoginResult>
+login(options: { appId: string; appKey: string; }) => Promise<LoginResult>
 ```
 
-微信 登录
+微信 登录 应用 appId 应用 appKey
 
-| Param         | Type                                                              |
-| ------------- | ----------------------------------------------------------------- |
-| **`options`** | <code><a href="#wechatloginoptions">WeChatLoginOptions</a></code> |
+| Param         | Type                                            |
+| ------------- | ----------------------------------------------- |
+| **`options`** | <code>{ appId: string; appKey: string; }</code> |
 
 **Returns:** <code>Promise&lt;<a href="#loginresult">LoginResult</a>&gt;</code>
 
@@ -48,16 +48,15 @@ login(options: WeChatLoginOptions) => Promise<LoginResult>
 ### share(...)
 
 ```typescript
-share(options: ShareMedia) => Promise<ShareResult>
+share(options: ShareMedia) => Promise<void>
 ```
 
-微信 分享
+微信 分享 catch (error) error.code == "1" 取消分享
+分享失败 状态码 查文档
 
 | Param         | Type                                              |
 | ------------- | ------------------------------------------------- |
 | **`options`** | <code><a href="#sharemedia">ShareMedia</a></code> |
-
-**Returns:** <code>Promise&lt;<a href="#shareresult">ShareResult</a>&gt;</code>
 
 **Since:** 1.0.0
 
@@ -67,16 +66,15 @@ share(options: ShareMedia) => Promise<ShareResult>
 ### pay(...)
 
 ```typescript
-pay(options: WeChatPayOptions) => Promise<PayResult>
+pay(options: WeChatPayOptions) => Promise<void>
 ```
 
-微信 支付
+微信 支付 catch (error) error.code == "1" 取消支付
+支付失败 状态码 查文档
 
 | Param         | Type                                                          |
 | ------------- | ------------------------------------------------------------- |
 | **`options`** | <code><a href="#wechatpayoptions">WeChatPayOptions</a></code> |
-
-**Returns:** <code>Promise&lt;<a href="#payresult">PayResult</a>&gt;</code>
 
 **Since:** 1.0.0
 
@@ -152,26 +150,10 @@ Remove all native listeners for this plugin
 | -------------- | ------------------- | ----------------------- | ----- |
 | **`uid`**      | <code>string</code> | 返回 平台用户信息唯一值.           | 1.0.0 |
 | **`openid`**   | <code>string</code> | 同 uid 一样使用 兼容 其它第三方登录使用 | 1.0.0 |
-| **`name`**     | <code>string</code> | 昵称                      | 1.0.0 |
-| **`gender`**   | <code>string</code> | 性别 男 \| 女               | 1.0.0 |
-| **`province`** | <code>string</code> | 省份                      | 1.0.0 |
-| **`city`**     | <code>string</code> | 城市                      | 1.0.0 |
-
-
-#### WeChatLoginOptions
-
-| Prop         | Type                | Description  | Since |
-| ------------ | ------------------- | ------------ | ----- |
-| **`appId`**  | <code>string</code> | 应用 appId     | 1.0.0 |
-| **`appKey`** | <code>string</code> | 应用 appsecret | 1.0.0 |
-
-
-#### ShareResult
-
-| Prop        | Type                 | Description                          | Since |
-| ----------- | -------------------- | ------------------------------------ | ----- |
-| **`value`** | <code>boolean</code> | 返回成功失败                               | 1.0.0 |
-| **`code`**  | <code>string</code>  | 返回状态码 value = false时 使用 -1 是错误 1 是取消 | 1.0.0 |
+| **`name`**     | <code>string</code> | 昵称 支付宝没有                | 1.0.0 |
+| **`gender`**   | <code>string</code> | 性别 男 \| 女 支付宝没有         | 1.0.0 |
+| **`province`** | <code>string</code> | 省份 支付宝没有                | 1.0.0 |
+| **`city`**     | <code>string</code> | 城市 支付宝没有                | 1.0.0 |
 
 
 #### ShareMedia
@@ -189,16 +171,6 @@ Remove all native listeners for this plugin
 | Prop            | Type                                                                          |
 | --------------- | ----------------------------------------------------------------------------- |
 | **`shareType`** | <code>'text' \| 'image' \| 'webPage' \| 'music' \| 'video' \| 'minApp'</code> |
-
-
-#### PayResult
-
------------------------------------------------------------------------------
-
-| Prop        | Type                 | Description             | Since |
-| ----------- | -------------------- | ----------------------- | ----- |
-| **`value`** | <code>boolean</code> | 返回成功失败                  | 1.0.0 |
-| **`code`**  | <code>string</code>  | 返回状态码 value = false时 使用 | 1.0.0 |
 
 
 #### WeChatPayOptions

@@ -14,28 +14,28 @@ export interface LoginResult {
   openid: string;
 
   /**
-   * 昵称
+   * 昵称 支付宝没有
    *
    * @since 1.0.0
    */
   name?: string;
 
   /**
-   * 性别 男 | 女
+   * 性别 男 | 女 支付宝没有
    *
    * @since 1.0.0
    */
   gender?: string;
 
   /**
-   * 省份
+   * 省份 支付宝没有
    *
    * @since 1.0.0
    */
   province?: string;
 
   /**
-   * 城市
+   * 城市 支付宝没有
    *
    * @since 1.0.0
    */
@@ -213,41 +213,4 @@ export interface VideoStyle extends ShareStyle {
    * @since 1.0.0
    */
   description?: string;
-}
-
-export interface ShareResult {
-  /**
-   * 返回成功失败
-   *
-   * @since 1.0.0
-   */
-  value?: boolean;
-
-  /**
-   * 返回状态码  value = false时 使用
-   * -1 是错误 1 是取消
-   *
-   * @since 1.0.0
-   */
-  code?: string;
-}
-
-/**
- * -----------------------------------------------------------------------------
- */
-
-
-export interface PayResult {
-  /**
-   * 返回成功失败
-   *
-   * @since 1.0.0
-   */
-  value?: boolean;
-  /**
-   * 返回状态码  value = false时 使用
-   *
-   * @since 1.0.0
-   */
-  code?: string;
 }

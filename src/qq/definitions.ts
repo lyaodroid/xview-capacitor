@@ -1,33 +1,19 @@
-import { LoginResult, ShareMedia, ShareResult } from "../common";
+import { LoginResult, ShareMedia } from "../common";
 
 export interface QQPlugin {
   /**
-   * qq 登录
+   * qq 登录 应用 appId 应用 appKey
    *
    * @since 1.0.0
    */
-  login(options: QQLoginOptions): Promise<LoginResult>;
+  login(options: { appId: string; appKey: string }): Promise<LoginResult>;
 
   /**
-   * qq 分享
+   * qq 分享 catch (error) error.code == "1" 取消分享
+   * 分享失败 状态码 查文档
    *
    * @since 1.0.0
    */
-  share(options: ShareMedia): Promise<ShareResult>;
-}
 
-export interface QQLoginOptions {
-  /**
-   * 应用 appId
-   *
-   * @since 1.0.0
-   */
-  appId: string;
-
-  /**
-   * 应用 appKey
-   *
-   * @since 1.0.0
-   */
-  appKey: string;
+  share(options: ShareMedia): Promise<void>;
 }

@@ -1,33 +1,32 @@
 import type { PluginListenerHandle } from "@capacitor/core";
 
-import {
-  LoginResult,
-  ShareMedia,
-  ShareResult,
-  PayResult,
-} from "../common";
+import { LoginResult, ShareMedia } from "../common";
 
 export interface WeChatPlugin {
   /**
-   * 微信 登录
+   * 微信 登录 应用 appId 应用 appKey
    *
    * @since 1.0.0
    */
-  login(options: WeChatLoginOptions): Promise<LoginResult>;
+  login(options: { appId: string; appKey: string }): Promise<LoginResult>;
 
   /**
-   * 微信 分享
+   * 微信 分享 catch (error) error.code == "1" 取消分享
+   * 分享失败 状态码 查文档
    *
    * @since 1.0.0
    */
-  share(options: ShareMedia): Promise<ShareResult>;
+
+  share(options: ShareMedia): Promise<void>;
 
   /**
-   * 微信 支付
+   * 微信 支付 catch (error) error.code == "1" 取消支付
+   * 支付失败 状态码 查文档
    *
    * @since 1.0.0
    */
-  pay(options: WeChatPayOptions): Promise<PayResult>;
+
+  pay(options: WeChatPayOptions): Promise<void>;
 
   /**
    * 微信 拉起小程序
@@ -116,7 +115,6 @@ export interface WeChatPayOptions {
   sign: string;
 }
 
-
 export interface MiniProgramOptions {
   /**
    * 填移动应用(App)的 AppId，非小程序的 AppID
@@ -139,7 +137,7 @@ export interface MiniProgramOptions {
   path: string | "";
 
   /**
-   * 小程序 版本0 正式 ， 1 测试 2 预览版 
+   * 小程序 版本0 正式 ， 1 测试 2 预览版
    *
    * @since 1.0.0
    */

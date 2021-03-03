@@ -1,8 +1,6 @@
 import { WebPlugin } from "@capacitor/core";
 
-import type { ShareOptions, SharePlugin } from "./definitions";
-
-import ShareResult from "./definitions";
+import type { ShareOptions , ShareResult , SharePlugin } from "./definitions";
 
 export class ShareWeb extends WebPlugin implements SharePlugin {
   async share(options: ShareOptions): Promise<ShareResult> {
