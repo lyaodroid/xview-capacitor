@@ -19,6 +19,10 @@ export class AppWeb extends WebPlugin implements AppPlugin {
       false
     );
   }
+  
+  hideApp(): never {
+    throw new Error("Method not implemented.");
+  }
 
   exitApp(): never {
     throw this.unimplemented("Not implemented on web.");

@@ -33,6 +33,9 @@ export * from "./qq/index";
 
 export * from "./wechat/index";
 
+export * from "./push-notifications/index";
+
+
 
 
 

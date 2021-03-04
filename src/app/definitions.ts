@@ -133,6 +133,13 @@ export type BackButtonListener = () => void;
 
 export interface AppPlugin {
   /**
+   * 只是隐藏到后台 而不是 杀死 app
+   *
+   * @since 1.0.0
+   */
+  hideApp(): never;
+
+  /**
    * Force exit the app. This should only be used in conjunction with the `backButton` handler for Android to
    * exit the app when navigation is complete.
    *
