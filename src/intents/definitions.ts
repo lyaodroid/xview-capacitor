@@ -1,4 +1,3 @@
-import { Intents } from ".";
 
 export interface IntentsPlugin {
   /**
