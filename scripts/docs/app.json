@@ -6,6 +6,21 @@
     "tags": [],
     "methods": [
       {
+        "name": "hideApp",
+        "signature": "() => never",
+        "parameters": [],
+        "returns": "never",
+        "tags": [
+          {
+            "name": "since",
+            "text": "1.0.0"
+          }
+        ],
+        "docs": "只是隐藏到后台 而不是 杀死 app",
+        "complexTypes": [],
+        "slug": "hideapp"
+      },
+      {
         "name": "exitApp",
         "signature": "() => never",
         "parameters": [],
