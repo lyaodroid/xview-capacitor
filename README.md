@@ -36,9 +36,11 @@ const checkAppLaunchUrl = async () => {
 
 <docgen-index>
 
+[支付宝插件](./src/alipay/alipay.md)
+
+[微信插件](./src/wechat/wechat.md)
+
+
 </docgen-index>
 
-<docgen-api>
-<!--Update the source file JSDoc comments and rerun docgen to update the docs below-->
 
-</docgen-api>
