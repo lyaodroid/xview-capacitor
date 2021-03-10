@@ -1,28 +1,28 @@
 import { PluginListenerHandle } from "@capacitor/core";
 
-export interface StyleOptions {
+export interface StatusBarStyleOptions {
   /**
    * Style of the text of the status bar.
    *
    * @since 1.0.0
    */
-  style: Style;
+  style: StatusBarStyle;
 }
 
-export enum Style {
+export enum StatusBarStyle {
   /**
    * Light text for dark backgrounds.
    *
    * @since 1.0.0
    */
-  Dark = "DARK",
+  Dark = 'DARK',
 
   /**
    * Dark text for light backgrounds.
    *
    * @since 1.0.0
    */
-  Light = "LIGHT",
+  Light = 'LIGHT',
 
   /**
    * On iOS 13 and newer the style is based on the device appearance.
@@ -33,10 +33,10 @@ export enum Style {
    *
    * @since 1.0.0
    */
-  Default = "DEFAULT",
+  Default = 'DEFAULT',
 }
 
-export interface AnimationOptions {
+export interface StatusBarAnimationOptions {
   /**
    * The type of status bar animation used when showing or hiding.
    *
@@ -44,33 +44,33 @@ export interface AnimationOptions {
    *
    * @since 1.0.0
    */
-  animation: Animation;
+  animation: StatusBarAnimation;
 }
 
-export enum Animation {
+export enum StatusBarAnimation {
   /**
    * No animation during show/hide.
    *
    * @since 1.0.0
    */
-  None = "NONE",
+  None = 'NONE',
 
   /**
    * Slide animation during show/hide.
    *
    * @since 1.0.0
    */
-  Slide = "SLIDE",
+  Slide = 'SLIDE',
 
   /**
    * Fade animation during show/hide.
    *
    * @since 1.0.0
    */
-  Fade = "FADE",
+  Fade = 'FADE',
 }
 
-export interface BackgroundColorOptions {
+export interface StatusBarBackgroundColorOptions {
   /**
    * A hex color to which the status bar color is set.
    *
@@ -81,7 +81,7 @@ export interface BackgroundColorOptions {
   color: string;
 }
 
-export interface StatusBarInfo {
+export interface StatusBarInfoResult {
   /**
    * Whether the status bar is visible or not.
    *
@@ -94,7 +94,7 @@ export interface StatusBarInfo {
    *
    * @since 1.0.0
    */
-  style: Style;
+  style: StatusBarStyle;
 
   /**
    * The current status bar color.
@@ -122,7 +122,7 @@ export interface StatusBarInfo {
   height: number;
 }
 
-export interface SetOverlaysWebViewOptions {
+export interface StatusBarOverlaysWebviewOptions {
   /**
    * Whether to overlay the status bar or not.
    *
@@ -137,7 +137,7 @@ export interface StatusBarPlugin {
    *
    * @since 1.0.0
    */
-  setStyle(options: StyleOptions): Promise<void>;
+  setStyle(options: StatusBarStyleOptions): Promise<void>;
 
   /**
    * Set the background color of the status bar.
@@ -146,28 +146,28 @@ export interface StatusBarPlugin {
    *
    * @since 1.0.0
    */
-  setBackgroundColor(options: BackgroundColorOptions): Promise<void>;
+  setBackgroundColor(options: StatusBarBackgroundColorOptions): Promise<void>;
 
   /**
    * Show the status bar.
    *
    * @since 1.0.0
    */
-  show(options?: AnimationOptions): Promise<void>;
+  show(options?: StatusBarAnimationOptions): Promise<void>;
 
   /**
    * Hide the status bar.
    *
    * @since 1.0.0
    */
-  hide(options?: AnimationOptions): Promise<void>;
+  hide(options?: StatusBarAnimationOptions): Promise<void>;
 
   /**
    * Get info about the current state of the status bar.
    *
    * @since 1.0.0
    */
-  getInfo(): Promise<StatusBarInfo>;
+  getInfo(): Promise<StatusBarInfoResult>;
 
   /**
    * Set whether or not the status bar should overlay the webview to allow usage
@@ -177,7 +177,7 @@ export interface StatusBarPlugin {
    *
    * @since 1.0.0
    */
-  setOverlaysWebView(options: SetOverlaysWebViewOptions): Promise<void>;
+  setOverlaysWebView(options: StatusBarOverlaysWebviewOptions): Promise<void>;
 
   /**
    * 暗黑模式是否开启
@@ -189,45 +189,3 @@ export interface StatusBarPlugin {
     listenerFunc: (args: { value: boolean }) => void
   ): Promise<PluginListenerHandle> & PluginListenerHandle;
 }
-
-/**
- * @deprecated Use `StyleOptions`.
- * @since 1.0.0
- */
-export type StatusBarStyleOptions = StyleOptions;
-
-/**
- * @deprecated Use `BackgroundColorOptions`.
- * @since 1.0.0
- */
-export type StatusBarBackgroundColorOptions = BackgroundColorOptions;
-
-/**
- * @deprecated Use `SetOverlaysWebViewOptions`.
- * @since 1.0.0
- */
-export type StatusBarOverlaysWebviewOptions = SetOverlaysWebViewOptions;
-
-/**
- * @deprecated Use `StatusBarInfo`.
- * @since 1.0.0
- */
-export type StatusBarInfoResult = StatusBarInfo;
-
-/**
- * @deprecated Use `AnimationOptions`.
- * @since 1.0.0
- */
-export type StatusBarAnimationOptions = AnimationOptions;
-
-/**
- * @deprecated Use `Animation`.
- * @since 1.0.0
- */
-export const StatusBarAnimation = Animation;
-
-/**
- * @deprecated Use `Style`.
- * @since 1.0.0
- */
-export const StatusBarStyle = Style;
