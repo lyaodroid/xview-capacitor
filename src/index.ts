@@ -35,6 +35,10 @@ export * from "./wechat/index";
 
 export * from "./push-notifications/index";
 
+export * from "./mobile/index";
+
+export * from "./intents/index";
+
 
 
 
