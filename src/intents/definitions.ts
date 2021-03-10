@@ -1,4 +1,3 @@
-
 export interface IntentsPlugin {
   /**
    * 常用打开一些 设置 和 开关 和 app
@@ -7,6 +6,7 @@ export interface IntentsPlugin {
    */
   startIntent<T>(options: IntentOptions): Promise<T>;
 }
+
 /**
  * callbackCode 必须原生已经定义
  * 如果a action 使用默认值
@@ -19,7 +19,7 @@ export interface IntentsPlugin {
  */
 export interface IntentOptions {
   /**
-   * 处理回调使用
+   * 处理回调使用 如果有值 需要 回调 如果没有
    */
   methodName?: string;
 }
@@ -160,14 +160,16 @@ export class IntentFactory {
   };
 }
 
-export class Test {
-  async main() {
-    let intent = new IntentFactory("android");
-    let result = await Intents.startIntent<CallPhoneResult>(intent.callPhone("123123123"));
-    console.log(result.hello);
-  }
-}
+// export class Test {
+//   async main() {
+//     let intent = new IntentFactory("android");
+//     let result = await Intents.startIntent<CallPhoneResult>(
+//       intent.callPhone("123123123")
+//     );
+//     console.log(result.hello);
+//   }
+// }
 
-export class CallPhoneResult {
-  hello: string;
-}
+// export class CallPhoneResult {
+//   hello: string;
+// }

@@ -180,7 +180,7 @@ export interface StatusBarPlugin {
   setOverlaysWebView(options: StatusBarOverlaysWebviewOptions): Promise<void>;
 
   /**
-   * 暗黑模式是否开启
+   * 暗黑模式是否开启 暂未启用 占坑
    *
    * @since 1.0.0
    */
