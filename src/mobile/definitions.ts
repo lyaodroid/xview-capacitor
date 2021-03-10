@@ -1,6 +1,6 @@
 import { PermissionState } from "@capacitor/core";
 
-export interface MobilePlugin extends Plugin {
+export interface MobilePlugin {
   /**
    * 检查通知是否 打开 推送使用
    *
@@ -13,14 +13,14 @@ export interface MobilePlugin extends Plugin {
    *
    * @since 1.0.0
    */
-  openNotification(options?: any):void;
+  openNotification(options?: any): void;
   /**
-   * 检查位置是否打开
+   * 检查位置是否打开 定位使用
    *
    * @since 1.0.0
    */
   isLocationServiceEnabled(options?: any): Promise<{ value: boolean }>;
-  
+
   /**
    * 打开定位总开关
    *
@@ -47,7 +47,7 @@ export interface MobilePlugin extends Plugin {
   toPermissionSetting(options?: any): Promise<void>;
 
   /**
-   * 获取手机上所有APP 是否过滤掉系统APP 
+   * 获取手机上所有APP 是否过滤掉系统APP
    * 暂未使用 可能需要iOS 统一
    *
    * @since 1.0.0
@@ -58,7 +58,8 @@ export interface MobilePlugin extends Plugin {
    * 判断 应用是否安装
    * Android {包名 appID / packageName}
    * ios { bundleId 可能需要 提前配置 到 plist文件 中}
-   * @param options
+   * 
+   * @since 1.0.0
    */
   isAppInstalled(options?: any): Promise<{ value: boolean }>;
 

@@ -1,10 +1,8 @@
-import { registerPlugin } from '@capacitor/core';
+import { registerPlugin } from "@capacitor/core";
 
-import type { AppLauncherPlugin } from './definitions';
+import type { MobilePlugin } from "./definitions";
 
-const AppLauncher = registerPlugin<AppLauncherPlugin>('AppLauncher', {
-  web: () => import('./web').then(m => new m.AppLauncherWeb()),
-});
+const Mobile = registerPlugin<MobilePlugin>("Mobile");
 
-export * from './definitions';
-export { AppLauncher };
+export * from "./definitions";
+export { Mobile };
