@@ -36,7 +36,7 @@ export interface MobilePlugin {
    *
    * @since 1.0.0
    */
-  requestPermissions(permissions: any[]): Promise<PermissionState>;
+  requestPermissions(permissions: any): Promise<PermissionState>;
 
   /**
    * 如果权限被拒绝不再询问 提示 必须跳转系统设置去开启，检查同 通知一样

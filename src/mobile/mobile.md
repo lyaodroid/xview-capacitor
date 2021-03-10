@@ -71,7 +71,7 @@ openNotification(options?: any) => void
 isLocationServiceEnabled(options?: any) => Promise<{ value: boolean; }>
 ```
 
-检查位置是否打开
+检查位置是否打开 定位使用
 
 | Param         | Type             |
 | ------------- | ---------------- |
@@ -104,7 +104,7 @@ openLocationService(options?: any) => void
 ### requestPermissions(...)
 
 ```typescript
-requestPermissions(permissions: any[]) => Promise<PermissionState>
+requestPermissions(permissions: any) => Promise<PermissionState>
 ```
 
 为了兼容老项目中 请求权限方法
@@ -112,9 +112,9 @@ requestPermissions(permissions: any[]) => Promise<PermissionState>
 执行相同的逻辑
 检查权限 通过代码动态检查
 
-| Param             | Type               |
-| ----------------- | ------------------ |
-| **`permissions`** | <code>any[]</code> |
+| Param             | Type             |
+| ----------------- | ---------------- |
+| **`permissions`** | <code>any</code> |
 
 **Returns:** <code>Promise&lt;<a href="#permissionstate">PermissionState</a>&gt;</code>
 

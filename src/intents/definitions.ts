@@ -63,100 +63,100 @@ export class IntentFactory {
   }
 
   public callPhone = (phoneNumber: string): IntentOptions => {
+    let intent = <IntentOptions>{};
     if (this.mPlatform === "android") {
-      let aIntent: AndroidIntent = {
+      intent = <AndroidIntent>{
         data: "tel:" + phoneNumber,
       };
-      return aIntent;
     } else if (this.mPlatform === "ios") {
-      let iIntent: IosIntent = {};
-      return iIntent;
+      intent = <IosIntent>{
+        data: "tel:" + phoneNumber,
+      };
     }
+    return intent;
   };
 
   public sendSMS = (
     phoneNumber: string,
     smsMessage: string
   ): IntentOptions => {
+    let intent = <IntentOptions>{};
     if (this.mPlatform === "android") {
-      let aIntent: AndroidIntent = {
+      intent = <AndroidIntent>{
         data: "smsto:" + phoneNumber,
         extras: { sms_body: smsMessage },
       };
-      return aIntent;
     } else if (this.mPlatform === "ios") {
-      let iIntent: IosIntent = {};
-      return iIntent;
+      intent = <IosIntent>{};
     }
+    return intent;
   };
 
   public sendEmail = (email: string): IntentOptions => {
+    let intent = <IntentOptions>{};
     if (this.mPlatform === "android") {
-      let aIntent: AndroidIntent = {
+      intent = <AndroidIntent>{
         data: "mailto:" + email,
       };
-      return aIntent;
     } else if (this.mPlatform === "ios") {
-      let iIntent: IosIntent = {};
-      return iIntent;
+      intent = <IosIntent>{};
     }
+    return intent;
   };
 
   public talkQQ = (qq: string): IntentOptions => {
+    let intent = <IntentOptions>{};
     if (this.mPlatform === "android") {
-      let aIntent: AndroidIntent = {
+      intent = <AndroidIntent>{
         data: "mqqwpa://im/chat?chat_type=wpa&uin=" + qq,
       };
-      return aIntent;
     } else if (this.mPlatform === "ios") {
-      let iIntent: IosIntent = {};
-      return iIntent;
+      intent = <IosIntent>{};
     }
+    return intent;
   };
 
   public openAmap = (url: string): IntentOptions => {
+    let intent = <IntentOptions>{};
     if (this.mPlatform === "android") {
-      let aIntent: AndroidIntent = {
+      intent = <AndroidIntent>{
         data: url,
         packageName: "com.autonavi.minimap",
       };
-      return aIntent;
     } else if (this.mPlatform === "ios") {
-      let iIntent: IosIntent = {};
-      return iIntent;
+      intent = <IosIntent>{};
     }
+    return intent;
   };
 
   public openBmap = (url: string): IntentOptions => {
+    let intent = <IntentOptions>{};
     if (this.mPlatform === "android") {
-      let aIntent: AndroidIntent = {
+      intent = <AndroidIntent>{
         data: url,
         packageName: "com.baidu.BaiduMap",
       };
-      return aIntent;
     } else if (this.mPlatform === "ios") {
-      let iIntent: IosIntent = {};
-      return iIntent;
+      intent = <IosIntent>{};
     }
+    return intent;
   };
 
   public openAppleMap = (url: string): IntentOptions => {
-    if (this.mPlatform === "ios") {
-      let iIntent: IosIntent = {};
-      return iIntent;
-    }
+    let iIntent: IosIntent = {data:url};
+    return iIntent;
   };
 
   public openAppSetting = (setting?: string): IntentOptions => {
+    let intent = <IntentOptions>{};
     if (this.mPlatform === "android") {
-      let aIntent: AndroidIntent = {
+      intent = <AndroidIntent>{
         action: setting || "android.settings.SETTINGS",
       };
-      return aIntent;
     } else if (this.mPlatform === "ios") {
-      let iIntent: IosIntent = {};
-      return iIntent;
+      intent = <IosIntent>{};
     }
+    return intent;
   };
 }
 

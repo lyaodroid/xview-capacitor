@@ -64,7 +64,7 @@
             "text": "1.0.0"
           }
         ],
-        "docs": "检查位置是否打开",
+        "docs": "检查位置是否打开 定位使用",
         "complexTypes": [],
         "slug": "islocationserviceenabled"
       },
@@ -91,12 +91,12 @@
       },
       {
         "name": "requestPermissions",
-        "signature": "(permissions: any[]) => Promise<PermissionState>",
+        "signature": "(permissions: any) => Promise<PermissionState>",
         "parameters": [
           {
             "name": "permissions",
             "docs": "",
-            "type": "any[]"
+            "type": "any"
           }
         ],
         "returns": "Promise<PermissionState>",
