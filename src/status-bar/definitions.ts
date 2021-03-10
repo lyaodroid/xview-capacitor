@@ -1,3 +1,5 @@
+import { PluginListenerHandle } from "@capacitor/core";
+
 export interface StyleOptions {
   /**
    * Style of the text of the status bar.
@@ -13,14 +15,14 @@ export enum Style {
    *
    * @since 1.0.0
    */
-  Dark = 'DARK',
+  Dark = "DARK",
 
   /**
    * Dark text for light backgrounds.
    *
    * @since 1.0.0
    */
-  Light = 'LIGHT',
+  Light = "LIGHT",
 
   /**
    * On iOS 13 and newer the style is based on the device appearance.
@@ -31,7 +33,7 @@ export enum Style {
    *
    * @since 1.0.0
    */
-  Default = 'DEFAULT',
+  Default = "DEFAULT",
 }
 
 export interface AnimationOptions {
@@ -51,21 +53,21 @@ export enum Animation {
    *
    * @since 1.0.0
    */
-  None = 'NONE',
+  None = "NONE",
 
   /**
    * Slide animation during show/hide.
    *
    * @since 1.0.0
    */
-  Slide = 'SLIDE',
+  Slide = "SLIDE",
 
   /**
    * Fade animation during show/hide.
    *
    * @since 1.0.0
    */
-  Fade = 'FADE',
+  Fade = "FADE",
 }
 
 export interface BackgroundColorOptions {
@@ -111,6 +113,13 @@ export interface StatusBarInfo {
    * @since 1.0.0
    */
   overlays?: boolean;
+
+  /**
+   * 状态栏高度 由于系统 转换机制 原因会有一定偏差 不可以 计算 位置使用
+   *
+   * @since 1.0.0
+   */
+  height: number;
 }
 
 export interface SetOverlaysWebViewOptions {
@@ -169,6 +178,16 @@ export interface StatusBarPlugin {
    * @since 1.0.0
    */
   setOverlaysWebView(options: SetOverlaysWebViewOptions): Promise<void>;
+
+  /**
+   * 暗黑模式是否开启
+   *
+   * @since 1.0.0
+   */
+  addListener(
+    eventName: "darkModeStateChanged",
+    listenerFunc: (args: { value: boolean }) => void
+  ): Promise<PluginListenerHandle> & PluginListenerHandle;
 }
 
 /**
