@@ -9,7 +9,6 @@ type HttpResponseType =
   | "document";
 
 export interface HttpPlugin {
-
   request(options: HttpOptions): Promise<HttpResponse>;
 
   get(options: HttpOptions): Promise<HttpResponse>;
@@ -30,18 +29,21 @@ export interface HttpPlugin {
   patch(options: HttpOptions): Promise<HttpResponse>;
   del(options: HttpOptions): Promise<HttpResponse>;
 
-  setCookie(options: {key: string, value: any, options?: HttpCookieOptions}): Promise<void>;
-  getCookie(options:{key: string}): Promise<HttpCookie>;
+  setCookie(options: {
+    key: string;
+    value: any;
+    options?: HttpCookieOptions;
+  }): Promise<void>;
+  getCookie(options: { key: string }): Promise<HttpCookie>;
   getCookies(): Promise<HttpGetCookiesResult>;
   getCookiesMap(): Promise<HttpCookieMap>;
   clearCookies(): Promise<void>;
-  deleteCookie(options:{key: string}): Promise<void>;
+  deleteCookie(options: { key: string }): Promise<void>;
 
   uploadFile(options: HttpUploadFileOptions): Promise<HttpResponse>;
   downloadFile(
     options: HttpDownloadFileOptions
   ): Promise<HttpDownloadFileResult>;
-
 }
 
 export type HttpProgressCallback = (
@@ -50,8 +52,25 @@ export type HttpProgressCallback = (
 ) => void;
 
 export interface HttpOptions {
+  /**
+   * 请求接口地址 注意 https 问题
+   * 只有 post 和 get uploadFiles 支持
+   *
+   * @since 1.0.0
+   */
   url: string;
-  method?: string;
+
+  /**
+   * 
+   */
+  method?:
+    | "GET"
+    | "POST"
+    | "PUT"
+    | "PATCH"
+    | "HEAD"
+    | "DELETE"
+    | "OPTIONS";
   params?: HttpParams;
 
   /**
@@ -145,13 +164,13 @@ export interface HttpCookie {
 }
 
 export interface HttpCookieMap {
-  [key: string]: any
+  [key: string]: any;
 }
 
 export interface HttpCookieOptions {
-  url?: string
-  path?: string
-  expires?: string
+  url?: string;
+  path?: string;
+  expires?: string;
 }
 
 export interface HttpGetCookiesResult {
