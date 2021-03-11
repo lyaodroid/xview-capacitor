@@ -61,9 +61,9 @@ export interface HttpOptions {
   url: string;
 
   /**
-   * 
+   *
    */
-  method?:
+  method?:string
     | "GET"
     | "POST"
     | "PUT"
@@ -71,6 +71,7 @@ export interface HttpOptions {
     | "HEAD"
     | "DELETE"
     | "OPTIONS";
+    
   params?: HttpParams;
 
   /**
