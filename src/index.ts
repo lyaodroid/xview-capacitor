@@ -41,6 +41,8 @@ export * from "./intents/index";
 
 export * from "./http/index";
 
+export * from "./update/index";
+
 
 
 

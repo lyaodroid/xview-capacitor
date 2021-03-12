@@ -63,7 +63,8 @@ export interface HttpOptions {
   /**
    *
    */
-  method?:string
+  method?:
+    | string
     | "GET"
     | "POST"
     | "PUT"
@@ -71,7 +72,7 @@ export interface HttpOptions {
     | "HEAD"
     | "DELETE"
     | "OPTIONS";
-    
+
   params?: HttpParams;
 
   /**
@@ -220,9 +221,38 @@ export interface HttpUploadFileResult extends HttpResponse {
 }
 
 export enum HttpState {
+  /**
+   * 回调 开始 一般 用于 showLoading
+   *
+   * @since 1.0.0
+   */
   START = "start",
+
+  /**
+   * 一般 主要 用于 返回当前进度 百分比 fraction
+   *
+   * @since 1.0.0
+   */
   PROGRESS = "progress",
+
+  /**
+   * 回调结束  在  success error 之前 用于 结束 loading
+   *
+   * @since 1.0.0
+   */
   FINISH = "finish",
+
+  /**
+   * 回调成功 状态 注意处理 其它参数
+   *
+   * @since 1.0.0
+   */
   SUCCESS = "success",
+
+  /**
+   * 回调失败 一般 用于错误提示
+   *
+   * @since 1.0.0
+   */
   ERROR = "error",
 }
