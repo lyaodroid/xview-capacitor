@@ -1,0 +1,712 @@
+{
+  "api": {
+    "name": "MediaPlugin",
+    "slug": "mediaplugin",
+    "docs": "",
+    "tags": [],
+    "methods": [
+      {
+        "name": "selectImage",
+        "signature": "(options?: MediaImageOptions) => Promise<{ images: MediaResult[]; }>",
+        "parameters": [
+          {
+            "name": "options",
+            "docs": "",
+            "type": "MediaImageOptions"
+          }
+        ],
+        "returns": "Promise<{ images: MediaResult[]; }>",
+        "tags": [
+          {
+            "name": "since",
+            "text": "1.0.0"
+          }
+        ],
+        "docs": "选择图片 多图选择",
+        "complexTypes": [
+          "MediaResult",
+          "MediaImageOptions"
+        ],
+        "slug": "selectimage"
+      },
+      {
+        "name": "openCamera",
+        "signature": "(options?: MediaImageOptions) => Promise<MediaResult>",
+        "parameters": [
+          {
+            "name": "options",
+            "docs": "",
+            "type": "MediaImageOptions"
+          }
+        ],
+        "returns": "Promise<MediaResult>",
+        "tags": [
+          {
+            "name": "since",
+            "text": "1.0.0"
+          }
+        ],
+        "docs": "拍照 可以 选择是否裁剪",
+        "complexTypes": [
+          "MediaResult",
+          "MediaImageOptions"
+        ],
+        "slug": "opencamera"
+      },
+      {
+        "name": "previewImage",
+        "signature": "(options: any) => Promise<void>",
+        "parameters": [
+          {
+            "name": "options",
+            "docs": "",
+            "type": "any"
+          }
+        ],
+        "returns": "Promise<void>",
+        "tags": [
+          {
+            "name": "since",
+            "text": "1.0.0"
+          }
+        ],
+        "docs": "预览图片 也可以预览一组图片 选择的图片 和网络图片",
+        "complexTypes": [],
+        "slug": "previewimage"
+      },
+      {
+        "name": "saveImage",
+        "signature": "(options?: any) => Promise<any>",
+        "parameters": [
+          {
+            "name": "options",
+            "docs": "",
+            "type": "any"
+          }
+        ],
+        "returns": "Promise<any>",
+        "tags": [
+          {
+            "name": "since",
+            "text": "1.0.0"
+          }
+        ],
+        "docs": "保存图片",
+        "complexTypes": [],
+        "slug": "saveimage"
+      },
+      {
+        "name": "selectVideo",
+        "signature": "(options?: MediaVideoOptions) => Promise<{ videos: MediaResult[]; }>",
+        "parameters": [
+          {
+            "name": "options",
+            "docs": "",
+            "type": "MediaVideoOptions"
+          }
+        ],
+        "returns": "Promise<{ videos: MediaResult[]; }>",
+        "tags": [
+          {
+            "name": "since",
+            "text": "1.0.0"
+          }
+        ],
+        "docs": "选择视频",
+        "complexTypes": [
+          "MediaResult",
+          "MediaVideoOptions"
+        ],
+        "slug": "selectvideo"
+      },
+      {
+        "name": "recordVideo",
+        "signature": "(options?: MediaVideoOptions) => Promise<MediaResult>",
+        "parameters": [
+          {
+            "name": "options",
+            "docs": "",
+            "type": "MediaVideoOptions"
+          }
+        ],
+        "returns": "Promise<MediaResult>",
+        "tags": [
+          {
+            "name": "since",
+            "text": "1.0.0"
+          }
+        ],
+        "docs": "录制视频",
+        "complexTypes": [
+          "MediaResult",
+          "MediaVideoOptions"
+        ],
+        "slug": "recordvideo"
+      },
+      {
+        "name": "previewVideo",
+        "signature": "(options: any) => Promise<void>",
+        "parameters": [
+          {
+            "name": "options",
+            "docs": "",
+            "type": "any"
+          }
+        ],
+        "returns": "Promise<void>",
+        "tags": [
+          {
+            "name": "since",
+            "text": "1.0.0"
+          }
+        ],
+        "docs": "视频预览（本地视频选择后使用版本路径）",
+        "complexTypes": [],
+        "slug": "previewvideo"
+      }
+    ],
+    "properties": []
+  },
+  "interfaces": [
+    {
+      "name": "MediaResult",
+      "slug": "mediaresult",
+      "docs": "",
+      "tags": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "base64String",
+          "tags": [
+            {
+              "text": "1.0.0",
+              "name": "since"
+            }
+          ],
+          "docs": "The base64 encoded string representation of the image, if using CameraResultType.Base64.",
+          "complexTypes": [],
+          "type": "string"
+        },
+        {
+          "name": "dataUrl",
+          "tags": [
+            {
+              "text": "1.0.0",
+              "name": "since"
+            }
+          ],
+          "docs": "The url starting with 'data:image/jpeg;base64,' and the base64 encoded string representation of the image, if using CameraResultType.DataUrl.",
+          "complexTypes": [],
+          "type": "string"
+        },
+        {
+          "name": "path",
+          "tags": [
+            {
+              "text": "1.0.0",
+              "name": "since"
+            }
+          ],
+          "docs": "如果类型 为 uri 则不需要base64展示  否则 若只使用 base64String\ndataUrl 展示 与 path 原生上传 结合使用",
+          "complexTypes": [],
+          "type": "string"
+        },
+        {
+          "name": "thumbnailPath",
+          "tags": [
+            {
+              "text": "1.0.0",
+              "name": "since"
+            }
+          ],
+          "docs": "视频缩略图 地址 base64 使用dataUrl png 展示",
+          "complexTypes": [],
+          "type": "number"
+        },
+        {
+          "name": "originalImagePath",
+          "tags": [
+            {
+              "text": "1.0.0",
+              "name": "since"
+            }
+          ],
+          "docs": "只有开启原图 才会有值",
+          "complexTypes": [],
+          "type": "string"
+        },
+        {
+          "name": "webPath",
+          "tags": [
+            {
+              "text": "1.0.0",
+              "name": "since"
+            }
+          ],
+          "docs": "webPath returns a path that can be used to set the src attribute of an image for efficient\nloading and rendering.",
+          "complexTypes": [],
+          "type": "string"
+        },
+        {
+          "name": "exif",
+          "tags": [
+            {
+              "text": "1.0.0",
+              "name": "since"
+            }
+          ],
+          "docs": "Exif data, if any, retrieved from the image or video",
+          "complexTypes": [],
+          "type": "any"
+        },
+        {
+          "name": "format",
+          "tags": [
+            {
+              "text": "1.0.0",
+              "name": "since"
+            }
+          ],
+          "docs": "The format of the image, ex: jpeg, png, gif.\n\niOS and Android only support jpeg.\nWeb supports jpeg and png. gif is only supported if using file input.",
+          "complexTypes": [],
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "name": "MediaImageOptions",
+      "slug": "mediaimageoptions",
+      "docs": "",
+      "tags": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "style",
+          "tags": [
+            {
+              "text": "1.0.0",
+              "name": "since"
+            }
+          ],
+          "docs": "主题样式 根据 APP 主题来",
+          "complexTypes": [],
+          "type": "'WHITE' | 'WECHAT'"
+        },
+        {
+          "name": "resultType",
+          "tags": [
+            {
+              "text": "1.0.0",
+              "name": "since"
+            }
+          ],
+          "docs": "想要返回结果类型",
+          "complexTypes": [
+            "MediaResultType"
+          ],
+          "type": "MediaResultType"
+        },
+        {
+          "name": "quality",
+          "tags": [
+            {
+              "text": "1.0.0",
+              "name": "since"
+            }
+          ],
+          "docs": "The quality of image to return as JPEG, from 0-100\n图片压缩 质量",
+          "complexTypes": [],
+          "type": "number"
+        },
+        {
+          "name": "language",
+          "tags": [
+            {
+              "text": "1.0.0",
+              "name": "since"
+            }
+          ],
+          "docs": "语言显示 0 中文 1 英文",
+          "complexTypes": [],
+          "type": "number"
+        },
+        {
+          "name": "maxSelectNum",
+          "tags": [
+            {
+              "text": "1.0.0",
+              "name": "since"
+            }
+          ],
+          "docs": "最大选择数量",
+          "complexTypes": [],
+          "type": "number"
+        },
+        {
+          "name": "originalImage",
+          "tags": [
+            {
+              "text": "1.0.0",
+              "name": "since"
+            }
+          ],
+          "docs": "是否显示原图",
+          "complexTypes": [],
+          "type": "boolean"
+        },
+        {
+          "name": "compress",
+          "tags": [
+            {
+              "text": "1.0.0",
+              "name": "since"
+            }
+          ],
+          "docs": "是否压缩",
+          "complexTypes": [],
+          "type": "boolean"
+        },
+        {
+          "name": "minimumCompressSize",
+          "tags": [
+            {
+              "text": "1.0.0",
+              "name": "since"
+            }
+          ],
+          "docs": "最小压缩尺寸 单位 kb 默认 150kb 不压缩",
+          "complexTypes": [],
+          "type": "number"
+        },
+        {
+          "name": "enableCrop",
+          "tags": [
+            {
+              "text": "1.0.0",
+              "name": "since"
+            }
+          ],
+          "docs": "是否开启裁剪",
+          "complexTypes": [],
+          "type": "boolean"
+        },
+        {
+          "name": "enableCropOptions",
+          "tags": [
+            {
+              "text": "1.0.0",
+              "name": "since"
+            }
+          ],
+          "docs": "选择头像时 或者其它使用裁剪",
+          "complexTypes": [
+            "EnableCropOptions"
+          ],
+          "type": "EnableCropOptions"
+        },
+        {
+          "name": "saveToGallery",
+          "tags": [
+            {
+              "text": "1.0.0",
+              "name": "since"
+            }
+          ],
+          "docs": "Whether to save the photo to the gallery.\nIf the photo was picked from the gallery, it will only be saved if edited.\nDefault: false 预览 网络图片 是否开启 保存",
+          "complexTypes": [],
+          "type": "boolean"
+        },
+        {
+          "name": "width",
+          "tags": [
+            {
+              "text": "1.0.0",
+              "name": "since"
+            }
+          ],
+          "docs": "The width of the saved image",
+          "complexTypes": [],
+          "type": "number"
+        },
+        {
+          "name": "height",
+          "tags": [
+            {
+              "text": "1.0.0",
+              "name": "since"
+            }
+          ],
+          "docs": "The height of the saved image",
+          "complexTypes": [],
+          "type": "number"
+        },
+        {
+          "name": "correctOrientation",
+          "tags": [
+            {
+              "text": "1.0.0",
+              "name": "since"
+            }
+          ],
+          "docs": "Whether to automatically rotate the image \"up\" to correct for orientation\nin portrait mode\nDefault: true",
+          "complexTypes": [],
+          "type": "boolean"
+        },
+        {
+          "name": "direction",
+          "tags": [
+            {
+              "text": "1.0.0",
+              "name": "since"
+            }
+          ],
+          "docs": "iOS and Web only: The camera direction.\nDefault: CameraDirection.Rear",
+          "complexTypes": [
+            "MediaDirection"
+          ],
+          "type": "MediaDirection"
+        },
+        {
+          "name": "presentationStyle",
+          "tags": [
+            {
+              "text": "1.0.0",
+              "name": "since"
+            }
+          ],
+          "docs": "iOS only: The presentation style of the Camera. Defaults to fullscreen.",
+          "complexTypes": [],
+          "type": "'fullscreen' | 'popover'"
+        },
+        {
+          "name": "webUseInput",
+          "tags": [
+            {
+              "text": "1.0.0",
+              "name": "since"
+            }
+          ],
+          "docs": "Web only: Whether to use the PWA Element experience or file input. The\ndefault is to use PWA Elements if installed and fall back to file input.\nTo always use file input, set this to `true`.\n\nLearn more about PWA Elements: https://capacitorjs.com/docs/pwa-elements",
+          "complexTypes": [],
+          "type": "boolean"
+        }
+      ]
+    },
+    {
+      "name": "EnableCropOptions",
+      "slug": "enablecropoptions",
+      "docs": "裁剪属性\n是否圆形裁剪\n宽高尺寸\n宽高比例",
+      "tags": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "circleCrop",
+          "tags": [],
+          "docs": "",
+          "complexTypes": [],
+          "type": "boolean"
+        },
+        {
+          "name": "cropWidth",
+          "tags": [],
+          "docs": "",
+          "complexTypes": [],
+          "type": "number"
+        },
+        {
+          "name": "cropHeight",
+          "tags": [],
+          "docs": "",
+          "complexTypes": [],
+          "type": "number"
+        },
+        {
+          "name": "aspect_ratio_x",
+          "tags": [],
+          "docs": "",
+          "complexTypes": [],
+          "type": "number"
+        },
+        {
+          "name": "aspect_ratio_y",
+          "tags": [],
+          "docs": "",
+          "complexTypes": [],
+          "type": "number"
+        }
+      ]
+    },
+    {
+      "name": "MediaVideoOptions",
+      "slug": "mediavideooptions",
+      "docs": "",
+      "tags": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "style",
+          "tags": [],
+          "docs": "",
+          "complexTypes": [],
+          "type": "'WHITE' | 'WECHAT'"
+        },
+        {
+          "name": "maxSelectNum",
+          "tags": [
+            {
+              "text": "1.0.0",
+              "name": "since"
+            }
+          ],
+          "docs": "最大选择数量",
+          "complexTypes": [],
+          "type": "number"
+        },
+        {
+          "name": "videoMaxSecond",
+          "tags": [
+            {
+              "text": "1.0.0",
+              "name": "since"
+            }
+          ],
+          "docs": "选择视频 使用 //default 30",
+          "complexTypes": [],
+          "type": "number"
+        },
+        {
+          "name": "videoMinSecond",
+          "tags": [
+            {
+              "text": "1.0.0",
+              "name": "since"
+            }
+          ],
+          "docs": "选择视频 使用  //default 5",
+          "complexTypes": [],
+          "type": "number"
+        },
+        {
+          "name": "thumbnailWidth",
+          "tags": [
+            {
+              "text": "1.0.0",
+              "name": "since"
+            }
+          ],
+          "docs": "视频 返回缩略图的 大小\n默认使用 DataUrl",
+          "complexTypes": [],
+          "type": "number"
+        },
+        {
+          "name": "thumbnailHeight",
+          "tags": [
+            {
+              "text": "1.0.0",
+              "name": "since"
+            }
+          ],
+          "docs": "Height of thumbnail preview",
+          "complexTypes": [],
+          "type": "number"
+        },
+        {
+          "name": "recordVideoMaxSecond",
+          "tags": [
+            {
+              "text": "1.0.0",
+              "name": "since"
+            }
+          ],
+          "docs": "录制使用 最大时长//default 30",
+          "complexTypes": [],
+          "type": "number"
+        },
+        {
+          "name": "recordVideoMinSecond",
+          "tags": [
+            {
+              "text": "1.0.0",
+              "name": "since"
+            }
+          ],
+          "docs": "录制视频 最短时长 //default 5",
+          "complexTypes": [],
+          "type": "number"
+        },
+        {
+          "name": "videoQuality",
+          "tags": [
+            {
+              "text": "1.0.0",
+              "name": "since"
+            }
+          ],
+          "docs": "视频质量 // 0 or 1 default 1",
+          "complexTypes": [],
+          "type": "number"
+        }
+      ]
+    }
+  ],
+  "enums": [
+    {
+      "name": "MediaResultType",
+      "slug": "mediaresulttype",
+      "members": [
+        {
+          "name": "Uri",
+          "value": "\"uri\"",
+          "tags": [
+            {
+              "text": "1.0.0",
+              "name": "since"
+            }
+          ],
+          "docs": "原生 文件地址 给 原生 使用 一般用于 使用 原生 http 上传"
+        },
+        {
+          "name": "Base64",
+          "value": "\"base64\"",
+          "tags": [
+            {
+              "text": "1.0.0",
+              "name": "since"
+            }
+          ],
+          "docs": "base64 值 直接 可以 前端保存到服务器\n  不带前缀"
+        },
+        {
+          "name": "DataUrl",
+          "value": "\"dataUrl\"",
+          "tags": [
+            {
+              "text": "1.0.0",
+              "name": "since"
+            }
+          ],
+          "docs": "带前缀的 base64值  可以用于前端直接展示 使用"
+        }
+      ]
+    },
+    {
+      "name": "MediaDirection",
+      "slug": "mediadirection",
+      "members": [
+        {
+          "name": "Rear",
+          "value": "\"REAR\"",
+          "tags": [],
+          "docs": ""
+        },
+        {
+          "name": "Front",
+          "value": "\"FRONT\"",
+          "tags": [],
+          "docs": ""
+        }
+      ]
+    }
+  ],
+  "typeAliases": []
+}

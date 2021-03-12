@@ -989,32 +989,57 @@
         {
           "name": "START",
           "value": "\"start\"",
-          "tags": [],
-          "docs": ""
+          "tags": [
+            {
+              "text": "1.0.0",
+              "name": "since"
+            }
+          ],
+          "docs": "回调 开始 一般 用于 showLoading"
         },
         {
           "name": "PROGRESS",
           "value": "\"progress\"",
-          "tags": [],
-          "docs": ""
+          "tags": [
+            {
+              "text": "1.0.0",
+              "name": "since"
+            }
+          ],
+          "docs": "一般 主要 用于 返回当前进度 百分比 fraction"
         },
         {
           "name": "FINISH",
           "value": "\"finish\"",
-          "tags": [],
-          "docs": ""
+          "tags": [
+            {
+              "text": "1.0.0",
+              "name": "since"
+            }
+          ],
+          "docs": "回调结束  在  success error 之前 用于 结束 loading"
         },
         {
           "name": "SUCCESS",
           "value": "\"success\"",
-          "tags": [],
-          "docs": ""
+          "tags": [
+            {
+              "text": "1.0.0",
+              "name": "since"
+            }
+          ],
+          "docs": "回调成功 状态 注意处理 其它参数"
         },
         {
           "name": "ERROR",
           "value": "\"error\"",
-          "tags": [],
-          "docs": ""
+          "tags": [
+            {
+              "text": "1.0.0",
+              "name": "since"
+            }
+          ],
+          "docs": "回调失败 一般 用于错误提示"
         }
       ]
     }
