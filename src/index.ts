@@ -43,6 +43,8 @@ export * from "./http/index";
 
 export * from "./update/index";
 
+export * from "./media/index";
+
 
 
 
