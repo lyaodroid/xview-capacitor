@@ -45,6 +45,8 @@ export * from "./update/index";
 
 export * from "./media/index";
 
+export * from "./splash-screen/index";
+
 
 
 

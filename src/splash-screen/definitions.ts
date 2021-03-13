@@ -1,6 +1,8 @@
 /// <reference types="@capacitor/cli" />
 
-declare module '@capacitor/cli' {
+import { PluginListenerHandle } from "@capacitor/core";
+
+declare module "@capacitor/cli" {
   export interface PluginsConfig {
     SplashScreen?: {
       /**
@@ -46,14 +48,14 @@ declare module '@capacitor/cli' {
        * @default FIT_XY
        */
       androidScaleType?:
-        | 'CENTER'
-        | 'CENTER_CROP'
-        | 'CENTER_INSIDE'
-        | 'FIT_CENTER'
-        | 'FIT_END'
-        | 'FIT_START'
-        | 'FIT_XY'
-        | 'MATRIX';
+        | "CENTER"
+        | "CENTER_CROP"
+        | "CENTER_INSIDE"
+        | "FIT_CENTER"
+        | "FIT_END"
+        | "FIT_START"
+        | "FIT_XY"
+        | "MATRIX";
 
       /**
        * Show a loading spinner on the Splash Screen
@@ -69,12 +71,12 @@ declare module '@capacitor/cli' {
        * @default large
        */
       androidSpinnerStyle?:
-        | 'horizontal'
-        | 'small'
-        | 'large'
-        | 'inverse'
-        | 'smallInverse'
-        | 'largeInverse';
+        | "horizontal"
+        | "small"
+        | "large"
+        | "inverse"
+        | "smallInverse"
+        | "largeInverse";
 
       /**
        * Style of the iOS spinner
@@ -84,7 +86,7 @@ declare module '@capacitor/cli' {
        * @since 1.0.0
        * @default large
        */
-      iosSpinnerStyle?: 'large' | 'small';
+      iosSpinnerStyle?: "large" | "small";
 
       /**
        * Color of the spinner in hex format, #RRGGBB or #RRGGBBAA
@@ -167,6 +169,45 @@ export interface SplashScreenPlugin {
    * @since 1.0.0
    */
   hide(options?: HideOptions): Promise<void>;
+
+  /**
+   *  splashScreenResult
+   */
+
+  /**
+   * Listen for changes in the App's active state (whether the app is in the foreground or background)
+   *
+   * @since 1.0.0
+   */
+  addListener(
+    eventName: "splashScreenResult",
+    listenerFunc: SplashListener
+  ): Promise<PluginListenerHandle> & PluginListenerHandle;
+
+  /**
+   * Remove all native listeners for this plugin
+   *
+   * @since 1.0.0
+   */
+  removeAllListeners(): Promise<void>;
+}
+
+export type SplashListener = (event: SplashListenerEvent) => void;
+
+export interface SplashListenerEvent {
+  /**
+   * base64显示广告图
+   *
+   * @since 1.0.0
+   */
+  dataUrl: string;
+  /**
+   *
+   * 接口返回原始参数
+   *
+   * @since 1.0.0
+   */
+  data: any;
 }
 
 /**
