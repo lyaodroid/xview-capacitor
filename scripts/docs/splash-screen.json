@@ -1,0 +1,293 @@
+{
+  "api": {
+    "name": "SplashScreenPlugin",
+    "slug": "splashscreenplugin",
+    "docs": "",
+    "tags": [],
+    "methods": [
+      {
+        "name": "show",
+        "signature": "(options?: ShowOptions) => Promise<void>",
+        "parameters": [
+          {
+            "name": "options",
+            "docs": "",
+            "type": "ShowOptions"
+          }
+        ],
+        "returns": "Promise<void>",
+        "tags": [
+          {
+            "name": "since",
+            "text": "1.0.0"
+          }
+        ],
+        "docs": "Show the splash screen",
+        "complexTypes": [
+          "ShowOptions"
+        ],
+        "slug": "show"
+      },
+      {
+        "name": "hide",
+        "signature": "(options?: HideOptions) => Promise<void>",
+        "parameters": [
+          {
+            "name": "options",
+            "docs": "",
+            "type": "HideOptions"
+          }
+        ],
+        "returns": "Promise<void>",
+        "tags": [
+          {
+            "name": "since",
+            "text": "1.0.0"
+          }
+        ],
+        "docs": "Hide the splash screen",
+        "complexTypes": [
+          "HideOptions"
+        ],
+        "slug": "hide"
+      },
+      {
+        "name": "showGuide",
+        "signature": "(options?: GuideOptions) => Promise<void>",
+        "parameters": [
+          {
+            "name": "options",
+            "docs": "",
+            "type": "GuideOptions"
+          }
+        ],
+        "returns": "Promise<void>",
+        "tags": [
+          {
+            "name": "since",
+            "text": "1.0.0"
+          }
+        ],
+        "docs": "调用引导图 \n\n下载展示时 需要判断",
+        "complexTypes": [
+          "GuideOptions"
+        ],
+        "slug": "showguide"
+      },
+      {
+        "name": "addListener",
+        "signature": "(eventName: \"splashScreenResult\", listenerFunc: SplashListener) => Promise<PluginListenerHandle> & PluginListenerHandle",
+        "parameters": [
+          {
+            "name": "eventName",
+            "docs": "",
+            "type": "'splashScreenResult'"
+          },
+          {
+            "name": "listenerFunc",
+            "docs": "",
+            "type": "SplashListener"
+          }
+        ],
+        "returns": "Promise<PluginListenerHandle> & PluginListenerHandle",
+        "tags": [
+          {
+            "name": "since",
+            "text": "1.0.0"
+          }
+        ],
+        "docs": "此方法 暂时 无法使用 因为交互 白屏问题\nListen for changes in the App's active state (whether the app is in the foreground or background)",
+        "complexTypes": [
+          "PluginListenerHandle",
+          "SplashListener"
+        ],
+        "slug": "addlistenersplashscreenresult-"
+      },
+      {
+        "name": "removeAllListeners",
+        "signature": "() => Promise<void>",
+        "parameters": [],
+        "returns": "Promise<void>",
+        "tags": [
+          {
+            "name": "since",
+            "text": "1.0.0"
+          }
+        ],
+        "docs": "Remove all native listeners for this plugin",
+        "complexTypes": [],
+        "slug": "removealllisteners"
+      }
+    ],
+    "properties": []
+  },
+  "interfaces": [
+    {
+      "name": "ShowOptions",
+      "slug": "showoptions",
+      "docs": "",
+      "tags": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "autoHide",
+          "tags": [
+            {
+              "text": "1.0.0",
+              "name": "since"
+            }
+          ],
+          "docs": "Whether to auto hide the splash after showDuration",
+          "complexTypes": [],
+          "type": "boolean"
+        },
+        {
+          "name": "fadeInDuration",
+          "tags": [
+            {
+              "text": "1.0.0",
+              "name": "since"
+            },
+            {
+              "text": "200",
+              "name": "default"
+            }
+          ],
+          "docs": "How long (in ms) to fade in.",
+          "complexTypes": [],
+          "type": "number"
+        },
+        {
+          "name": "fadeOutDuration",
+          "tags": [
+            {
+              "text": "1.0.0",
+              "name": "since"
+            },
+            {
+              "text": "200",
+              "name": "default"
+            }
+          ],
+          "docs": "How long (in ms) to fade out.",
+          "complexTypes": [],
+          "type": "number"
+        },
+        {
+          "name": "showDuration",
+          "tags": [
+            {
+              "text": "1.0.0",
+              "name": "since"
+            },
+            {
+              "text": "3000",
+              "name": "default"
+            }
+          ],
+          "docs": "How long to show the splash screen when autoHide is enabled (in ms)",
+          "complexTypes": [],
+          "type": "number"
+        }
+      ]
+    },
+    {
+      "name": "HideOptions",
+      "slug": "hideoptions",
+      "docs": "",
+      "tags": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "fadeOutDuration",
+          "tags": [
+            {
+              "text": "1.0.0",
+              "name": "since"
+            },
+            {
+              "text": "200",
+              "name": "default"
+            }
+          ],
+          "docs": "How long (in ms) to fade out.",
+          "complexTypes": [],
+          "type": "number"
+        }
+      ]
+    },
+    {
+      "name": "GuideOptions",
+      "slug": "guideoptions",
+      "docs": "",
+      "tags": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "androidGuideScreen",
+          "tags": [
+            {
+              "text": "1.0.0",
+              "name": "since"
+            }
+          ],
+          "docs": "android 动态配置 几张引导图",
+          "complexTypes": [],
+          "type": "string[]"
+        },
+        {
+          "name": "iosGuideScreen",
+          "tags": [
+            {
+              "text": "1.0.0",
+              "name": "since"
+            }
+          ],
+          "docs": "ios 动态配置 几张引导图",
+          "complexTypes": [],
+          "type": "any"
+        }
+      ]
+    },
+    {
+      "name": "PluginListenerHandle",
+      "slug": "pluginlistenerhandle",
+      "docs": "",
+      "tags": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "remove",
+          "tags": [],
+          "docs": "",
+          "complexTypes": [],
+          "type": "() => void"
+        }
+      ]
+    },
+    {
+      "name": "SplashListenerEvent",
+      "slug": "splashlistenerevent",
+      "docs": "",
+      "tags": [],
+      "methods": [],
+      "properties": []
+    }
+  ],
+  "enums": [],
+  "typeAliases": [
+    {
+      "name": "SplashListener",
+      "slug": "splashlistener",
+      "docs": "",
+      "types": [
+        {
+          "text": "(event: SplashListenerEvent): void",
+          "complexTypes": [
+            "SplashListenerEvent"
+          ]
+        }
+      ]
+    }
+  ]
+}
