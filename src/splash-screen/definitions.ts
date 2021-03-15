@@ -175,6 +175,7 @@ export interface SplashScreenPlugin {
    */
 
   /**
+   * 此方法 暂时 无法使用 因为交互 白屏问题
    * Listen for changes in the App's active state (whether the app is in the foreground or background)
    *
    * @since 1.0.0
@@ -196,18 +197,19 @@ export type SplashListener = (event: SplashListenerEvent) => void;
 
 export interface SplashListenerEvent {
   /**
-   * base64显示广告图
-   *
-   * @since 1.0.0
-   */
-  dataUrl: string;
-  /**
-   *
+   * 给前端设计 广告图 参考 
    * 接口返回原始参数
    *
    * @since 1.0.0
    */
-  data: any;
+  data?: any;
+
+  /**
+   * none 点击无反应 close 点击 跳过 关闭  page 跳转页面  url 跳转webview 链接
+   * 
+   * @since 1.0.0
+   */
+  actionType: "none" | "close" | "page" | "url";
 }
 
 /**
