@@ -1,13 +1,19 @@
-import { WebPlugin, PluginListenerHandle } from '@capacitor/core';
+import { WebPlugin, PluginListenerHandle } from "@capacitor/core";
 
 import type {
   HideOptions,
   ShowOptions,
   SplashScreenPlugin,
   SplashListener,
-} from './definitions';
+  GuideOptions,
+} from "./definitions";
 
-export class SplashScreenWeb extends WebPlugin implements SplashScreenPlugin {
+export class SplashScreenWeb
+  extends WebPlugin
+  implements SplashScreenPlugin {
+  showGuide(_options?: GuideOptions | undefined): Promise<void> {
+    throw this.unimplemented("Not implemented on web.");
+  }
   async show(_options?: ShowOptions): Promise<void> {
     return undefined;
   }
