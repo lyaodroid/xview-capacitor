@@ -158,25 +158,40 @@ export interface DevicePlugin {
 }
 
 export interface ScreenRelatedInfo {
+
+  /**
+   * 转换后的 可用宽度 前端可以直接使用
+   * 
+   * @since 1.0.0
+   */
+  width: number;
+
+  /**
+   * 转换后的 可用 高度 前端可以直接使用
+   * 
+   * @since 1.0.0
+   */
+  height: number;
+
   /**
    * 可用的宽度 在原生界面上的像素单位
    *
    * @since 1.0.0
    */
-  widthPixels: number;
+  widthPixels?: number;
 
   /**
    * 可用的高度 在原生界面上的像素单位
    *
    * @since 1.0.0
    */
-  heightPixels: number;
+  heightPixels?: number;
   /**
    * 原生密度值
    *
    * @since 1.0.0
    */
-  density: number;
+  density?: number;
 }
 
 /**
