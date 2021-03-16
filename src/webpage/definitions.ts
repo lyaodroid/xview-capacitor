@@ -55,7 +55,7 @@ export interface WebPagePlugin {
   removeAllListeners(): Promise<void>;
 }
 
-interface OpenOptions extends Dimensions {
+export interface OpenOptions extends Dimensions {
   /**
    * The URL to open the webview to
    */
@@ -65,7 +65,7 @@ interface OpenOptions extends Dimensions {
   injectionTime?: ScriptInjectionTime;
 }
 
-interface Dimensions {
+export interface Dimensions {
   width: number;
   height: number;
   x: number;
