@@ -47,6 +47,8 @@ export * from "./media/index";
 
 export * from "./splash-screen/index";
 
+export * from "./webpage/index";
+
 
 
 
