@@ -45,6 +45,14 @@ export interface WebPagePlugin {
       | "navigationHandler",
     listenerFunc: (...args: any[]) => void
   ): Promise<PluginListenerHandle> & PluginListenerHandle;
+
+
+  /**
+   * Remove all native listeners for this plugin
+   *
+   * @since 1.0.0
+   */
+  removeAllListeners(): Promise<void>;
 }
 
 interface OpenOptions extends Dimensions {
