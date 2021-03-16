@@ -5,6 +5,7 @@ import type {
   DeviceInfo,
   DevicePlugin,
   GetLanguageCodeResult,
+  ScreenRelatedInfo,
 } from './definitions';
 
 declare global {
@@ -21,6 +22,11 @@ declare global {
 }
 
 export class DeviceWeb extends WebPlugin implements DevicePlugin {
+
+  getScreenRelatedInfo(): Promise<ScreenRelatedInfo> {
+    throw new Error("Method not implemented.");
+  }
+
   async getInfo(): Promise<DeviceInfo> {
     if (typeof navigator === 'undefined' || !navigator.userAgent) {
       throw this.unavailable('Device API not available in this browser');

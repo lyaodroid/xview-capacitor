@@ -1,9 +1,13 @@
-
 /**
  * ------------------------------------------------------------------------
  */
 
-export type OperatingSystem = 'ios' | 'android' | 'windows' | 'mac' | 'unknown';
+export type OperatingSystem =
+  | "ios"
+  | "android"
+  | "windows"
+  | "mac"
+  | "unknown";
 
 export interface DeviceInfo {
   /**
@@ -27,7 +31,7 @@ export interface DeviceInfo {
    *
    * @since 1.0.0
    */
-  platform: 'ios' | 'android' | 'web';
+  platform: "ios" | "android" | "web";
 
   /**
    * The UUID of the device as available to the app. This identifier may change
@@ -137,11 +141,42 @@ export interface DevicePlugin {
   getBatteryInfo(): Promise<BatteryInfo>;
 
   /**
+   *
    * Get the device's current language locale code.
    *
    * @since 1.0.0
    */
   getLanguageCode(): Promise<GetLanguageCodeResult>;
+
+  /**
+   *
+   * 可用（并不是 物理尺寸） 显示大小的绝对宽度（以像素为单位）。可用显示大小的绝对高度（以像素为单位）屏幕密度表示为每英寸点数。显示器的逻辑密度。显示屏上显示的字体缩放系数。
+   *
+   * @since 1.0.0
+   */
+  getScreenRelatedInfo(): Promise<ScreenRelatedInfo>;
+}
+
+export interface ScreenRelatedInfo {
+  /**
+   * 可用的宽度 在原生界面上的像素单位
+   *
+   * @since 1.0.0
+   */
+  widthPixels: number;
+
+  /**
+   * 可用的高度 在原生界面上的像素单位
+   *
+   * @since 1.0.0
+   */
+  heightPixels: number;
+  /**
+   * 原生密度值
+   *
+   * @since 1.0.0
+   */
+  density: number;
 }
 
 /**

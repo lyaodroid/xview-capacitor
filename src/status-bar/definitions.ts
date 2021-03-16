@@ -15,14 +15,14 @@ export enum StatusBarStyle {
    *
    * @since 1.0.0
    */
-  Dark = 'DARK',
+  Dark = "DARK",
 
   /**
    * Dark text for light backgrounds.
    *
    * @since 1.0.0
    */
-  Light = 'LIGHT',
+  Light = "LIGHT",
 
   /**
    * On iOS 13 and newer the style is based on the device appearance.
@@ -33,7 +33,7 @@ export enum StatusBarStyle {
    *
    * @since 1.0.0
    */
-  Default = 'DEFAULT',
+  Default = "DEFAULT",
 }
 
 export interface StatusBarAnimationOptions {
@@ -53,21 +53,21 @@ export enum StatusBarAnimation {
    *
    * @since 1.0.0
    */
-  None = 'NONE',
+  None = "NONE",
 
   /**
    * Slide animation during show/hide.
    *
    * @since 1.0.0
    */
-  Slide = 'SLIDE',
+  Slide = "SLIDE",
 
   /**
    * Fade animation during show/hide.
    *
    * @since 1.0.0
    */
-  Fade = 'FADE',
+  Fade = "FADE",
 }
 
 export interface StatusBarBackgroundColorOptions {
@@ -120,6 +120,13 @@ export interface StatusBarInfoResult {
    * @since 1.0.0
    */
   height: number;
+
+  /**
+   * 导航栏 高度 在使用全屏 尺寸 时  高度 应当减去 状态栏 和 导航栏
+   *
+   * @since 1.0.0
+   */
+  navBarHeight: number;
 }
 
 export interface StatusBarOverlaysWebviewOptions {
@@ -146,7 +153,9 @@ export interface StatusBarPlugin {
    *
    * @since 1.0.0
    */
-  setBackgroundColor(options: StatusBarBackgroundColorOptions): Promise<void>;
+  setBackgroundColor(
+    options: StatusBarBackgroundColorOptions
+  ): Promise<void>;
 
   /**
    * Show the status bar.
@@ -177,7 +186,9 @@ export interface StatusBarPlugin {
    *
    * @since 1.0.0
    */
-  setOverlaysWebView(options: StatusBarOverlaysWebviewOptions): Promise<void>;
+  setOverlaysWebView(
+    options: StatusBarOverlaysWebviewOptions
+  ): Promise<void>;
 
   /**
    * 暗黑模式是否开启 暂未启用 占坑
