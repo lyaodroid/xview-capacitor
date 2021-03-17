@@ -5,13 +5,13 @@
 ## Install
 
 ```bash
-npm install @xview/capacitor
+npm install nativecap
 ```
 
 ## Example
 
 ```typescript
-import { ApWifi } from '@xview/capacitor';
+import { ApWifi } from 'nativecap';
 
     /**
      * 监听 WiFi 下的设备
