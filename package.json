@@ -1,7 +1,7 @@
 {
-  "name": "@xview/capacitor",
+  "name": "nativecap",
   "version": "0.0.1-alpha.9",
-  "description": "前端xviewsdk",
+  "description": "前端 native-sdk",
   "main": "dist/plugin.cjs.js",
   "module": "dist/esm/index.js",
   "types": "dist/esm/index.d.ts",
@@ -39,14 +39,14 @@
   ],
   "repository": {
     "type": "git",
-    "url": "ssh://liuyao@47.98.60.181:29418/~liuyao/front/xviewbrid.git"
+    "url": ""
   },
   "bugs": {
-    "url": "ssh://liuyao@47.98.60.181:29418/~liuyao/front/xviewbrid.git/issues"
+    "url": ""
   },
   "publishConfig": {
-    "access": "public",
-    "registry": "http://47.98.60.181:8324/repository/npm-hosted/"
+    "access": "public"
   },
-  "dependencies": {}
+  "dependencies": {
+  }
 }

@@ -12,9 +12,12 @@ editApiUrl: https://github.com/ionic-team/capacitor-plugins/blob/main/alipay/src
 
 <docgen-index>
 
-* [`login(...)`](#login)
-* [`pay(...)`](#pay)
-* [Interfaces](#interfaces)
+- [*`opendocs.alipay`*](#opendocsalipay)
+  - [API](#api)
+    - [login(...)](#login)
+    - [pay(...)](#pay)
+    - [Interfaces](#interfaces)
+      - [LoginResult](#loginresult)
 
 </docgen-index>
 
@@ -66,7 +69,7 @@ catch (error) error.code == "6001" 支付失败
 
 #### LoginResult
 
-| Prop           | Type                | Description             | Since |
+| Prop           | Type                | Description             | Since |v
 | -------------- | ------------------- | ----------------------- | ----- |
 | **`uid`**      | <code>string</code> | 返回 平台用户信息唯一值.           | 1.0.0 |
 | **`openid`**   | <code>string</code> | 同 uid 一样使用 兼容 其它第三方登录使用 | 1.0.0 |

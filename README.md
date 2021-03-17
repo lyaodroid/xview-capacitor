@@ -1,6 +1,6 @@
 # @xview/capacitor
 
-The App API handles high level App state and events.For example, this API emits events when the app enters and leaves the foreground, handles deeplinks, opens other apps, and manages persisted plugin state.
+ 集合 ionic 官方插件 , 开源插件 , 自定义插件
 
 ## Install
 
@@ -11,25 +11,89 @@ npm install @xview/capacitor
 ## Example
 
 ```typescript
-import { App } from '@xview/capacitor';
+import { ApWifi } from '@xview/capacitor';
 
-App.addListener('appStateChange', ({ isActive }) => {
-  console.log('App state changed. Is active?', isActive);
-});
+    /**
+     * 监听 WiFi 下的设备
+     * 
+     */
+    startListenForApWifi() {
+        ApWifi.addListener("apWifiFindModule", (modules: ApWifiResult) => {
+            console.log("Network status changed", modules);
+        });
+    }
 
-App.addListener('appUrlOpen', data => {
-  console.log('App opened with URL:', data);
-});
+    /**
+     * wifi 连接 上才可以 调用
+     * 配网成功 后 才可以 绑定设备 -------------------------------------------------
+     */
+    async openUdpForApWifi() {
+        try {
+            const result = await ApWifi.openUdp();
+            console.log("openUdpForApWifi result", result);
+        } catch (error) {
+            console.log("openUdpForApWifi error", error);
+        }
+    }
 
-App.addListener('appRestoredResult', data => {
-  console.log('Restored state:', data);
-});
+    /**
+     * 离开页面 时调用 成对使用
+     */
+    async closeUdpForApWifi() {
+        const result = await ApWifi.closeUdp();
+        console.log("closeUdpForApWifi result", result);
+    }
 
-const checkAppLaunchUrl = async () => {
-  const { url } = await App.getLaunchUrl();
+    /**
+     * 打开 udp 后才可以调用
+     * 后面可以增加 超时时间
+     * 现在以默认为主
+     */
+    async findLinkedModuleForApWifi() {
+        const result = await ApWifi.findLinkedModule();
+        console.log("openUdpForApWifi result", result);
+    }
 
-  alert('App opened with URL: ' + url);
-};
+    /**
+     * 与 硬件 交互  不知道 是否需要连接硬件的热点 这个需要 再确认下 ---------------------
+     * 监听 JNI 回调
+     */
+    startListenForCPPlus() {
+        CPPlus.addListener("cppTcpReceived", (data: { value: string }) => {
+            console.log("startListenForCPPlus : ", data.value);
+        });
+    }
+
+    /**
+     * 开启 tcp
+     */
+    async nativeStartTcp(startdata: any) {
+        try {
+            const result = await CPPlus.nativeStart(startdata);
+            console.log("nativeStartTcp result", result);
+        } catch (error) {
+            console.log("nativeStartTcp error", error);
+        }
+    }
+    /**
+     * 发送数据 Tcp
+     */
+    async nativeSendTcp(senddata: any) {
+        try {
+            const result = await CPPlus.nativeSend(senddata);
+            console.log("nativeStopTcp result", result);
+        } catch (error) {
+            console.log("nativeSendTcp error", error);
+        }
+    }
+    /**
+     * 关闭 tcp
+     */
+    async nativeStopTcp() {
+        const result = await CPPlus.nativeStop();
+        console.log("nativeStopTcp result", result);
+    }
+
 ```
 
 ## API
