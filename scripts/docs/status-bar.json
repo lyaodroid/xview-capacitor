@@ -304,6 +304,18 @@
           "docs": "状态栏高度 由于系统 转换机制 原因会有一定偏差 不可以 计算 位置使用",
           "complexTypes": [],
           "type": "number"
+        },
+        {
+          "name": "navBarHeight",
+          "tags": [
+            {
+              "text": "1.0.0",
+              "name": "since"
+            }
+          ],
+          "docs": "导航栏 高度 在使用全屏 尺寸 时  高度 应当减去 状态栏 和 导航栏",
+          "complexTypes": [],
+          "type": "number"
         }
       ]
     },
@@ -352,7 +364,7 @@
       "members": [
         {
           "name": "Dark",
-          "value": "'DARK'",
+          "value": "\"DARK\"",
           "tags": [
             {
               "text": "1.0.0",
@@ -363,7 +375,7 @@
         },
         {
           "name": "Light",
-          "value": "'LIGHT'",
+          "value": "\"LIGHT\"",
           "tags": [
             {
               "text": "1.0.0",
@@ -374,7 +386,7 @@
         },
         {
           "name": "Default",
-          "value": "'DEFAULT'",
+          "value": "\"DEFAULT\"",
           "tags": [
             {
               "text": "1.0.0",
@@ -391,7 +403,7 @@
       "members": [
         {
           "name": "None",
-          "value": "'NONE'",
+          "value": "\"NONE\"",
           "tags": [
             {
               "text": "1.0.0",
@@ -402,7 +414,7 @@
         },
         {
           "name": "Slide",
-          "value": "'SLIDE'",
+          "value": "\"SLIDE\"",
           "tags": [
             {
               "text": "1.0.0",
@@ -413,7 +425,7 @@
         },
         {
           "name": "Fade",
-          "value": "'FADE'",
+          "value": "\"FADE\"",
           "tags": [
             {
               "text": "1.0.0",

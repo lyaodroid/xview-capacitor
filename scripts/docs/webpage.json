@@ -1,0 +1,319 @@
+{
+  "api": {
+    "name": "WebPagePlugin",
+    "slug": "webpageplugin",
+    "docs": "",
+    "tags": [],
+    "methods": [
+      {
+        "name": "open",
+        "signature": "(options: OpenOptions) => Promise<void>",
+        "parameters": [
+          {
+            "name": "options",
+            "docs": "",
+            "type": "OpenOptions"
+          }
+        ],
+        "returns": "Promise<void>",
+        "tags": [],
+        "docs": "Open a webview with the given URL",
+        "complexTypes": [
+          "OpenOptions"
+        ],
+        "slug": "open"
+      },
+      {
+        "name": "close",
+        "signature": "() => Promise<void>",
+        "parameters": [],
+        "returns": "Promise<void>",
+        "tags": [],
+        "docs": "Close an open webview.",
+        "complexTypes": [],
+        "slug": "close"
+      },
+      {
+        "name": "loadUrl",
+        "signature": "(options: { url: string; }) => Promise<void>",
+        "parameters": [
+          {
+            "name": "options",
+            "docs": "",
+            "type": "{ url: string; }"
+          }
+        ],
+        "returns": "Promise<void>",
+        "tags": [],
+        "docs": "Load a url in the webview.",
+        "complexTypes": [],
+        "slug": "loadurl"
+      },
+      {
+        "name": "getSnapshot",
+        "signature": "() => Promise<{ src: string; }>",
+        "parameters": [],
+        "returns": "Promise<{ src: string; }>",
+        "tags": [],
+        "docs": "Get snapshot image",
+        "complexTypes": [],
+        "slug": "getsnapshot"
+      },
+      {
+        "name": "show",
+        "signature": "() => Promise<void>",
+        "parameters": [],
+        "returns": "Promise<void>",
+        "tags": [],
+        "docs": "",
+        "complexTypes": [],
+        "slug": "show"
+      },
+      {
+        "name": "hide",
+        "signature": "() => Promise<void>",
+        "parameters": [],
+        "returns": "Promise<void>",
+        "tags": [],
+        "docs": "",
+        "complexTypes": [],
+        "slug": "hide"
+      },
+      {
+        "name": "toggleFullscreen",
+        "signature": "() => Promise<void>",
+        "parameters": [],
+        "returns": "Promise<void>",
+        "tags": [],
+        "docs": "",
+        "complexTypes": [],
+        "slug": "togglefullscreen"
+      },
+      {
+        "name": "goBack",
+        "signature": "() => Promise<void>",
+        "parameters": [],
+        "returns": "Promise<void>",
+        "tags": [],
+        "docs": "",
+        "complexTypes": [],
+        "slug": "goback"
+      },
+      {
+        "name": "goForward",
+        "signature": "() => Promise<void>",
+        "parameters": [],
+        "returns": "Promise<void>",
+        "tags": [],
+        "docs": "",
+        "complexTypes": [],
+        "slug": "goforward"
+      },
+      {
+        "name": "reload",
+        "signature": "() => Promise<void>",
+        "parameters": [],
+        "returns": "Promise<void>",
+        "tags": [],
+        "docs": "",
+        "complexTypes": [],
+        "slug": "reload"
+      },
+      {
+        "name": "handleNavigationEvent",
+        "signature": "(options: { allow: boolean; }) => Promise<void>",
+        "parameters": [
+          {
+            "name": "options",
+            "docs": "",
+            "type": "{ allow: boolean; }"
+          }
+        ],
+        "returns": "Promise<void>",
+        "tags": [],
+        "docs": "",
+        "complexTypes": [],
+        "slug": "handlenavigationevent"
+      },
+      {
+        "name": "updateDimensions",
+        "signature": "(options: Dimensions) => Promise<void>",
+        "parameters": [
+          {
+            "name": "options",
+            "docs": "",
+            "type": "Dimensions"
+          }
+        ],
+        "returns": "Promise<void>",
+        "tags": [],
+        "docs": "",
+        "complexTypes": [
+          "Dimensions"
+        ],
+        "slug": "updatedimensions"
+      },
+      {
+        "name": "evaluateJavaScript",
+        "signature": "(options: { javascript: string; }) => Promise<{ result: string; }>",
+        "parameters": [
+          {
+            "name": "options",
+            "docs": "",
+            "type": "{ javascript: string; }"
+          }
+        ],
+        "returns": "Promise<{ result: string; }>",
+        "tags": [],
+        "docs": "",
+        "complexTypes": [],
+        "slug": "evaluatejavascript"
+      },
+      {
+        "name": "addListener",
+        "signature": "(eventName: \"pageLoaded\" | \"updateSnapshot\" | \"progress\" | \"navigationHandler\", listenerFunc: (...args: any[]) => void) => Promise<PluginListenerHandle> & PluginListenerHandle",
+        "parameters": [
+          {
+            "name": "eventName",
+            "docs": "",
+            "type": "'pageLoaded' | 'updateSnapshot' | 'progress' | 'navigationHandler'"
+          },
+          {
+            "name": "listenerFunc",
+            "docs": "",
+            "type": "(...args: any[]) => void"
+          }
+        ],
+        "returns": "Promise<PluginListenerHandle> & PluginListenerHandle",
+        "tags": [],
+        "docs": "",
+        "complexTypes": [
+          "PluginListenerHandle"
+        ],
+        "slug": "addlistenerpageloaded--updatesnapshot--progress--navigationhandler-"
+      },
+      {
+        "name": "removeAllListeners",
+        "signature": "() => Promise<void>",
+        "parameters": [],
+        "returns": "Promise<void>",
+        "tags": [
+          {
+            "name": "since",
+            "text": "1.0.0"
+          }
+        ],
+        "docs": "Remove all native listeners for this plugin",
+        "complexTypes": [],
+        "slug": "removealllisteners"
+      }
+    ],
+    "properties": []
+  },
+  "interfaces": [
+    {
+      "name": "OpenOptions",
+      "slug": "openoptions",
+      "docs": "",
+      "tags": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "url",
+          "tags": [],
+          "docs": "The URL to open the webview to",
+          "complexTypes": [],
+          "type": "string"
+        },
+        {
+          "name": "javascript",
+          "tags": [],
+          "docs": "",
+          "complexTypes": [],
+          "type": "string"
+        },
+        {
+          "name": "injectionTime",
+          "tags": [],
+          "docs": "",
+          "complexTypes": [
+            "ScriptInjectionTime"
+          ],
+          "type": "ScriptInjectionTime"
+        }
+      ]
+    },
+    {
+      "name": "Dimensions",
+      "slug": "dimensions",
+      "docs": "",
+      "tags": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "width",
+          "tags": [],
+          "docs": "",
+          "complexTypes": [],
+          "type": "number"
+        },
+        {
+          "name": "height",
+          "tags": [],
+          "docs": "",
+          "complexTypes": [],
+          "type": "number"
+        },
+        {
+          "name": "x",
+          "tags": [],
+          "docs": "",
+          "complexTypes": [],
+          "type": "number"
+        },
+        {
+          "name": "y",
+          "tags": [],
+          "docs": "",
+          "complexTypes": [],
+          "type": "number"
+        }
+      ]
+    },
+    {
+      "name": "PluginListenerHandle",
+      "slug": "pluginlistenerhandle",
+      "docs": "",
+      "tags": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "remove",
+          "tags": [],
+          "docs": "",
+          "complexTypes": [],
+          "type": "() => void"
+        }
+      ]
+    }
+  ],
+  "enums": [
+    {
+      "name": "ScriptInjectionTime",
+      "slug": "scriptinjectiontime",
+      "members": [
+        {
+          "name": "atDocumentStart",
+          "tags": [],
+          "docs": ""
+        },
+        {
+          "name": "atDocumentEnd",
+          "tags": [],
+          "docs": ""
+        }
+      ]
+    }
+  ],
+  "typeAliases": []
+}

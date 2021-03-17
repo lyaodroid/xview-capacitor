@@ -1,0 +1,188 @@
+{
+  "api": {
+    "name": "DeviceInfo",
+    "slug": "deviceinfo",
+    "docs": "",
+    "tags": [],
+    "methods": [],
+    "properties": [
+      {
+        "name": "name",
+        "tags": [
+          {
+            "text": "1.0.0",
+            "name": "since"
+          }
+        ],
+        "docs": "The name of the device. For example, \"John's iPhone\".\n\nThis is only supported on iOS and Android 7.1 or above.",
+        "complexTypes": [],
+        "type": "string"
+      },
+      {
+        "name": "model",
+        "tags": [
+          {
+            "text": "1.0.0",
+            "name": "since"
+          }
+        ],
+        "docs": "The device model. For example, \"iPhone\".",
+        "complexTypes": [],
+        "type": "string"
+      },
+      {
+        "name": "platform",
+        "tags": [
+          {
+            "text": "1.0.0",
+            "name": "since"
+          }
+        ],
+        "docs": "The device platform (lowercase).",
+        "complexTypes": [],
+        "type": "'ios' | 'android' | 'web'"
+      },
+      {
+        "name": "uuid",
+        "tags": [
+          {
+            "text": "1.0.0",
+            "name": "since"
+          }
+        ],
+        "docs": "The UUID of the device as available to the app. This identifier may change\non modern mobile platforms that only allow per-app install UUIDs.",
+        "complexTypes": [],
+        "type": "string"
+      },
+      {
+        "name": "operatingSystem",
+        "tags": [
+          {
+            "text": "1.0.0",
+            "name": "since"
+          }
+        ],
+        "docs": "The operating system of the device.",
+        "complexTypes": [
+          "OperatingSystem"
+        ],
+        "type": "OperatingSystem"
+      },
+      {
+        "name": "osVersion",
+        "tags": [
+          {
+            "text": "1.0.0",
+            "name": "since"
+          }
+        ],
+        "docs": "The version of the device OS.",
+        "complexTypes": [],
+        "type": "string"
+      },
+      {
+        "name": "manufacturer",
+        "tags": [
+          {
+            "text": "1.0.0",
+            "name": "since"
+          }
+        ],
+        "docs": "The manufacturer of the device.",
+        "complexTypes": [],
+        "type": "string"
+      },
+      {
+        "name": "isVirtual",
+        "tags": [
+          {
+            "text": "1.0.0",
+            "name": "since"
+          }
+        ],
+        "docs": "Whether the app is running in a simulator/emulator.",
+        "complexTypes": [],
+        "type": "boolean"
+      },
+      {
+        "name": "memUsed",
+        "tags": [
+          {
+            "text": "1.0.0",
+            "name": "since"
+          }
+        ],
+        "docs": "Approximate memory used by the current app, in bytes. Divide by\n1048576 to get the number of MBs used.",
+        "complexTypes": [],
+        "type": "number"
+      },
+      {
+        "name": "diskFree",
+        "tags": [
+          {
+            "text": "1.0.0",
+            "name": "since"
+          }
+        ],
+        "docs": "How much free disk space is available on the the normal data storage.\npath for the os, in bytes",
+        "complexTypes": [],
+        "type": "number"
+      },
+      {
+        "name": "diskTotal",
+        "tags": [
+          {
+            "text": "1.0.0",
+            "name": "since"
+          }
+        ],
+        "docs": "The total size of the normal data storage path for the OS, in bytes.",
+        "complexTypes": [],
+        "type": "number"
+      },
+      {
+        "name": "webViewVersion",
+        "tags": [
+          {
+            "text": "1.0.0",
+            "name": "since"
+          }
+        ],
+        "docs": "The web view browser version",
+        "complexTypes": [],
+        "type": "string"
+      }
+    ]
+  },
+  "interfaces": [],
+  "enums": [],
+  "typeAliases": [
+    {
+      "name": "OperatingSystem",
+      "slug": "operatingsystem",
+      "docs": "------------------------------------------------------------------------",
+      "types": [
+        {
+          "text": "\"ios\"",
+          "complexTypes": []
+        },
+        {
+          "text": "\"android\"",
+          "complexTypes": []
+        },
+        {
+          "text": "\"windows\"",
+          "complexTypes": []
+        },
+        {
+          "text": "\"mac\"",
+          "complexTypes": []
+        },
+        {
+          "text": "\"unknown\"",
+          "complexTypes": []
+        }
+      ]
+    }
+  ]
+}
