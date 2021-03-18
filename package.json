@@ -1,13 +1,13 @@
 {
   "name": "nativecap",
-  "version": "0.0.2-alpha.9",
+  "version": "0.0.5-alpha.9",
   "description": "前端 native-sdk",
   "main": "dist/plugin.cjs.js",
   "module": "dist/esm/index.js",
   "types": "dist/esm/index.d.ts",
   "unpkg": "dist/plugin.js",
   "scripts": {
-    "copyPlugins": "cp ./src/*/*.md ./scripts/apis/",
+    "publishToNpm": "npm publish",
     "docsPlugins": "ts-node --project scripts/tsconfig.json scripts/plugin-api.ts",
     "build": "npm run clean && tsc && rollup -c rollup.config.js",
     "clean": "rimraf ./dist",
@@ -17,7 +17,6 @@
   "author": "ly",
   "license": "MIT",
   "devDependencies": {
-    "@capacitor/cli": "^3.0.0-alpha.9",
     "@capacitor/core": "^3.0.0-alpha.9",
     "@capacitor/docgen": "0.0.14",
     "@types/jest": "^26.0.15",
@@ -48,5 +47,6 @@
     "access": "public"
   },
   "dependencies": {
+    "@capacitor/core": "^3.0.0-alpha.9"
   }
 }

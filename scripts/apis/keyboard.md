@@ -139,7 +139,7 @@ This method is only supported on iOS.
 ### addListener('keyboardWillShow', ...)
 
 ```typescript
-addListener(eventName: 'keyboardWillShow', listenerFunc: (info: KeyboardInfo) => void) => Promise<PluginListenerHandle> & PluginListenerHandle
+addListener(eventName: "keyboardWillShow", listenerFunc: (info: KeyboardInfo) => void) => Promise<PluginListenerHandle> & PluginListenerHandle
 ```
 
 Listen for when the keyboard is about to be shown.
@@ -159,7 +159,7 @@ Listen for when the keyboard is about to be shown.
 ### addListener('keyboardDidShow', ...)
 
 ```typescript
-addListener(eventName: 'keyboardDidShow', listenerFunc: (info: KeyboardInfo) => void) => Promise<PluginListenerHandle> & PluginListenerHandle
+addListener(eventName: "keyboardDidShow", listenerFunc: (info: KeyboardInfo) => void) => Promise<PluginListenerHandle> & PluginListenerHandle
 ```
 
 Listen for when the keyboard is shown.
@@ -179,7 +179,7 @@ Listen for when the keyboard is shown.
 ### addListener('keyboardWillHide', ...)
 
 ```typescript
-addListener(eventName: 'keyboardWillHide', listenerFunc: () => void) => Promise<PluginListenerHandle> & PluginListenerHandle
+addListener(eventName: "keyboardWillHide", listenerFunc: () => void) => Promise<PluginListenerHandle> & PluginListenerHandle
 ```
 
 Listen for when the keyboard is about to be hidden.
@@ -199,7 +199,7 @@ Listen for when the keyboard is about to be hidden.
 ### addListener('keyboardDidHide', ...)
 
 ```typescript
-addListener(eventName: 'keyboardDidHide', listenerFunc: () => void) => Promise<PluginListenerHandle> & PluginListenerHandle
+addListener(eventName: "keyboardDidHide", listenerFunc: () => void) => Promise<PluginListenerHandle> & PluginListenerHandle
 ```
 
 Listen for when the keyboard is hidden.
@@ -260,6 +260,14 @@ Remove all native listeners for this plugin.
 | **`keyboardHeight`** | <code>number</code> | Height of the heyboard. | 1.0.0 |
 
 
+#### PluginConfigBuild
+
+| Prop         | Type                                                 | Description                                                                            | Default             | Since |
+| ------------ | ---------------------------------------------------- | -------------------------------------------------------------------------------------- | ------------------- | ----- |
+| **`resize`** | <code>'none' \| 'native' \| 'body' \| 'ionic'</code> | Configure the way the app is resized when the Keyboard appears. Only available on iOS. | <code>native</code> | 1.0.0 |
+| **`style`**  | <code>'dark'</code>                                  | Use the dark style keyboard instead of the regular one. Only available on iOS.         |                     | 1.0.0 |
+
+
 ### Enums
 
 
@@ -267,17 +275,17 @@ Remove all native listeners for this plugin.
 
 | Members     | Value                | Description     | Since |
 | ----------- | -------------------- | --------------- | ----- |
-| **`Dark`**  | <code>'DARK'</code>  | Dark keyboard.  | 1.0.0 |
-| **`Light`** | <code>'LIGHT'</code> | Light keyboard. | 1.0.0 |
+| **`Dark`**  | <code>"DARK"</code>  | Dark keyboard.  | 1.0.0 |
+| **`Light`** | <code>"LIGHT"</code> | Light keyboard. | 1.0.0 |
 
 
 #### KeyboardResize
 
 | Members      | Value                 | Description            | Since |
 | ------------ | --------------------- | ---------------------- | ----- |
-| **`Body`**   | <code>'body'</code>   | Resizes the html body. | 1.0.0 |
-| **`Ionic`**  | <code>'ionic'</code>  | Resizes Ionic app      | 1.0.0 |
-| **`Native`** | <code>'native'</code> | Resizes the WebView.   | 1.0.0 |
-| **`None`**   | <code>'none'</code>   | Don't resize anything. | 1.0.0 |
+| **`Body`**   | <code>"body"</code>   | Resizes the html body. | 1.0.0 |
+| **`Ionic`**  | <code>"ionic"</code>  | Resizes Ionic app      | 1.0.0 |
+| **`Native`** | <code>"native"</code> | Resizes the WebView.   | 1.0.0 |
+| **`None`**   | <code>"none"</code>   | Don't resize anything. | 1.0.0 |
 
 </docgen-api>

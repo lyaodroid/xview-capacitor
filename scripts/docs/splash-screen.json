@@ -68,7 +68,7 @@
             "text": "1.0.0"
           }
         ],
-        "docs": "调用引导图 \n\n下载展示时 需要判断",
+        "docs": "调用引导图\n\n下载展示时 需要判断",
         "complexTypes": [
           "GuideOptions"
         ],
@@ -119,7 +119,22 @@
         "slug": "removealllisteners"
       }
     ],
-    "properties": []
+    "properties": [
+      {
+        "name": "pluginConfigBuild",
+        "tags": [
+          {
+            "text": "1.0.0",
+            "name": "since"
+          }
+        ],
+        "docs": "插件在打包时 参数 配置 提示说明说明作用",
+        "complexTypes": [
+          "PluginConfigBuild"
+        ],
+        "type": "PluginConfigBuild"
+      }
+    ]
   },
   "interfaces": [
     {
@@ -272,6 +287,171 @@
       "tags": [],
       "methods": [],
       "properties": []
+    },
+    {
+      "name": "PluginConfigBuild",
+      "slug": "pluginconfigbuild",
+      "docs": "",
+      "tags": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "launchShowDuration",
+          "tags": [
+            {
+              "text": "1.0.0",
+              "name": "since"
+            },
+            {
+              "text": "0",
+              "name": "default"
+            }
+          ],
+          "docs": "How long to show the launch splash screen when autoHide is enabled (in ms)",
+          "complexTypes": [],
+          "type": "number"
+        },
+        {
+          "name": "launchAutoHide",
+          "tags": [
+            {
+              "text": "1.0.0",
+              "name": "since"
+            },
+            {
+              "text": "true",
+              "name": "default"
+            }
+          ],
+          "docs": "Whether to auto hide the splash after launchShowDuration",
+          "complexTypes": [],
+          "type": "boolean"
+        },
+        {
+          "name": "backgroundColor",
+          "tags": [
+            {
+              "text": "1.0.0",
+              "name": "since"
+            }
+          ],
+          "docs": "Color of the background of the Splash Screen in hex format, #RRGGBB or #RRGGBBAA",
+          "complexTypes": [],
+          "type": "string"
+        },
+        {
+          "name": "androidSplashResourceName",
+          "tags": [
+            {
+              "text": "1.0.0",
+              "name": "since"
+            },
+            {
+              "text": "splash",
+              "name": "default"
+            }
+          ],
+          "docs": "Name of the resource to be used as Splash Screen\n\nOnly available on Android",
+          "complexTypes": [],
+          "type": "string"
+        },
+        {
+          "name": "androidScaleType",
+          "tags": [
+            {
+              "text": "1.0.0",
+              "name": "since"
+            },
+            {
+              "text": "FIT_XY",
+              "name": "default"
+            }
+          ],
+          "docs": "The [ImageView.ScaleType](https://developer.android.com/reference/android/widget/ImageView.ScaleType) used to scale\nthe Splash Screen image\n\nOnly available on Android",
+          "complexTypes": [],
+          "type": "'CENTER' | 'CENTER_CROP' | 'CENTER_INSIDE' | 'FIT_CENTER' | 'FIT_END' | 'FIT_START' | 'FIT_XY' | 'MATRIX'"
+        },
+        {
+          "name": "showSpinner",
+          "tags": [
+            {
+              "text": "1.0.0",
+              "name": "since"
+            }
+          ],
+          "docs": "Show a loading spinner on the Splash Screen",
+          "complexTypes": [],
+          "type": "boolean"
+        },
+        {
+          "name": "androidSpinnerStyle",
+          "tags": [
+            {
+              "text": "1.0.0",
+              "name": "since"
+            },
+            {
+              "text": "large",
+              "name": "default"
+            }
+          ],
+          "docs": "Style of the Android spinner",
+          "complexTypes": [],
+          "type": "'horizontal' | 'small' | 'large' | 'inverse' | 'smallInverse' | 'largeInverse'"
+        },
+        {
+          "name": "iosSpinnerStyle",
+          "tags": [
+            {
+              "text": "1.0.0",
+              "name": "since"
+            },
+            {
+              "text": "large",
+              "name": "default"
+            }
+          ],
+          "docs": "Style of the iOS spinner\n\nOnly available on iOS.",
+          "complexTypes": [],
+          "type": "'small' | 'large'"
+        },
+        {
+          "name": "spinnerColor",
+          "tags": [
+            {
+              "text": "1.0.0",
+              "name": "since"
+            }
+          ],
+          "docs": "Color of the spinner in hex format, #RRGGBB or #RRGGBBAA",
+          "complexTypes": [],
+          "type": "string"
+        },
+        {
+          "name": "splashFullScreen",
+          "tags": [
+            {
+              "text": "1.0.0",
+              "name": "since"
+            }
+          ],
+          "docs": "Hide the status bar on the Splash Screen\n\nOnly available on Android",
+          "complexTypes": [],
+          "type": "boolean"
+        },
+        {
+          "name": "splashImmersive",
+          "tags": [
+            {
+              "text": "1.0.0",
+              "name": "since"
+            }
+          ],
+          "docs": "Hide the status bar and the software navigation buttons on the Splash Screen\n\nOnly available on Android",
+          "complexTypes": [],
+          "type": "boolean"
+        }
+      ]
     }
   ],
   "enums": [],

@@ -1,31 +1,5 @@
-/// <reference types="@capacitor/cli" />
-
-import type { PluginListenerHandle } from '@capacitor/core';
-
-declare module '@capacitor/cli' {
-  export interface PluginsConfig {
-    Keyboard?: {
-      /**
-       * Configure the way the app is resized when the Keyboard appears.
-       *
-       * Only available on iOS.
-       *
-       * @since 1.0.0
-       * @default native
-       */
-      resize?: 'none' | 'native' | 'body' | 'ionic';
-
-      /**
-       * Use the dark style keyboard instead of the regular one.
-       *
-       * Only available on iOS.
-       *
-       * @since 1.0.0
-       */
-      style?: 'dark';
-    };
-  }
-}
+import type { PluginListenerHandle } from "@capacitor/core";
+import { PluginConfigBuild } from "./config";
 
 export interface KeyboardInfo {
   /**
@@ -51,14 +25,14 @@ export enum KeyboardStyle {
    *
    * @since 1.0.0
    */
-  Dark = 'DARK',
+  Dark = "DARK",
 
   /**
    * Light keyboard.
    *
    * @since 1.0.0
    */
-  Light = 'LIGHT',
+  Light = "LIGHT",
 }
 
 export interface KeyboardResizeOptions {
@@ -76,31 +50,37 @@ export enum KeyboardResize {
    *
    * @since 1.0.0
    */
-  Body = 'body',
+  Body = "body",
 
   /**
    * Resizes Ionic app
    *
    * @since 1.0.0
    */
-  Ionic = 'ionic',
+  Ionic = "ionic",
 
   /**
    * Resizes the WebView.
    *
    * @since 1.0.0
    */
-  Native = 'native',
+  Native = "native",
 
   /**
    * Don't resize anything.
    *
    * @since 1.0.0
    */
-  None = 'none',
+  None = "none",
 }
 
 export interface KeyboardPlugin {
+  /**
+   * 插件在打包时 参数 配置 提示说明说明作用
+   *
+   * @since 1.0.0
+   */
+  pluginConfigBuild?: PluginConfigBuild;
   /**
    * Show the keyboard. This method is alpha and may have issues.
    *
@@ -160,8 +140,8 @@ export interface KeyboardPlugin {
    * @since 1.0.0
    */
   addListener(
-    eventName: 'keyboardWillShow',
-    listenerFunc: (info: KeyboardInfo) => void,
+    eventName: "keyboardWillShow",
+    listenerFunc: (info: KeyboardInfo) => void
   ): Promise<PluginListenerHandle> & PluginListenerHandle;
 
   /**
@@ -170,8 +150,8 @@ export interface KeyboardPlugin {
    * @since 1.0.0
    */
   addListener(
-    eventName: 'keyboardDidShow',
-    listenerFunc: (info: KeyboardInfo) => void,
+    eventName: "keyboardDidShow",
+    listenerFunc: (info: KeyboardInfo) => void
   ): Promise<PluginListenerHandle> & PluginListenerHandle;
 
   /**
@@ -180,8 +160,8 @@ export interface KeyboardPlugin {
    * @since 1.0.0
    */
   addListener(
-    eventName: 'keyboardWillHide',
-    listenerFunc: () => void,
+    eventName: "keyboardWillHide",
+    listenerFunc: () => void
   ): Promise<PluginListenerHandle> & PluginListenerHandle;
 
   /**
@@ -190,8 +170,8 @@ export interface KeyboardPlugin {
    * @since 1.0.0
    */
   addListener(
-    eventName: 'keyboardDidHide',
-    listenerFunc: () => void,
+    eventName: "keyboardDidHide",
+    listenerFunc: () => void
   ): Promise<PluginListenerHandle> & PluginListenerHandle;
 
   /**

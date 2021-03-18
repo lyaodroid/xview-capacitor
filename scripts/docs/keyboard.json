@@ -125,7 +125,7 @@
       },
       {
         "name": "addListener",
-        "signature": "(eventName: 'keyboardWillShow', listenerFunc: (info: KeyboardInfo) => void) => Promise<PluginListenerHandle> & PluginListenerHandle",
+        "signature": "(eventName: \"keyboardWillShow\", listenerFunc: (info: KeyboardInfo) => void) => Promise<PluginListenerHandle> & PluginListenerHandle",
         "parameters": [
           {
             "name": "eventName",
@@ -154,7 +154,7 @@
       },
       {
         "name": "addListener",
-        "signature": "(eventName: 'keyboardDidShow', listenerFunc: (info: KeyboardInfo) => void) => Promise<PluginListenerHandle> & PluginListenerHandle",
+        "signature": "(eventName: \"keyboardDidShow\", listenerFunc: (info: KeyboardInfo) => void) => Promise<PluginListenerHandle> & PluginListenerHandle",
         "parameters": [
           {
             "name": "eventName",
@@ -183,7 +183,7 @@
       },
       {
         "name": "addListener",
-        "signature": "(eventName: 'keyboardWillHide', listenerFunc: () => void) => Promise<PluginListenerHandle> & PluginListenerHandle",
+        "signature": "(eventName: \"keyboardWillHide\", listenerFunc: () => void) => Promise<PluginListenerHandle> & PluginListenerHandle",
         "parameters": [
           {
             "name": "eventName",
@@ -211,7 +211,7 @@
       },
       {
         "name": "addListener",
-        "signature": "(eventName: 'keyboardDidHide', listenerFunc: () => void) => Promise<PluginListenerHandle> & PluginListenerHandle",
+        "signature": "(eventName: \"keyboardDidHide\", listenerFunc: () => void) => Promise<PluginListenerHandle> & PluginListenerHandle",
         "parameters": [
           {
             "name": "eventName",
@@ -253,7 +253,22 @@
         "slug": "removealllisteners"
       }
     ],
-    "properties": []
+    "properties": [
+      {
+        "name": "pluginConfigBuild",
+        "tags": [
+          {
+            "text": "1.0.0",
+            "name": "since"
+          }
+        ],
+        "docs": "插件在打包时 参数 配置 提示说明说明作用",
+        "complexTypes": [
+          "PluginConfigBuild"
+        ],
+        "type": "PluginConfigBuild"
+      }
+    ]
   },
   "interfaces": [
     {
@@ -338,6 +353,43 @@
           "type": "number"
         }
       ]
+    },
+    {
+      "name": "PluginConfigBuild",
+      "slug": "pluginconfigbuild",
+      "docs": "",
+      "tags": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "resize",
+          "tags": [
+            {
+              "text": "1.0.0",
+              "name": "since"
+            },
+            {
+              "text": "native",
+              "name": "default"
+            }
+          ],
+          "docs": "Configure the way the app is resized when the Keyboard appears.\n\nOnly available on iOS.",
+          "complexTypes": [],
+          "type": "'none' | 'native' | 'body' | 'ionic'"
+        },
+        {
+          "name": "style",
+          "tags": [
+            {
+              "text": "1.0.0",
+              "name": "since"
+            }
+          ],
+          "docs": "Use the dark style keyboard instead of the regular one.\n\nOnly available on iOS.",
+          "complexTypes": [],
+          "type": "'dark'"
+        }
+      ]
     }
   ],
   "enums": [
@@ -347,7 +399,7 @@
       "members": [
         {
           "name": "Dark",
-          "value": "'DARK'",
+          "value": "\"DARK\"",
           "tags": [
             {
               "text": "1.0.0",
@@ -358,7 +410,7 @@
         },
         {
           "name": "Light",
-          "value": "'LIGHT'",
+          "value": "\"LIGHT\"",
           "tags": [
             {
               "text": "1.0.0",
@@ -375,7 +427,7 @@
       "members": [
         {
           "name": "Body",
-          "value": "'body'",
+          "value": "\"body\"",
           "tags": [
             {
               "text": "1.0.0",
@@ -386,7 +438,7 @@
         },
         {
           "name": "Ionic",
-          "value": "'ionic'",
+          "value": "\"ionic\"",
           "tags": [
             {
               "text": "1.0.0",
@@ -397,7 +449,7 @@
         },
         {
           "name": "Native",
-          "value": "'native'",
+          "value": "\"native\"",
           "tags": [
             {
               "text": "1.0.0",
@@ -408,7 +460,7 @@
         },
         {
           "name": "None",
-          "value": "'none'",
+          "value": "\"none\"",
           "tags": [
             {
               "text": "1.0.0",

@@ -100,9 +100,9 @@ import { ApWifi } from 'nativecap';
 
 <docgen-index>
 
-[支付宝插件](./src/alipay/alipay.md)
+[支付宝插件](./scripts/apis/alipay.md)
 
-[微信插件](./src/wechat/wechat.md)
+[微信插件](./scripts/apis/wechat.md)
 
 
 </docgen-index>
