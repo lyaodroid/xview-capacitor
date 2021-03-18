@@ -1,4 +1,4 @@
-# @xview/capacitor
+# @nativecap
 
  集合 ionic 官方插件 , 开源插件 , 自定义插件
 
