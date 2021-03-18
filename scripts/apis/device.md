@@ -24,8 +24,6 @@ editApiUrl: https://github.com/ionic-team/capacitor-plugins/blob/main/device/src
 
 #### OperatingSystem
 
-------------------------------------------------------------------------
-
-<code>"ios" | "android" | "windows" | "mac" | "unknown"</code>
+<code>'ios' | 'android' | 'windows' | 'mac' | 'unknown'</code>
 
 </docgen-api>

@@ -5,7 +5,7 @@ export interface MediaPlugin {
    * @since 1.0.0
    */
   selectImage(
-    options?: MediaImageOptions
+    options: MediaImageOptions
   ): Promise<{ images: MediaResult[] }>;
 
   /**
@@ -13,21 +13,21 @@ export interface MediaPlugin {
    *
    * @since 1.0.0
    */
-  openCamera(options?: MediaImageOptions): Promise<MediaResult>;
+  openCamera(options: MediaImageOptions): Promise<MediaResult>;
 
   /**
    * 预览图片 也可以预览一组图片 选择的图片 和网络图片
    *
    * @since 1.0.0
    */
-  previewImage(options: any): Promise<void>;
+  previewImage(options: MediaImages): Promise<void>;
 
   /**
    * 保存图片
    *
    * @since 1.0.0
    */
-  saveImage(options?: any): Promise<any>;
+  saveImage(options: any): Promise<any>;
 
   /**
    * 选择视频
@@ -35,7 +35,7 @@ export interface MediaPlugin {
    * @since 1.0.0
    */
   selectVideo(
-    options?: MediaVideoOptions
+    options: MediaVideoOptions
   ): Promise<{ videos: MediaResult[] }>;
 
   /**
@@ -43,14 +43,27 @@ export interface MediaPlugin {
    *
    * @since 1.0.0
    */
-  recordVideo(options?: MediaVideoOptions): Promise<MediaResult>;
+  recordVideo(options: MediaVideoOptions): Promise<MediaResult>;
 
   /**
    * 视频预览（本地视频选择后使用版本路径）
    *
    * @since 1.0.0
    */
-  previewVideo(options: any): Promise<void>;
+  previewVideo(options: { path: string }): Promise<void>;
+}
+
+export interface MediaImages {
+  images: MediaImageInfo[];
+}
+
+export interface MediaImageInfo {
+  /**
+   * 可以是 网络 路径  http  或者 选择 文件 的 path
+   *
+   * @since 1.0.0
+   */
+  path: string;
 }
 
 export interface MediaImageOptions {
@@ -302,34 +315,34 @@ export interface MediaVideoOptions {
   /**
    * 视频 返回缩略图的 大小
    * 默认使用 DataUrl
-   * 
+   *
    * @since 1.0.0
    */
   thumbnailWidth?: number;
   /**
    * Height of thumbnail preview
-   * 
+   *
    * @since 1.0.0
    */
   thumbnailHeight?: number;
 
   /**
    * 录制使用 最大时长//default 30
-   * 
+   *
    * @since 1.0.0
    */
   recordVideoMaxSecond?: number;
 
   /**
    * 录制视频 最短时长 //default 5
-   * 
+   *
    * @since 1.0.0
    */
   recordVideoMinSecond?: number;
-  
+
   /**
    * 视频质量 // 0 or 1 default 1
-   * 
+   *
    * @since 1.0.0
    */
   videoQuality?: number;

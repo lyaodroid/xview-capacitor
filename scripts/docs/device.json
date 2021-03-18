@@ -160,26 +160,26 @@
     {
       "name": "OperatingSystem",
       "slug": "operatingsystem",
-      "docs": "------------------------------------------------------------------------",
+      "docs": "",
       "types": [
         {
-          "text": "\"ios\"",
+          "text": "'ios'",
           "complexTypes": []
         },
         {
-          "text": "\"android\"",
+          "text": "'android'",
           "complexTypes": []
         },
         {
-          "text": "\"windows\"",
+          "text": "'windows'",
           "complexTypes": []
         },
         {
-          "text": "\"mac\"",
+          "text": "'mac'",
           "complexTypes": []
         },
         {
-          "text": "\"unknown\"",
+          "text": "'unknown'",
           "complexTypes": []
         }
       ]

@@ -30,7 +30,7 @@ editApiUrl: https://github.com/ionic-team/capacitor-plugins/blob/main/media/src/
 ### selectImage(...)
 
 ```typescript
-selectImage(options?: MediaImageOptions) => Promise<{ images: MediaResult[]; }>
+selectImage(options: MediaImageOptions) => Promise<{ images: MediaResult[]; }>
 ```
 
 选择图片 多图选择
@@ -49,7 +49,7 @@ selectImage(options?: MediaImageOptions) => Promise<{ images: MediaResult[]; }>
 ### openCamera(...)
 
 ```typescript
-openCamera(options?: MediaImageOptions) => Promise<MediaResult>
+openCamera(options: MediaImageOptions) => Promise<MediaResult>
 ```
 
 拍照 可以 选择是否裁剪
@@ -68,14 +68,14 @@ openCamera(options?: MediaImageOptions) => Promise<MediaResult>
 ### previewImage(...)
 
 ```typescript
-previewImage(options: any) => Promise<void>
+previewImage(options: MediaImages) => Promise<void>
 ```
 
 预览图片 也可以预览一组图片 选择的图片 和网络图片
 
-| Param         | Type             |
-| ------------- | ---------------- |
-| **`options`** | <code>any</code> |
+| Param         | Type                                                |
+| ------------- | --------------------------------------------------- |
+| **`options`** | <code><a href="#mediaimages">MediaImages</a></code> |
 
 **Since:** 1.0.0
 
@@ -85,7 +85,7 @@ previewImage(options: any) => Promise<void>
 ### saveImage(...)
 
 ```typescript
-saveImage(options?: any) => Promise<any>
+saveImage(options: any) => Promise<any>
 ```
 
 保存图片
@@ -104,7 +104,7 @@ saveImage(options?: any) => Promise<any>
 ### selectVideo(...)
 
 ```typescript
-selectVideo(options?: MediaVideoOptions) => Promise<{ videos: MediaResult[]; }>
+selectVideo(options: MediaVideoOptions) => Promise<{ videos: MediaResult[]; }>
 ```
 
 选择视频
@@ -123,7 +123,7 @@ selectVideo(options?: MediaVideoOptions) => Promise<{ videos: MediaResult[]; }>
 ### recordVideo(...)
 
 ```typescript
-recordVideo(options?: MediaVideoOptions) => Promise<MediaResult>
+recordVideo(options: MediaVideoOptions) => Promise<MediaResult>
 ```
 
 录制视频
@@ -142,14 +142,14 @@ recordVideo(options?: MediaVideoOptions) => Promise<MediaResult>
 ### previewVideo(...)
 
 ```typescript
-previewVideo(options: any) => Promise<void>
+previewVideo(options: { path: string; }) => Promise<void>
 ```
 
 视频预览（本地视频选择后使用版本路径）
 
-| Param         | Type             |
-| ------------- | ---------------- |
-| **`options`** | <code>any</code> |
+| Param         | Type                           |
+| ------------- | ------------------------------ |
+| **`options`** | <code>{ path: string; }</code> |
 
 **Since:** 1.0.0
 
@@ -210,6 +210,20 @@ previewVideo(options: any) => Promise<void>
 | **`cropHeight`**     | <code>number</code>  |
 | **`aspect_ratio_x`** | <code>number</code>  |
 | **`aspect_ratio_y`** | <code>number</code>  |
+
+
+#### MediaImages
+
+| Prop         | Type                          |
+| ------------ | ----------------------------- |
+| **`images`** | <code>MediaImageInfo[]</code> |
+
+
+#### MediaImageInfo
+
+| Prop       | Type                | Description                    | Since |
+| ---------- | ------------------- | ------------------------------ | ----- |
+| **`path`** | <code>string</code> | 可以是 网络 路径 http 或者 选择 文件 的 path | 1.0.0 |
 
 
 #### MediaVideoOptions

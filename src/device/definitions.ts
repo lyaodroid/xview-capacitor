@@ -1,13 +1,4 @@
-/**
- * ------------------------------------------------------------------------
- */
-
-export type OperatingSystem =
-  | "ios"
-  | "android"
-  | "windows"
-  | "mac"
-  | "unknown";
+export type OperatingSystem = 'ios' | 'android' | 'windows' | 'mac' | 'unknown';
 
 export interface DeviceInfo {
   /**
@@ -31,7 +22,7 @@ export interface DeviceInfo {
    *
    * @since 1.0.0
    */
-  platform: "ios" | "android" | "web";
+  platform: 'ios' | 'android' | 'web';
 
   /**
    * The UUID of the device as available to the app. This identifier may change

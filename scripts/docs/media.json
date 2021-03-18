@@ -7,7 +7,7 @@
     "methods": [
       {
         "name": "selectImage",
-        "signature": "(options?: MediaImageOptions) => Promise<{ images: MediaResult[]; }>",
+        "signature": "(options: MediaImageOptions) => Promise<{ images: MediaResult[]; }>",
         "parameters": [
           {
             "name": "options",
@@ -31,7 +31,7 @@
       },
       {
         "name": "openCamera",
-        "signature": "(options?: MediaImageOptions) => Promise<MediaResult>",
+        "signature": "(options: MediaImageOptions) => Promise<MediaResult>",
         "parameters": [
           {
             "name": "options",
@@ -55,12 +55,12 @@
       },
       {
         "name": "previewImage",
-        "signature": "(options: any) => Promise<void>",
+        "signature": "(options: MediaImages) => Promise<void>",
         "parameters": [
           {
             "name": "options",
             "docs": "",
-            "type": "any"
+            "type": "MediaImages"
           }
         ],
         "returns": "Promise<void>",
@@ -71,12 +71,14 @@
           }
         ],
         "docs": "预览图片 也可以预览一组图片 选择的图片 和网络图片",
-        "complexTypes": [],
+        "complexTypes": [
+          "MediaImages"
+        ],
         "slug": "previewimage"
       },
       {
         "name": "saveImage",
-        "signature": "(options?: any) => Promise<any>",
+        "signature": "(options: any) => Promise<any>",
         "parameters": [
           {
             "name": "options",
@@ -97,7 +99,7 @@
       },
       {
         "name": "selectVideo",
-        "signature": "(options?: MediaVideoOptions) => Promise<{ videos: MediaResult[]; }>",
+        "signature": "(options: MediaVideoOptions) => Promise<{ videos: MediaResult[]; }>",
         "parameters": [
           {
             "name": "options",
@@ -121,7 +123,7 @@
       },
       {
         "name": "recordVideo",
-        "signature": "(options?: MediaVideoOptions) => Promise<MediaResult>",
+        "signature": "(options: MediaVideoOptions) => Promise<MediaResult>",
         "parameters": [
           {
             "name": "options",
@@ -145,12 +147,12 @@
       },
       {
         "name": "previewVideo",
-        "signature": "(options: any) => Promise<void>",
+        "signature": "(options: { path: string; }) => Promise<void>",
         "parameters": [
           {
             "name": "options",
             "docs": "",
-            "type": "any"
+            "type": "{ path: string; }"
           }
         ],
         "returns": "Promise<void>",
@@ -533,6 +535,45 @@
           "docs": "",
           "complexTypes": [],
           "type": "number"
+        }
+      ]
+    },
+    {
+      "name": "MediaImages",
+      "slug": "mediaimages",
+      "docs": "",
+      "tags": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "images",
+          "tags": [],
+          "docs": "",
+          "complexTypes": [
+            "MediaImageInfo"
+          ],
+          "type": "MediaImageInfo[]"
+        }
+      ]
+    },
+    {
+      "name": "MediaImageInfo",
+      "slug": "mediaimageinfo",
+      "docs": "",
+      "tags": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "path",
+          "tags": [
+            {
+              "text": "1.0.0",
+              "name": "since"
+            }
+          ],
+          "docs": "可以是 网络 路径  http  或者 选择 文件 的 path",
+          "complexTypes": [],
+          "type": "string"
         }
       ]
     },
