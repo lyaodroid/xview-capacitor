@@ -7,7 +7,7 @@
   "types": "dist/esm/index.d.ts",
   "unpkg": "dist/plugin.js",
   "scripts": {
-    "publishToNpm": "npm publish",
+    "copy2Demo": "cp ./scripts/apis/*.md /Users/liuyao/Desktop/CapacitorHybrid/frontsdk/ionicX/src/app/apis",
     "docsPlugins": "ts-node --project scripts/tsconfig.json scripts/plugin-api.ts",
     "build": "npm run clean && tsc && rollup -c rollup.config.js",
     "clean": "rimraf ./dist",
