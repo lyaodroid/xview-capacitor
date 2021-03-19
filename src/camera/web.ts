@@ -187,7 +187,3 @@ export class CameraWeb extends WebPlugin implements CameraPlugin {
     throw this.unimplemented("Not implemented on web.");
   }
 }
-
-const Camera = new CameraWeb();
-
-export { Camera };
