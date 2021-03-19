@@ -11,6 +11,7 @@
     "copy2Demo": "cp ./scripts/apis/*.md /Users/liuyao/Desktop/CapacitorHybrid/frontsdk/ionicX/src/app/apis",
     "docsPlugins": "ts-node --project scripts/tsconfig.json scripts/plugin-api.ts",
     "build": "npm run clean && tsc && rollup -c rollup.config.js",
+    "pushnpm": "npm publish",
     "clean": "rimraf ./dist",
     "watch": "tsc --watch",
     "prepublishOnly": "npm run build"
@@ -39,10 +40,11 @@
   ],
   "repository": {
     "type": "git",
-    "url": ""
+    "url": "http://github.com/"
   },
   "bugs": {
-    "url": ""
+    "type": "git",
+    "url": "http://github.com/"
   },
   "publishConfig": {
     "access": "public"

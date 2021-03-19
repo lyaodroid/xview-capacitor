@@ -1,9 +1,3 @@
-## 0.0.7-alpha.9 (2021-03-18)
-
-
-
-## 0.0.7-alpha.9 (2021-03-18)
-
 
 
 # Change Log
@@ -25,3 +19,4 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 * Motion plugin ([#17](https://github.com/)) ([21ace16](https://github.com/))
 
 **Note:** Version bump only for package @capacitor/motion
+clea
