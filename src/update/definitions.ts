@@ -2,12 +2,6 @@ import type { HttpState } from "../http";
 import { PluginListenerHandle } from "@capacitor/core";
 
 export interface UpdatePlugin {
-  /**
-   * 获取原生 App版本信息 注意 Android 与 iOS appId 平台区分
-   *
-   * @since 1.0.0
-   */
-  getAppInfo(): Promise<UpdateAppInfo>;
 
   /**
    * 如果想 监听 下载进度 可以 注册此监听
@@ -99,37 +93,4 @@ export interface UpdateOption {
    * @since 1.0.0
    */
   apkMd5: string;
-}
-
-export interface UpdateAppInfo {
-  /**
-   * ios 平台 bundleId  android 平台 packageName
-   *
-   * @since 1.0.0
-   */
-  appId: string;
-
-  /**
-   * 设备平台 信息 (lowercase).
-   *
-   * @since 1.0.0
-   */
-  platform: "ios" | "android";
-
-  /**
-   * 平台 版本名称  展示 使用
-   *
-   * @since 1.0.0
-   */
-  versionName: string;
-
-  /**
-   * 苹果平台 build
-   * Android 平台是 versionCode
-   *
-   * 版本更新 判断使用
-   *
-   * @since 1.0.0
-   */
-  versionCode: number;
 }
