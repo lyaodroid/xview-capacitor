@@ -100,9 +100,56 @@ import { ApWifi } from 'nativecap';
 
 <docgen-index>
 
-[支付宝插件](./scripts/apis/alipay.md)
 
-[微信插件](./scripts/apis/wechat.md)
+[AliPayPlugin(支付宝 支付 登录)](./scripts/apis/alipay.md)
+
+[AppPlugin(运行状态 返回 退出)](./scripts/apis/app.md)
+
+[AppLauncherPlugin(URL拉起其它App)](./scripts/apis/app-launcher.md)
+
+[AudioPlugin(录音：暂未实现)](./scripts/apis/audio.md)
+
+[CameraPlugin(系统相机)](./scripts/apis/camrea.md)
+
+[ClipboardPlugin(剪切板)](./scripts/apis/clipboard.md)
+
+[DevicePlugin(设备信息)](./scripts/apis/device.md)
+
+[FilesystemPlugin(系统文件)](./scripts/apis/filesystem.md)
+
+[GeolocationPlugin(高德百度定位)](./scripts/apis/geolocation.md)
+
+[HttpPlugin(网络请求)](./scripts/apis/http.md)
+
+[IntentsPlugin(打开 地图 电话 等)](./scripts/apis/intents.md)
+
+[KeyboardPlugin(键盘设置)](./scripts/apis/keyboard.md)
+
+[MediaPlugin(多媒体 拍照 录视频 选择 图片视频)](./scripts/apis/media.md)
+
+[MobilePlugin(基础功能 通知 开关 缓存 APP是否安装)](./scripts/apis/http.md)
+
+[NetworkPlugin(网络状态)](./scripts/apis/network.md)
+
+[PushNotificationsPlugin(推送通知 友盟极光)](./scripts/apis/push-notifications.md)
+
+[QQPlugin(腾讯QQ 登录 分享)](./scripts/apis/qq.md)
+
+[ScannerPlugin(扫一扫 二维码 条形码)](./scripts/apis/scanner.md)
+
+[SharePlugin(系统分享)](./scripts/apis/share.md)
+
+[SpeechPlugin(语音识别：暂未实现)](./scripts/apis/speech.md)
+
+[SplashScreenPlugin(启动图 引导图)](./scripts/apis/splash-screen.md)
+
+[StoragePlugin(数据存储)](./scripts/apis/storage.md)
+
+[UpdatePlugin(版本更新 Android支持)](./scripts/apis/update.md)
+
+[WebPagePlugin(Webview 网址加载)](./scripts/apis/webpage.md)
+
+[WeChatPlugin(微信 支付 登录 分享)](./scripts/apis/webpage.md)
 
 
 </docgen-index>
