@@ -25,6 +25,7 @@ export interface WebPagePlugin {
   hide(): Promise<void>;
 
   toggleFullscreen(): Promise<void>;
+  canGoBack(): Promise<{value: boolean}>;
   goBack(): Promise<void>;
   goForward(): Promise<void>;
   reload(): Promise<void>;
