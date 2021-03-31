@@ -19,13 +19,14 @@ editApiUrl: https://github.com/ionic-team/capacitor-plugins/blob/main/webpage/sr
 * [`show()`](#show)
 * [`hide()`](#hide)
 * [`toggleFullscreen()`](#togglefullscreen)
+* [`canGoBack()`](#cangoback)
 * [`goBack()`](#goback)
 * [`goForward()`](#goforward)
 * [`reload()`](#reload)
 * [`handleNavigationEvent(...)`](#handlenavigationevent)
 * [`updateDimensions(...)`](#updatedimensions)
 * [`evaluateJavaScript(...)`](#evaluatejavascript)
-* [`addListener('pageLoaded' | 'updateSnapshot' | 'progress' | 'navigationHandler', ...)`](#addlistenerpageloaded--updatesnapshot--progress--navigationhandler-)
+* [`addListener('title' | 'pageLoaded' | 'updateSnapshot' | 'progress' | 'navigationHandler', ...)`](#addlistenertitle--pageloaded--updatesnapshot--progress--navigationhandler-)
 * [`removeAllListeners()`](#removealllisteners)
 * [Interfaces](#interfaces)
 * [Enums](#enums)
@@ -116,6 +117,17 @@ toggleFullscreen() => Promise<void>
 --------------------
 
 
+### canGoBack()
+
+```typescript
+canGoBack() => Promise<{ value: boolean; }>
+```
+
+**Returns:** <code>Promise&lt;{ value: boolean; }&gt;</code>
+
+--------------------
+
+
 ### goBack()
 
 ```typescript
@@ -184,16 +196,16 @@ evaluateJavaScript(options: { javascript: string; }) => Promise<{ result: string
 --------------------
 
 
-### addListener('pageLoaded' | 'updateSnapshot' | 'progress' | 'navigationHandler', ...)
+### addListener('title' | 'pageLoaded' | 'updateSnapshot' | 'progress' | 'navigationHandler', ...)
 
 ```typescript
-addListener(eventName: "pageLoaded" | "updateSnapshot" | "progress" | "navigationHandler", listenerFunc: (...args: any[]) => void) => Promise<PluginListenerHandle> & PluginListenerHandle
+addListener(eventName: "title" | "pageLoaded" | "updateSnapshot" | "progress" | "navigationHandler", listenerFunc: (...args: any[]) => void) => Promise<PluginListenerHandle> & PluginListenerHandle
 ```
 
-| Param              | Type                                                                               |
-| ------------------ | ---------------------------------------------------------------------------------- |
-| **`eventName`**    | <code>'pageLoaded' \| 'updateSnapshot' \| 'progress' \| 'navigationHandler'</code> |
-| **`listenerFunc`** | <code>(...args: any[]) =&gt; void</code>                                           |
+| Param              | Type                                                                                          |
+| ------------------ | --------------------------------------------------------------------------------------------- |
+| **`eventName`**    | <code>'title' \| 'pageLoaded' \| 'updateSnapshot' \| 'progress' \| 'navigationHandler'</code> |
+| **`listenerFunc`** | <code>(...args: any[]) =&gt; void</code>                                                      |
 
 **Returns:** <code>Promise&lt;<a href="#pluginlistenerhandle">PluginListenerHandle</a>&gt; & <a href="#pluginlistenerhandle">PluginListenerHandle</a></code>
 
@@ -227,12 +239,12 @@ Remove all native listeners for this plugin
 
 #### Dimensions
 
-| Prop         | Type                |
-| ------------ | ------------------- |
-| **`width`**  | <code>number</code> |
-| **`height`** | <code>number</code> |
-| **`x`**      | <code>number</code> |
-| **`y`**      | <code>number</code> |
+| Prop         | Type                | Description                            | Since |
+| ------------ | ------------------- | -------------------------------------- | ----- |
+| **`width`**  | <code>number</code> | webview 宽度 = -1 时表示 宽度满屏               | 1.0.0 |
+| **`height`** | <code>number</code> | webview 高度 一般主要减去(状态栏 高度 + titleBar高度) | 1.0.0 |
+| **`x`**      | <code>number</code> | webview 左偏移                            | 1.0.0 |
+| **`y`**      | <code>number</code> | webview 上偏移 计算 状态栏高度和titleBar高度        | 1.0.0 |
 
 
 #### PluginListenerHandle

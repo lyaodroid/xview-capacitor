@@ -25,8 +25,8 @@ const pluginApis: PluginInfo[] = [
 
   // { pluginId: "http", pluginName: "HttpPlugin" },
   // { pluginId: "intents", pluginName: "IntentsPlugin" },
-  { pluginId: "keyboard", pluginName: "KeyboardPlugin" },
-  { pluginId: "media", pluginName: "MediaPlugin" },
+  // { pluginId: "keyboard", pluginName: "KeyboardPlugin" },
+  // { pluginId: "media", pluginName: "MediaPlugin" },
   // { pluginId: "mobile", pluginName: "MobilePlugin" },
   // { pluginId: "network", pluginName: "NetworkPlugin" },
 
@@ -44,10 +44,10 @@ const pluginApis: PluginInfo[] = [
 
   { pluginId: "splash-screen", pluginName: "SplashScreenPlugin" },
 
-  // { pluginId: "status-bar", pluginName: "StatusBarPlugin" },
+  { pluginId: "status-bar", pluginName: "StatusBarPlugin" },
   // { pluginId: "storage", pluginName: "StoragePlugin" },
   // { pluginId: "update", pluginName: "UpdatePlugin" },
-  // { pluginId: "webpage", pluginName: "WebPagePlugin" },
+  { pluginId: "webpage", pluginName: "WebPagePlugin" },
   // { pluginId: "wechat", pluginName: "WeChatPlugin" },
 ];
 

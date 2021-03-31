@@ -90,6 +90,16 @@
         "slug": "togglefullscreen"
       },
       {
+        "name": "canGoBack",
+        "signature": "() => Promise<{ value: boolean; }>",
+        "parameters": [],
+        "returns": "Promise<{ value: boolean; }>",
+        "tags": [],
+        "docs": "",
+        "complexTypes": [],
+        "slug": "cangoback"
+      },
+      {
         "name": "goBack",
         "signature": "() => Promise<void>",
         "parameters": [],
@@ -171,12 +181,12 @@
       },
       {
         "name": "addListener",
-        "signature": "(eventName: \"pageLoaded\" | \"updateSnapshot\" | \"progress\" | \"navigationHandler\", listenerFunc: (...args: any[]) => void) => Promise<PluginListenerHandle> & PluginListenerHandle",
+        "signature": "(eventName: \"title\" | \"pageLoaded\" | \"updateSnapshot\" | \"progress\" | \"navigationHandler\", listenerFunc: (...args: any[]) => void) => Promise<PluginListenerHandle> & PluginListenerHandle",
         "parameters": [
           {
             "name": "eventName",
             "docs": "",
-            "type": "'pageLoaded' | 'updateSnapshot' | 'progress' | 'navigationHandler'"
+            "type": "'title' | 'pageLoaded' | 'updateSnapshot' | 'progress' | 'navigationHandler'"
           },
           {
             "name": "listenerFunc",
@@ -190,7 +200,7 @@
         "complexTypes": [
           "PluginListenerHandle"
         ],
-        "slug": "addlistenerpageloaded--updatesnapshot--progress--navigationhandler-"
+        "slug": "addlistenertitle--pageloaded--updatesnapshot--progress--navigationhandler-"
       },
       {
         "name": "removeAllListeners",
@@ -252,29 +262,49 @@
       "properties": [
         {
           "name": "width",
-          "tags": [],
-          "docs": "",
+          "tags": [
+            {
+              "text": "1.0.0",
+              "name": "since"
+            }
+          ],
+          "docs": "webview 宽度 = -1 时表示 宽度满屏",
           "complexTypes": [],
           "type": "number"
         },
         {
           "name": "height",
-          "tags": [],
-          "docs": "",
+          "tags": [
+            {
+              "text": "1.0.0",
+              "name": "since"
+            }
+          ],
+          "docs": "webview 高度 \n一般主要减去(状态栏 高度 + titleBar高度)",
           "complexTypes": [],
           "type": "number"
         },
         {
           "name": "x",
-          "tags": [],
-          "docs": "",
+          "tags": [
+            {
+              "text": "1.0.0",
+              "name": "since"
+            }
+          ],
+          "docs": "webview 左偏移",
           "complexTypes": [],
           "type": "number"
         },
         {
           "name": "y",
-          "tags": [],
-          "docs": "",
+          "tags": [
+            {
+              "text": "1.0.0",
+              "name": "since"
+            }
+          ],
+          "docs": "webview 上偏移\n计算 状态栏高度和titleBar高度",
           "complexTypes": [],
           "type": "number"
         }
