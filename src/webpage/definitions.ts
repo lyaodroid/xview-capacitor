@@ -25,7 +25,7 @@ export interface WebPagePlugin {
   hide(): Promise<void>;
 
   toggleFullscreen(): Promise<void>;
-  canGoBack(): Promise<{value: boolean}>;
+  canGoBack(): Promise<{ value: boolean }>;
   goBack(): Promise<void>;
   goForward(): Promise<void>;
   reload(): Promise<void>;
@@ -40,13 +40,13 @@ export interface WebPagePlugin {
 
   addListener(
     eventName:
+      | "title"
       | "pageLoaded"
       | "updateSnapshot"
       | "progress"
       | "navigationHandler",
     listenerFunc: (...args: any[]) => void
   ): Promise<PluginListenerHandle> & PluginListenerHandle;
-
 
   /**
    * Remove all native listeners for this plugin
