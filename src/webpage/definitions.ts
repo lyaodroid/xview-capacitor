@@ -67,9 +67,34 @@ export interface OpenOptions extends Dimensions {
 }
 
 export interface Dimensions {
+
+  /**
+   * webview 宽度 = -1 时表示 宽度满屏
+   * 
+   * @since 1.0.0
+   */
   width: number;
+
+  /**
+   * webview 高度 
+   * 一般主要减去(状态栏 高度 + titleBar高度)
+   * 
+   * @since 1.0.0
+   */
   height: number;
+  /**
+   * webview 左偏移
+   * 
+   * @since 1.0.0
+   */
   x: number;
+
+  /**
+   * webview 上偏移
+   * 计算 状态栏高度和titleBar高度
+   * 
+   * @since 1.0.0
+   */
   y: number;
 }
 
