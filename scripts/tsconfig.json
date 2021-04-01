@@ -14,6 +14,6 @@
     "noUnusedParameters": false
   },
   "include": ["."],
-  "files": ["../src/device/index.ts"],
+  "files": ["../src/audio/index.ts"],
   "exclude": ["node_modules"]
 }

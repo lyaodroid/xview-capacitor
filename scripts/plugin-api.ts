@@ -13,11 +13,11 @@ const pluginApis: PluginInfo[] = [
   // { pluginId: "app", pluginName: "AppPlugin" },
   // { pluginId: "app-launcher", pluginName: "AppLauncherPlugin" },
 
-  // { pluginId: "audio", pluginName: "AudioPlugin" },//
+  { pluginId: "audio", pluginName: "AudioPlugin" },//
 
   // { pluginId: "camera", pluginName: "CameraPlugin" },
   // { pluginId: "clipboard", pluginName: "ClipboardPlugin" },
-  { pluginId: "device", pluginName: "DevicePlugin" },
+  // { pluginId: "device", pluginName: "DevicePlugin" },
   // { pluginId: "filesystem", pluginName: "FilesystemPlugin" },
   // { pluginId: "geolocation", pluginName: "GeolocationPlugin" },
 
@@ -42,9 +42,9 @@ const pluginApis: PluginInfo[] = [
 
   // { pluginId: "speech", pluginName: "SpeechPlugin" },//
 
-  { pluginId: "splash-screen", pluginName: "SplashScreenPlugin" },
+  // { pluginId: "splash-screen", pluginName: "SplashScreenPlugin" },
 
-  { pluginId: "status-bar", pluginName: "StatusBarPlugin" },
+  // { pluginId: "status-bar", pluginName: "StatusBarPlugin" },
   // { pluginId: "storage", pluginName: "StoragePlugin" },
   // { pluginId: "update", pluginName: "UpdatePlugin" },
   { pluginId: "webpage", pluginName: "WebPagePlugin" },

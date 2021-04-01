@@ -107,7 +107,7 @@ import { ApWifi } from 'nativecap';
 
 [AppLauncherPlugin(URL拉起其它App)](./scripts/apis/app-launcher.md)
 
-[AudioPlugin(录音：暂未实现)](./scripts/apis/audio.md)
+[AudioPlugin(音频：录制 播放)](./scripts/apis/audio.md)
 
 [CameraPlugin(系统相机)](./scripts/apis/camrea.md)
 

@@ -2,13 +2,6 @@ import { CallbackID } from "@capacitor/core";
 
 export interface AudioPlugin {
   /**
-   * 系统录音机 返回录音文件路径
-   *
-   * @since 1.0.0
-   */
-  systemRecord(options?: any): Promise<any>;
-
-  /**
    * @param options
    * @param callback
    */
@@ -24,7 +17,7 @@ export interface AudioPlugin {
    * 暂停时 如果是取消 就 删除录制文件
    * @param options
    */
-  stopRecord(options: { id: string }): Promise<AudioFileResult>;
+  stopRecord(options: { id: string }): Promise<void>;
 
   /**
    * 开始播放
@@ -32,7 +25,7 @@ export interface AudioPlugin {
    * @since 1.0.0
    */
   startPlay(
-    options: { value: string },
+    options: { path: string },
     callback?: AudioStatusChangeCallback
   ): CallbackID;
 
@@ -55,17 +48,35 @@ export interface AudioPlugin {
 export interface AudioStatusChange {
   /**
    * 播放当前进度
+   * state = start 时有值
+   *
    *
    * @since 1.0.0
    */
   currentPosition?: number;
   /**
-   * 录音时 振幅
-   * 1 -> maxLevel
+   * 录音时 振幅 state = start 时有值
+   * 0 -> 100
    *
    * @since 1.0.0
    */
   amplitude?: number;
+
+  /**
+   * 状态暂时开启 两个
+   * recording playing  pause | resume 后面开启
+   *
+   * @since 1.0.0
+   */
+  state: AudioState;
+
+  /**
+   * amplitude == -1 时 录音结束
+   * data 有值
+   *
+   * @since 1.0.0
+   */
+  data?: AudioFileResult;
 }
 
 export type AudioStatusChangeCallback = (
@@ -73,21 +84,23 @@ export type AudioStatusChangeCallback = (
   err?: any
 ) => void;
 
-
-
 export interface AudioFileResult {
-
   /**
    * 录音文件的路径
-   * 
+   *
    * @since 1.0.0
    */
   path: string;
 
   /**
    * 录音文件真实长度
-   * 
+   *
    * @since 1.0.0
    */
   duration: number;
+}
+
+export enum AudioState {
+  START = "start",
+  STOP = "stop",
 }
