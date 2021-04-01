@@ -5,6 +5,8 @@ export * from "./app/index";
 
 export * from "./app-launcher/index";
 
+export * from "./audio/index";
+
 export * from "./camera/index";
 
 export * from "./clipboard/index";
