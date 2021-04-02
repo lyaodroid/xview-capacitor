@@ -1,5 +1,5 @@
+import { CallbackID } from "../common";
 import { Directory } from "../filesystem";
-import { CallbackID } from "@capacitor/core";
 
 type HttpResponseType =
   | "arraybuffer"
@@ -23,7 +23,7 @@ export interface HttpPlugin {
   uploadFiles(
     options: HttpUploadFileOptions,
     callback: HttpProgressCallback
-  ): CallbackID;
+  ): Promise<CallbackID>;
 
   put(options: HttpOptions): Promise<HttpResponse>;
   patch(options: HttpOptions): Promise<HttpResponse>;

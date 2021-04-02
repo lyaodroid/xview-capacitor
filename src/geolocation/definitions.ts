@@ -1,7 +1,6 @@
 
+import { CallbackID } from "../common";
 import type { PermissionStatus } from "./definitions-common";
-
-export type CallbackID = string;
 
 export interface GeolocationPlugin {
   /**
@@ -20,7 +19,7 @@ export interface GeolocationPlugin {
   watchPosition(
     options: PositionOptions,
     callback: WatchPositionCallback,
-  ): CallbackID;
+  ): Promise<CallbackID>;
 
   /**
    * Clear a given watch
@@ -45,7 +44,7 @@ export interface GeolocationPlugin {
 }
 
 export interface ClearWatchOptions {
-  id: CallbackID;
+  id: Promise<CallbackID>;
 }
 
 export interface Position {

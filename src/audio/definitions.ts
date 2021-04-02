@@ -1,4 +1,4 @@
-import { CallbackID } from "@capacitor/core";
+import { CallbackID } from "../common";
 
 export interface AudioPlugin {
   /**
@@ -11,7 +11,7 @@ export interface AudioPlugin {
       format?: string;
     },
     callback: AudioStatusChangeCallback
-  ): CallbackID;
+  ): Promise<CallbackID>;
 
   /**
    * 暂停时 如果是取消 就 删除录制文件
@@ -27,7 +27,7 @@ export interface AudioPlugin {
   startPlay(
     options: { path: string },
     callback?: AudioStatusChangeCallback
-  ): CallbackID;
+  ): Promise<CallbackID>;
 
   /**
    * 停止播放

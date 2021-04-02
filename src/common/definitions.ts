@@ -1,3 +1,5 @@
+export type CallbackID = string;
+
 export interface LoginResult {
   /**
    * 返回 平台用户信息唯一值.

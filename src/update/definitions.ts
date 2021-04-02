@@ -26,7 +26,7 @@ export interface UpdatePlugin {
    *
    * @since 1.0.0
    */
-  apkBackgroundDownload(): void;
+  apkBackgroundDownload(): Promise<void>;
 
   /**
    * 如果注册了 监听 结束后 一定要 移除 监听

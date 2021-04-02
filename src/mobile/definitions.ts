@@ -13,7 +13,7 @@ export interface MobilePlugin {
    *
    * @since 1.0.0
    */
-  openNotification(options?: any): void;
+  openNotification(options?: any): Promise<void>;
   /**
    * 检查位置是否打开 定位使用
    *
@@ -26,7 +26,7 @@ export interface MobilePlugin {
    *
    * @since 1.0.0
    */
-  openLocationService(options?: any): void;
+  openLocationService(options?: any): Promise<void>;
 
   /**
    * 为了兼容老项目中 请求权限方法
