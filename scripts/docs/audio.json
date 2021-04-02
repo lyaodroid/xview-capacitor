@@ -1,0 +1,272 @@
+{
+  "api": {
+    "name": "AudioPlugin",
+    "slug": "audioplugin",
+    "docs": "",
+    "tags": [],
+    "methods": [
+      {
+        "name": "startRecord",
+        "signature": "(options: { interval?: number; format?: string; }, callback: AudioStatusChangeCallback) => CallbackID",
+        "parameters": [
+          {
+            "name": "options",
+            "docs": "",
+            "type": "{ interval?: number; format?: string; }"
+          },
+          {
+            "name": "callback",
+            "docs": "",
+            "type": "AudioStatusChangeCallback"
+          }
+        ],
+        "returns": "string",
+        "tags": [
+          {
+            "name": "param",
+            "text": "options"
+          },
+          {
+            "name": "param",
+            "text": "callback"
+          }
+        ],
+        "docs": "",
+        "complexTypes": [
+          "AudioStatusChangeCallback",
+          "CallbackID"
+        ],
+        "slug": "startrecord"
+      },
+      {
+        "name": "stopRecord",
+        "signature": "(options: { id: string; }) => Promise<void>",
+        "parameters": [
+          {
+            "name": "options",
+            "docs": "",
+            "type": "{ id: string; }"
+          }
+        ],
+        "returns": "Promise<void>",
+        "tags": [
+          {
+            "name": "param",
+            "text": "options"
+          }
+        ],
+        "docs": "暂停时 如果是取消 就 删除录制文件",
+        "complexTypes": [],
+        "slug": "stoprecord"
+      },
+      {
+        "name": "startPlay",
+        "signature": "(options: { path: string; }, callback?: AudioStatusChangeCallback) => CallbackID",
+        "parameters": [
+          {
+            "name": "options",
+            "docs": "",
+            "type": "{ path: string; }"
+          },
+          {
+            "name": "callback",
+            "docs": "",
+            "type": "AudioStatusChangeCallback"
+          }
+        ],
+        "returns": "string",
+        "tags": [
+          {
+            "name": "since",
+            "text": "1.0.0"
+          }
+        ],
+        "docs": "开始播放",
+        "complexTypes": [
+          "AudioStatusChangeCallback",
+          "CallbackID"
+        ],
+        "slug": "startplay"
+      },
+      {
+        "name": "stopPlay",
+        "signature": "(options: { id: string; }) => Promise<void>",
+        "parameters": [
+          {
+            "name": "options",
+            "docs": "",
+            "type": "{ id: string; }"
+          }
+        ],
+        "returns": "Promise<void>",
+        "tags": [
+          {
+            "name": "since",
+            "text": "1.0.0"
+          }
+        ],
+        "docs": "停止播放",
+        "complexTypes": [],
+        "slug": "stopplay"
+      },
+      {
+        "name": "release",
+        "signature": "() => never",
+        "parameters": [],
+        "returns": "never",
+        "tags": [
+          {
+            "name": "since",
+            "text": "1.0.0"
+          }
+        ],
+        "docs": "离开页面时候\n释放资源",
+        "complexTypes": [],
+        "slug": "release"
+      }
+    ],
+    "properties": []
+  },
+  "interfaces": [
+    {
+      "name": "AudioStatusChange",
+      "slug": "audiostatuschange",
+      "docs": "",
+      "tags": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "currentPosition",
+          "tags": [
+            {
+              "text": "1.0.0",
+              "name": "since"
+            }
+          ],
+          "docs": "播放当前进度\nstate = start 时有值",
+          "complexTypes": [],
+          "type": "number"
+        },
+        {
+          "name": "amplitude",
+          "tags": [
+            {
+              "text": "1.0.0",
+              "name": "since"
+            }
+          ],
+          "docs": "录音时 振幅 state = start 时有值\n0 -> 100",
+          "complexTypes": [],
+          "type": "number"
+        },
+        {
+          "name": "state",
+          "tags": [
+            {
+              "text": "1.0.0",
+              "name": "since"
+            }
+          ],
+          "docs": "状态暂时开启 两个\nrecording playing  pause | resume 后面开启",
+          "complexTypes": [
+            "AudioState"
+          ],
+          "type": "AudioState"
+        },
+        {
+          "name": "data",
+          "tags": [
+            {
+              "text": "1.0.0",
+              "name": "since"
+            }
+          ],
+          "docs": "amplitude == -1 时 录音结束\ndata 有值",
+          "complexTypes": [
+            "AudioFileResult"
+          ],
+          "type": "AudioFileResult"
+        }
+      ]
+    },
+    {
+      "name": "AudioFileResult",
+      "slug": "audiofileresult",
+      "docs": "",
+      "tags": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "path",
+          "tags": [
+            {
+              "text": "1.0.0",
+              "name": "since"
+            }
+          ],
+          "docs": "录音文件的路径",
+          "complexTypes": [],
+          "type": "string"
+        },
+        {
+          "name": "duration",
+          "tags": [
+            {
+              "text": "1.0.0",
+              "name": "since"
+            }
+          ],
+          "docs": "录音文件真实长度",
+          "complexTypes": [],
+          "type": "number"
+        }
+      ]
+    }
+  ],
+  "enums": [
+    {
+      "name": "AudioState",
+      "slug": "audiostate",
+      "members": [
+        {
+          "name": "START",
+          "value": "\"start\"",
+          "tags": [],
+          "docs": ""
+        },
+        {
+          "name": "STOP",
+          "value": "\"stop\"",
+          "tags": [],
+          "docs": ""
+        }
+      ]
+    }
+  ],
+  "typeAliases": [
+    {
+      "name": "AudioStatusChangeCallback",
+      "slug": "audiostatuschangecallback",
+      "docs": "",
+      "types": [
+        {
+          "text": "(status: AudioStatusChange, err?: any): void",
+          "complexTypes": [
+            "AudioStatusChange"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "CallbackID",
+      "slug": "callbackid",
+      "docs": "",
+      "types": [
+        {
+          "text": "string",
+          "complexTypes": []
+        }
+      ]
+    }
+  ]
+}

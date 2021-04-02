@@ -1,0 +1,349 @@
+{
+  "api": {
+    "name": "WebPagePlugin",
+    "slug": "webpageplugin",
+    "docs": "",
+    "tags": [],
+    "methods": [
+      {
+        "name": "open",
+        "signature": "(options: OpenOptions) => Promise<void>",
+        "parameters": [
+          {
+            "name": "options",
+            "docs": "",
+            "type": "OpenOptions"
+          }
+        ],
+        "returns": "Promise<void>",
+        "tags": [],
+        "docs": "Open a webview with the given URL",
+        "complexTypes": [
+          "OpenOptions"
+        ],
+        "slug": "open"
+      },
+      {
+        "name": "close",
+        "signature": "() => Promise<void>",
+        "parameters": [],
+        "returns": "Promise<void>",
+        "tags": [],
+        "docs": "Close an open webview.",
+        "complexTypes": [],
+        "slug": "close"
+      },
+      {
+        "name": "loadUrl",
+        "signature": "(options: { url: string; }) => Promise<void>",
+        "parameters": [
+          {
+            "name": "options",
+            "docs": "",
+            "type": "{ url: string; }"
+          }
+        ],
+        "returns": "Promise<void>",
+        "tags": [],
+        "docs": "Load a url in the webview.",
+        "complexTypes": [],
+        "slug": "loadurl"
+      },
+      {
+        "name": "getSnapshot",
+        "signature": "() => Promise<{ src: string; }>",
+        "parameters": [],
+        "returns": "Promise<{ src: string; }>",
+        "tags": [],
+        "docs": "Get snapshot image",
+        "complexTypes": [],
+        "slug": "getsnapshot"
+      },
+      {
+        "name": "show",
+        "signature": "() => Promise<void>",
+        "parameters": [],
+        "returns": "Promise<void>",
+        "tags": [],
+        "docs": "",
+        "complexTypes": [],
+        "slug": "show"
+      },
+      {
+        "name": "hide",
+        "signature": "() => Promise<void>",
+        "parameters": [],
+        "returns": "Promise<void>",
+        "tags": [],
+        "docs": "",
+        "complexTypes": [],
+        "slug": "hide"
+      },
+      {
+        "name": "toggleFullscreen",
+        "signature": "() => Promise<void>",
+        "parameters": [],
+        "returns": "Promise<void>",
+        "tags": [],
+        "docs": "",
+        "complexTypes": [],
+        "slug": "togglefullscreen"
+      },
+      {
+        "name": "canGoBack",
+        "signature": "() => Promise<{ value: boolean; }>",
+        "parameters": [],
+        "returns": "Promise<{ value: boolean; }>",
+        "tags": [],
+        "docs": "",
+        "complexTypes": [],
+        "slug": "cangoback"
+      },
+      {
+        "name": "goBack",
+        "signature": "() => Promise<void>",
+        "parameters": [],
+        "returns": "Promise<void>",
+        "tags": [],
+        "docs": "",
+        "complexTypes": [],
+        "slug": "goback"
+      },
+      {
+        "name": "goForward",
+        "signature": "() => Promise<void>",
+        "parameters": [],
+        "returns": "Promise<void>",
+        "tags": [],
+        "docs": "",
+        "complexTypes": [],
+        "slug": "goforward"
+      },
+      {
+        "name": "reload",
+        "signature": "() => Promise<void>",
+        "parameters": [],
+        "returns": "Promise<void>",
+        "tags": [],
+        "docs": "",
+        "complexTypes": [],
+        "slug": "reload"
+      },
+      {
+        "name": "handleNavigationEvent",
+        "signature": "(options: { allow: boolean; }) => Promise<void>",
+        "parameters": [
+          {
+            "name": "options",
+            "docs": "",
+            "type": "{ allow: boolean; }"
+          }
+        ],
+        "returns": "Promise<void>",
+        "tags": [],
+        "docs": "",
+        "complexTypes": [],
+        "slug": "handlenavigationevent"
+      },
+      {
+        "name": "updateDimensions",
+        "signature": "(options: Dimensions) => Promise<void>",
+        "parameters": [
+          {
+            "name": "options",
+            "docs": "",
+            "type": "Dimensions"
+          }
+        ],
+        "returns": "Promise<void>",
+        "tags": [],
+        "docs": "",
+        "complexTypes": [
+          "Dimensions"
+        ],
+        "slug": "updatedimensions"
+      },
+      {
+        "name": "evaluateJavaScript",
+        "signature": "(options: { javascript: string; }) => Promise<{ result: string; }>",
+        "parameters": [
+          {
+            "name": "options",
+            "docs": "",
+            "type": "{ javascript: string; }"
+          }
+        ],
+        "returns": "Promise<{ result: string; }>",
+        "tags": [],
+        "docs": "",
+        "complexTypes": [],
+        "slug": "evaluatejavascript"
+      },
+      {
+        "name": "addListener",
+        "signature": "(eventName: \"title\" | \"pageLoaded\" | \"updateSnapshot\" | \"progress\" | \"navigationHandler\", listenerFunc: (...args: any[]) => void) => Promise<PluginListenerHandle> & PluginListenerHandle",
+        "parameters": [
+          {
+            "name": "eventName",
+            "docs": "",
+            "type": "'title' | 'pageLoaded' | 'updateSnapshot' | 'progress' | 'navigationHandler'"
+          },
+          {
+            "name": "listenerFunc",
+            "docs": "",
+            "type": "(...args: any[]) => void"
+          }
+        ],
+        "returns": "Promise<PluginListenerHandle> & PluginListenerHandle",
+        "tags": [],
+        "docs": "",
+        "complexTypes": [
+          "PluginListenerHandle"
+        ],
+        "slug": "addlistenertitle--pageloaded--updatesnapshot--progress--navigationhandler-"
+      },
+      {
+        "name": "removeAllListeners",
+        "signature": "() => Promise<void>",
+        "parameters": [],
+        "returns": "Promise<void>",
+        "tags": [
+          {
+            "name": "since",
+            "text": "1.0.0"
+          }
+        ],
+        "docs": "Remove all native listeners for this plugin",
+        "complexTypes": [],
+        "slug": "removealllisteners"
+      }
+    ],
+    "properties": []
+  },
+  "interfaces": [
+    {
+      "name": "OpenOptions",
+      "slug": "openoptions",
+      "docs": "",
+      "tags": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "url",
+          "tags": [],
+          "docs": "The URL to open the webview to",
+          "complexTypes": [],
+          "type": "string"
+        },
+        {
+          "name": "javascript",
+          "tags": [],
+          "docs": "",
+          "complexTypes": [],
+          "type": "string"
+        },
+        {
+          "name": "injectionTime",
+          "tags": [],
+          "docs": "",
+          "complexTypes": [
+            "ScriptInjectionTime"
+          ],
+          "type": "ScriptInjectionTime"
+        }
+      ]
+    },
+    {
+      "name": "Dimensions",
+      "slug": "dimensions",
+      "docs": "",
+      "tags": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "width",
+          "tags": [
+            {
+              "text": "1.0.0",
+              "name": "since"
+            }
+          ],
+          "docs": "webview 宽度 = -1 时表示 宽度满屏",
+          "complexTypes": [],
+          "type": "number"
+        },
+        {
+          "name": "height",
+          "tags": [
+            {
+              "text": "1.0.0",
+              "name": "since"
+            }
+          ],
+          "docs": "webview 高度 \n一般主要减去(状态栏 高度 + titleBar高度)",
+          "complexTypes": [],
+          "type": "number"
+        },
+        {
+          "name": "x",
+          "tags": [
+            {
+              "text": "1.0.0",
+              "name": "since"
+            }
+          ],
+          "docs": "webview 左偏移",
+          "complexTypes": [],
+          "type": "number"
+        },
+        {
+          "name": "y",
+          "tags": [
+            {
+              "text": "1.0.0",
+              "name": "since"
+            }
+          ],
+          "docs": "webview 上偏移\n计算 状态栏高度和titleBar高度",
+          "complexTypes": [],
+          "type": "number"
+        }
+      ]
+    },
+    {
+      "name": "PluginListenerHandle",
+      "slug": "pluginlistenerhandle",
+      "docs": "",
+      "tags": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "remove",
+          "tags": [],
+          "docs": "",
+          "complexTypes": [],
+          "type": "() => void"
+        }
+      ]
+    }
+  ],
+  "enums": [
+    {
+      "name": "ScriptInjectionTime",
+      "slug": "scriptinjectiontime",
+      "members": [
+        {
+          "name": "atDocumentStart",
+          "tags": [],
+          "docs": ""
+        },
+        {
+          "name": "atDocumentEnd",
+          "tags": [],
+          "docs": ""
+        }
+      ]
+    }
+  ],
+  "typeAliases": []
+}

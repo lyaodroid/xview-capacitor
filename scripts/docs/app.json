@@ -1,0 +1,507 @@
+{
+  "api": {
+    "name": "AppPlugin",
+    "slug": "appplugin",
+    "docs": "",
+    "tags": [],
+    "methods": [
+      {
+        "name": "hideApp",
+        "signature": "() => never",
+        "parameters": [],
+        "returns": "never",
+        "tags": [
+          {
+            "name": "since",
+            "text": "1.0.0"
+          }
+        ],
+        "docs": "只是隐藏到后台 而不是 杀死 app",
+        "complexTypes": [],
+        "slug": "hideapp"
+      },
+      {
+        "name": "exitApp",
+        "signature": "() => never",
+        "parameters": [],
+        "returns": "never",
+        "tags": [
+          {
+            "name": "since",
+            "text": "1.0.0"
+          }
+        ],
+        "docs": "Force exit the app. This should only be used in conjunction with the `backButton` handler for Android to\nexit the app when navigation is complete.\n\nIonic handles this itself so you shouldn't need to call this if using Ionic.",
+        "complexTypes": [],
+        "slug": "exitapp"
+      },
+      {
+        "name": "getInfo",
+        "signature": "() => Promise<AppInfo>",
+        "parameters": [],
+        "returns": "Promise<AppInfo>",
+        "tags": [
+          {
+            "name": "since",
+            "text": "1.0.0"
+          }
+        ],
+        "docs": "Return information about the app.",
+        "complexTypes": [
+          "AppInfo"
+        ],
+        "slug": "getinfo"
+      },
+      {
+        "name": "getState",
+        "signature": "() => Promise<AppState>",
+        "parameters": [],
+        "returns": "Promise<AppState>",
+        "tags": [
+          {
+            "name": "since",
+            "text": "1.0.0"
+          }
+        ],
+        "docs": "Gets the current app state.",
+        "complexTypes": [
+          "AppState"
+        ],
+        "slug": "getstate"
+      },
+      {
+        "name": "getLaunchUrl",
+        "signature": "() => Promise<AppLaunchUrl>",
+        "parameters": [],
+        "returns": "Promise<AppLaunchUrl>",
+        "tags": [
+          {
+            "name": "since",
+            "text": "1.0.0"
+          }
+        ],
+        "docs": "Get the URL the app was launched with, if any.",
+        "complexTypes": [
+          "AppLaunchUrl"
+        ],
+        "slug": "getlaunchurl"
+      },
+      {
+        "name": "addListener",
+        "signature": "(eventName: 'appStateChange', listenerFunc: StateChangeListener) => Promise<PluginListenerHandle> & PluginListenerHandle",
+        "parameters": [
+          {
+            "name": "eventName",
+            "docs": "",
+            "type": "'appStateChange'"
+          },
+          {
+            "name": "listenerFunc",
+            "docs": "",
+            "type": "StateChangeListener"
+          }
+        ],
+        "returns": "Promise<PluginListenerHandle> & PluginListenerHandle",
+        "tags": [
+          {
+            "name": "since",
+            "text": "1.0.0"
+          }
+        ],
+        "docs": "Listen for changes in the App's active state (whether the app is in the foreground or background)",
+        "complexTypes": [
+          "PluginListenerHandle",
+          "StateChangeListener"
+        ],
+        "slug": "addlistenerappstatechange-"
+      },
+      {
+        "name": "addListener",
+        "signature": "(eventName: 'appUrlOpen', listenerFunc: URLOpenListener) => Promise<PluginListenerHandle> & PluginListenerHandle",
+        "parameters": [
+          {
+            "name": "eventName",
+            "docs": "",
+            "type": "'appUrlOpen'"
+          },
+          {
+            "name": "listenerFunc",
+            "docs": "",
+            "type": "URLOpenListener"
+          }
+        ],
+        "returns": "Promise<PluginListenerHandle> & PluginListenerHandle",
+        "tags": [
+          {
+            "name": "since",
+            "text": "1.0.0"
+          }
+        ],
+        "docs": "Listen for url open events for the app. This handles both custom URL scheme links as well\nas URLs your app handles (Universal Links on iOS and App Links on Android)",
+        "complexTypes": [
+          "PluginListenerHandle",
+          "URLOpenListener"
+        ],
+        "slug": "addlistenerappurlopen-"
+      },
+      {
+        "name": "addListener",
+        "signature": "(eventName: 'appRestoredResult', listenerFunc: RestoredListener) => Promise<PluginListenerHandle> & PluginListenerHandle",
+        "parameters": [
+          {
+            "name": "eventName",
+            "docs": "",
+            "type": "'appRestoredResult'"
+          },
+          {
+            "name": "listenerFunc",
+            "docs": "",
+            "type": "RestoredListener"
+          }
+        ],
+        "returns": "Promise<PluginListenerHandle> & PluginListenerHandle",
+        "tags": [
+          {
+            "name": "since",
+            "text": "1.0.0"
+          }
+        ],
+        "docs": "If the app was launched with previously persisted plugin call data, such as on Android\nwhen an activity returns to an app that was closed, this call will return any data\nthe app was launched with, converted into the form of a result from a plugin call.\n\nOn Android, due to memory constraints on low-end devices, it's possible\nthat, if your app launches a new activity, your app will be terminated by\nthe operating system in order to reduce memory consumption.\n\nFor example, that means the Camera API, which launches a new Activity to\ntake a photo, may not be able to return data back to your app.\n\nTo avoid this, Capacitor stores all restored activity results on launch.\nYou should add a listener for `appRestoredResult` in order to handle any\nplugin call results that were delivered when your app was not running.\n\nOnce you have that result (if any), you can update the UI to restore a\nlogical experience for the user, such as navigating or selecting the\nproper tab.\n\nWe recommend every Android app using plugins that rely on external\nActivities (for example, Camera) to have this event and process handled.",
+        "complexTypes": [
+          "PluginListenerHandle",
+          "RestoredListener"
+        ],
+        "slug": "addlistenerapprestoredresult-"
+      },
+      {
+        "name": "addListener",
+        "signature": "(eventName: 'backButton', listenerFunc: BackButtonListener) => Promise<PluginListenerHandle> & PluginListenerHandle",
+        "parameters": [
+          {
+            "name": "eventName",
+            "docs": "",
+            "type": "'backButton'"
+          },
+          {
+            "name": "listenerFunc",
+            "docs": "",
+            "type": "BackButtonListener"
+          }
+        ],
+        "returns": "Promise<PluginListenerHandle> & PluginListenerHandle",
+        "tags": [
+          {
+            "name": "since",
+            "text": "1.0.0"
+          }
+        ],
+        "docs": "Listen for the hardware back button event (Android only). Listening for this event will disable the\ndefault back button behaviour, so you might want to call `window.history.back()` manually.\nIf you want to close the app, call `App.exitApp()`.",
+        "complexTypes": [
+          "PluginListenerHandle",
+          "BackButtonListener"
+        ],
+        "slug": "addlistenerbackbutton-"
+      },
+      {
+        "name": "removeAllListeners",
+        "signature": "() => Promise<void>",
+        "parameters": [],
+        "returns": "Promise<void>",
+        "tags": [
+          {
+            "name": "since",
+            "text": "1.0.0"
+          }
+        ],
+        "docs": "Remove all native listeners for this plugin",
+        "complexTypes": [],
+        "slug": "removealllisteners"
+      }
+    ],
+    "properties": []
+  },
+  "interfaces": [
+    {
+      "name": "AppInfo",
+      "slug": "appinfo",
+      "docs": "",
+      "tags": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "name",
+          "tags": [
+            {
+              "text": "1.0.0",
+              "name": "since"
+            }
+          ],
+          "docs": "The name of the app.",
+          "complexTypes": [],
+          "type": "string"
+        },
+        {
+          "name": "id",
+          "tags": [
+            {
+              "text": "1.0.0",
+              "name": "since"
+            }
+          ],
+          "docs": "The identifier of the app.\nOn iOS it's the Bundle Identifier.\nOn Android it's the Application ID",
+          "complexTypes": [],
+          "type": "string"
+        },
+        {
+          "name": "build",
+          "tags": [
+            {
+              "text": "1.0.0",
+              "name": "since"
+            }
+          ],
+          "docs": "The build version.\nOn iOS it's the CFBundleVersion.\nOn Android it's the versionCode.",
+          "complexTypes": [],
+          "type": "string"
+        },
+        {
+          "name": "version",
+          "tags": [
+            {
+              "text": "1.0.0",
+              "name": "since"
+            }
+          ],
+          "docs": "The app version.\nOn iOS it's the CFBundleShortVersionString.\nOn Android it's package's versionName.",
+          "complexTypes": [],
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "name": "AppState",
+      "slug": "appstate",
+      "docs": "",
+      "tags": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "isActive",
+          "tags": [
+            {
+              "text": "1.0.0",
+              "name": "since"
+            }
+          ],
+          "docs": "Whether the app is active or not.",
+          "complexTypes": [],
+          "type": "boolean"
+        }
+      ]
+    },
+    {
+      "name": "AppLaunchUrl",
+      "slug": "applaunchurl",
+      "docs": "",
+      "tags": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "url",
+          "tags": [
+            {
+              "text": "1.0.0",
+              "name": "since"
+            }
+          ],
+          "docs": "The url used to open the app.",
+          "complexTypes": [],
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "name": "PluginListenerHandle",
+      "slug": "pluginlistenerhandle",
+      "docs": "",
+      "tags": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "remove",
+          "tags": [],
+          "docs": "",
+          "complexTypes": [],
+          "type": "() => void"
+        }
+      ]
+    },
+    {
+      "name": "URLOpenListenerEvent",
+      "slug": "urlopenlistenerevent",
+      "docs": "",
+      "tags": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "url",
+          "tags": [
+            {
+              "text": "1.0.0",
+              "name": "since"
+            }
+          ],
+          "docs": "The URL the app was opened with.",
+          "complexTypes": [],
+          "type": "string"
+        },
+        {
+          "name": "iosSourceApplication",
+          "tags": [
+            {
+              "text": "1.0.0",
+              "name": "since"
+            }
+          ],
+          "docs": "The source application opening the app (iOS only)\nhttps://developer.apple.com/documentation/uikit/uiapplicationopenurloptionskey/1623128-sourceapplication",
+          "complexTypes": [],
+          "type": "any"
+        },
+        {
+          "name": "iosOpenInPlace",
+          "tags": [
+            {
+              "text": "1.0.0",
+              "name": "since"
+            }
+          ],
+          "docs": "Whether the app should open the passed document in-place\nor must copy it first.\nhttps://developer.apple.com/documentation/uikit/uiapplicationopenurloptionskey/1623123-openinplace",
+          "complexTypes": [],
+          "type": "boolean"
+        }
+      ]
+    },
+    {
+      "name": "RestoredListenerEvent",
+      "slug": "restoredlistenerevent",
+      "docs": "",
+      "tags": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "pluginId",
+          "tags": [
+            {
+              "text": "1.0.0",
+              "name": "since"
+            }
+          ],
+          "docs": "The pluginId this result corresponds to. For example, `Camera`.",
+          "complexTypes": [],
+          "type": "string"
+        },
+        {
+          "name": "methodName",
+          "tags": [
+            {
+              "text": "1.0.0",
+              "name": "since"
+            }
+          ],
+          "docs": "The methodName this result corresponds to. For example, `getPhoto`",
+          "complexTypes": [],
+          "type": "string"
+        },
+        {
+          "name": "data",
+          "tags": [
+            {
+              "text": "1.0.0",
+              "name": "since"
+            }
+          ],
+          "docs": "The result data passed from the plugin. This would be the result you'd\nexpect from normally calling the plugin method. For example, `CameraPhoto`",
+          "complexTypes": [],
+          "type": "any"
+        },
+        {
+          "name": "success",
+          "tags": [
+            {
+              "text": "1.0.0",
+              "name": "since"
+            }
+          ],
+          "docs": "Boolean indicating if the plugin call succeeded.",
+          "complexTypes": [],
+          "type": "boolean"
+        },
+        {
+          "name": "error",
+          "tags": [
+            {
+              "text": "1.0.0",
+              "name": "since"
+            }
+          ],
+          "docs": "If the plugin call didn't succeed, it will contain the error message.",
+          "complexTypes": [],
+          "type": "{ message: string; }"
+        }
+      ]
+    }
+  ],
+  "enums": [],
+  "typeAliases": [
+    {
+      "name": "StateChangeListener",
+      "slug": "statechangelistener",
+      "docs": "",
+      "types": [
+        {
+          "text": "(state: AppState): void",
+          "complexTypes": [
+            "AppState"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "URLOpenListener",
+      "slug": "urlopenlistener",
+      "docs": "",
+      "types": [
+        {
+          "text": "(event: URLOpenListenerEvent): void",
+          "complexTypes": [
+            "URLOpenListenerEvent"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "RestoredListener",
+      "slug": "restoredlistener",
+      "docs": "",
+      "types": [
+        {
+          "text": "(event: RestoredListenerEvent): void",
+          "complexTypes": [
+            "RestoredListenerEvent"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "BackButtonListener",
+      "slug": "backbuttonlistener",
+      "docs": "",
+      "types": [
+        {
+          "text": "(): void",
+          "complexTypes": []
+        }
+      ]
+    }
+  ]
+}

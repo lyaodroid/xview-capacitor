@@ -1,0 +1,493 @@
+{
+  "api": {
+    "name": "ScannerPlugin",
+    "slug": "scannerplugin",
+    "docs": "",
+    "tags": [],
+    "methods": [
+      {
+        "name": "scan",
+        "signature": "(options?: ScannerOptions) => Promise<ScannerResult>",
+        "parameters": [
+          {
+            "name": "options",
+            "docs": "",
+            "type": "ScannerOptions"
+          }
+        ],
+        "returns": "Promise<ScannerResult>",
+        "tags": [
+          {
+            "name": "since",
+            "text": "1.0.0"
+          }
+        ],
+        "docs": "扫一扫 功能",
+        "complexTypes": [
+          "ScannerResult",
+          "ScannerOptions"
+        ],
+        "slug": "scan"
+      },
+      {
+        "name": "analyzeImage",
+        "signature": "(options: AnalyzeOptions) => Promise<ScannerResult>",
+        "parameters": [
+          {
+            "name": "options",
+            "docs": "",
+            "type": "AnalyzeOptions"
+          }
+        ],
+        "returns": "Promise<ScannerResult>",
+        "tags": [
+          {
+            "name": "since",
+            "text": "1.0.0"
+          }
+        ],
+        "docs": "直接解析图片\n使用本地获取的路径 或者 网络图片路径 或者 base64",
+        "complexTypes": [
+          "ScannerResult",
+          "AnalyzeOptions"
+        ],
+        "slug": "analyzeimage"
+      },
+      {
+        "name": "generateScanCode",
+        "signature": "(options: ScanCodeOptions) => Promise<{ value: string; }>",
+        "parameters": [
+          {
+            "name": "options",
+            "docs": "",
+            "type": "ScanCodeOptions"
+          }
+        ],
+        "returns": "Promise<{ value: string; }>",
+        "tags": [
+          {
+            "name": "since",
+            "text": "1.0.0"
+          }
+        ],
+        "docs": "创建一个二维码参数必须指定 为了出错容易排查\n返回 base64展示 本地图片地址\n显示需要前端加 imagePrefix = \"data:image/png;base64,\"",
+        "complexTypes": [
+          "ScanCodeOptions"
+        ],
+        "slug": "generatescancode"
+      }
+    ],
+    "properties": []
+  },
+  "interfaces": [
+    {
+      "name": "ScannerResult",
+      "slug": "scannerresult",
+      "docs": "",
+      "tags": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "format",
+          "tags": [
+            {
+              "text": "1.0.0",
+              "name": "since"
+            }
+          ],
+          "docs": "编码方式",
+          "complexTypes": [],
+          "type": "'QR_CODE' | 'DATA_MATRIX' | 'UPC_E' | 'UPC_A' | 'EAN_8' | 'EAN_13' | 'CODE_128' | 'CODE_39' | 'CODE_93' | 'CODABAR' | 'ITF' | 'RSS14' | 'RSS_EXPANDED' | 'PDF_417' | 'AZTEC' | 'MSI'"
+        },
+        {
+          "name": "text",
+          "tags": [
+            {
+              "text": "1.0.0",
+              "name": "since"
+            }
+          ],
+          "docs": "二维码 或 条形码 的值",
+          "complexTypes": [],
+          "type": "string"
+        },
+        {
+          "name": "base64String",
+          "tags": [
+            {
+              "text": "1.0.0",
+              "name": "since"
+            }
+          ],
+          "docs": "生成 图片base64值  如果需要展示 需要添加 前缀\nimagePrefix = \"data:image/png;base64,\" + base64String",
+          "complexTypes": [],
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "name": "ScannerOptions",
+      "slug": "scanneroptions",
+      "docs": "",
+      "tags": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "title",
+          "tags": [
+            {
+              "text": "1.0.0",
+              "name": "since"
+            }
+          ],
+          "docs": "Prompt text. 默认 扫一扫",
+          "complexTypes": [],
+          "type": "string"
+        },
+        {
+          "name": "prompt",
+          "tags": [
+            {
+              "text": "1.0.0",
+              "name": "since"
+            }
+          ],
+          "docs": "Prompt text. 默认 请将二维码 放进 扫描框",
+          "complexTypes": [],
+          "type": "string"
+        },
+        {
+          "name": "needPhoto",
+          "tags": [
+            {
+              "text": "1.0.0",
+              "name": "since"
+            }
+          ],
+          "docs": "是否开启相册 选择 图片 默认 true",
+          "complexTypes": [],
+          "type": "boolean"
+        },
+        {
+          "name": "formats",
+          "tags": [
+            {
+              "text": "scan 方法 使用",
+              "name": "method"
+            },
+            {
+              "text": "1.0.0",
+              "name": "since"
+            }
+          ],
+          "docs": "Formats separated by commas. Defaults to all formats except `PDF_417` and `RSS_EXPANDED`.",
+          "complexTypes": [
+            "BarcodeFormat"
+          ],
+          "type": "BarcodeFormat[]"
+        },
+        {
+          "name": "beepEnabled",
+          "tags": [
+            {
+              "text": "scan 方法 使用",
+              "name": "method"
+            },
+            {
+              "text": "1.0.0",
+              "name": "since"
+            }
+          ],
+          "docs": "默认关闭铃声提示",
+          "complexTypes": [],
+          "type": "boolean"
+        },
+        {
+          "name": "vibrateEnabled",
+          "tags": [
+            {
+              "text": "scan 方法 使用",
+              "name": "method"
+            },
+            {
+              "text": "1.0.0",
+              "name": "since"
+            }
+          ],
+          "docs": "默认关闭震动提醒",
+          "complexTypes": [],
+          "type": "boolean"
+        }
+      ]
+    },
+    {
+      "name": "AnalyzeOptions",
+      "slug": "analyzeoptions",
+      "docs": "",
+      "tags": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "base64String",
+          "tags": [
+            {
+              "text": "1.0.0",
+              "name": "since"
+            }
+          ],
+          "docs": "The base64 encoded string representation of the image, if using .Base64.",
+          "complexTypes": [],
+          "type": "string"
+        },
+        {
+          "name": "url",
+          "tags": [
+            {
+              "text": "1.0.0",
+              "name": "since"
+            }
+          ],
+          "docs": "The url starting with 'http or https`",
+          "complexTypes": [],
+          "type": "string"
+        },
+        {
+          "name": "path",
+          "tags": [
+            {
+              "text": "1.0.0",
+              "name": "since"
+            }
+          ],
+          "docs": "本地图片解析 从相册中选择\nIf using Uri, the path will contain a full,\nplatform-specific file URL that can be read later using the Meida API or Filsystem API.",
+          "complexTypes": [],
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "name": "ScanCodeOptions",
+      "slug": "scancodeoptions",
+      "docs": "",
+      "tags": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "text",
+          "tags": [
+            {
+              "text": "1.0.0",
+              "name": "since"
+            }
+          ],
+          "docs": "生成二维码 内容",
+          "complexTypes": [],
+          "type": "string"
+        },
+        {
+          "name": "type",
+          "tags": [
+            {
+              "text": "1.0.0",
+              "name": "since"
+            }
+          ],
+          "docs": "二维码或者 条形码",
+          "complexTypes": [
+            "ScanCodeType"
+          ],
+          "type": "ScanCodeType"
+        },
+        {
+          "name": "format",
+          "tags": [
+            {
+              "text": "1.0.0",
+              "name": "since"
+            }
+          ],
+          "docs": "编码格式指定使用",
+          "complexTypes": [
+            "BarcodeFormat"
+          ],
+          "type": "BarcodeFormat"
+        },
+        {
+          "name": "width",
+          "tags": [
+            {
+              "text": "1.0.0",
+              "name": "since"
+            }
+          ],
+          "docs": "生成 图片宽度",
+          "complexTypes": [],
+          "type": "number"
+        },
+        {
+          "name": "height",
+          "tags": [
+            {
+              "text": "1.0.0",
+              "name": "since"
+            }
+          ],
+          "docs": "生成图片高度",
+          "complexTypes": [],
+          "type": "number"
+        },
+        {
+          "name": "logoBase64",
+          "tags": [
+            {
+              "text": "1.0.0",
+              "name": "since"
+            }
+          ],
+          "docs": "二维码 中间 添加 logo(不带前缀) 注意大小 为 图片的 四分之一 尺寸以内",
+          "complexTypes": [],
+          "type": "string"
+        }
+      ]
+    }
+  ],
+  "enums": [
+    {
+      "name": "BarcodeFormat",
+      "slug": "barcodeformat",
+      "members": [
+        {
+          "name": "AZTEC",
+          "value": "\"AZTEC\"",
+          "tags": [],
+          "docs": "Aztec 2D barcode format."
+        },
+        {
+          "name": "CODABAR",
+          "value": "\"CODABAR\"",
+          "tags": [],
+          "docs": "CODABAR 1D format."
+        },
+        {
+          "name": "CODE_39",
+          "value": "\"CODE_39\"",
+          "tags": [],
+          "docs": "Code 39 1D format."
+        },
+        {
+          "name": "CODE_93",
+          "value": "\"CODE_93\"",
+          "tags": [],
+          "docs": "Code 93 1D format."
+        },
+        {
+          "name": "CODE_128",
+          "value": "\"CODE_128\"",
+          "tags": [],
+          "docs": "Code 128 1D format."
+        },
+        {
+          "name": "DATA_MATRIX",
+          "value": "\"DATA_MATRIX\"",
+          "tags": [],
+          "docs": "Data Matrix 2D barcode format."
+        },
+        {
+          "name": "EAN_8",
+          "value": "\"EAN_8\"",
+          "tags": [],
+          "docs": "EAN-8 1D format."
+        },
+        {
+          "name": "EAN_13",
+          "value": "\"EAN_13\"",
+          "tags": [],
+          "docs": "EAN-13 1D format."
+        },
+        {
+          "name": "ITF",
+          "value": "\"ITF\"",
+          "tags": [],
+          "docs": "ITF (Interleaved Two of Five) 1D format."
+        },
+        {
+          "name": "MAXICODE",
+          "value": "\"MAXICODE\"",
+          "tags": [],
+          "docs": "MaxiCode 2D barcode format."
+        },
+        {
+          "name": "PDF_417",
+          "value": "\"PDF_417\"",
+          "tags": [],
+          "docs": "PDF417 format."
+        },
+        {
+          "name": "QR_CODE",
+          "value": "\"QR_CODE\"",
+          "tags": [],
+          "docs": "QR Code 2D barcode format."
+        },
+        {
+          "name": "RSS_14",
+          "value": "\"RSS_14\"",
+          "tags": [],
+          "docs": "RSS 14"
+        },
+        {
+          "name": "RSS_EXPANDED",
+          "value": "\"RSS_EXPANDED\"",
+          "tags": [],
+          "docs": "RSS EXPANDED"
+        },
+        {
+          "name": "UPC_A",
+          "value": "\"UPC_A\"",
+          "tags": [],
+          "docs": "UPC-A 1D format."
+        },
+        {
+          "name": "UPC_E",
+          "value": "\"UPC_E\"",
+          "tags": [],
+          "docs": "UPC-E 1D format."
+        },
+        {
+          "name": "UPC_EAN_EXTENSION",
+          "value": "\"UPC_EAN_EXTENSION\"",
+          "tags": [],
+          "docs": "UPC/EAN extension format. Not a stand-alone format."
+        }
+      ]
+    },
+    {
+      "name": "ScanCodeType",
+      "slug": "scancodetype",
+      "members": [
+        {
+          "name": "BARCODE",
+          "value": "\"barcode\"",
+          "tags": [
+            {
+              "text": "1.0.0",
+              "name": "since"
+            }
+          ],
+          "docs": "条形码 类型"
+        },
+        {
+          "name": "QRCODE",
+          "value": "\"qrcode\"",
+          "tags": [
+            {
+              "text": "1.0.0",
+              "name": "since"
+            }
+          ],
+          "docs": "二维码 类型"
+        }
+      ]
+    }
+  ],
+  "typeAliases": []
+}

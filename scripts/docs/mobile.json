@@ -1,0 +1,250 @@
+{
+  "api": {
+    "name": "MobilePlugin",
+    "slug": "mobileplugin",
+    "docs": "",
+    "tags": [],
+    "methods": [
+      {
+        "name": "areNotificationsEnabled",
+        "signature": "(options?: any) => Promise<{ value: boolean; }>",
+        "parameters": [
+          {
+            "name": "options",
+            "docs": "",
+            "type": "any"
+          }
+        ],
+        "returns": "Promise<{ value: boolean; }>",
+        "tags": [
+          {
+            "name": "since",
+            "text": "1.0.0"
+          }
+        ],
+        "docs": "检查通知是否 打开 推送使用",
+        "complexTypes": [],
+        "slug": "arenotificationsenabled"
+      },
+      {
+        "name": "openNotification",
+        "signature": "(options?: any) => void",
+        "parameters": [
+          {
+            "name": "options",
+            "docs": "",
+            "type": "any"
+          }
+        ],
+        "returns": "void",
+        "tags": [
+          {
+            "name": "since",
+            "text": "1.0.0"
+          }
+        ],
+        "docs": "跳转打开通知 返回false 因为Android 跳转适配 失败， 提示需要手动去打开 提供打开方案链接",
+        "complexTypes": [],
+        "slug": "opennotification"
+      },
+      {
+        "name": "isLocationServiceEnabled",
+        "signature": "(options?: any) => Promise<{ value: boolean; }>",
+        "parameters": [
+          {
+            "name": "options",
+            "docs": "",
+            "type": "any"
+          }
+        ],
+        "returns": "Promise<{ value: boolean; }>",
+        "tags": [
+          {
+            "name": "since",
+            "text": "1.0.0"
+          }
+        ],
+        "docs": "检查位置是否打开 定位使用",
+        "complexTypes": [],
+        "slug": "islocationserviceenabled"
+      },
+      {
+        "name": "openLocationService",
+        "signature": "(options?: any) => void",
+        "parameters": [
+          {
+            "name": "options",
+            "docs": "",
+            "type": "any"
+          }
+        ],
+        "returns": "void",
+        "tags": [
+          {
+            "name": "since",
+            "text": "1.0.0"
+          }
+        ],
+        "docs": "打开定位总开关",
+        "complexTypes": [],
+        "slug": "openlocationservice"
+      },
+      {
+        "name": "requestPermissions",
+        "signature": "(permissions: any) => Promise<PermissionState>",
+        "parameters": [
+          {
+            "name": "permissions",
+            "docs": "",
+            "type": "any"
+          }
+        ],
+        "returns": "Promise<PermissionState>",
+        "tags": [
+          {
+            "name": "since",
+            "text": "1.0.0"
+          }
+        ],
+        "docs": "为了兼容老项目中 请求权限方法\n为了兼容 Android 和 iOS 逻辑不相同时\n执行相同的逻辑\n检查权限 通过代码动态检查",
+        "complexTypes": [
+          "PermissionState"
+        ],
+        "slug": "requestpermissions"
+      },
+      {
+        "name": "toPermissionSetting",
+        "signature": "(options?: any) => Promise<void>",
+        "parameters": [
+          {
+            "name": "options",
+            "docs": "",
+            "type": "any"
+          }
+        ],
+        "returns": "Promise<void>",
+        "tags": [
+          {
+            "name": "since",
+            "text": "1.0.0"
+          }
+        ],
+        "docs": "如果权限被拒绝不再询问 提示 必须跳转系统设置去开启，检查同 通知一样\n配合 @method requestPermissions 使用",
+        "complexTypes": [],
+        "slug": "topermissionsetting"
+      },
+      {
+        "name": "getAppsInfo",
+        "signature": "(options?: any) => Promise<{ values: any[]; }>",
+        "parameters": [
+          {
+            "name": "options",
+            "docs": "",
+            "type": "any"
+          }
+        ],
+        "returns": "Promise<{ values: any[]; }>",
+        "tags": [
+          {
+            "name": "since",
+            "text": "1.0.0"
+          }
+        ],
+        "docs": "获取手机上所有APP 是否过滤掉系统APP\n暂未使用 可能需要iOS 统一",
+        "complexTypes": [],
+        "slug": "getappsinfo"
+      },
+      {
+        "name": "isAppInstalled",
+        "signature": "(options?: any) => Promise<{ value: boolean; }>",
+        "parameters": [
+          {
+            "name": "options",
+            "docs": "",
+            "type": "any"
+          }
+        ],
+        "returns": "Promise<{ value: boolean; }>",
+        "tags": [
+          {
+            "name": "since",
+            "text": "1.0.0"
+          }
+        ],
+        "docs": "判断 应用是否安装\nAndroid {包名 appID / packageName}\nios { bundleId 可能需要 提前配置 到 plist文件 中}",
+        "complexTypes": [],
+        "slug": "isappinstalled"
+      },
+      {
+        "name": "cleanCache",
+        "signature": "(options?: any) => Promise<void>",
+        "parameters": [
+          {
+            "name": "options",
+            "docs": "",
+            "type": "any"
+          }
+        ],
+        "returns": "Promise<void>",
+        "tags": [
+          {
+            "name": "since",
+            "text": "1.0.0"
+          }
+        ],
+        "docs": "清除缓存",
+        "complexTypes": [],
+        "slug": "cleancache"
+      },
+      {
+        "name": "getCacheSize",
+        "signature": "(options?: any) => Promise<{ value: string; }>",
+        "parameters": [
+          {
+            "name": "options",
+            "docs": "",
+            "type": "any"
+          }
+        ],
+        "returns": "Promise<{ value: string; }>",
+        "tags": [
+          {
+            "name": "since",
+            "text": "1.0.0"
+          }
+        ],
+        "docs": "获取缓存 1 MB以内 kb 显示",
+        "complexTypes": [],
+        "slug": "getcachesize"
+      }
+    ],
+    "properties": []
+  },
+  "interfaces": [],
+  "enums": [],
+  "typeAliases": [
+    {
+      "name": "PermissionState",
+      "slug": "permissionstate",
+      "docs": "",
+      "types": [
+        {
+          "text": "'prompt'",
+          "complexTypes": []
+        },
+        {
+          "text": "'prompt-with-rationale'",
+          "complexTypes": []
+        },
+        {
+          "text": "'granted'",
+          "complexTypes": []
+        },
+        {
+          "text": "'denied'",
+          "complexTypes": []
+        }
+      ]
+    }
+  ]
+}

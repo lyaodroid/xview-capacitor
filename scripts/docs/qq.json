@@ -1,0 +1,217 @@
+{
+  "api": {
+    "name": "QQPlugin",
+    "slug": "qqplugin",
+    "docs": "",
+    "tags": [],
+    "methods": [
+      {
+        "name": "login",
+        "signature": "(options: { appId: string; appKey: string; }) => Promise<LoginResult>",
+        "parameters": [
+          {
+            "name": "options",
+            "docs": "",
+            "type": "{ appId: string; appKey: string; }"
+          }
+        ],
+        "returns": "Promise<LoginResult>",
+        "tags": [
+          {
+            "name": "since",
+            "text": "1.0.0"
+          }
+        ],
+        "docs": "qq 登录 应用 appId 应用 appKey",
+        "complexTypes": [
+          "LoginResult"
+        ],
+        "slug": "login"
+      },
+      {
+        "name": "share",
+        "signature": "(options: ShareMedia) => Promise<void>",
+        "parameters": [
+          {
+            "name": "options",
+            "docs": "",
+            "type": "ShareMedia"
+          }
+        ],
+        "returns": "Promise<void>",
+        "tags": [
+          {
+            "name": "since",
+            "text": "1.0.0"
+          }
+        ],
+        "docs": "qq 分享 catch (error) error.code == \"1\" 取消分享\n分享失败 状态码 查文档",
+        "complexTypes": [
+          "ShareMedia"
+        ],
+        "slug": "share"
+      }
+    ],
+    "properties": []
+  },
+  "interfaces": [
+    {
+      "name": "LoginResult",
+      "slug": "loginresult",
+      "docs": "",
+      "tags": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "uid",
+          "tags": [
+            {
+              "text": "1.0.0",
+              "name": "since"
+            }
+          ],
+          "docs": "返回 平台用户信息唯一值.",
+          "complexTypes": [],
+          "type": "string"
+        },
+        {
+          "name": "openid",
+          "tags": [
+            {
+              "text": "1.0.0",
+              "name": "since"
+            }
+          ],
+          "docs": "同 uid 一样使用 兼容 其它第三方登录使用",
+          "complexTypes": [],
+          "type": "string"
+        },
+        {
+          "name": "name",
+          "tags": [
+            {
+              "text": "1.0.0",
+              "name": "since"
+            }
+          ],
+          "docs": "昵称 支付宝没有",
+          "complexTypes": [],
+          "type": "string"
+        },
+        {
+          "name": "gender",
+          "tags": [
+            {
+              "text": "1.0.0",
+              "name": "since"
+            }
+          ],
+          "docs": "性别 男 | 女 支付宝没有",
+          "complexTypes": [],
+          "type": "string"
+        },
+        {
+          "name": "province",
+          "tags": [
+            {
+              "text": "1.0.0",
+              "name": "since"
+            }
+          ],
+          "docs": "省份 支付宝没有",
+          "complexTypes": [],
+          "type": "string"
+        },
+        {
+          "name": "city",
+          "tags": [
+            {
+              "text": "1.0.0",
+              "name": "since"
+            }
+          ],
+          "docs": "城市 支付宝没有",
+          "complexTypes": [],
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "name": "ShareMedia",
+      "slug": "sharemedia",
+      "docs": "",
+      "tags": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "appId",
+          "tags": [
+            {
+              "text": "1.0.0",
+              "name": "since"
+            }
+          ],
+          "docs": "应用 appId",
+          "complexTypes": [],
+          "type": "string"
+        },
+        {
+          "name": "appKey",
+          "tags": [
+            {
+              "text": "1.0.0",
+              "name": "since"
+            }
+          ],
+          "docs": "应用 appKey or appSecret",
+          "complexTypes": [],
+          "type": "string"
+        },
+        {
+          "name": "platform",
+          "tags": [
+            {
+              "text": "1.0.0",
+              "name": "since"
+            }
+          ],
+          "docs": "分享到媒体",
+          "complexTypes": [],
+          "type": "'QQ' | 'QZONE' | 'WEIXIN' | 'WEIXIN_CIRCLE'"
+        },
+        {
+          "name": "shareData",
+          "tags": [
+            {
+              "text": "1.0.0",
+              "name": "since"
+            }
+          ],
+          "docs": "分享样式 文字 图片 网页 音乐 视频",
+          "complexTypes": [
+            "ShareStyle"
+          ],
+          "type": "ShareStyle"
+        }
+      ]
+    },
+    {
+      "name": "ShareStyle",
+      "slug": "sharestyle",
+      "docs": "",
+      "tags": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "shareType",
+          "tags": [],
+          "docs": "",
+          "complexTypes": [],
+          "type": "'text' | 'image' | 'webPage' | 'music' | 'video' | 'minApp'"
+        }
+      ]
+    }
+  ],
+  "enums": [],
+  "typeAliases": []
+}

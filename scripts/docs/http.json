@@ -1,0 +1,1194 @@
+{
+  "api": {
+    "name": "HttpPlugin",
+    "slug": "httpplugin",
+    "docs": "",
+    "tags": [],
+    "methods": [
+      {
+        "name": "request",
+        "signature": "(options: HttpOptions) => Promise<HttpResponse>",
+        "parameters": [
+          {
+            "name": "options",
+            "docs": "",
+            "type": "HttpOptions"
+          }
+        ],
+        "returns": "Promise<HttpResponse>",
+        "tags": [],
+        "docs": "",
+        "complexTypes": [
+          "HttpResponse",
+          "HttpOptions"
+        ],
+        "slug": "request"
+      },
+      {
+        "name": "get",
+        "signature": "(options: HttpOptions) => Promise<HttpResponse>",
+        "parameters": [
+          {
+            "name": "options",
+            "docs": "",
+            "type": "HttpOptions"
+          }
+        ],
+        "returns": "Promise<HttpResponse>",
+        "tags": [],
+        "docs": "",
+        "complexTypes": [
+          "HttpResponse",
+          "HttpOptions"
+        ],
+        "slug": "get"
+      },
+      {
+        "name": "post",
+        "signature": "(options: HttpOptions) => Promise<HttpResponse>",
+        "parameters": [
+          {
+            "name": "options",
+            "docs": "",
+            "type": "HttpOptions"
+          }
+        ],
+        "returns": "Promise<HttpResponse>",
+        "tags": [],
+        "docs": "",
+        "complexTypes": [
+          "HttpResponse",
+          "HttpOptions"
+        ],
+        "slug": "post"
+      },
+      {
+        "name": "uploadFiles",
+        "signature": "(options: HttpUploadFileOptions, callback: HttpProgressCallback) => CallbackID",
+        "parameters": [
+          {
+            "name": "options",
+            "docs": "",
+            "type": "HttpUploadFileOptions"
+          },
+          {
+            "name": "callback",
+            "docs": "",
+            "type": "HttpProgressCallback"
+          }
+        ],
+        "returns": "string",
+        "tags": [
+          {
+            "name": "param",
+            "text": "options"
+          },
+          {
+            "name": "param",
+            "text": "callback"
+          },
+          {
+            "name": "since",
+            "text": "1.0.0"
+          }
+        ],
+        "docs": "data 中放 file 参数 [filePath(文件路径)] 或者 [{fileKey:\"自定义后端解析\",filePath:\"文件路径\"}]",
+        "complexTypes": [
+          "HttpUploadFileOptions",
+          "HttpProgressCallback",
+          "CallbackID"
+        ],
+        "slug": "uploadfiles"
+      },
+      {
+        "name": "put",
+        "signature": "(options: HttpOptions) => Promise<HttpResponse>",
+        "parameters": [
+          {
+            "name": "options",
+            "docs": "",
+            "type": "HttpOptions"
+          }
+        ],
+        "returns": "Promise<HttpResponse>",
+        "tags": [],
+        "docs": "",
+        "complexTypes": [
+          "HttpResponse",
+          "HttpOptions"
+        ],
+        "slug": "put"
+      },
+      {
+        "name": "patch",
+        "signature": "(options: HttpOptions) => Promise<HttpResponse>",
+        "parameters": [
+          {
+            "name": "options",
+            "docs": "",
+            "type": "HttpOptions"
+          }
+        ],
+        "returns": "Promise<HttpResponse>",
+        "tags": [],
+        "docs": "",
+        "complexTypes": [
+          "HttpResponse",
+          "HttpOptions"
+        ],
+        "slug": "patch"
+      },
+      {
+        "name": "del",
+        "signature": "(options: HttpOptions) => Promise<HttpResponse>",
+        "parameters": [
+          {
+            "name": "options",
+            "docs": "",
+            "type": "HttpOptions"
+          }
+        ],
+        "returns": "Promise<HttpResponse>",
+        "tags": [],
+        "docs": "",
+        "complexTypes": [
+          "HttpResponse",
+          "HttpOptions"
+        ],
+        "slug": "del"
+      },
+      {
+        "name": "setCookie",
+        "signature": "(options: { key: string; value: any; options?: HttpCookieOptions; }) => Promise<void>",
+        "parameters": [
+          {
+            "name": "options",
+            "docs": "",
+            "type": "{ key: string; value: any; options?: HttpCookieOptions; }"
+          }
+        ],
+        "returns": "Promise<void>",
+        "tags": [],
+        "docs": "",
+        "complexTypes": [
+          "HttpCookieOptions"
+        ],
+        "slug": "setcookie"
+      },
+      {
+        "name": "getCookie",
+        "signature": "(options: { key: string; }) => Promise<HttpCookie>",
+        "parameters": [
+          {
+            "name": "options",
+            "docs": "",
+            "type": "{ key: string; }"
+          }
+        ],
+        "returns": "Promise<HttpCookie>",
+        "tags": [],
+        "docs": "",
+        "complexTypes": [
+          "HttpCookie"
+        ],
+        "slug": "getcookie"
+      },
+      {
+        "name": "getCookies",
+        "signature": "() => Promise<HttpGetCookiesResult>",
+        "parameters": [],
+        "returns": "Promise<HttpGetCookiesResult>",
+        "tags": [],
+        "docs": "",
+        "complexTypes": [
+          "HttpGetCookiesResult"
+        ],
+        "slug": "getcookies"
+      },
+      {
+        "name": "getCookiesMap",
+        "signature": "() => Promise<HttpCookieMap>",
+        "parameters": [],
+        "returns": "Promise<HttpCookieMap>",
+        "tags": [],
+        "docs": "",
+        "complexTypes": [
+          "HttpCookieMap"
+        ],
+        "slug": "getcookiesmap"
+      },
+      {
+        "name": "clearCookies",
+        "signature": "() => Promise<void>",
+        "parameters": [],
+        "returns": "Promise<void>",
+        "tags": [],
+        "docs": "",
+        "complexTypes": [],
+        "slug": "clearcookies"
+      },
+      {
+        "name": "deleteCookie",
+        "signature": "(options: { key: string; }) => Promise<void>",
+        "parameters": [
+          {
+            "name": "options",
+            "docs": "",
+            "type": "{ key: string; }"
+          }
+        ],
+        "returns": "Promise<void>",
+        "tags": [],
+        "docs": "",
+        "complexTypes": [],
+        "slug": "deletecookie"
+      },
+      {
+        "name": "uploadFile",
+        "signature": "(options: HttpUploadFileOptions) => Promise<HttpResponse>",
+        "parameters": [
+          {
+            "name": "options",
+            "docs": "",
+            "type": "HttpUploadFileOptions"
+          }
+        ],
+        "returns": "Promise<HttpResponse>",
+        "tags": [],
+        "docs": "",
+        "complexTypes": [
+          "HttpResponse",
+          "HttpUploadFileOptions"
+        ],
+        "slug": "uploadfile"
+      },
+      {
+        "name": "downloadFile",
+        "signature": "(options: HttpDownloadFileOptions) => Promise<HttpDownloadFileResult>",
+        "parameters": [
+          {
+            "name": "options",
+            "docs": "",
+            "type": "HttpDownloadFileOptions"
+          }
+        ],
+        "returns": "Promise<HttpDownloadFileResult>",
+        "tags": [],
+        "docs": "",
+        "complexTypes": [
+          "HttpDownloadFileResult",
+          "HttpDownloadFileOptions"
+        ],
+        "slug": "downloadfile"
+      }
+    ],
+    "properties": []
+  },
+  "interfaces": [
+    {
+      "name": "HttpResponse",
+      "slug": "httpresponse",
+      "docs": "",
+      "tags": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "data",
+          "tags": [],
+          "docs": "",
+          "complexTypes": [],
+          "type": "any"
+        },
+        {
+          "name": "status",
+          "tags": [],
+          "docs": "",
+          "complexTypes": [],
+          "type": "number"
+        },
+        {
+          "name": "headers",
+          "tags": [],
+          "docs": "",
+          "complexTypes": [
+            "HttpHeaders"
+          ],
+          "type": "HttpHeaders"
+        },
+        {
+          "name": "url",
+          "tags": [],
+          "docs": "",
+          "complexTypes": [],
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "name": "HttpHeaders",
+      "slug": "httpheaders",
+      "docs": "",
+      "tags": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "HttpOptions",
+      "slug": "httpoptions",
+      "docs": "",
+      "tags": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "url",
+          "tags": [
+            {
+              "text": "1.0.0",
+              "name": "since"
+            }
+          ],
+          "docs": "请求接口地址 注意 https 问题\n只有 post 和 get uploadFiles 支持",
+          "complexTypes": [],
+          "type": "string"
+        },
+        {
+          "name": "method",
+          "tags": [],
+          "docs": "",
+          "complexTypes": [],
+          "type": "string"
+        },
+        {
+          "name": "params",
+          "tags": [],
+          "docs": "",
+          "complexTypes": [
+            "HttpParams"
+          ],
+          "type": "HttpParams"
+        },
+        {
+          "name": "data",
+          "tags": [
+            {
+              "text": "uploadFiles 时放 file 参数 [filePath(文件路径)] 或者 [{fileKey:\"自定义后端解析\",filePath:\"文件路径\"}]",
+              "name": "method"
+            },
+            {
+              "text": "1.0.0",
+              "name": "since"
+            }
+          ],
+          "docs": "",
+          "complexTypes": [],
+          "type": "any"
+        },
+        {
+          "name": "headers",
+          "tags": [],
+          "docs": "",
+          "complexTypes": [
+            "HttpHeaders"
+          ],
+          "type": "HttpHeaders"
+        },
+        {
+          "name": "readTimeout",
+          "tags": [],
+          "docs": "How long to wait to read additional data. Resets each time new\ndata is received",
+          "complexTypes": [],
+          "type": "number"
+        },
+        {
+          "name": "connectTimeout",
+          "tags": [],
+          "docs": "How long to wait for the initial connection.",
+          "complexTypes": [],
+          "type": "number"
+        },
+        {
+          "name": "webFetchExtra",
+          "tags": [],
+          "docs": "Extra arguments for fetch when running on the web",
+          "complexTypes": [
+            "RequestInit"
+          ],
+          "type": "RequestInit"
+        },
+        {
+          "name": "responseType",
+          "tags": [],
+          "docs": "This is used to parse the response appropriately before returning it to\nthe requestee. If the response content-type is \"json\", this value is ignored.",
+          "complexTypes": [
+            "HttpResponseType"
+          ],
+          "type": "HttpResponseType"
+        },
+        {
+          "name": "shouldEncodeUrlParams",
+          "tags": [],
+          "docs": "Use this option if you need to keep the URL unencoded in certain cases\n(already encoded, azure/firebase testing, etc.). The default is _true_.",
+          "complexTypes": [],
+          "type": "boolean"
+        }
+      ]
+    },
+    {
+      "name": "HttpParams",
+      "slug": "httpparams",
+      "docs": "",
+      "tags": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "RequestInit",
+      "slug": "requestinit",
+      "docs": "",
+      "tags": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "body",
+          "tags": [],
+          "docs": "",
+          "complexTypes": [
+            "BodyInit"
+          ],
+          "type": "BodyInit"
+        },
+        {
+          "name": "headers",
+          "tags": [],
+          "docs": "",
+          "complexTypes": [
+            "HeadersInit"
+          ],
+          "type": "HeadersInit"
+        },
+        {
+          "name": "method",
+          "tags": [],
+          "docs": "",
+          "complexTypes": [],
+          "type": "string"
+        },
+        {
+          "name": "redirect",
+          "tags": [],
+          "docs": "",
+          "complexTypes": [
+            "RequestRedirect"
+          ],
+          "type": "RequestRedirect"
+        },
+        {
+          "name": "signal",
+          "tags": [],
+          "docs": "",
+          "complexTypes": [
+            "AbortSignal"
+          ],
+          "type": "AbortSignal"
+        },
+        {
+          "name": "agent",
+          "tags": [],
+          "docs": "",
+          "complexTypes": [
+            "Agent",
+            "URL"
+          ],
+          "type": "Agent | ((parsedUrl: URL) => Agent)"
+        },
+        {
+          "name": "compress",
+          "tags": [],
+          "docs": "",
+          "complexTypes": [],
+          "type": "boolean"
+        },
+        {
+          "name": "follow",
+          "tags": [],
+          "docs": "",
+          "complexTypes": [],
+          "type": "number"
+        },
+        {
+          "name": "size",
+          "tags": [],
+          "docs": "",
+          "complexTypes": [],
+          "type": "number"
+        },
+        {
+          "name": "timeout",
+          "tags": [],
+          "docs": "",
+          "complexTypes": [],
+          "type": "number"
+        }
+      ]
+    },
+    {
+      "name": "ArrayBuffer",
+      "slug": "arraybuffer",
+      "docs": "Represents a raw buffer of binary data, which is used to store data for the\r\ndifferent typed arrays. ArrayBuffers cannot be read from or written to directly,\r\nbut can be passed to a typed array or DataView Object to interpret the raw\r\nbuffer as needed.",
+      "tags": [],
+      "methods": [
+        {
+          "name": "slice",
+          "signature": "(begin: number, end?: number) => ArrayBuffer",
+          "parameters": [
+            {
+              "name": "begin",
+              "docs": "",
+              "type": "number"
+            },
+            {
+              "name": "end",
+              "docs": "",
+              "type": "number"
+            }
+          ],
+          "returns": "ArrayBuffer",
+          "tags": [],
+          "docs": "Returns a section of an ArrayBuffer.",
+          "complexTypes": [
+            "ArrayBuffer"
+          ],
+          "slug": "slice"
+        }
+      ],
+      "properties": [
+        {
+          "name": "byteLength",
+          "tags": [],
+          "docs": "Read-only. The length of the ArrayBuffer (in bytes).",
+          "complexTypes": [],
+          "type": "number"
+        }
+      ]
+    },
+    {
+      "name": "ArrayBufferView",
+      "slug": "arraybufferview",
+      "docs": "",
+      "tags": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "buffer",
+          "tags": [],
+          "docs": "The ArrayBuffer instance referenced by the array.",
+          "complexTypes": [
+            "ArrayBufferLike"
+          ],
+          "type": "ArrayBufferLike"
+        },
+        {
+          "name": "byteLength",
+          "tags": [],
+          "docs": "The length in bytes of the array.",
+          "complexTypes": [],
+          "type": "number"
+        },
+        {
+          "name": "byteOffset",
+          "tags": [],
+          "docs": "The offset in bytes of the array.",
+          "complexTypes": [],
+          "type": "number"
+        }
+      ]
+    },
+    {
+      "name": "ArrayBufferTypes",
+      "slug": "arraybuffertypes",
+      "docs": "Allowed ArrayBuffer types for the buffer of an ArrayBufferView and related Typed Arrays.",
+      "tags": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "ArrayBuffer",
+          "tags": [],
+          "docs": "",
+          "complexTypes": [
+            "ArrayBuffer"
+          ],
+          "type": "ArrayBuffer"
+        }
+      ]
+    },
+    {
+      "name": "AbortSignal",
+      "slug": "abortsignal",
+      "docs": "",
+      "tags": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "aborted",
+          "tags": [],
+          "docs": "",
+          "complexTypes": [],
+          "type": "boolean"
+        },
+        {
+          "name": "addEventListener",
+          "tags": [],
+          "docs": "",
+          "complexTypes": [
+            "AbortSignal"
+          ],
+          "type": "(type: 'abort', listener: (this: AbortSignal, event: any) => any, options?: boolean | { capture?: boolean; once?: boolean; passive?: boolean; }) => void"
+        },
+        {
+          "name": "removeEventListener",
+          "tags": [],
+          "docs": "",
+          "complexTypes": [
+            "AbortSignal"
+          ],
+          "type": "(type: 'abort', listener: (this: AbortSignal, event: any) => any, options?: boolean | { capture?: boolean; }) => void"
+        },
+        {
+          "name": "dispatchEvent",
+          "tags": [],
+          "docs": "",
+          "complexTypes": [],
+          "type": "(event: any) => boolean"
+        },
+        {
+          "name": "onabort",
+          "tags": [],
+          "docs": "",
+          "complexTypes": [
+            "AbortSignal"
+          ],
+          "type": "(this: AbortSignal, event: any) => void"
+        }
+      ]
+    },
+    {
+      "name": "HttpUploadFileOptions",
+      "slug": "httpuploadfileoptions",
+      "docs": "",
+      "tags": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "url",
+          "tags": [],
+          "docs": "The URL to upload the file to",
+          "complexTypes": [],
+          "type": "string"
+        },
+        {
+          "name": "name",
+          "tags": [],
+          "docs": "The field name to upload the file with",
+          "complexTypes": [],
+          "type": "string"
+        },
+        {
+          "name": "blob",
+          "tags": [],
+          "docs": "For uploading a file on the web, a JavaScript Blob to upload",
+          "complexTypes": [
+            "Blob"
+          ],
+          "type": "Blob"
+        },
+        {
+          "name": "filePath",
+          "tags": [],
+          "docs": "For uploading a file natively, the path to the file on disk to upload",
+          "complexTypes": [],
+          "type": "string"
+        },
+        {
+          "name": "fileDirectory",
+          "tags": [],
+          "docs": "Optionally, the directory to look for the file in.\n\nIf this option is used, filePath can be a relative path rather than absolute",
+          "complexTypes": [
+            "Directory"
+          ],
+          "type": "Directory"
+        }
+      ]
+    },
+    {
+      "name": "HttpUploadFileResult",
+      "slug": "httpuploadfileresult",
+      "docs": "",
+      "tags": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "fraction",
+          "tags": [
+            {
+              "text": "1.0.0",
+              "name": "since"
+            }
+          ],
+          "docs": "0 ~ 100 百分比",
+          "complexTypes": [],
+          "type": "number"
+        },
+        {
+          "name": "speed",
+          "tags": [
+            {
+              "text": "1.0.0",
+              "name": "since"
+            }
+          ],
+          "docs": "速度",
+          "complexTypes": [],
+          "type": "number"
+        },
+        {
+          "name": "totalSize",
+          "tags": [
+            {
+              "text": "1.0.0",
+              "name": "since"
+            }
+          ],
+          "docs": "文件 总长度 字节",
+          "complexTypes": [],
+          "type": "number"
+        },
+        {
+          "name": "currentSize",
+          "tags": [
+            {
+              "text": "1.0.0",
+              "name": "since"
+            }
+          ],
+          "docs": "已经上传 文件 大小 单位 字节",
+          "complexTypes": [],
+          "type": "number"
+        },
+        {
+          "name": "state",
+          "tags": [
+            {
+              "text": "1.0.0",
+              "name": "since"
+            }
+          ],
+          "docs": "文件上传 状态",
+          "complexTypes": [
+            "HttpState"
+          ],
+          "type": "HttpState"
+        }
+      ]
+    },
+    {
+      "name": "HttpCookieOptions",
+      "slug": "httpcookieoptions",
+      "docs": "",
+      "tags": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "url",
+          "tags": [],
+          "docs": "",
+          "complexTypes": [],
+          "type": "string"
+        },
+        {
+          "name": "path",
+          "tags": [],
+          "docs": "",
+          "complexTypes": [],
+          "type": "string"
+        },
+        {
+          "name": "expires",
+          "tags": [],
+          "docs": "",
+          "complexTypes": [],
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "name": "HttpCookie",
+      "slug": "httpcookie",
+      "docs": "",
+      "tags": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "key",
+          "tags": [],
+          "docs": "",
+          "complexTypes": [],
+          "type": "string"
+        },
+        {
+          "name": "value",
+          "tags": [],
+          "docs": "",
+          "complexTypes": [],
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "name": "HttpGetCookiesResult",
+      "slug": "httpgetcookiesresult",
+      "docs": "",
+      "tags": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "cookies",
+          "tags": [],
+          "docs": "",
+          "complexTypes": [
+            "HttpCookie"
+          ],
+          "type": "HttpCookie[]"
+        }
+      ]
+    },
+    {
+      "name": "HttpCookieMap",
+      "slug": "httpcookiemap",
+      "docs": "",
+      "tags": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "HttpDownloadFileResult",
+      "slug": "httpdownloadfileresult",
+      "docs": "",
+      "tags": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "path",
+          "tags": [],
+          "docs": "",
+          "complexTypes": [],
+          "type": "string"
+        },
+        {
+          "name": "blob",
+          "tags": [],
+          "docs": "",
+          "complexTypes": [
+            "Blob"
+          ],
+          "type": "Blob"
+        }
+      ]
+    },
+    {
+      "name": "HttpDownloadFileOptions",
+      "slug": "httpdownloadfileoptions",
+      "docs": "",
+      "tags": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "filePath",
+          "tags": [],
+          "docs": "The path the downloaded file should be moved to",
+          "complexTypes": [],
+          "type": "string"
+        },
+        {
+          "name": "fileDirectory",
+          "tags": [],
+          "docs": "Optionally, the directory to put the file in\n\nIf this option is used, filePath can be a relative path rather than absolute",
+          "complexTypes": [
+            "Directory"
+          ],
+          "type": "Directory"
+        }
+      ]
+    }
+  ],
+  "enums": [
+    {
+      "name": "Directory",
+      "slug": "directory",
+      "members": [
+        {
+          "name": "Documents",
+          "value": "'DOCUMENTS'",
+          "tags": [
+            {
+              "text": "1.0.0",
+              "name": "since"
+            }
+          ],
+          "docs": "The Documents directory\nOn iOS it's the app's documents directory.\nUse this directory to store user-generated content.\nOn Android it's the Public Documents folder, so it's accessible from other apps.\nIt's not accesible on Android 10 unless the app enables legacy External Storage\nby adding `android:requestLegacyExternalStorage=\"true\"` in the `application` tag\nin the `AndroidManifest.xml`"
+        },
+        {
+          "name": "Data",
+          "value": "'DATA'",
+          "tags": [
+            {
+              "text": "1.0.0",
+              "name": "since"
+            }
+          ],
+          "docs": "The Data directory\nOn iOS it will use the Documents directory\nOn Android it's the directory holding application files.\nFiles will be deleted when the application is uninstalled."
+        },
+        {
+          "name": "Cache",
+          "value": "'CACHE'",
+          "tags": [
+            {
+              "text": "1.0.0",
+              "name": "since"
+            }
+          ],
+          "docs": "The Cache directory\nCan be deleted in cases of low memory, so use this directory to write app-specific files\nthat your app can re-create easily."
+        },
+        {
+          "name": "External",
+          "value": "'EXTERNAL'",
+          "tags": [
+            {
+              "text": "1.0.0",
+              "name": "since"
+            }
+          ],
+          "docs": "The external directory\nOn iOS it will use the Documents directory\nOn Android it's the directory on the primary shared/external\nstorage device where the application can place persistent files it owns.\nThese files are internal to the applications, and not typically visible\nto the user as media.\nFiles will be deleted when the application is uninstalled."
+        },
+        {
+          "name": "ExternalStorage",
+          "value": "'EXTERNAL_STORAGE'",
+          "tags": [
+            {
+              "text": "1.0.0",
+              "name": "since"
+            }
+          ],
+          "docs": "The external storage directory\nOn iOS it will use the Documents directory\nOn Android it's the primary shared/external storage directory.\nIt's not accesible on Android 10 unless the app enables legacy External Storage\nby adding `android:requestLegacyExternalStorage=\"true\"` in the `application` tag\nin the `AndroidManifest.xml`"
+        }
+      ]
+    },
+    {
+      "name": "HttpState",
+      "slug": "httpstate",
+      "members": [
+        {
+          "name": "START",
+          "value": "\"start\"",
+          "tags": [
+            {
+              "text": "1.0.0",
+              "name": "since"
+            }
+          ],
+          "docs": "回调 开始 一般 用于 showLoading"
+        },
+        {
+          "name": "PROGRESS",
+          "value": "\"progress\"",
+          "tags": [
+            {
+              "text": "1.0.0",
+              "name": "since"
+            }
+          ],
+          "docs": "一般 主要 用于 返回当前进度 百分比 fraction"
+        },
+        {
+          "name": "FINISH",
+          "value": "\"finish\"",
+          "tags": [
+            {
+              "text": "1.0.0",
+              "name": "since"
+            }
+          ],
+          "docs": "回调结束  在  success error 之前 用于 结束 loading"
+        },
+        {
+          "name": "SUCCESS",
+          "value": "\"success\"",
+          "tags": [
+            {
+              "text": "1.0.0",
+              "name": "since"
+            }
+          ],
+          "docs": "回调成功 状态 注意处理 其它参数"
+        },
+        {
+          "name": "ERROR",
+          "value": "\"error\"",
+          "tags": [
+            {
+              "text": "1.0.0",
+              "name": "since"
+            }
+          ],
+          "docs": "回调失败 一般 用于错误提示"
+        }
+      ]
+    }
+  ],
+  "typeAliases": [
+    {
+      "name": "BodyInit",
+      "slug": "bodyinit",
+      "docs": "",
+      "types": [
+        {
+          "text": "ArrayBuffer",
+          "complexTypes": [
+            "ArrayBuffer"
+          ]
+        },
+        {
+          "text": "ArrayBufferView",
+          "complexTypes": [
+            "ArrayBufferView"
+          ]
+        },
+        {
+          "text": "NodeJS.ReadableStream",
+          "complexTypes": [
+            "NodeJS"
+          ]
+        },
+        {
+          "text": "string",
+          "complexTypes": []
+        },
+        {
+          "text": "URLSearchParams",
+          "complexTypes": [
+            "URLSearchParams"
+          ]
+        },
+        {
+          "text": "FormData",
+          "complexTypes": [
+            "FormData"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ArrayBufferLike",
+      "slug": "arraybufferlike",
+      "docs": "",
+      "types": [
+        {
+          "text": "ArrayBufferTypes[keyof ArrayBufferTypes]",
+          "complexTypes": [
+            "ArrayBufferTypes"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "HeadersInit",
+      "slug": "headersinit",
+      "docs": "",
+      "types": [
+        {
+          "text": "Headers",
+          "complexTypes": [
+            "Headers"
+          ]
+        },
+        {
+          "text": "string[][]",
+          "complexTypes": []
+        },
+        {
+          "text": "{ [key: string]: string }",
+          "complexTypes": []
+        }
+      ]
+    },
+    {
+      "name": "RequestRedirect",
+      "slug": "requestredirect",
+      "docs": "",
+      "types": [
+        {
+          "text": "\"error\"",
+          "complexTypes": []
+        },
+        {
+          "text": "\"follow\"",
+          "complexTypes": []
+        },
+        {
+          "text": "\"manual\"",
+          "complexTypes": []
+        }
+      ]
+    },
+    {
+      "name": "HttpResponseType",
+      "slug": "httpresponsetype",
+      "docs": "",
+      "types": [
+        {
+          "text": "\"arraybuffer\"",
+          "complexTypes": []
+        },
+        {
+          "text": "\"blob\"",
+          "complexTypes": []
+        },
+        {
+          "text": "\"json\"",
+          "complexTypes": []
+        },
+        {
+          "text": "\"text\"",
+          "complexTypes": []
+        },
+        {
+          "text": "\"document\"",
+          "complexTypes": []
+        }
+      ]
+    },
+    {
+      "name": "HttpProgressCallback",
+      "slug": "httpprogresscallback",
+      "docs": "",
+      "types": [
+        {
+          "text": "(progress: HttpUploadFileResult, err?: any): void",
+          "complexTypes": [
+            "HttpUploadFileResult"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "CallbackID",
+      "slug": "callbackid",
+      "docs": "",
+      "types": [
+        {
+          "text": "string",
+          "complexTypes": []
+        }
+      ]
+    }
+  ]
+}

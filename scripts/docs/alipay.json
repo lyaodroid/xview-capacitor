@@ -1,0 +1,140 @@
+{
+  "api": {
+    "name": "AliPayPlugin",
+    "slug": "alipayplugin",
+    "docs": "",
+    "tags": [],
+    "methods": [
+      {
+        "name": "login",
+        "signature": "(options: { value: string; }) => Promise<LoginResult>",
+        "parameters": [
+          {
+            "name": "options",
+            "docs": "",
+            "type": "{ value: string; }"
+          }
+        ],
+        "returns": "Promise<LoginResult>",
+        "tags": [
+          {
+            "name": "since",
+            "text": "1.0.0"
+          }
+        ],
+        "docs": "支付宝 登录 value = 使用 标准版授权参数\ncatch (error) error.code == \"6001\" 登录失败\n支付失败 状态码 查文档",
+        "complexTypes": [
+          "LoginResult"
+        ],
+        "slug": "login"
+      },
+      {
+        "name": "pay",
+        "signature": "(options: { value: string; }) => Promise<void>",
+        "parameters": [
+          {
+            "name": "options",
+            "docs": "",
+            "type": "{ value: string; }"
+          }
+        ],
+        "returns": "Promise<void>",
+        "tags": [
+          {
+            "name": "since",
+            "text": "1.0.0"
+          }
+        ],
+        "docs": "支付宝 支付 value = 使用 由后端生成支付参数\ncatch (error) error.code == \"6001\" 支付失败\n支付失败 状态码 查文档",
+        "complexTypes": [],
+        "slug": "pay"
+      }
+    ],
+    "properties": []
+  },
+  "interfaces": [
+    {
+      "name": "LoginResult",
+      "slug": "loginresult",
+      "docs": "",
+      "tags": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "uid",
+          "tags": [
+            {
+              "text": "1.0.0",
+              "name": "since"
+            }
+          ],
+          "docs": "返回 平台用户信息唯一值.",
+          "complexTypes": [],
+          "type": "string"
+        },
+        {
+          "name": "openid",
+          "tags": [
+            {
+              "text": "1.0.0",
+              "name": "since"
+            }
+          ],
+          "docs": "同 uid 一样使用 兼容 其它第三方登录使用",
+          "complexTypes": [],
+          "type": "string"
+        },
+        {
+          "name": "name",
+          "tags": [
+            {
+              "text": "1.0.0",
+              "name": "since"
+            }
+          ],
+          "docs": "昵称 支付宝没有",
+          "complexTypes": [],
+          "type": "string"
+        },
+        {
+          "name": "gender",
+          "tags": [
+            {
+              "text": "1.0.0",
+              "name": "since"
+            }
+          ],
+          "docs": "性别 男 | 女 支付宝没有",
+          "complexTypes": [],
+          "type": "string"
+        },
+        {
+          "name": "province",
+          "tags": [
+            {
+              "text": "1.0.0",
+              "name": "since"
+            }
+          ],
+          "docs": "省份 支付宝没有",
+          "complexTypes": [],
+          "type": "string"
+        },
+        {
+          "name": "city",
+          "tags": [
+            {
+              "text": "1.0.0",
+              "name": "since"
+            }
+          ],
+          "docs": "城市 支付宝没有",
+          "complexTypes": [],
+          "type": "string"
+        }
+      ]
+    }
+  ],
+  "enums": [],
+  "typeAliases": []
+}

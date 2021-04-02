@@ -1,0 +1,55 @@
+{
+  "api": {
+    "name": "IntentsPlugin",
+    "slug": "intentsplugin",
+    "docs": "",
+    "tags": [],
+    "methods": [
+      {
+        "name": "startIntent",
+        "signature": "<T>(options: IntentOptions) => Promise<T>",
+        "parameters": [
+          {
+            "name": "options",
+            "docs": "",
+            "type": "IntentOptions"
+          }
+        ],
+        "returns": "Promise<T>",
+        "tags": [
+          {
+            "name": "since",
+            "text": "1.0.0"
+          }
+        ],
+        "docs": "常用打开一些 设置 和 开关 和 app",
+        "complexTypes": [
+          "T",
+          "IntentOptions"
+        ],
+        "slug": "startintent"
+      }
+    ],
+    "properties": []
+  },
+  "interfaces": [
+    {
+      "name": "IntentOptions",
+      "slug": "intentoptions",
+      "docs": "callbackCode 必须原生已经定义\n如果a action 使用默认值\ndata or packageName or componentName 必须有值\n其它子类 实现 此接口可以实现 不同功能\n\n  eventName 就是监听回调  如果 这个有值 就一定要 从这里获取结果\n  先注册监听 再 startIntent 方法",
+      "tags": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "methodName",
+          "tags": [],
+          "docs": "处理回调使用 如果有值 需要 回调 如果没有",
+          "complexTypes": [],
+          "type": "string"
+        }
+      ]
+    }
+  ],
+  "enums": [],
+  "typeAliases": []
+}

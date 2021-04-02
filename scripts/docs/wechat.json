@@ -1,0 +1,475 @@
+{
+  "api": {
+    "name": "WeChatPlugin",
+    "slug": "wechatplugin",
+    "docs": "",
+    "tags": [],
+    "methods": [
+      {
+        "name": "login",
+        "signature": "(options: { appId: string; appKey: string; }) => Promise<LoginResult>",
+        "parameters": [
+          {
+            "name": "options",
+            "docs": "",
+            "type": "{ appId: string; appKey: string; }"
+          }
+        ],
+        "returns": "Promise<LoginResult>",
+        "tags": [
+          {
+            "name": "since",
+            "text": "1.0.0"
+          }
+        ],
+        "docs": "微信 登录 应用 appId 应用 appKey",
+        "complexTypes": [
+          "LoginResult"
+        ],
+        "slug": "login"
+      },
+      {
+        "name": "share",
+        "signature": "(options: ShareMedia) => Promise<void>",
+        "parameters": [
+          {
+            "name": "options",
+            "docs": "",
+            "type": "ShareMedia"
+          }
+        ],
+        "returns": "Promise<void>",
+        "tags": [
+          {
+            "name": "since",
+            "text": "1.0.0"
+          }
+        ],
+        "docs": "微信 分享 catch (error) error.code == \"1\" 取消分享\n分享失败 状态码 查文档",
+        "complexTypes": [
+          "ShareMedia"
+        ],
+        "slug": "share"
+      },
+      {
+        "name": "pay",
+        "signature": "(options: WeChatPayOptions) => Promise<void>",
+        "parameters": [
+          {
+            "name": "options",
+            "docs": "",
+            "type": "WeChatPayOptions"
+          }
+        ],
+        "returns": "Promise<void>",
+        "tags": [
+          {
+            "name": "since",
+            "text": "1.0.0"
+          }
+        ],
+        "docs": "微信 支付 catch (error) error.code == \"1\" 取消支付\n支付失败 状态码 查文档",
+        "complexTypes": [
+          "WeChatPayOptions"
+        ],
+        "slug": "pay"
+      },
+      {
+        "name": "launchMiniProgram",
+        "signature": "(options: MiniProgramOptions) => Promise<void>",
+        "parameters": [
+          {
+            "name": "options",
+            "docs": "",
+            "type": "MiniProgramOptions"
+          }
+        ],
+        "returns": "Promise<void>",
+        "tags": [
+          {
+            "name": "since",
+            "text": "1.0.0"
+          }
+        ],
+        "docs": "微信 拉起小程序",
+        "complexTypes": [
+          "MiniProgramOptions"
+        ],
+        "slug": "launchminiprogram"
+      },
+      {
+        "name": "addListener",
+        "signature": "(eventName: \"app-parameter\", listenerFunc: (args: any) => void) => Promise<PluginListenerHandle> & PluginListenerHandle",
+        "parameters": [
+          {
+            "name": "eventName",
+            "docs": "",
+            "type": "'app-parameter'"
+          },
+          {
+            "name": "listenerFunc",
+            "docs": "",
+            "type": "(args: any) => void"
+          }
+        ],
+        "returns": "Promise<PluginListenerHandle> & PluginListenerHandle",
+        "tags": [],
+        "docs": "",
+        "complexTypes": [
+          "PluginListenerHandle"
+        ],
+        "slug": "addlistenerapp-parameter-"
+      },
+      {
+        "name": "addListener",
+        "signature": "(eventName: \"app-parameter-share\", listenerFunc: (args: any) => void) => Promise<PluginListenerHandle> & PluginListenerHandle",
+        "parameters": [
+          {
+            "name": "eventName",
+            "docs": "",
+            "type": "'app-parameter-share'"
+          },
+          {
+            "name": "listenerFunc",
+            "docs": "",
+            "type": "(args: any) => void"
+          }
+        ],
+        "returns": "Promise<PluginListenerHandle> & PluginListenerHandle",
+        "tags": [],
+        "docs": "",
+        "complexTypes": [
+          "PluginListenerHandle"
+        ],
+        "slug": "addlistenerapp-parameter-share-"
+      },
+      {
+        "name": "removeAllListeners",
+        "signature": "() => Promise<void>",
+        "parameters": [],
+        "returns": "Promise<void>",
+        "tags": [],
+        "docs": "Remove all native listeners for this plugin",
+        "complexTypes": [],
+        "slug": "removealllisteners"
+      }
+    ],
+    "properties": []
+  },
+  "interfaces": [
+    {
+      "name": "LoginResult",
+      "slug": "loginresult",
+      "docs": "",
+      "tags": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "uid",
+          "tags": [
+            {
+              "text": "1.0.0",
+              "name": "since"
+            }
+          ],
+          "docs": "返回 平台用户信息唯一值.",
+          "complexTypes": [],
+          "type": "string"
+        },
+        {
+          "name": "openid",
+          "tags": [
+            {
+              "text": "1.0.0",
+              "name": "since"
+            }
+          ],
+          "docs": "同 uid 一样使用 兼容 其它第三方登录使用",
+          "complexTypes": [],
+          "type": "string"
+        },
+        {
+          "name": "name",
+          "tags": [
+            {
+              "text": "1.0.0",
+              "name": "since"
+            }
+          ],
+          "docs": "昵称 支付宝没有",
+          "complexTypes": [],
+          "type": "string"
+        },
+        {
+          "name": "gender",
+          "tags": [
+            {
+              "text": "1.0.0",
+              "name": "since"
+            }
+          ],
+          "docs": "性别 男 | 女 支付宝没有",
+          "complexTypes": [],
+          "type": "string"
+        },
+        {
+          "name": "province",
+          "tags": [
+            {
+              "text": "1.0.0",
+              "name": "since"
+            }
+          ],
+          "docs": "省份 支付宝没有",
+          "complexTypes": [],
+          "type": "string"
+        },
+        {
+          "name": "city",
+          "tags": [
+            {
+              "text": "1.0.0",
+              "name": "since"
+            }
+          ],
+          "docs": "城市 支付宝没有",
+          "complexTypes": [],
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "name": "ShareMedia",
+      "slug": "sharemedia",
+      "docs": "",
+      "tags": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "appId",
+          "tags": [
+            {
+              "text": "1.0.0",
+              "name": "since"
+            }
+          ],
+          "docs": "应用 appId",
+          "complexTypes": [],
+          "type": "string"
+        },
+        {
+          "name": "appKey",
+          "tags": [
+            {
+              "text": "1.0.0",
+              "name": "since"
+            }
+          ],
+          "docs": "应用 appKey or appSecret",
+          "complexTypes": [],
+          "type": "string"
+        },
+        {
+          "name": "platform",
+          "tags": [
+            {
+              "text": "1.0.0",
+              "name": "since"
+            }
+          ],
+          "docs": "分享到媒体",
+          "complexTypes": [],
+          "type": "'QQ' | 'QZONE' | 'WEIXIN' | 'WEIXIN_CIRCLE'"
+        },
+        {
+          "name": "shareData",
+          "tags": [
+            {
+              "text": "1.0.0",
+              "name": "since"
+            }
+          ],
+          "docs": "分享样式 文字 图片 网页 音乐 视频",
+          "complexTypes": [
+            "ShareStyle"
+          ],
+          "type": "ShareStyle"
+        }
+      ]
+    },
+    {
+      "name": "ShareStyle",
+      "slug": "sharestyle",
+      "docs": "",
+      "tags": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "shareType",
+          "tags": [],
+          "docs": "",
+          "complexTypes": [],
+          "type": "'text' | 'image' | 'webPage' | 'music' | 'video' | 'minApp'"
+        }
+      ]
+    },
+    {
+      "name": "WeChatPayOptions",
+      "slug": "wechatpayoptions",
+      "docs": "",
+      "tags": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "appId",
+          "tags": [
+            {
+              "text": "1.0.0",
+              "name": "since"
+            }
+          ],
+          "docs": "微信开放平台审核通过的应用appid ，为二级商户申请的应用appid。",
+          "complexTypes": [],
+          "type": "string"
+        },
+        {
+          "name": "partnerId",
+          "tags": [
+            {
+              "text": "1.0.0",
+              "name": "since"
+            }
+          ],
+          "docs": "请填写商户号mchid对应的值。",
+          "complexTypes": [],
+          "type": "string"
+        },
+        {
+          "name": "prepayId",
+          "tags": [
+            {
+              "text": "1.0.0",
+              "name": "since"
+            }
+          ],
+          "docs": "微信返回的支付交易会话id。",
+          "complexTypes": [],
+          "type": "string"
+        },
+        {
+          "name": "packageValue",
+          "tags": [
+            {
+              "text": "1.0.0",
+              "name": "since"
+            }
+          ],
+          "docs": "暂填写固定值Sign=WXPay",
+          "complexTypes": [],
+          "type": "string"
+        },
+        {
+          "name": "nonceStr",
+          "tags": [],
+          "docs": "随机字符串，不长于32位。推荐随机数生成算法。",
+          "complexTypes": [],
+          "type": "string"
+        },
+        {
+          "name": "timeStamp",
+          "tags": [
+            {
+              "text": "1.0.0",
+              "name": "since"
+            }
+          ],
+          "docs": "时间戳",
+          "complexTypes": [],
+          "type": "string"
+        },
+        {
+          "name": "sign",
+          "tags": [],
+          "docs": "是\t签名，使用字段appId、timeStamp、nonceStr、prepayid计算得出的签名值\n注意：取值RSA格式",
+          "complexTypes": [],
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "name": "MiniProgramOptions",
+      "slug": "miniprogramoptions",
+      "docs": "",
+      "tags": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "appId",
+          "tags": [
+            {
+              "text": "1.0.0",
+              "name": "since"
+            }
+          ],
+          "docs": "填移动应用(App)的 AppId，非小程序的 AppID",
+          "complexTypes": [],
+          "type": "string"
+        },
+        {
+          "name": "userName",
+          "tags": [
+            {
+              "text": "1.0.0",
+              "name": "since"
+            }
+          ],
+          "docs": "填小程序原始id (gh_******)",
+          "complexTypes": [],
+          "type": "string"
+        },
+        {
+          "name": "path",
+          "tags": [
+            {
+              "text": "1.0.0",
+              "name": "since"
+            }
+          ],
+          "docs": "拉起小程序页面的可带参路径，不填默认拉起小程序首页，",
+          "complexTypes": [],
+          "type": "string"
+        },
+        {
+          "name": "miniType",
+          "tags": [
+            {
+              "text": "1.0.0",
+              "name": "since"
+            }
+          ],
+          "docs": "小程序 版本0 正式 ， 1 测试 2 预览版",
+          "complexTypes": [],
+          "type": "0 | 1 | 2"
+        }
+      ]
+    },
+    {
+      "name": "PluginListenerHandle",
+      "slug": "pluginlistenerhandle",
+      "docs": "",
+      "tags": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "remove",
+          "tags": [],
+          "docs": "",
+          "complexTypes": [],
+          "type": "() => void"
+        }
+      ]
+    }
+  ],
+  "enums": [],
+  "typeAliases": []
+}
