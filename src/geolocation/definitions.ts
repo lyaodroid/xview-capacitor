@@ -1,5 +1,5 @@
 
-import { CallbackID } from "../common";
+import { CallbackID, ClearWatchOptions } from "../common";
 import type { PermissionStatus } from "./definitions-common";
 
 export interface GeolocationPlugin {
@@ -42,11 +42,6 @@ export interface GeolocationPlugin {
    */
   requestPermissions(): Promise<PermissionStatus>;
 }
-
-export interface ClearWatchOptions {
-  id: CallbackID;
-}
-
 export interface Position {
   /**
    * Creation timestamp for coords

@@ -1,4 +1,4 @@
-import { CallbackID } from "../common";
+import { CallbackID, ClearWatchOptions } from "../common";
 
 export interface AudioPlugin {
   /**
@@ -17,7 +17,7 @@ export interface AudioPlugin {
    * 暂停时 如果是取消 就 删除录制文件
    * @param options
    */
-  stopRecord(options: { id: string }): Promise<void>;
+  stopRecord(options: ClearWatchOptions): Promise<void>;
 
   /**
    * 开始播放
