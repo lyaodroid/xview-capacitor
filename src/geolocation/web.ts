@@ -1,22 +1,23 @@
-import { WebPlugin } from '@capacitor/core';
+import { WebPlugin } from "@capacitor/core";
 
 import type {
   GeolocationPlugin,
   Position,
   PositionOptions,
   WatchPositionCallback,
-} from './definitions';
+} from "./definitions";
 
 import type { PermissionStatus } from "./definitions-common";
+import { CallbackID } from "../common";
 
 export class GeolocationWeb extends WebPlugin implements GeolocationPlugin {
-  async getCurrentPosition(options?: PositionOptions): Promise<Position> {    
+  async getCurrentPosition(options?: PositionOptions): Promise<Position> {
     return new Promise((resolve, reject) => {
       navigator.geolocation.getCurrentPosition(
-        pos => {
+        (pos) => {
           resolve(pos);
         },
-        err => {
+        (err) => {
           reject(err);
         },
         {
@@ -24,20 +25,20 @@ export class GeolocationWeb extends WebPlugin implements GeolocationPlugin {
           timeout: 10000,
           maximumAge: 0,
           ...options,
-        },
+        }
       );
     });
   }
 
-  watchPosition(
+  async watchPosition(
     options: PositionOptions,
-    callback: WatchPositionCallback,
-  ): string {
+    callback: WatchPositionCallback
+  ): Promise<CallbackID> {
     const id = navigator.geolocation.watchPosition(
-      pos => {
+      (pos) => {
         callback(pos);
       },
-      err => {
+      (err) => {
         callback(null, err);
       },
       {
@@ -45,7 +46,7 @@ export class GeolocationWeb extends WebPlugin implements GeolocationPlugin {
         timeout: 10000,
         maximumAge: 0,
         ...options,
-      },
+      }
     );
 
     return `${id}`;
@@ -56,18 +57,18 @@ export class GeolocationWeb extends WebPlugin implements GeolocationPlugin {
   }
 
   async checkPermissions(): Promise<PermissionStatus> {
-    if (typeof navigator === 'undefined' || !navigator.permissions) {
-      throw this.unavailable('Permissions API not available in this browser');
+    if (typeof navigator === "undefined" || !navigator.permissions) {
+      throw this.unavailable("Permissions API not available in this browser");
     }
 
     const permission = await window.navigator.permissions.query({
-      name: 'geolocation',
+      name: "geolocation",
     });
     return { location: permission.state };
   }
 
   async requestPermissions(): Promise<PermissionStatus> {
-    throw this.unimplemented('Not implemented on web.');
+    throw this.unimplemented("Not implemented on web.");
   }
 }
 

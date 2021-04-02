@@ -44,7 +44,7 @@ export interface GeolocationPlugin {
 }
 
 export interface ClearWatchOptions {
-  id: Promise<CallbackID>;
+  id: CallbackID;
 }
 
 export interface Position {

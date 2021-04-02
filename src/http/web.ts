@@ -16,11 +16,14 @@ import { WebPlugin } from '@capacitor/core';
 import * as Cookie from './cookie';
 import * as Request from './request';
 
+import { CallbackID } from "../common";
+
+
 export class HttpWeb extends WebPlugin implements HttpPlugin {
   constructor() {
     super();
   }
-  uploadFiles(_options: HttpUploadFileOptions, _callback: HttpProgressCallback): string {
+  uploadFiles(_options: HttpUploadFileOptions, _callback: HttpProgressCallback): Promise<CallbackID> {
     throw new Error("Method not implemented.");
   }
 
