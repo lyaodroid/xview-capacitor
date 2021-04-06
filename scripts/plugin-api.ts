@@ -17,7 +17,7 @@ const pluginApis: PluginInfo[] = [
 
   // { pluginId: "camera", pluginName: "CameraPlugin" },
   // { pluginId: "clipboard", pluginName: "ClipboardPlugin" },
-  // { pluginId: "device", pluginName: "DevicePlugin" },
+  { pluginId: "device", pluginName: "DevicePlugin" },
   // { pluginId: "filesystem", pluginName: "FilesystemPlugin" },
   // { pluginId: "geolocation", pluginName: "GeolocationPlugin" },
 
