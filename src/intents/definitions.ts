@@ -87,7 +87,9 @@ export class IntentFactory {
         extras: { sms_body: smsMessage },
       };
     } else if (this.mPlatform === "ios") {
-      intent = <IosIntent>{};
+      intent = <IosIntent>{
+        data: "sms://" + phoneNumber + "&" + smsMessage
+      };
     }
     return intent;
   };
@@ -99,7 +101,9 @@ export class IntentFactory {
         data: "mailto:" + email,
       };
     } else if (this.mPlatform === "ios") {
-      intent = <IosIntent>{};
+      intent = <IosIntent>{
+        data: "mailto:" + email,
+      };
     }
     return intent;
   };
@@ -111,7 +115,9 @@ export class IntentFactory {
         data: "mqqwpa://im/chat?chat_type=wpa&uin=" + qq,
       };
     } else if (this.mPlatform === "ios") {
-      intent = <IosIntent>{};
+      intent = <IosIntent>{
+        data: "mqqwpa://im/chat?chat_type=wpa&uin=" + qq,
+      };
     }
     return intent;
   };
@@ -124,7 +130,9 @@ export class IntentFactory {
         packageName: "com.autonavi.minimap",
       };
     } else if (this.mPlatform === "ios") {
-      intent = <IosIntent>{};
+      intent = <IosIntent>{
+        data: url,
+      };
     }
     return intent;
   };
@@ -137,7 +145,9 @@ export class IntentFactory {
         packageName: "com.baidu.BaiduMap",
       };
     } else if (this.mPlatform === "ios") {
-      intent = <IosIntent>{};
+      intent = <IosIntent>{
+        data: url,
+      };
     }
     return intent;
   };
@@ -154,7 +164,9 @@ export class IntentFactory {
         action: setting || "android.settings.SETTINGS",
       };
     } else if (this.mPlatform === "ios") {
-      intent = <IosIntent>{};
+      intent = <IosIntent>{
+        data: setting || "setting"
+      };
     }
     return intent;
   };
