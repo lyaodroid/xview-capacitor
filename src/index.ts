@@ -39,6 +39,8 @@ export * from "./scanner/index";
 
 export * from "./share/index";
 
+export * from "./speech/index";
+
 export * from "./splash-screen/index";
 
 export * from "./status-bar/index";

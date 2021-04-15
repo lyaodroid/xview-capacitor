@@ -9,7 +9,7 @@ export interface SpeechAsrPlugin {
      *
      * @since 1.0.0
      */
-    start(options?: {}): Promise<void>;
+    start(options: { appId: string }): Promise<void>;
 
     /**
      * 重新识别
@@ -22,14 +22,14 @@ export interface SpeechAsrPlugin {
      * 暂停识别
      * @param options
      */
-    stop(options?: any): Promise<void>;
+    stop(): Promise<void>;
 
     /**
      * 取消识别
      *
      * @since 1.0.0
      */
-    cancel(options?: any): Promise<void>;
+    cancel(): Promise<void>;
 
     /**
      * 离开页面时候
@@ -48,7 +48,7 @@ export interface SpeechAsrPlugin {
      */
     addListener(
         eventName: "recognizeError",
-        listenerFunc: (error: any) => void
+        listenerFunc: (error: SpeechError) => void
     ): Promise<PluginListenerHandle> & PluginListenerHandle;
 
     /**
@@ -69,6 +69,11 @@ export interface SpeechAsrPlugin {
      * @since 1.0.0
      */
     removeAllListeners(): Promise<void>;
+}
+
+export interface SpeechError {
+    code: number;
+    message: string;
 }
 
 export interface RecognizeStatusChange {
@@ -100,6 +105,7 @@ export enum SpeechState {
     START = "start",
     LISTENING = "listening",
     END = "end",
+    COMPLETE = "complete",
 }
 
 /**
