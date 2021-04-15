@@ -56,6 +56,12 @@ export interface IosIntent extends IntentOptions {
 }
 
 type Platform = "android" | "ios";
+/**
+ * 构建 Intent 餐宿 给  startIntent 使用
+ * 切勿当插件方法使用
+ * 
+ * @since 1.0.0
+ */
 export class IntentFactory {
     private mPlatform: Platform;
 
@@ -74,9 +80,7 @@ export class IntentFactory {
             Object.assign(intent, aIntent);
         } else if (this.mPlatform === "ios") {
             let iIntent = <IosIntent>{
-                data: "tel:" + phoneNumber,
-                methodName: "callPhone",
-            };
+                data: "tel:" + phoneNumber            };
             Object.assign(intent, iIntent);
         }
         return intent;
