@@ -9,14 +9,14 @@ export interface SpeechAsrPlugin {
      *
      * @since 1.0.0
      */
-    start(options: { appId: string }): Promise<void>;
+    recognize(options: { appId: string }): Promise<void>;
 
     /**
      * 重新识别
      *
      * @since 1.0.0
      */
-    restart(options?: any): Promise<void>;
+    resetRecognize(options?: any): Promise<void>;
 
     /**
      * 暂停识别
@@ -113,11 +113,30 @@ export enum RecognizeState {
  */
 export interface SpeechTtsPlugin {
     /**
-     * 开始识别 可以增加配置
+     * Whether a Screen Reader is currently active.
+     *
+     * This method is not supported on web (it is not possible to detect Screen
+     * Readers).
      *
      * @since 1.0.0
      */
-    start(options: { appId: string }): Promise<void>;
+    isEnabled(options: { appId: string }): Promise<{ value: boolean }>;
+    /**
+     * Text-to-Speech functionality.
+     *
+     * This function will only work if a Screen Reader is currently active.
+     *
+     * On web, browsers must support the [SpeechSynthesis
+     * API](https://developer.mozilla.org/en-US/docs/Web/API/SpeechSynthesis), or
+     * this method will throw an error.
+     *
+     * For more text-to-speech capabilities, please see the [Capacitor Community
+     * Text-to-Speech
+     * plugin](https://github.com/capacitor-community/text-to-speech).
+     *
+     * @since 1.0.0
+     */
+    speak(options: SpeakTtsOptions): Promise<void>;
 
     /**
      * 暂停
@@ -155,7 +174,7 @@ export interface SpeechTtsPlugin {
      * @since 1.0.0
      */
     addListener(
-        eventName: "speckError",
+        eventName: "speakError",
         listenerFunc: (error: SpeechError) => void
     ): Promise<PluginListenerHandle> & PluginListenerHandle;
 
@@ -168,7 +187,7 @@ export interface SpeechTtsPlugin {
      */
     addListener(
         eventName: "eventSpeechSpeak",
-        listenerFunc: (recognize: RecognizeStatusChange) => void
+        listenerFunc: (speak: SpeakStatusChange) => void
     ): Promise<PluginListenerHandle> & PluginListenerHandle;
 
     /**
@@ -201,3 +220,24 @@ export enum SpeakState {
     PROGRESS = "progress",
     COMPLETE = "complete",
 }
+
+
+export interface SpeakTtsOptions {
+    /**
+     * The text to speak.
+     *
+     * @since 1.0.0
+     */
+    value: string;
+  
+    /**
+     * The language to speak the text in, as its [ISO 639-1
+     * Code](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) (e.g.: "en").
+     *
+     * This option is only supported on Android.
+     *
+     * @since 1.0.0
+     */
+    language?: string;
+  }
+  
