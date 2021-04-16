@@ -20,7 +20,8 @@ export interface SpeechAsrPlugin {
 
     /**
      * 暂停识别
-     * @param options
+     * 
+     * @since 1.0.0
      */
     stop(): Promise<void>;
 
