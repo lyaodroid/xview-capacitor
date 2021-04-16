@@ -9,7 +9,7 @@ export interface SpeechAsrPlugin {
      *
      * @since 1.0.0
      */
-    recognize(options: { appId: string }): Promise<void>;
+    recognize(): Promise<void>;
 
     /**
      * 重新识别
@@ -121,7 +121,7 @@ export interface SpeechTtsPlugin {
      *
      * @since 1.0.0
      */
-    isEnabled(options: { appId: string }): Promise<{ value: boolean }>;
+    isEnabled(): Promise<{ value: boolean }>;
     /**
      * Text-to-Speech functionality.
      *
