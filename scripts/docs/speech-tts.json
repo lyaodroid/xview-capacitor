@@ -105,7 +105,7 @@
       },
       {
         "name": "addListener",
-        "signature": "(eventName: \"speakError\", listenerFunc: (error: any) => void) => Promise<PluginListenerHandle> & PluginListenerHandle",
+        "signature": "(eventName: \"speakError\", listenerFunc: (error: SpeechTtsError) => void) => Promise<PluginListenerHandle> & PluginListenerHandle",
         "parameters": [
           {
             "name": "eventName",
@@ -115,7 +115,7 @@
           {
             "name": "listenerFunc",
             "docs": "",
-            "type": "(error: any) => void"
+            "type": "(error: SpeechTtsError) => void"
           }
         ],
         "returns": "Promise<PluginListenerHandle> & PluginListenerHandle",
@@ -128,7 +128,7 @@
         "docs": "Called when the push notification registration finished with problems.\n\nProvides an error with the registration problem.",
         "complexTypes": [
           "PluginListenerHandle",
-          "SpeechError"
+          "SpeechTtsError"
         ],
         "slug": "addlistenerspeakerror-"
       },
@@ -226,6 +226,29 @@
           "docs": "",
           "complexTypes": [],
           "type": "() => void"
+        }
+      ]
+    },
+    {
+      "name": "SpeechTtsError",
+      "slug": "speechttserror",
+      "docs": "",
+      "tags": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "code",
+          "tags": [],
+          "docs": "",
+          "complexTypes": [],
+          "type": "number"
+        },
+        {
+          "name": "message",
+          "tags": [],
+          "docs": "",
+          "complexTypes": [],
+          "type": "string"
         }
       ]
     },

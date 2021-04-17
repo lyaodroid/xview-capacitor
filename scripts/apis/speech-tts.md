@@ -132,17 +132,17 @@ destroy() => never
 ### addListener('speakError', ...)
 
 ```typescript
-addListener(eventName: "speakError", listenerFunc: (error: any) => void) => Promise<PluginListenerHandle> & PluginListenerHandle
+addListener(eventName: "speakError", listenerFunc: (error: SpeechTtsError) => void) => Promise<PluginListenerHandle> & PluginListenerHandle
 ```
 
 Called when the push notification registration finished with problems.
 
 Provides an error with the registration problem.
 
-| Param              | Type                                 |
-| ------------------ | ------------------------------------ |
-| **`eventName`**    | <code>'speakError'</code>            |
-| **`listenerFunc`** | <code>(error: any) =&gt; void</code> |
+| Param              | Type                                                                          |
+| ------------------ | ----------------------------------------------------------------------------- |
+| **`eventName`**    | <code>'speakError'</code>                                                     |
+| **`listenerFunc`** | <code>(error: <a href="#speechttserror">SpeechTtsError</a>) =&gt; void</code> |
 
 **Returns:** <code>Promise&lt;<a href="#pluginlistenerhandle">PluginListenerHandle</a>&gt; & <a href="#pluginlistenerhandle">PluginListenerHandle</a></code>
 
@@ -202,6 +202,14 @@ Remove all native listeners for this plugin
 | Prop         | Type                       |
 | ------------ | -------------------------- |
 | **`remove`** | <code>() =&gt; void</code> |
+
+
+#### SpeechTtsError
+
+| Prop          | Type                |
+| ------------- | ------------------- |
+| **`code`**    | <code>number</code> |
+| **`message`** | <code>string</code> |
 
 
 #### SpeakStatusChange

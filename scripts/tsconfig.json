@@ -14,6 +14,6 @@
     "noUnusedParameters": false
   },
   "include": ["."],
-  "files": ["../src/speech-asr/index.ts"],
+  "files": ["../src/speech-tts/index.ts"],
   "exclude": ["node_modules"]
 }
