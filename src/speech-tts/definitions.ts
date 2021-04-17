@@ -67,7 +67,7 @@ export interface SpeechTtsPlugin {
      */
     addListener(
         eventName: "speakError",
-        listenerFunc: (error: SpeechError) => void
+        listenerFunc: (error: SpeechTtsError) => void
     ): Promise<PluginListenerHandle> & PluginListenerHandle;
 
     /**

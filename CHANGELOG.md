@@ -11,12 +11,9 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 ### Bug Fixes
 
 
-* better ignore rules for npm distribution ([#32](https://github.com/)) ([b8d55b9](https://github.com/))
-
-
 ### Features
 
-* Motion plugin ([#17](https://github.com/)) ([21ace16](https://github.com/))
-
+*  新增 科大讯飞sdk 插件
+* 
 **Note:** Version bump only for package @capacitor/motion
 clea
