@@ -117,7 +117,7 @@ import { ApWifi } from 'nativecap';
 
 [FilesystemPlugin(系统文件)](./scripts/apis/filesystem.md)
 
-[GeolocationPlugin(高德百度定位)](./scripts/apis/geolocation.md)
+[GeolocationPlugin(定位)](./scripts/apis/geolocation.md)
 
 [HttpPlugin(网络请求)](./scripts/apis/http.md)
 
@@ -131,7 +131,7 @@ import { ApWifi } from 'nativecap';
 
 [NetworkPlugin(网络状态)](./scripts/apis/network.md)
 
-[PushNotificationsPlugin(推送通知 友盟极光)](./scripts/apis/push-notifications.md)
+[PushNotificationsPlugin(推送)](./scripts/apis/push-notifications.md)
 
 [QQPlugin(腾讯QQ 登录 分享)](./scripts/apis/qq.md)
 
@@ -139,7 +139,9 @@ import { ApWifi } from 'nativecap';
 
 [SharePlugin(系统分享)](./scripts/apis/share.md)
 
-[SpeechPlugin(语音识别：识别听写)](./scripts/apis/speech.md)
+[SpeechAsrPlugin(语音识别：科大讯飞)](./scripts/apis/speech-asr.md)
+
+[SpeechTtsPlugin(语音合成：科大讯飞)](./scripts/apis/speech-tts.md)
 
 [SplashScreenPlugin(启动图 引导图)](./scripts/apis/splash-screen.md)
 
