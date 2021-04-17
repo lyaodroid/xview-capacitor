@@ -139,7 +139,7 @@ import { ApWifi } from 'nativecap';
 
 [SharePlugin(系统分享)](./scripts/apis/share.md)
 
-[SpeechPlugin(语音识别：暂未实现)](./scripts/apis/speech.md)
+[SpeechPlugin(语音识别：识别听写)](./scripts/apis/speech.md)
 
 [SplashScreenPlugin(启动图 引导图)](./scripts/apis/splash-screen.md)
 

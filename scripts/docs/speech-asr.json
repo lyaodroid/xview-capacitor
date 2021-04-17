@@ -1,0 +1,286 @@
+{
+  "api": {
+    "name": "SpeechAsrPlugin",
+    "slug": "speechasrplugin",
+    "docs": "语音听写",
+    "tags": [],
+    "methods": [
+      {
+        "name": "recognize",
+        "signature": "() => Promise<void>",
+        "parameters": [],
+        "returns": "Promise<void>",
+        "tags": [
+          {
+            "name": "since",
+            "text": "1.0.0"
+          }
+        ],
+        "docs": "开始识别 可以增加配置",
+        "complexTypes": [],
+        "slug": "recognize"
+      },
+      {
+        "name": "resetRecognize",
+        "signature": "(options?: any) => Promise<void>",
+        "parameters": [
+          {
+            "name": "options",
+            "docs": "",
+            "type": "any"
+          }
+        ],
+        "returns": "Promise<void>",
+        "tags": [
+          {
+            "name": "since",
+            "text": "1.0.0"
+          }
+        ],
+        "docs": "重新识别",
+        "complexTypes": [],
+        "slug": "resetrecognize"
+      },
+      {
+        "name": "stop",
+        "signature": "() => Promise<void>",
+        "parameters": [],
+        "returns": "Promise<void>",
+        "tags": [
+          {
+            "name": "since",
+            "text": "1.0.0"
+          }
+        ],
+        "docs": "暂停识别",
+        "complexTypes": [],
+        "slug": "stop"
+      },
+      {
+        "name": "cancel",
+        "signature": "() => Promise<void>",
+        "parameters": [],
+        "returns": "Promise<void>",
+        "tags": [
+          {
+            "name": "since",
+            "text": "1.0.0"
+          }
+        ],
+        "docs": "取消识别",
+        "complexTypes": [],
+        "slug": "cancel"
+      },
+      {
+        "name": "destroy",
+        "signature": "() => never",
+        "parameters": [],
+        "returns": "never",
+        "tags": [
+          {
+            "name": "since",
+            "text": "1.0.0"
+          }
+        ],
+        "docs": "离开页面时候\n释放资源",
+        "complexTypes": [],
+        "slug": "destroy"
+      },
+      {
+        "name": "addListener",
+        "signature": "(eventName: \"recognizeError\", listenerFunc: (error: SpeechAsrError) => void) => Promise<PluginListenerHandle> & PluginListenerHandle",
+        "parameters": [
+          {
+            "name": "eventName",
+            "docs": "",
+            "type": "'recognizeError'"
+          },
+          {
+            "name": "listenerFunc",
+            "docs": "",
+            "type": "(error: SpeechAsrError) => void"
+          }
+        ],
+        "returns": "Promise<PluginListenerHandle> & PluginListenerHandle",
+        "tags": [
+          {
+            "name": "since",
+            "text": "1.0.0"
+          }
+        ],
+        "docs": "Called when the push notification registration finished with problems.\n\nProvides an error with the registration problem.",
+        "complexTypes": [
+          "PluginListenerHandle",
+          "SpeechAsrError"
+        ],
+        "slug": "addlistenerrecognizeerror-"
+      },
+      {
+        "name": "addListener",
+        "signature": "(eventName: \"eventSpeechRecognize\", listenerFunc: (recognize: RecognizeStatusChange) => void) => Promise<PluginListenerHandle> & PluginListenerHandle",
+        "parameters": [
+          {
+            "name": "eventName",
+            "docs": "",
+            "type": "'eventSpeechRecognize'"
+          },
+          {
+            "name": "listenerFunc",
+            "docs": "",
+            "type": "(recognize: RecognizeStatusChange) => void"
+          }
+        ],
+        "returns": "Promise<PluginListenerHandle> & PluginListenerHandle",
+        "tags": [
+          {
+            "name": "since",
+            "text": "1.0.0"
+          }
+        ],
+        "docs": "Called when the push notification registration finishes without problems.\n\nProvides the push notification token.",
+        "complexTypes": [
+          "PluginListenerHandle",
+          "RecognizeStatusChange"
+        ],
+        "slug": "addlistenereventspeechrecognize-"
+      },
+      {
+        "name": "removeAllListeners",
+        "signature": "() => Promise<void>",
+        "parameters": [],
+        "returns": "Promise<void>",
+        "tags": [
+          {
+            "name": "since",
+            "text": "1.0.0"
+          }
+        ],
+        "docs": "Remove all native listeners for this plugin",
+        "complexTypes": [],
+        "slug": "removealllisteners"
+      }
+    ],
+    "properties": []
+  },
+  "interfaces": [
+    {
+      "name": "PluginListenerHandle",
+      "slug": "pluginlistenerhandle",
+      "docs": "",
+      "tags": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "remove",
+          "tags": [],
+          "docs": "",
+          "complexTypes": [],
+          "type": "() => void"
+        }
+      ]
+    },
+    {
+      "name": "SpeechAsrError",
+      "slug": "speechasrerror",
+      "docs": "",
+      "tags": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "code",
+          "tags": [],
+          "docs": "",
+          "complexTypes": [],
+          "type": "number"
+        },
+        {
+          "name": "message",
+          "tags": [],
+          "docs": "",
+          "complexTypes": [],
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "name": "RecognizeStatusChange",
+      "slug": "recognizestatuschange",
+      "docs": "",
+      "tags": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "amplitude",
+          "tags": [
+            {
+              "text": "1.0.0",
+              "name": "since"
+            }
+          ],
+          "docs": "录音时 振幅 state = start 时有值\n0 -> 14",
+          "complexTypes": [],
+          "type": "0"
+        },
+        {
+          "name": "state",
+          "tags": [
+            {
+              "text": "1.0.0",
+              "name": "since"
+            }
+          ],
+          "docs": "识别语音状态",
+          "complexTypes": [
+            "RecognizeState"
+          ],
+          "type": "RecognizeState"
+        },
+        {
+          "name": "data",
+          "tags": [
+            {
+              "text": "1.0.0",
+              "name": "since"
+            }
+          ],
+          "docs": "state == end 时 识别结束\ndata 有值",
+          "complexTypes": [],
+          "type": "string"
+        }
+      ]
+    }
+  ],
+  "enums": [
+    {
+      "name": "RecognizeState",
+      "slug": "recognizestate",
+      "members": [
+        {
+          "name": "START",
+          "value": "\"start\"",
+          "tags": [],
+          "docs": ""
+        },
+        {
+          "name": "LISTENING",
+          "value": "\"listening\"",
+          "tags": [],
+          "docs": ""
+        },
+        {
+          "name": "END",
+          "value": "\"end\"",
+          "tags": [],
+          "docs": ""
+        },
+        {
+          "name": "COMPLETE",
+          "value": "\"complete\"",
+          "tags": [],
+          "docs": ""
+        }
+      ]
+    }
+  ],
+  "typeAliases": []
+}

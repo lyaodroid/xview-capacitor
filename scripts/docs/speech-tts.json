@@ -1,0 +1,307 @@
+{
+  "api": {
+    "name": "SpeechTtsPlugin",
+    "slug": "speechttsplugin",
+    "docs": "语音合成 tts",
+    "tags": [],
+    "methods": [
+      {
+        "name": "isEnabled",
+        "signature": "() => Promise<{ value: boolean; }>",
+        "parameters": [],
+        "returns": "Promise<{ value: boolean; }>",
+        "tags": [
+          {
+            "name": "since",
+            "text": "1.0.0"
+          }
+        ],
+        "docs": "Whether a Screen Reader is currently active.\n\nThis method is not supported on web (it is not possible to detect Screen\nReaders).",
+        "complexTypes": [],
+        "slug": "isenabled"
+      },
+      {
+        "name": "speak",
+        "signature": "(options: SpeakTtsOptions) => Promise<void>",
+        "parameters": [
+          {
+            "name": "options",
+            "docs": "",
+            "type": "SpeakTtsOptions"
+          }
+        ],
+        "returns": "Promise<void>",
+        "tags": [
+          {
+            "name": "since",
+            "text": "1.0.0"
+          }
+        ],
+        "docs": "Text-to-Speech functionality.\n\nThis function will only work if a Screen Reader is currently active.\n\nOn web, browsers must support the [SpeechSynthesis\nAPI](https://developer.mozilla.org/en-US/docs/Web/API/SpeechSynthesis), or\nthis method will throw an error.\n\nFor more text-to-speech capabilities, please see the [Capacitor Community\nText-to-Speech\nplugin](https://github.com/capacitor-community/text-to-speech).",
+        "complexTypes": [
+          "SpeakTtsOptions"
+        ],
+        "slug": "speak"
+      },
+      {
+        "name": "pause",
+        "signature": "() => Promise<void>",
+        "parameters": [],
+        "returns": "Promise<void>",
+        "tags": [
+          {
+            "name": "since",
+            "text": "1.0.0"
+          }
+        ],
+        "docs": "暂停",
+        "complexTypes": [],
+        "slug": "pause"
+      },
+      {
+        "name": "resume",
+        "signature": "() => Promise<void>",
+        "parameters": [],
+        "returns": "Promise<void>",
+        "tags": [
+          {
+            "name": "param",
+            "text": "options"
+          }
+        ],
+        "docs": "恢复",
+        "complexTypes": [],
+        "slug": "resume"
+      },
+      {
+        "name": "cancel",
+        "signature": "() => Promise<void>",
+        "parameters": [],
+        "returns": "Promise<void>",
+        "tags": [
+          {
+            "name": "since",
+            "text": "1.0.0"
+          }
+        ],
+        "docs": "取消",
+        "complexTypes": [],
+        "slug": "cancel"
+      },
+      {
+        "name": "destroy",
+        "signature": "() => never",
+        "parameters": [],
+        "returns": "never",
+        "tags": [
+          {
+            "name": "since",
+            "text": "1.0.0"
+          }
+        ],
+        "docs": "离开页面时候\n释放资源",
+        "complexTypes": [],
+        "slug": "destroy"
+      },
+      {
+        "name": "addListener",
+        "signature": "(eventName: \"speakError\", listenerFunc: (error: any) => void) => Promise<PluginListenerHandle> & PluginListenerHandle",
+        "parameters": [
+          {
+            "name": "eventName",
+            "docs": "",
+            "type": "'speakError'"
+          },
+          {
+            "name": "listenerFunc",
+            "docs": "",
+            "type": "(error: any) => void"
+          }
+        ],
+        "returns": "Promise<PluginListenerHandle> & PluginListenerHandle",
+        "tags": [
+          {
+            "name": "since",
+            "text": "1.0.0"
+          }
+        ],
+        "docs": "Called when the push notification registration finished with problems.\n\nProvides an error with the registration problem.",
+        "complexTypes": [
+          "PluginListenerHandle",
+          "SpeechError"
+        ],
+        "slug": "addlistenerspeakerror-"
+      },
+      {
+        "name": "addListener",
+        "signature": "(eventName: \"eventSpeechSpeak\", listenerFunc: (speak: SpeakStatusChange) => void) => Promise<PluginListenerHandle> & PluginListenerHandle",
+        "parameters": [
+          {
+            "name": "eventName",
+            "docs": "",
+            "type": "'eventSpeechSpeak'"
+          },
+          {
+            "name": "listenerFunc",
+            "docs": "",
+            "type": "(speak: SpeakStatusChange) => void"
+          }
+        ],
+        "returns": "Promise<PluginListenerHandle> & PluginListenerHandle",
+        "tags": [
+          {
+            "name": "since",
+            "text": "1.0.0"
+          }
+        ],
+        "docs": "Called when the push notification registration finishes without problems.\n\nProvides the push notification token.",
+        "complexTypes": [
+          "PluginListenerHandle",
+          "SpeakStatusChange"
+        ],
+        "slug": "addlistenereventspeechspeak-"
+      },
+      {
+        "name": "removeAllListeners",
+        "signature": "() => Promise<void>",
+        "parameters": [],
+        "returns": "Promise<void>",
+        "tags": [
+          {
+            "name": "since",
+            "text": "1.0.0"
+          }
+        ],
+        "docs": "Remove all native listeners for this plugin",
+        "complexTypes": [],
+        "slug": "removealllisteners"
+      }
+    ],
+    "properties": []
+  },
+  "interfaces": [
+    {
+      "name": "SpeakTtsOptions",
+      "slug": "speakttsoptions",
+      "docs": "",
+      "tags": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "value",
+          "tags": [
+            {
+              "text": "1.0.0",
+              "name": "since"
+            }
+          ],
+          "docs": "The text to speak.",
+          "complexTypes": [],
+          "type": "string"
+        },
+        {
+          "name": "language",
+          "tags": [
+            {
+              "text": "1.0.0",
+              "name": "since"
+            }
+          ],
+          "docs": "The language to speak the text in, as its [ISO 639-1\nCode](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) (e.g.: \"en\").\n\nThis option is only supported on Android.",
+          "complexTypes": [],
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "name": "PluginListenerHandle",
+      "slug": "pluginlistenerhandle",
+      "docs": "",
+      "tags": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "remove",
+          "tags": [],
+          "docs": "",
+          "complexTypes": [],
+          "type": "() => void"
+        }
+      ]
+    },
+    {
+      "name": "SpeakStatusChange",
+      "slug": "speakstatuschange",
+      "docs": "",
+      "tags": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "percent",
+          "tags": [
+            {
+              "text": "1.0.0",
+              "name": "since"
+            }
+          ],
+          "docs": "百分比",
+          "complexTypes": [],
+          "type": "0"
+        },
+        {
+          "name": "state",
+          "tags": [
+            {
+              "text": "1.0.0",
+              "name": "since"
+            }
+          ],
+          "docs": "语音合成状态",
+          "complexTypes": [
+            "SpeakState"
+          ],
+          "type": "SpeakState"
+        }
+      ]
+    }
+  ],
+  "enums": [
+    {
+      "name": "SpeakState",
+      "slug": "speakstate",
+      "members": [
+        {
+          "name": "START",
+          "value": "\"start\"",
+          "tags": [],
+          "docs": ""
+        },
+        {
+          "name": "PAUSE",
+          "value": "\"pause\"",
+          "tags": [],
+          "docs": ""
+        },
+        {
+          "name": "RESUME",
+          "value": "\"resume\"",
+          "tags": [],
+          "docs": ""
+        },
+        {
+          "name": "PROGRESS",
+          "value": "\"progress\"",
+          "tags": [],
+          "docs": ""
+        },
+        {
+          "name": "COMPLETE",
+          "value": "\"complete\"",
+          "tags": [],
+          "docs": ""
+        }
+      ]
+    }
+  ],
+  "typeAliases": []
+}
