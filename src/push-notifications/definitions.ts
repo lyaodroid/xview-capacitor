@@ -4,14 +4,13 @@ import { PermissionStatus } from "./definitions-common";
 export interface PushNotificationsPlugin {
     /**
      * Register the app to receive push notifications.
-     *
-     * This method will trigger the `'registration'` event with the push token or
-     * `'registrationError'` if there was a problem. It does prompt the user for
-     * notification permissions, use `requestPermissions()` first.
-     *
+     * 
+     * 注册推送在 用户同意使用 app 时 再进行注册 
+     * 防止上架问题， 默认关掉 推送 关闭联合保活能力(1.1.6.1+)
+     * 
      * @since 1.0.0
      */
-    register(): Promise<void>;
+    register(options?: { pullUp: false }): Promise<void>;
 
     /**
      * Get a list of notifications that are visible on the notifications screen.
