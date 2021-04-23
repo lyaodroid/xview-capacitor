@@ -55,7 +55,6 @@ export interface IosIntent extends IntentOptions {
     };
 }
 
-type Platform = "android" | "ios";
 /**
  * 构建 Intent 餐宿 给  startIntent 使用
  * 切勿当插件方法使用
@@ -63,9 +62,14 @@ type Platform = "android" | "ios";
  * @since 1.0.0
  */
 export class IntentFactory {
-    private mPlatform: Platform;
+    /**
+     * "android" | "ios";
+     * 
+     * @since 1.0.0
+     */
+    private mPlatform: string;
 
-    constructor(platform: Platform) {
+    constructor(platform: string) {
         this.mPlatform = platform;
     }
 
