@@ -15,7 +15,9 @@ export * from "./common/index";
 
 export * from "./device/index";
 
-export * from "./filesystem/index";
+export * from "./file-selector/index";
+
+export * from "./file-system/index";
 
 export * from "./geolocation/index";
 

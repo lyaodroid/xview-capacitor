@@ -1,4 +1,4 @@
-import { Directory } from "../filesystem";
+import { Directory } from "../file-system";
 import { CallbackID } from "@capacitor/core";
 
 type HttpResponseType =
