@@ -1,0 +1,152 @@
+{
+  "api": {
+    "name": "FileSelectorPlugin",
+    "slug": "fileselectorplugin",
+    "docs": "",
+    "tags": [],
+    "methods": [
+      {
+        "name": "fileSelector",
+        "signature": "(options: FileSelectorOptions) => Promise<FileSelectorResult>",
+        "parameters": [
+          {
+            "name": "options",
+            "docs": "",
+            "type": "FileSelectorOptions"
+          }
+        ],
+        "returns": "Promise<FileSelectorResult>",
+        "tags": [
+          {
+            "name": "since",
+            "text": "1.0.0"
+          }
+        ],
+        "docs": "系统文件选择",
+        "complexTypes": [
+          "FileSelectorResult",
+          "FileSelectorOptions"
+        ],
+        "slug": "fileselector"
+      },
+      {
+        "name": "addListener",
+        "signature": "(eventName: \"onFilesSelected\", listenerFunc: (state: any) => void) => PluginListenerHandle",
+        "parameters": [
+          {
+            "name": "eventName",
+            "docs": "",
+            "type": "'onFilesSelected'"
+          },
+          {
+            "name": "listenerFunc",
+            "docs": "",
+            "type": "(state: any) => void"
+          }
+        ],
+        "returns": "PluginListenerHandle",
+        "tags": [
+          {
+            "name": "since",
+            "text": "1.0.0"
+          }
+        ],
+        "docs": "web 文件选择",
+        "complexTypes": [
+          "PluginListenerHandle",
+          "FileList"
+        ],
+        "slug": "addlisteneronfilesselected-"
+      }
+    ],
+    "properties": []
+  },
+  "interfaces": [
+    {
+      "name": "FileSelectorResult",
+      "slug": "fileselectorresult",
+      "docs": "",
+      "tags": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "paths",
+          "tags": [
+            {
+              "text": "1.0.0",
+              "name": "since"
+            }
+          ],
+          "docs": "文件路径 使用原生上传 要\nreplace（ _capacitor_file_ ，\"\")",
+          "complexTypes": [],
+          "type": "any"
+        },
+        {
+          "name": "original_names",
+          "tags": [],
+          "docs": "",
+          "complexTypes": [],
+          "type": "any"
+        },
+        {
+          "name": "extensions",
+          "tags": [],
+          "docs": "",
+          "complexTypes": [],
+          "type": "any"
+        }
+      ]
+    },
+    {
+      "name": "FileSelectorOptions",
+      "slug": "fileselectoroptions",
+      "docs": "",
+      "tags": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "multiple_selection",
+          "tags": [
+            {
+              "text": "1.0.0",
+              "name": "since"
+            }
+          ],
+          "docs": "是否多选",
+          "complexTypes": [],
+          "type": "boolean"
+        },
+        {
+          "name": "ext",
+          "tags": [
+            {
+              "text": "1.0.0",
+              "name": "since"
+            }
+          ],
+          "docs": "选择文件类型扩展",
+          "complexTypes": [],
+          "type": "string[]"
+        }
+      ]
+    },
+    {
+      "name": "PluginListenerHandle",
+      "slug": "pluginlistenerhandle",
+      "docs": "",
+      "tags": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "remove",
+          "tags": [],
+          "docs": "",
+          "complexTypes": [],
+          "type": "() => void"
+        }
+      ]
+    }
+  ],
+  "enums": [],
+  "typeAliases": []
+}

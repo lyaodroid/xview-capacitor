@@ -18,7 +18,9 @@ const pluginApis: PluginInfo[] = [
   // { pluginId: "camera", pluginName: "CameraPlugin" },
   // { pluginId: "clipboard", pluginName: "ClipboardPlugin" },
   // { pluginId: "device", pluginName: "DevicePlugin" },
-  // { pluginId: "filesystem", pluginName: "FilesystemPlugin" },
+  { pluginId: "file-selector", pluginName: "FileSelectorPlugin" },
+  { pluginId: "file-system", pluginName: "FilesystemPlugin" },
+
   // { pluginId: "geolocation", pluginName: "GeolocationPlugin" },
 
   // { pluginId: "hot-code-push", pluginName: "HotCodePushPlugin" },
@@ -40,8 +42,8 @@ const pluginApis: PluginInfo[] = [
   // { pluginId: "scanner", pluginName: "ScannerPlugin" },
   // { pluginId: "share", pluginName: "SharePlugin" },
 
-  { pluginId: "speech-asr", pluginName: "SpeechAsrPlugin" },//
-  { pluginId: "speech-tts", pluginName: "SpeechTtsPlugin" },//
+  // { pluginId: "speech-asr", pluginName: "SpeechAsrPlugin" },//
+  // { pluginId: "speech-tts", pluginName: "SpeechTtsPlugin" },//
 
   // { pluginId: "splash-screen", pluginName: "SplashScreenPlugin" },
 

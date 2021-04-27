@@ -1,8 +1,8 @@
 ---
-title: Filesystem Capacitor Plugin API
+title: File System Capacitor Plugin API
 description: The App API handles high level App state and events.For example, this API emits events when the app enters and leaves the foreground, handles deeplinks, opens other apps, and manages persisted plugin state.
-editUrl: https://github.com/ionic-team/capacitor-plugins/blob/main/filesystem/README.md
-editApiUrl: https://github.com/ionic-team/capacitor-plugins/blob/main/filesystem/src/definitions.ts
+editUrl: https://github.com/ionic-team/capacitor-plugins/blob/main/file-system/README.md
+editApiUrl: https://github.com/ionic-team/capacitor-plugins/blob/main/file-system/src/definitions.ts
 ---
 
 
