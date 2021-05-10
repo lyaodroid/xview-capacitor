@@ -47,6 +47,8 @@ export * from "./status-bar/index";
 
 export * from "./storage/index";
 
+export * from "./umeng/index";
+
 export * from "./update/index";
 
 export * from "./webpage/index";
