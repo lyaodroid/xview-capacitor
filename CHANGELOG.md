@@ -7,7 +7,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-## [0.2.1]() (2021-05-24)
+## [0.2.2]() (2021-05-24)
 
 ### Bug Fixes
 talkQQ ios intent bug data 没有参数
