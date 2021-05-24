@@ -1,9 +1,13 @@
 // 注意 编译文档 只能一个一个编译
 export * from "./alipay/index";
 
+export * from "./aplink/index";
+
 export * from "./app/index";
 
 export * from "./app-launcher/index";
+
+export * from "./apwifi/index";
 
 export * from "./audio/index";
 
@@ -12,6 +16,8 @@ export * from "./camera/index";
 export * from "./clipboard/index";
 
 export * from "./common/index";
+
+export * from "./cpplus/index";
 
 export * from "./device/index";
 
