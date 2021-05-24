@@ -143,7 +143,7 @@ export class IntentFactory {
             let iIntent = <IosIntent>{
                 data: "mqqwpa://im/chat?chat_type=wpa&uin=" + qq,
             };
-            Object.assign(iIntent);
+            Object.assign(intent,iIntent);
         }
         return intent;
     };
