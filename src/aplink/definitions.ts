@@ -1,5 +1,15 @@
 import { PluginListenerHandle } from "@capacitor/core";
 
+import type { PermissionStatus } from "./definitions-common";
+
+export type ApLinkPermissionState = PermissionState | "limited";
+
+export type APLinkPermissionType = "wifi" | "location";
+
+export interface ApLinkPluginPermissions {
+    permissions: APLinkPermissionType[];
+}
+
 export interface ApLinkPlugin {
     /**
      * 获取当前连接的WiFi名字
@@ -47,6 +57,22 @@ export interface ApLinkPlugin {
         listenerFunc: (status: ApLinkStatusProgress) => void
     ): PluginListenerHandle;
 
+    /**
+     * Check wifi/location permissions.
+     *
+     * @since 1.0.0
+     */
+    checkPermissions(): Promise<PermissionStatus>;
+
+    /**
+     * Request location permissions wifiInfo
+     *
+     * @since 1.0.0
+     */
+    requestPermissions(
+        permissions?: ApLinkPluginPermissions
+    ): Promise<PermissionStatus>;
+
     removeAllListeners(): void;
 }
 
@@ -62,7 +88,7 @@ export interface ApLinkStatusProgress {
 
     /**
      * wifi 频段 大概判断
-     * 
+     *
      * @since 1.0.0
      */
     hertz: "2.4" | "5";
@@ -88,7 +114,7 @@ export interface ApLinkStatusProgress {
 
 /**
  * 配网两种类型  server 后面会启用
- * 
+ *
  * @since 1.0.0
  */
 export type ApLinkStatusLinkType = "wifi" | "server";
