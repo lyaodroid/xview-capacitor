@@ -10,6 +10,15 @@ import type {
 import type { PermissionStatus } from "./definitions-common";
 
 export class GeolocationWeb extends WebPlugin implements GeolocationPlugin {
+
+  isLocationServiceEnabled(_options?: any): Promise<{ value: boolean; }> {
+    throw new Error("Method not implemented.");
+  }
+  
+  openLocationService(_options?: any): void {
+    throw new Error("Method not implemented.");
+  }
+
   async getCurrentPosition(options?: PositionOptions): Promise<Position> {    
     return new Promise((resolve, reject) => {
       navigator.geolocation.getCurrentPosition(

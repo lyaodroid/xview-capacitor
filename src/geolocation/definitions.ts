@@ -1,184 +1,198 @@
-
 import type { PermissionStatus } from "./definitions-common";
 
 export type CallbackID = string;
 
 export interface GeolocationPlugin {
-  /**
-   * Get the current GPS location of the device
-   *
-   * @since 1.0.0
-   */
-  getCurrentPosition(options?: PositionOptions): Promise<Position>;
+    /**
+     * Get the current GPS location of the device
+     *
+     * @since 1.0.0
+     */
+    getCurrentPosition(options?: PositionOptions): Promise<Position>;
 
-  /**
-   * Set up a watch for location changes. Note that watching for location changes
-   * can consume a large amount of energy. Be smart about listening only when you need to.
-   *
-   * @since 1.0.0
-   */
-  watchPosition(
-    options: PositionOptions,
-    callback: WatchPositionCallback,
-  ): CallbackID;
+    /**
+     * Set up a watch for location changes. Note that watching for location changes
+     * can consume a large amount of energy. Be smart about listening only when you need to.
+     *
+     * @since 1.0.0
+     */
+    watchPosition(
+        options: PositionOptions,
+        callback: WatchPositionCallback
+    ): CallbackID;
 
-  /**
-   * Clear a given watch
-   *
-   * @since 1.0.0
-   */
-  clearWatch(options: ClearWatchOptions): Promise<void>;
+    /**
+     * Clear a given watch
+     *
+     * @since 1.0.0
+     */
+    clearWatch(options: ClearWatchOptions): Promise<void>;
 
-  /**
-   * Check location permissions
-   *
-   * @since 1.0.0
-   */
-  checkPermissions(): Promise<PermissionStatus>;
+    /**
+     * Check location permissions
+     *
+     * @since 1.0.0
+     */
+    checkPermissions(): Promise<PermissionStatus>;
 
-  /**
-   * Request location permissions
-   *
-   * @since 1.0.0
-   */
-  requestPermissions(): Promise<PermissionStatus>;
+    /**
+     * Request location permissions
+     *
+     * @since 1.0.0
+     */
+    requestPermissions(): Promise<PermissionStatus>;
+
+    /**
+     * 检查位置是否打开 定位使用
+     *
+     * @since 1.0.0
+     */
+    isLocationServiceEnabled(options?: any): Promise<{ value: boolean }>;
+
+    /**
+     * 打开定位总开关
+     * 根据 @method isLocationServiceEnabled 处理
+     *
+     * @since 1.0.0
+     */
+    openLocationService(options?: any): void;
 }
 
 export interface ClearWatchOptions {
-  id: CallbackID;
+    id: CallbackID;
 }
 
 export interface Position {
-  /**
-   * Creation timestamp for coords
-   *
-   * @since 1.0.0
-   */
-  timestamp: number;
-
-  /**
-   * The GPS coordinates along with the accuracy of the data
-   *
-   * @since 1.0.0
-   */
-  coords: {
     /**
-     * Latitude in decimal degrees
+     * Creation timestamp for coords
      *
      * @since 1.0.0
      */
-    latitude: number;
+    timestamp: number;
 
     /**
-     * longitude in decimal degrees
+     * The GPS coordinates along with the accuracy of the data
      *
      * @since 1.0.0
      */
-    longitude: number;
+    coords: {
+        /**
+         * Latitude in decimal degrees
+         *
+         * @since 1.0.0
+         */
+        latitude: number;
 
-    /**
-     * Accuracy level of the latitude and longitude coordinates in meters
-     *
-     * @since 1.0.0
-     */
-    accuracy: number;
+        /**
+         * longitude in decimal degrees
+         *
+         * @since 1.0.0
+         */
+        longitude: number;
 
-    /**
-     * 国家
-     * 
-     * @since 1.0.0
-     */
-    country?:string;
+        /**
+         * Accuracy level of the latitude and longitude coordinates in meters
+         *
+         * @since 1.0.0
+         */
+        accuracy: number;
 
-    /**
-     * 省
-     * 
-     * @since 1.0.0
-     */
-    province?:string;
+        /**
+         * 国家
+         *
+         * @since 1.0.0
+         */
+        country?: string;
 
-    /**
-     * 市
-     * 
-     * @since 1.0.0
-     */
-    city?:string;
+        /**
+         * 省
+         *
+         * @since 1.0.0
+         */
+        province?: string;
 
-    /**
-     * 区
-     * 
-     * @since 1.0.0
-     */
-    district?:string;
+        /**
+         * 市
+         *
+         * @since 1.0.0
+         */
+        city?: string;
 
-    /**
-     * 详细地址
-     * 
-     * @since 1.0.0
-     */
-    address?:string;
+        /**
+         * 区
+         *
+         * @since 1.0.0
+         */
+        district?: string;
 
-    /**
-     * Accuracy level of the altitude coordinate in meters, if available.
-     *
-     * Available on all iOS versions and on Android 8.0+.
-     *
-     * @since 1.0.0
-     */
-    altitudeAccuracy: number | null | undefined;
+        /**
+         * 详细地址
+         *
+         * @since 1.0.0
+         */
+        address?: string;
 
-    /**
-     * The altitude the user is at (if available)
-     *
-     * @since 1.0.0
-     */
-    altitude: number | null;
+        /**
+         * Accuracy level of the altitude coordinate in meters, if available.
+         *
+         * Available on all iOS versions and on Android 8.0+.
+         *
+         * @since 1.0.0
+         */
+        altitudeAccuracy: number | null | undefined;
 
-    /**
-     * The speed the user is traveling (if available)
-     *
-     * @since 1.0.0
-     */
-    speed: number | null;
+        /**
+         * The altitude the user is at (if available)
+         *
+         * @since 1.0.0
+         */
+        altitude: number | null;
 
-    /**
-     * The heading the user is facing (if available)
-     *
-     * @since 1.0.0
-     */
-    heading: number | null;
-  };
+        /**
+         * The speed the user is traveling (if available)
+         *
+         * @since 1.0.0
+         */
+        speed: number | null;
+
+        /**
+         * The heading the user is facing (if available)
+         *
+         * @since 1.0.0
+         */
+        heading: number | null;
+    };
 }
 
 export interface PositionOptions {
-  /**
-   * High accuracy mode (such as GPS, if available)
-   *
-   * @default false
-   * @since 1.0.0
-   */
-  enableHighAccuracy?: boolean;
+    /**
+     * High accuracy mode (such as GPS, if available)
+     *
+     * @default false
+     * @since 1.0.0
+     */
+    enableHighAccuracy?: boolean;
 
-  /**
-   * The maximum wait time in milliseconds for location updates
-   *
-   * @default 10000
-   * @since 1.0.0
-   */
-  timeout?: number;
+    /**
+     * The maximum wait time in milliseconds for location updates
+     *
+     * @default 10000
+     * @since 1.0.0
+     */
+    timeout?: number;
 
-  /**
-   * The maximum age in milliseconds of a possible cached position that is acceptable to return
-   *
-   * @default 0
-   * @since 1.0.0
-   */
-  maximumAge?: number;
+    /**
+     * The maximum age in milliseconds of a possible cached position that is acceptable to return
+     *
+     * @default 0
+     * @since 1.0.0
+     */
+    maximumAge?: number;
 }
 
 export type WatchPositionCallback = (
-  position: Position | null,
-  err?: any,
+    position: Position | null,
+    err?: any
 ) => void;
 
 /**
