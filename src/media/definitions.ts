@@ -23,11 +23,11 @@ export interface MediaPlugin {
   previewImage(options: MediaImages): Promise<void>;
 
   /**
-   * 保存图片
+   * 长按 保存图片 这里只能是 http or https
    *
    * @since 1.0.0
    */
-  saveImage(options: any): Promise<any>;
+  saveImage(options: MediaImageInfo): Promise<void>;
 
   /**
    * 选择视频
@@ -54,7 +54,19 @@ export interface MediaPlugin {
 }
 
 export interface MediaImages {
+  /**
+   * 预览图片 带 长按保存功能
+   *
+   * @since 1.0.0
+   */
   images: MediaImageInfo[];
+
+  /**
+   * 默认 位置 从 0 开始
+   *
+   * @since 1.0.0
+   */
+  position: 0;
 }
 
 export interface MediaImageInfo {

@@ -152,7 +152,7 @@ export interface MusicStyle extends ShareStyle {
    *
    * @since 1.0.0
    */
-  musicurl: string;
+  musicUrl: string;
 
   /**
    * 音乐的标题
@@ -213,4 +213,57 @@ export interface VideoStyle extends ShareStyle {
    * @since 1.0.0
    */
   description?: string;
+}
+
+export interface MinAppStyle extends ShareStyle {
+  shareType: "minApp";
+
+  /**
+   * 兼容低版本的网页链接
+   *
+   * @since 1.0.0
+   */
+  minAppUrl?: string;
+
+  /**
+   * 小程序消息title
+   *
+   * @since 1.0.0
+   */
+  title?: string;
+
+  /**
+   * 小程序消息封面图片
+   *
+   * @since 1.0.0
+   */
+  thumb?: string;
+
+  /**
+   * 小程序消息描述
+   *
+   * @since 1.0.0
+   */
+  description?: string;
+
+  /**
+   * 小程序页面路径
+   *
+   * @since 1.0.0
+   */
+  path?: string;
+
+  /**
+   * 小程序原始id,在微信平台查询
+   *
+   * @since 1.0.0
+   */
+  userName: string;
+
+  /**
+   * 0 正式 ， 1 测试 (开发版） 2 预览版（体验版）
+   *
+   * @since 1.0.0
+   */
+  miniType: "0" | "1" | "2";
 }
