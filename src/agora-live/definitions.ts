@@ -52,9 +52,9 @@ export interface ECommerceLivePusherPlugin {
      *
      * @since 1.0.0
      */
-    prepare(options?: any): Promise<void>;
+    start(options?: any): Promise<void>;
 }
-export interface RtmClientPlugin {
+export interface LiveChatPlugin {
     /**
      * 登录结果监听
      * 登录之前调用
@@ -89,6 +89,27 @@ export interface LoginLiveOptions {
     appId: string;
 
     /**
+     * 用户 名称
+     *
+     * @since 1.0.0
+     */
+    userName: string;
+
+    /**
+     * 用户头像
+     *
+     * @since 1.0.0
+     */
+    imageUrl: string;
+
+    /**
+     * 用户 id
+     *
+     * @since 1.0.0
+     */
+    userId: string;
+
+    /**
      * 用户token
      *
      * @since 1.0.0
@@ -103,11 +124,11 @@ export interface LoginLiveOptions {
     rtmToken: string;
 
     /**
-     * 生成用户 uid
+     * 声网 uid
      *
      * @since 1.0.0
      */
-    uid: string;
+    agoraUid: string;
 }
 
 export type LoginListener = (result: RtmLoginLiveResult) => void;

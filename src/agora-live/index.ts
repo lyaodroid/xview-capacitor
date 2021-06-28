@@ -3,7 +3,7 @@ import { registerPlugin } from "@capacitor/core";
 import type {
     ECommerceLivePlayerPlugin,
     ECommerceLivePusherPlugin,
-    RtmClientPlugin,
+    LiveChatPlugin,
 } from "./definitions";
 
 export * from "./definitions";
@@ -23,6 +23,6 @@ const ECommerceLivePusher = registerPlugin<ECommerceLivePusherPlugin>(
 );
 export { ECommerceLivePusher };
 
-const RtmClient = registerPlugin<RtmClientPlugin>("RtmClient");
+const LiveChat = registerPlugin<LiveChatPlugin>("LiveChat");
 
-export { RtmClient };
+export { LiveChat };
