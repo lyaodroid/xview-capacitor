@@ -20,7 +20,7 @@ export interface NettyTcpPlugin {
      *
      * @since 1.0.0
      */
-    sendMessage(options: { value: string }): Promise<{ value: boolean }>;
+    sendMessage(options: any): Promise<{ value: boolean }>;
 
     /**
      * Listen for changes in the network connection.
@@ -29,7 +29,7 @@ export interface NettyTcpPlugin {
      */
     addListener(
         eventName: "tcpReceived",
-        listenerFunc: TcpResponse
+        listenerFunc: ( data: TcpResponse) => void
     ): Promise<PluginListenerHandle> & PluginListenerHandle;
 
     /**
@@ -66,7 +66,9 @@ export interface TcpResponse {
     data: string;
 }
 
-export interface TcpStatusChangeListener {
+export type TcpStatusChangeListener = (status: TcpConnectionStatus) => void;
+
+export interface TcpConnectionStatus {
     /**
      * 标识 连接到 哪个 服务端
      *
