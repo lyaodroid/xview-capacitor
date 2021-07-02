@@ -37,6 +37,8 @@ export * from "./media/index";
 
 export * from "./mobile/index";
 
+export * from "./netty/index";
+
 export * from "./network/index";
 
 export * from "./push-notifications/index";
@@ -64,6 +66,7 @@ export * from "./webpage/index";
 export * from "./wechat/index";
 
 export * from "./agora-live/index";
+
 
 
 
