@@ -1,52 +1,11 @@
 import { PluginListenerHandle } from "@capacitor/core";
 
-export type RoomType =
-    | "multi"
-    | "single"
-    | "pk"
-    | "virtual_host"
-    | "ecommerce";
-
-export interface ECommerceLivePlayerPlugin {
-    /**
-     * 测试 插件打开原生界面
-     *
-     * @since 1.0.0
-     */
-    play(options: LiveRoomOptions): Promise<void>;
-
-    /**
-     * 离开直播列表界面 关闭原生直播界面
-     *
-     * @param options
-     */
-    stop(options?: any): Promise<void>;
-}
-export interface LiveRoomOptions {
-    /**
-     * 暂时 只能使用 ecommerce 类型
-     *
-     * @since 1.0.0
-     */
-    roomType: RoomType;
-
-    /**
-     * 直播间名字
-     */
-    roomName: string;
-
-    /**
-     * 直播间 roomId
-     */
-    roomId: string;
-}
-
 /**
  * -----------------------------------------------------------------------------
  * 推流插件
  */
 
-export interface ECommerceLivePusherPlugin {
+export interface LivePusherPlugin {
     /**
      * 带参数进入直播间准备
      *
