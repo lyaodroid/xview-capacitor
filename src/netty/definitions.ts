@@ -91,7 +91,7 @@ export interface TcpConnectionStatus {
 export interface TcpOptions {
     host: string;
 
-    port: number;
+    port: string;
 
     tcpTag?: string;
 
