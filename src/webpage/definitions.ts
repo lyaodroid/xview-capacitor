@@ -62,6 +62,8 @@ export interface OpenOptions extends Dimensions {
    */
   url: string;
 
+  auth?: WebHttpAuth
+
   javascript?: string;
   injectionTime?: ScriptInjectionTime;
 }
@@ -101,4 +103,9 @@ export interface Dimensions {
 export enum ScriptInjectionTime {
   atDocumentStart,
   atDocumentEnd,
+}
+
+interface WebHttpAuth {
+  username: string;
+  password: string;
 }

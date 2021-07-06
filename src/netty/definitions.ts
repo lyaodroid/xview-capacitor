@@ -20,7 +20,7 @@ export interface NettyTcpPlugin {
      *
      * @since 1.0.0
      */
-    sendMessage(options: any): Promise<{ value: boolean }>;
+    send(options: any): Promise<{ value: boolean }>;
 
     /**
      * Listen for changes in the network connection.
@@ -96,6 +96,14 @@ export interface TcpOptions {
     tcpTag?: string;
 
     heartBeat?: boolean;
+
+    /**
+     * 心跳间隔时间
+     * 默认3 秒
+     * 
+     * @since 1.0.0
+     */
+    heartBeatInterval?: number;
 
     heartBeatData?: string;
 }
