@@ -102,7 +102,7 @@ export interface MediaImageOptions {
   quality?: number;
 
   /**
-   * 语言显示 0 中文 1 英文
+   * 语言显示 0 中文 1 繁体中文  2 英文
    *
    * @since 1.0.0
    */

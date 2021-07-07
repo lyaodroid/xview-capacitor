@@ -108,12 +108,29 @@ export interface BatteryInfo {
 }
 
 export interface GetLanguageCodeResult {
+
   /**
    * Two character language code.
+   * 
+   * 语言-地区  保持一致性
    *
    * @since 1.0.0
    */
   value: string;
+
+  /**
+   * 手机端语言选择
+   *
+   * @since 1.0.0
+   */
+  language?: string;
+
+  /**
+   *  手机端会有地区选择
+   *
+   * @since 1.0.0
+   */
+  country?: string;
 }
 
 export interface DevicePlugin {
