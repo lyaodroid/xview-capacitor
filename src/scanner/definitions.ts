@@ -73,12 +73,6 @@ export interface ScannerOptions {
    */
   vibrateEnabled?: boolean;
 
-  /**
-   * 语言显示 0 中文 1 繁体中文  2 英文
-   *
-   * @since 1.0.0
-   */
-  language?: number;
 }
 
 export interface AnalyzeOptions {

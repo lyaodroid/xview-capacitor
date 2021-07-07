@@ -2,6 +2,13 @@ import { PermissionState } from "@capacitor/core";
 
 export interface MobilePlugin {
   /**
+   * cn en 语言
+   *
+   * @since 1.0.0
+   */
+  switchLanguage(options: {value: string}): Promise<void>;
+
+  /**
    * 检查通知是否 打开 推送使用
    *
    * @since 1.0.0
@@ -26,7 +33,7 @@ export interface MobilePlugin {
    *
    * @since 1.0.0
    */
-  openLocationService(options?: any): void;
+  openLocationService(options?: any): Promise<void>;
 
   /**
    * 为了兼容老项目中 请求权限方法
