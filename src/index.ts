@@ -65,6 +65,7 @@ export * from "./webpage/index";
 
 export * from "./wechat/index";
 
+export * from "./agora-live/index";
 
 
 
