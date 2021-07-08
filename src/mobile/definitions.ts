@@ -2,11 +2,11 @@ import { PermissionState } from "@capacitor/core";
 
 export interface MobilePlugin {
   /**
-   * cn en 语言
+   * zh(简体) cn(繁体) en(英语) auto(跟随系统)
    *
    * @since 1.0.0
    */
-  switchLanguage(options: {value: string}): Promise<void>;
+  switchLanguage(options: { value: "zh" | "cn" | "en" | "auto"}): never;
 
   /**
    * 检查通知是否 打开 推送使用
