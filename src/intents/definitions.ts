@@ -214,4 +214,25 @@ export class IntentFactory {
         }
         return intent;
     };
+
+    public openWiFiSetting = (
+        setting?: string,
+        methodName = "openWiFiSetting"
+    ): IntentOptions => {
+        let intent = <IntentOptions>{
+            methodName: methodName,
+        };
+        if (this.mPlatform === "android") {
+            let aIntent = <AndroidIntent>{
+                action: "android.settings.WIFI_SETTINGS",
+            };
+            Object.assign(intent, aIntent);
+        } else if (this.mPlatform === "ios") {
+            let iIntent = <IosIntent>{
+                data: setting || "setting",
+            };
+            Object.assign(intent, iIntent);
+        }
+        return intent;
+    };
 }
