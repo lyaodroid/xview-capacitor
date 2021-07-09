@@ -1,12 +1,17 @@
 import { PermissionState } from "@capacitor/core";
 
+
+export type LanguageType = "zh" | "cn" | "en" | "auto";
+
 export interface MobilePlugin {
   /**
    * zh(简体) cn(繁体) en(英语) auto(跟随系统)
+   * 此方法 会 使 app 重启 才能生效
+   * 注意 数据存储 给 弹框提示
    *
    * @since 1.0.0
    */
-  switchLanguage(options: { value: "zh" | "cn" | "en" | "auto"}): never;
+  switchLanguage(options: { value: LanguageType }): never;
 
   /**
    * 检查通知是否 打开 推送使用
