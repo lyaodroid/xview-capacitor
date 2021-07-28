@@ -2,8 +2,8 @@ import { WebPlugin, PluginListenerHandle } from "@capacitor/core";
 
 import {
     LiveChatPlugin,
-    LoginLiveOptions,
     LoginListener,
+    LoginRtmOptions,
 } from "./definitions";
 
 export class LiveChatWeb extends WebPlugin implements LiveChatPlugin {
@@ -11,10 +11,10 @@ export class LiveChatWeb extends WebPlugin implements LiveChatPlugin {
         super();
     }
 
-    login(options: LoginLiveOptions): Promise<void> {
+    login(options: LoginRtmOptions): Promise<void> {
         throw new Error("Method not implemented.");
     }
-    logout(options: LoginLiveOptions): Promise<void> {
+    logout(options?: any): Promise<void> {
         throw new Error("Method not implemented.");
     }
 

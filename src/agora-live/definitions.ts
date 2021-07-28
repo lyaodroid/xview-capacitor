@@ -11,7 +11,7 @@ export interface LivePusherPlugin {
      *
      * @since 1.0.0
      */
-    start(options?: any): Promise<void>;
+    enterRoomPrepare(options: any): Promise<void>;
 }
 export interface LiveChatPlugin {
     /**
@@ -30,38 +30,18 @@ export interface LiveChatPlugin {
      *
      * @since 1.0.0
      */
-    login(options: LoginLiveOptions): Promise<void>;
+    login(options: LoginRtmOptions): Promise<void>;
 
     /**
      * 退出登录
      *
      * @since 1.0.0
      */
-    logout(options: LoginLiveOptions): Promise<void>;
+    logout(options?: any): Promise<void>;
 }
-export interface LoginLiveOptions {
-    /**
-     * 应用 AppId
-     *
-     * @since 1.0.0
-     */
-    appId: string;
+export interface LoginRtmOptions {
 
-    /**
-     * 用户 名称
-     *
-     * @since 1.0.0
-     */
-    userName: string;
-
-    /**
-     * 用户头像
-     *
-     * @since 1.0.0
-     */
-    imageUrl: string;
-
-    /**
+        /**
      * 用户 id
      *
      * @since 1.0.0
@@ -76,6 +56,21 @@ export interface LoginLiveOptions {
     userToken: string;
 
     /**
+     * 用户 名称
+     *
+     * @since 1.0.0
+     */
+    userName: string;
+
+    /**
+     * 用户头像
+     *
+     * @since 1.0.0
+     */
+    portraitUri: string;
+
+
+    /**
      * Rtm 聊天 token
      *
      * @since 1.0.0
@@ -87,7 +82,7 @@ export interface LoginLiveOptions {
      *
      * @since 1.0.0
      */
-    agoraUid: string;
+    uid: number;
 }
 
 export type LoginListener = (result: RtmLoginLiveResult) => void;
