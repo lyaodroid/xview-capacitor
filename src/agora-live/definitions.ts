@@ -67,7 +67,7 @@ export interface LoginRtmOptions {
      *
      * @since 1.0.0
      */
-    portraitUri: string;
+    avatar: string;
 
 
     /**
