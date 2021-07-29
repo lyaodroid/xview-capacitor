@@ -13,6 +13,17 @@ export interface LivePusherPlugin {
      */
     enterRoomPrepare(options: any): Promise<void>;
 }
+
+
+export interface LivePlayerPlugin {
+    /**
+     * 带参数进入直播间观看
+     *
+     * @since 1.0.0
+     */
+    play(options: any): Promise<void>;
+}
+
 export interface LiveChatPlugin {
     /**
      * 登录结果监听
