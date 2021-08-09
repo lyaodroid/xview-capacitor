@@ -47,6 +47,8 @@ export * from "./qq/index";
 
 export * from "./scanner/index";
 
+export * from "./screen-control/index";
+
 export * from "./share/index";
 
 export * from "./speech-asr/index";
