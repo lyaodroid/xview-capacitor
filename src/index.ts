@@ -21,6 +21,8 @@ export * from "./cpplus/index";
 
 export * from "./device/index";
 
+export * from "./facebook/index";
+
 export * from "./file-selector/index";
 
 export * from "./file-system/index";
