@@ -65,6 +65,8 @@ export * from "./storage/index";
 
 export * from "./update/index";
 
+export * from "./umeng/index";
+
 export * from "./webpage/index";
 
 export * from "./wechat/index";
