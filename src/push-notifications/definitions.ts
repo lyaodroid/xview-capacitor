@@ -2,6 +2,16 @@ import type { PluginListenerHandle } from "@capacitor/core";
 import { PermissionStatus } from "./definitions-common";
 
 export interface PushNotificationsPlugin {
+
+
+    /**
+     * 解决sdk 收集信息 合规 延迟初始化问题
+     * 目前 极光推送使用
+     *
+     * @since 1.0.0
+     */
+    init(): Promise<void>;
+
     /**
      * Register the app to receive push notifications.
      * 
