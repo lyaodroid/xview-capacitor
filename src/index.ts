@@ -53,6 +53,8 @@ export * from "./screen-control/index";
 
 export * from "./share/index";
 
+export * from "./sina/index";
+
 export * from "./speech-asr/index";
 
 export * from "./speech-tts/index";
