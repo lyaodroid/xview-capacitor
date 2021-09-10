@@ -447,6 +447,62 @@ import { QQ } from "nativecap";
   }
 ```
 
+### Sina
+
+- **登录**
+
+```typescript
+import { Sina } from "nativecap";
+
+   /**
+   * 登录
+   * @param options  接口返回
+   */
+  async login() {
+    try {
+      const options = {
+            appId: "",
+            appKey: "",
+        }；
+      const result = await Sina.login(options);
+      console.log(result.uid);
+    } catch (error) {
+      console.log(error);
+    }
+  }
+```
+
+- **分享(同微信)**
+
+```typescript
+import { Sina } from "nativecap";
+
+   /**
+   * 分享网页
+   * @param options  参数不能为空 [thumb 图片 小于 20kb]
+   */
+  async shareWebPage() {
+    try {
+      const options = {
+            shareData: {
+                webUrl:"分享的网址链接",
+                thumb:"https://test0.jpg",
+                title: "有意义文字",
+                description: "内容说明",
+                shareType: "webPage",
+            },
+            appId: "",
+            appKey: "",
+            platform: "SINA",
+        };
+      await Sina.share(options);
+      console.log("share success");
+    } catch (error) {
+      console.log(error);
+    }
+  }
+```
+
 ### 定位(高德 百度)
 
 - **单次定位**
