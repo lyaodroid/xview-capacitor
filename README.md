@@ -447,7 +447,7 @@ import { QQ } from "nativecap";
   }
 ```
 
-### Sina
+### Sina(微博)
 
 - **登录**
 
