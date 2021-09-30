@@ -1,8 +1,8 @@
 import { LoginResult, ShareMedia } from "../common";
 
-export interface FacebookPlugin {
+export interface TwitterPlugin {
   /**
-   * 
+   *
    *
    * @since 1.0.0
    */
@@ -10,7 +10,7 @@ export interface FacebookPlugin {
 
   /**
    * 
-   * 分享失败 状态码 查文档
+   *
    *
    * @since 1.0.0
    */

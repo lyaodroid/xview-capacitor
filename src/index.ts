@@ -31,6 +31,8 @@ export * from "./geolocation/index";
 
 export * from "./http/index";
 
+export * from "./instagram/index";
+
 export * from "./intents/index";
 
 export * from "./keyboard/index";
@@ -64,6 +66,8 @@ export * from "./splash-screen/index";
 export * from "./status-bar/index";
 
 export * from "./storage/index";
+
+export * from "./twitter/index";
 
 export * from "./update/index";
 
