@@ -61,7 +61,7 @@ export interface ShareMedia {
    *
    * @since 1.0.0
    */
-  platform: "QQ" | "QZONE" | "WEIXIN" | "WEIXIN_CIRCLE" | "SINA";
+  platform: "QQ" | "QZONE" | "WEIXIN" | "WEIXIN_CIRCLE" | "SINA" | "FACEBOOK" | "INSTAGRAM" | "TWITTER";
 
   /**
    * 分享样式 文字 图片 网页 音乐 视频

@@ -1,6 +1,13 @@
 import { LoginResult, ShareMedia } from "../common";
 
 export interface FacebookPlugin {
+
+    /**
+   * 必须先授权成功才能分享
+   * 
+   * @since 1.0.0
+   */
+  auth(options?: { appId: string; appKey: string }): Promise<any>;
   /**
    * 用户id：uid（6.2以前用id）
    *first_name：first_name
@@ -12,7 +19,7 @@ export interface FacebookPlugin {
    *
    * @since 1.0.0
    */
-  login(options: { appId: string; appKey: string }): Promise<LoginResult>;
+  login(options?: { appId: string; appKey: string }): Promise<LoginResult>;
 
   /**
    * 
