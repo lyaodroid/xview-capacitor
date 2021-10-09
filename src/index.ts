@@ -31,8 +31,6 @@ export * from "./geolocation/index";
 
 export * from "./http/index";
 
-export * from "./instagram/index";
-
 export * from "./intents/index";
 
 export * from "./keyboard/index";

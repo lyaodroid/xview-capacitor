@@ -10,7 +10,9 @@ export interface FacebookPlugin {
 
   /**
    * 
-   * 分享失败 状态码 查文档
+   * 图片 链接 视频
+   * 
+   * Instagram 图片
    *
    * @since 1.0.0
    */
