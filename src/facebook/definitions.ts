@@ -2,7 +2,13 @@ import { LoginResult, ShareMedia } from "../common";
 
 export interface FacebookPlugin {
   /**
-   * 
+   * 用户id：uid（6.2以前用id）
+   *first_name：first_name
+   *last_name：last_name
+   *middle_name：middle_name
+   *name：name
+   *linkUri：linkUri
+   *头像：iconurl（6.2以前用profilePictureUri）
    *
    * @since 1.0.0
    */
