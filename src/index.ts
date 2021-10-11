@@ -43,6 +43,8 @@ export * from "./netty/index";
 
 export * from "./network/index";
 
+export * from "./paypal/index";
+
 export * from "./push-notifications/index";
 
 export * from "./qq/index";
