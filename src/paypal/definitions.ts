@@ -1,19 +1,28 @@
 export interface PayPalPlugin {
     /**
-     *
-     *
-     *
-     *
+     * 后期可能会使用
      * @since 1.0.0
      */
     auth(options?: any): Promise<any>;
 
     /**
-     *  暂时使用 any
+     *  参数太多 必须标准化 不然参数错误无法调试
      *
      * @since 1.0.0
      */
-    pay(options: { value: string }): Promise<void>;
+    pay(options: OrderOptions): Promise<void>;
+}
+
+export interface OrderOptions {
+    orderIntent: OrderIntent;
+
+    userAction: UserAction;
+
+    shippingPreference: ShippingPreference;
+
+    currencyCode: CurrencyCode;
+
+    createdItems: CreatedItem[];
 }
 
 export enum OrderIntent {
@@ -58,6 +67,45 @@ export enum ShippingPreference {
     /**
      */
     Set_Provided_Address = "SET_PROVIDED_ADDRESS",
+}
+
+export enum ItemCategory {
+    /**
+     *
+     */
+
+    Digital_Goods = "DIGITAL_GOODS",
+
+    /**
+     */
+    Physical_Goods = "PHYSICAL_GOODS",
+}
+
+export interface CreatedItem {
+    /**
+     *
+     */
+    name: string;
+    /**
+     *
+     */
+
+    quantity: string;
+    /**
+     *
+     */
+
+    amount: string;
+    /**
+     *
+     */
+
+    taxAmount: string;
+
+    /**
+     *
+     */
+    itemCategory: ItemCategory;
 }
 
 export enum CurrencyCode {
