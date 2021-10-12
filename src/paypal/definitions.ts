@@ -24,7 +24,15 @@ export interface OrderOptions {
 
     createdItems: CreatedItem[];
 
+    /**
+     * ⚠️ 独立
+     */
     brandName: string;
+
+    /**
+     * 主要参数构建
+     */
+    purchaseUnit: PurchaseUnit;
 }
 
 export enum OrderIntent {
@@ -130,7 +138,6 @@ export interface PurchaseUnit {
      */
 
     softDescriptor: string;
-
 }
 export interface Shipping {
     addressLine1: string;
