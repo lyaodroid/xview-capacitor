@@ -23,6 +23,8 @@ export interface OrderOptions {
     currencyCode: CurrencyCode;
 
     createdItems: CreatedItem[];
+
+    brandName: string;
 }
 
 export enum OrderIntent {
@@ -106,6 +108,40 @@ export interface CreatedItem {
      *
      */
     itemCategory: ItemCategory;
+}
+
+export interface PurchaseUnit {
+    /**
+     *
+     */
+    shipping: Shipping;
+    /**
+     *
+     */
+
+    customId: string;
+    /**
+     *
+     */
+
+    description: string;
+    /**
+     *
+     */
+
+    softDescriptor: string;
+
+}
+export interface Shipping {
+    addressLine1: string;
+    addressLine2: string;
+
+    adminArea1: string;
+    adminArea2: string;
+
+    postalCode: string;
+
+    countryCode: string;
 }
 
 export enum CurrencyCode {
