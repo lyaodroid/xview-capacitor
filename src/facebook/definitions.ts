@@ -1,34 +1,50 @@
-import { LoginResult, ShareMedia } from "../common";
+export interface AccessToken {
+  applicationId?: string;
+  declinedPermissions?: string[];
+  expires?: string;
+  isExpired?: boolean;
+  lastRefresh?: string;
+  permissions?: string[];
+  token: string;
+  userId?: string;
+}
+
+export interface FacebookResponse {
+  accessToken: AccessToken | null;
+  recentlyGrantedPermissions?: string[];
+  recentlyDeniedPermissions?: string[];
+}
+
+export interface FacebookCurrentAccessTokenResponse {
+  accessToken: AccessToken | null;
+}
 
 export interface FacebookPlugin {
+  login(options: { permissions: string[] }): Promise<FacebookResponse>;
+  logout(): Promise<void>;
+  getCurrentAccessToken(): Promise<FacebookCurrentAccessTokenResponse>;
+  getProfile<T extends object>(options: {
+    fields: readonly string[];
+  }): Promise<T>;
+}
 
-    /**
-   * 必须先授权成功才能分享
-   * 
-   * @since 1.0.0
-   */
-  auth(options?: { appId: string; appKey: string }): Promise<any>;
-  /**
-   * 用户id：uid（6.2以前用id）
-   *first_name：first_name
-   *last_name：last_name
-   *middle_name：middle_name
-   *name：name
-   *linkUri：linkUri
-   *头像：iconurl（6.2以前用profilePictureUri）
-   *
-   * @since 1.0.0
-   */
-  login(options?: { appId: string; appKey: string }): Promise<LoginResult>;
+export interface FacebookGetLoginStatusResponse {
+  status: 'connected';
+  authResponse: {
+    accessToken: string;
+    expiresIn: number;
+    reauthorize_required_in: number;
+    signedRequest: string;
+    userID: string;
+  };
+}
 
-  /**
-   * 
-   * 图片 链接 视频
-   * 
-   * Instagram 图片
-   *
-   * @since 1.0.0
-   */
+export interface FacebookError {
+  message: string;
+  type: string;
+  code: number;
+}
 
-  share(options: ShareMedia): Promise<void>;
+export interface FacebookGetProfileResponse {
+  error: FacebookError | null;
 }
