@@ -43,8 +43,6 @@ export * from "./netty/index";
 
 export * from "./network/index";
 
-export * from "./paypal/index";
-
 export * from "./push-notifications/index";
 
 export * from "./qq/index";
@@ -66,8 +64,6 @@ export * from "./splash-screen/index";
 export * from "./status-bar/index";
 
 export * from "./storage/index";
-
-export * from "./twitter/index";
 
 export * from "./update/index";
 
