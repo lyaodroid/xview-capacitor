@@ -45,17 +45,6 @@ export interface AppState {
   isActive: boolean;
 }
 
-
-export interface AppStateTest {
-  /**
-   * Whether the AppStateTest is active or not.
-   *
-   * @since 1.0.0
-   */
-  isActiveTest: boolean;
-}
-
-
 export interface URLOpenListenerEvent {
   /**
    * The URL the app was opened with.
@@ -126,19 +115,30 @@ export interface RestoredListenerEvent {
   };
 }
 
+export interface BackButtonListenerEvent {
+  /**
+   * Indicates whether the browser can go back in history.
+   * False when the history stack is on the first entry.
+   *
+   * @since 1.0.0
+   */
+  canGoBack: boolean;
+}
+
 export type StateChangeListener = (state: AppState) => void;
 export type URLOpenListener = (event: URLOpenListenerEvent) => void;
 export type RestoredListener = (event: RestoredListenerEvent) => void;
-export type BackButtonListener = () => void;
+export type BackButtonListener = (event: BackButtonListenerEvent) => void;
 
 export interface AppPlugin {
   /**
    * 只是隐藏到后台 而不是 杀死 app
-   *
-   * @since 1.0.0
-   */
+   * Indicates whether the browser can go back in history.
+   * False when the history stack is on the first entry.
+    *
+    * @since 1.0.0
+    */
   hideApp(): never;
-
   /**
    * Force exit the app. This should only be used in conjunction with the `backButton` handler for Android to
    * exit the app when navigation is complete.
@@ -147,7 +147,7 @@ export interface AppPlugin {
    *
    * @since 1.0.0
    */
-  exitApp(): never;
+  exitApp(options?: { hide: true }): never;
 
   /**
    * Return information about the app.
@@ -168,7 +168,7 @@ export interface AppPlugin {
    *
    * @since 1.0.0
    */
-  getLaunchUrl(): Promise<AppLaunchUrl>;
+  getLaunchUrl(): Promise<AppLaunchUrl | undefined>;
 
   /**
    * Listen for changes in the App's active state (whether the app is in the foreground or background)
