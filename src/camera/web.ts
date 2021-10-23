@@ -1,58 +1,85 @@
-import { WebPlugin, CapacitorException } from "@capacitor/core";
-
-import type { CameraPlugin, Photo, PhotoOptions } from "./definitions";
-import { CameraSource, CameraDirection } from "./definitions";
+import { WebPlugin, CapacitorException } from '@capacitor/core';
+import { CameraSource, CameraDirection } from './definitions';
+import type {
+  CameraPlugin,
+  ImageOptions,
+  Photo,
+} from './definitions';
 
 import type { PermissionStatus } from "./definitions-common";
 
 export class CameraWeb extends WebPlugin implements CameraPlugin {
-  async getPhoto(options: PhotoOptions): Promise<Photo> {
+  async getPhoto(options: ImageOptions): Promise<Photo> {
     // eslint-disable-next-line no-async-promise-executor
     return new Promise<Photo>(async (resolve, reject) => {
-      if (options.webUseInput) {
+      if (options.webUseInput || options.source === CameraSource.Photos) {
         this.fileInputExperience(options, resolve);
-      } else {
-        if (customElements.get("pwa-camera-modal")) {
-          const cameraModal: any = document.createElement(
-            "pwa-camera-modal"
-          );
-          document.body.appendChild(cameraModal);
-          try {
-            await cameraModal.componentOnReady();
-            cameraModal.addEventListener("onPhoto", async (e: any) => {
-              const photo = e.detail;
-
-              if (photo === null) {
-                reject(
-                  new CapacitorException("User cancelled photos app")
-                );
-              } else if (photo instanceof Error) {
-                reject(photo);
-              } else {
-                resolve(await this._getCameraPhoto(photo, options));
-              }
-
-              cameraModal.dismiss();
-              document.body.removeChild(cameraModal);
-            });
-
-            cameraModal.present();
-          } catch (e) {
-            this.fileInputExperience(options, resolve);
-          }
-        } else {
-          console.error(
-            `Unable to load PWA Element 'pwa-camera-modal'. See the docs: https://capacitorjs.com/docs/pwa-elements.`
-          );
-          this.fileInputExperience(options, resolve);
+      } else if (options.source === CameraSource.Prompt) {
+        let actionSheet: any = document.querySelector('pwa-action-sheet');
+        if (!actionSheet) {
+          actionSheet = document.createElement('pwa-action-sheet');
+          document.body.appendChild(actionSheet);
         }
+        actionSheet.header = options.promptLabelHeader || 'Photo';
+        actionSheet.cancelable = false;
+        actionSheet.options = [
+          { title: options.promptLabelPhoto || 'From Photos' },
+          { title: options.promptLabelPicture || 'Take Picture' },
+        ];
+        actionSheet.addEventListener('onSelection', async (e: any) => {
+          const selection = e.detail;
+          if (selection === 0) {
+            this.fileInputExperience(options, resolve);
+          } else {
+            this.cameraExperience(options, resolve, reject);
+          }
+        });
+      } else {
+        this.cameraExperience(options, resolve, reject);
       }
     });
   }
 
-  private fileInputExperience(options: PhotoOptions, resolve: any) {
+  private async cameraExperience(
+    options: ImageOptions,
+    resolve: any,
+    reject: any,
+  ) {
+    if (customElements.get('pwa-camera-modal')) {
+      const cameraModal: any = document.createElement('pwa-camera-modal');
+      document.body.appendChild(cameraModal);
+      try {
+        await cameraModal.componentOnReady();
+        cameraModal.addEventListener('onPhoto', async (e: any) => {
+          const photo = e.detail;
+
+          if (photo === null) {
+            reject(new CapacitorException('User cancelled photos app'));
+          } else if (photo instanceof Error) {
+            reject(photo);
+          } else {
+            resolve(await this._getCameraPhoto(photo, options));
+          }
+
+          cameraModal.dismiss();
+          document.body.removeChild(cameraModal);
+        });
+
+        cameraModal.present();
+      } catch (e) {
+        this.fileInputExperience(options, resolve);
+      }
+    } else {
+      console.error(
+        `Unable to load PWA Element 'pwa-camera-modal'. See the docs: https://capacitorjs.com/docs/pwa-elements.`,
+      );
+      this.fileInputExperience(options, resolve);
+    }
+  }
+
+  private fileInputExperience(options: ImageOptions, resolve: any) {
     let input = document.querySelector(
-      "#_capacitor-camera-input"
+      '#_capacitor-camera-input',
     ) as HTMLInputElement;
 
     const cleanup = () => {
@@ -60,98 +87,101 @@ export class CameraWeb extends WebPlugin implements CameraPlugin {
     };
 
     if (!input) {
-      input = document.createElement("input") as HTMLInputElement;
-      input.id = "_capacitor-camera-input";
-      input.type = "file";
+      input = document.createElement('input') as HTMLInputElement;
+      input.id = '_capacitor-camera-input';
+      input.type = 'file';
+      input.hidden = true;
       document.body.appendChild(input);
+      input.addEventListener('change', (_e: any) => {
+        const file = input.files![0];
+        let format = 'jpeg';
+
+        if (file.type === 'image/png') {
+          format = 'png';
+        } else if (file.type === 'image/gif') {
+          format = 'gif';
+        }
+
+        if (
+          options.resultType === 'dataUrl' ||
+          options.resultType === 'base64'
+        ) {
+          const reader = new FileReader();
+
+          reader.addEventListener('load', () => {
+            if (options.resultType === 'dataUrl') {
+              resolve({
+                dataUrl: reader.result,
+                format,
+              } as Photo);
+            } else if (options.resultType === 'base64') {
+              const b64 = (reader.result as string).split(',')[1];
+              resolve({
+                base64String: b64,
+                format,
+              } as Photo);
+            }
+
+            cleanup();
+          });
+
+          reader.readAsDataURL(file);
+        } else {
+          resolve({
+            webPath: URL.createObjectURL(file),
+            format: format,
+          });
+          cleanup();
+        }
+      });
     }
 
-    input.accept = "image/*";
+    input.accept = 'image/*';
     (input as any).capture = true;
 
     if (
       options.source === CameraSource.Photos ||
       options.source === CameraSource.Prompt
     ) {
-      input.removeAttribute("capture");
+      input.removeAttribute('capture');
     } else if (options.direction === CameraDirection.Front) {
-      (input as any).capture = "user";
+      (input as any).capture = 'user';
     } else if (options.direction === CameraDirection.Rear) {
-      (input as any).capture = "environment";
+      (input as any).capture = 'environment';
     }
-
-    input.addEventListener("change", (_e: any) => {
-      const file = input.files![0];
-      let format = "jpeg";
-
-      if (file.type === "image/png") {
-        format = "png";
-      } else if (file.type === "image/gif") {
-        format = "gif";
-      }
-
-      if (
-        options.resultType === "dataUrl" ||
-        options.resultType === "base64"
-      ) {
-        const reader = new FileReader();
-
-        reader.addEventListener("load", () => {
-          if (options.resultType === "dataUrl") {
-            resolve({
-              dataUrl: reader.result,
-              format,
-            } as Photo);
-          } else if (options.resultType === "base64") {
-            const b64 = (reader.result as string).split(",")[1];
-            resolve({
-              base64String: b64,
-              format,
-            } as Photo);
-          }
-
-          cleanup();
-        });
-
-        reader.readAsDataURL(file);
-      } else {
-        resolve({
-          webPath: URL.createObjectURL(file),
-          format: format,
-        });
-        cleanup();
-      }
-    });
 
     input.click();
   }
 
-  private _getCameraPhoto(photo: Blob, options: PhotoOptions) {
+  private _getCameraPhoto(photo: Blob, options: ImageOptions) {
     return new Promise<Photo>((resolve, reject) => {
       const reader = new FileReader();
-      const format = photo.type.split("/")[1];
-      if (options.resultType === "uri") {
+      const format = photo.type.split('/')[1];
+      if (options.resultType === 'uri') {
         resolve({
           webPath: URL.createObjectURL(photo),
           format: format,
+          saved: false,
         });
       } else {
         reader.readAsDataURL(photo);
         reader.onloadend = () => {
           const r = reader.result as string;
-          if (options.resultType === "dataUrl") {
+          if (options.resultType === 'dataUrl') {
             resolve({
               dataUrl: r,
               format: format,
+              saved: false,
             });
           } else {
             resolve({
-              base64String: r.split(",")[1],
+              base64String: r.split(',')[1],
               format: format,
+              saved: false,
             });
           }
         };
-        reader.onerror = (e) => {
+        reader.onerror = e => {
           reject(e);
         };
       }
@@ -159,10 +189,8 @@ export class CameraWeb extends WebPlugin implements CameraPlugin {
   }
 
   async checkPermissions(): Promise<PermissionStatus> {
-    if (typeof navigator === "undefined" || !navigator.permissions) {
-      throw this.unavailable(
-        "Permissions API not available in this browser"
-      );
+    if (typeof navigator === 'undefined' || !navigator.permissions) {
+      throw this.unavailable('Permissions API not available in this browser');
     }
 
     try {
@@ -170,20 +198,24 @@ export class CameraWeb extends WebPlugin implements CameraPlugin {
       // the specific permissions that are supported varies among browsers that implement the
       // permissions API, so we need a try/catch in case 'camera' is invalid
       const permission = await window.navigator.permissions.query({
-        name: "camera",
+        name: 'camera',
       });
       return {
         camera: permission.state,
-        photos: "granted",
+        photos: 'granted',
       };
     } catch {
       throw this.unavailable(
-        "Camera permissions are not available in this browser"
+        'Camera permissions are not available in this browser',
       );
     }
   }
 
   async requestPermissions(): Promise<PermissionStatus> {
-    throw this.unimplemented("Not implemented on web.");
+    throw this.unimplemented('Not implemented on web.');
   }
 }
+
+const Camera = new CameraWeb();
+
+export { Camera };

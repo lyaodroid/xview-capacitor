@@ -17,7 +17,7 @@ export interface CameraPlugin {
    *
    * @since 1.0.0
    */
-  getPhoto(options: PhotoOptions): Promise<Photo>;
+  getPhoto(options: ImageOptions): Promise<Photo>;
 
   /**
    * Check camera and photo album permissions
@@ -36,7 +36,7 @@ export interface CameraPlugin {
   ): Promise<PermissionStatus>;
 }
 
-export interface PhotoOptions {
+export interface ImageOptions {
   /**
    * The quality of image to return as JPEG, from 0-100
    *
@@ -76,16 +76,10 @@ export interface PhotoOptions {
    */
   height?: number;
   /**
-   * Whether to preserve the aspect ratio of the image.
-   * If this flag is true, the width and height will be used as max values
-   * and the aspect ratio will be preserved. This is only relevant when
-   * both a width and height are passed. When only width or height is provided
-   * the aspect ratio is always preserved (and this option is a no-op).
+   * This setting has no effect.
+   * Picture resizing always preserve aspect ratio.
    *
-   * A future major version will change this behavior to be default,
-   * and may also remove this option altogether.
-   * @default: false
-   *
+   * @deprecated will be removed in next major version.
    * @since 1.0.0
    */
   preserveAspectRatio?: boolean;
@@ -134,7 +128,6 @@ export interface PhotoOptions {
 
   /**
    * Text value to use when displaying the prompt.
-   * iOS only: The title of the action sheet.
    * @default: 'Photo'
    *
    * @since 1.0.0
@@ -212,11 +205,30 @@ export interface Photo {
    * @since 1.0.0
    */
   format: string;
+  /**
+   * Whether if the image was saved to the gallery or not.
+   *
+   * On Android and iOS, saving to the gallery can fail if the user didn't
+   * grant the required permissions.
+   * On Web there is no gallery, so always returns false.
+   *
+   * @since 1.1.0
+   */
+  saved: boolean;
 }
 
 export enum CameraSource {
+  /**
+   * Prompts the user to select either the photo album or take a photo.
+   */
   Prompt = 'PROMPT',
+  /**
+   * Take a new photo using the camera.
+   */
   Camera = 'CAMERA',
+  /**
+   * Pick an existing photo fron the gallery or photo album.
+   */
   Photos = 'PHOTOS',
 }
 
@@ -238,7 +250,7 @@ export enum CameraResultType {
 export type CameraPhoto = Photo;
 
 /**
- * @deprecated Use `PhotoOptions`.
+ * @deprecated Use `ImageOptions`.
  * @since 1.0.0
  */
-export type CameraOptions = PhotoOptions;
+export type CameraOptions = ImageOptions;
