@@ -1,5 +1,17 @@
 export type OperatingSystem = 'ios' | 'android' | 'windows' | 'mac' | 'unknown';
 
+export interface DeviceId {
+  /**
+   * The UUID of the device as available to the app. This identifier may change
+   * on modern mobile platforms that only allow per-app install UUIDs.
+   *
+   * On web, a random identifier is generated and stored on localStorage for subsequent calls.
+   *
+   * @since 1.0.0
+   */
+  uuid: string;
+}
+
 export interface DeviceInfo {
   /**
    * The name of the device. For example, "John's iPhone".
@@ -23,14 +35,6 @@ export interface DeviceInfo {
    * @since 1.0.0
    */
   platform: 'ios' | 'android' | 'web';
-
-  /**
-   * The UUID of the device as available to the app. This identifier may change
-   * on modern mobile platforms that only allow per-app install UUIDs.
-   *
-   * @since 1.0.0
-   */
-  uuid: string;
 
   /**
    * The operating system of the device.
@@ -108,16 +112,12 @@ export interface BatteryInfo {
 }
 
 export interface GetLanguageCodeResult {
-
   /**
    * Two character language code.
-   * 
-   * 语言-地区  保持一致性
    *
    * @since 1.0.0
    */
   value: string;
-
   /**
    * 手机端语言选择
    *
@@ -135,6 +135,13 @@ export interface GetLanguageCodeResult {
 
 export interface DevicePlugin {
   /**
+   * Return an unique identifier for the device.
+   *
+   * @since 1.0.0
+   */
+  getId(): Promise<DeviceId>;
+
+  /**
    * Return information about the underlying device/os/platform.
    *
    * @since 1.0.0
@@ -149,7 +156,6 @@ export interface DevicePlugin {
   getBatteryInfo(): Promise<BatteryInfo>;
 
   /**
-   *
    * Get the device's current language locale code.
    *
    * @since 1.0.0
@@ -164,7 +170,6 @@ export interface DevicePlugin {
    */
   getScreenRelatedInfo(): Promise<ScreenRelatedInfo>;
 }
-
 export interface ScreenRelatedInfo {
 
   /**
