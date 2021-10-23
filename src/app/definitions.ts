@@ -100,7 +100,7 @@ export interface RestoredListenerEvent {
    */
   data?: any;
   /**
-   * Boolean indicating if the plugin call succeeded.
+   * Boolean indicating if the plugin call succeeded.c
    *
    * @since 1.0.0
    */
@@ -147,7 +147,7 @@ export interface AppPlugin {
    *
    * @since 1.0.0
    */
-  exitApp(options?: { hide: true }): never;
+  exitApp(options?: { hide: boolean }): never;
 
   /**
    * Return information about the app.
