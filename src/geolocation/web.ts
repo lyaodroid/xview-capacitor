@@ -11,6 +11,9 @@ import type {
 import type { PermissionStatus } from "./definitions-common";
 
 export class GeolocationWeb extends WebPlugin implements GeolocationPlugin {
+  init(_options?: any): Promise<void> {
+    throw new Error("Method not implemented.");
+  }
 
   isLocationServiceEnabled(_options?: any): Promise<{ value: boolean; }> {
     throw new Error("Method not implemented.");

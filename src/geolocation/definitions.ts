@@ -3,6 +3,14 @@ import type { PermissionStatus } from "./definitions-common";
 export type CallbackID = string;
 
 export interface GeolocationPlugin {
+
+    /**
+     * 隐私合规 必须同意后才能调用定位初始化
+     * 
+     * @since 1.0.0
+     */
+    init(options?: any): Promise<void>;
+
     /**
      * Get the current GPS location of the device
      *
