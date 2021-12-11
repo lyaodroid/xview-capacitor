@@ -2,7 +2,9 @@ import { PluginListenerHandle } from "@capacitor/core";
 
 export interface AuthNumberPlugin {
     /**
-     * Open a webview with the given URL
+     * 运营商一键登录
+     * 
+     * @since 1.0.0
      */
     login(options: LoginOptions): Promise<void>;
 
