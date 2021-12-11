@@ -11,6 +11,8 @@ export * from "./apwifi/index";
 
 export * from "./audio/index";
 
+export * from "./auth-number/index";
+
 export * from "./camera/index";
 
 export * from "./clipboard/index";
