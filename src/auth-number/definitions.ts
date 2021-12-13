@@ -96,19 +96,19 @@ export enum AuthUI {
      *
      * @since 1.0.0
      */
-    DialogBottom,
+    DialogBottom = 'DIALOG_BOTTOM',
 
     /**
      * 中间弹框
      *
      * @since 1.0.0
      */
-    DialogPort,
+    DialogPort = 'DIALOG_PORT',
 
     /**
      * 自定义 View界面 较为复杂
      *
      * @since 1.0.0
      */
-    CustomView,
+    CustomView = 'CUSTOM_VIEW',
 }
