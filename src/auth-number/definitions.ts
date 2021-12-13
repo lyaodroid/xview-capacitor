@@ -42,8 +42,8 @@ export interface LoginOptions {
 }
 
 export interface UIConfig {
-    
-    uiConfig: AuthUI;
+
+    uiType: AuthUI;
 
     appPrivacy: AppPrivacy[];
 }
