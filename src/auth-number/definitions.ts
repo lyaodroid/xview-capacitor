@@ -10,7 +10,6 @@ export interface AuthNumberPlugin {
 
     addListener(
         eventName:
-            | "changeLogin"
             | "cancel"
             | "privacy"
             | "error"
