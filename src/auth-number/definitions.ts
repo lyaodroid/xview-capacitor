@@ -48,10 +48,9 @@ export interface UIConfig {
 }
 
 export interface AppPrivacy {
-
     /**
      * 多个协议
-     * 
+     *
      * @since 1.0.0
      */
     privacies: Privacy[];
@@ -96,19 +95,19 @@ export enum AuthUI {
      *
      * @since 1.0.0
      */
-    DialogBottom = 'DIALOG_BOTTOM',
+    DialogBottom = "DIALOG_BOTTOM",
 
     /**
      * 中间弹框
      *
      * @since 1.0.0
      */
-    DialogPort = 'DIALOG_PORT',
+    DialogPort = "DIALOG_PORT",
 
     /**
      * 自定义 View界面 较为复杂
      *
      * @since 1.0.0
      */
-    CustomView = 'CUSTOM_VIEW',
+    CustomView = "CUSTOM_VIEW",
 }
