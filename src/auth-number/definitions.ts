@@ -1,5 +1,4 @@
 import { PluginListenerHandle } from "@capacitor/core";
-import { LoginResult } from "..";
 
 export interface AuthNumberPlugin {
     /**
@@ -16,6 +15,7 @@ export interface AuthNumberPlugin {
 
     /**
      * Remove all native listeners for this plugin
+     * 使用完要移除插件监听
      *
      * @since 1.0.0
      */
