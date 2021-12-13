@@ -59,7 +59,7 @@ export interface AppPrivacy {
      *
      * @since 1.0.0
      */
-    connectTexts: string[];
+    connectTexts?: string[];
 }
 
 export interface Privacy {
