@@ -3,7 +3,7 @@ import { PluginListenerHandle } from "@capacitor/core";
 export interface AuthNumberPlugin {
     /**
      * 运营商一键登录
-     * 
+     *
      * @since 1.0.0
      */
     login(options: LoginOptions): Promise<void>;
@@ -31,12 +31,7 @@ export interface LoginOptions {
      *
      * @since 1.0.0
      */
-    appId: string;
-
-    /**
-     * @since 1.0.0
-     */
-    appKey: string;
+    authSecret: string;
 
     /**
      * 显示弹框配置
@@ -47,10 +42,13 @@ export interface LoginOptions {
 }
 
 export interface UIConfig {
-
     uiType: AuthUI;
 
-    appPrivacy: string[];
+    appPrivacy: AppPrivacy;
+}
+
+export interface AppPrivacy {
+    [key: string]: string;
 }
 
 export interface CustomViewConfig extends UIConfig {}
