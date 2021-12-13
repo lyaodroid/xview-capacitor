@@ -1,4 +1,5 @@
 import { PluginListenerHandle } from "@capacitor/core";
+import { LoginResult } from "..";
 
 export interface AuthNumberPlugin {
     /**
@@ -9,12 +10,8 @@ export interface AuthNumberPlugin {
     login(options: LoginOptions): Promise<void>;
 
     addListener(
-        eventName:
-            | "cancel"
-            | "privacy"
-            | "error"
-            | "success",
-        listenerFunc: (...args: any[]) => void
+        eventName: "oneKeyLoginListener",
+        listenerFunc: OneKeyLoginListener
     ): PluginListenerHandle;
 
     /**
@@ -24,6 +21,36 @@ export interface AuthNumberPlugin {
      */
     removeAllListeners(): Promise<void>;
 }
+
+export type OneKeyLoginListener = (result: OneKeyLoginResult) => void;
+
+
+export interface OneKeyLoginResult {
+    /**
+     * Whether there is an active connection or not.
+     *
+     * @since 1.0.0
+     */
+
+    code: string;
+
+    token?: string;
+
+    message?: string;
+
+    vendorName?: string;
+  
+    /**
+     * The type of network connection currently in use.
+     *
+     * If there is no active network connection, `connectionType` will be `'none'`.
+     *
+     * @since 1.0.0
+     */
+    resultType: ResultType;
+  }
+
+  export type ResultType = 'cancel' | 'error' | 'success';
 
 export interface LoginOptions {
     /**
