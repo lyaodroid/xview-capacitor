@@ -24,33 +24,44 @@ export interface AuthNumberPlugin {
 
 export type OneKeyLoginListener = (result: OneKeyLoginResult) => void;
 
-
 export interface OneKeyLoginResult {
     /**
-     * Whether there is an active connection or not.
+     *    成功两种状态 处理 loading
+     * if(resultType == "success"){
+        if("600001" == data.code){
+            console.log('唤起授权页成功 隐藏 loading');
+        } 
+         if ("600000" == data.code){
+            console.log('登录成功 token: ' +  data.token);
+        }
+      }
      *
      * @since 1.0.0
      */
 
     code: string;
 
+    /**
+     *  注意 code 上面注释 处理 token
+     * 
+     * @since 1.0.0
+     */
     token?: string;
 
     message?: string;
 
     vendorName?: string;
-  
+
     /**
-     * The type of network connection currently in use.
-     *
-     * If there is no active network connection, `connectionType` will be `'none'`.
+     * 
+     * 注意不同状态下 对 code的排查 与使用
      *
      * @since 1.0.0
      */
     resultType: ResultType;
-  }
+}
 
-  export type ResultType = 'cancel' | 'error' | 'success';
+export type ResultType = "cancel" | "error" | "success";
 
 export interface LoginOptions {
     /**
