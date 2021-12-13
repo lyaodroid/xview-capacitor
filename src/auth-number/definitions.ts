@@ -42,16 +42,32 @@ export interface LoginOptions {
 }
 
 export interface UIConfig {
-
     uiType: AuthUI;
 
-    appPrivacy: AppPrivacy[];
+    appPrivacy: AppPrivacy;
 }
 
 export interface AppPrivacy {
 
     /**
+     * 多个协议
+     * 
+     * @since 1.0.0
+     */
+    privacies: Privacy[];
+    /**
+     * new String[]{",","","和"}
+     *
+     * @since 1.0.0
+     */
+    connectTexts: string[];
+}
+
+export interface Privacy {
+    /**
      * 协议 标题 《*** 协议 ***》
+     *
+     * @since 1.0.0
      */
     title: string;
 
@@ -62,18 +78,10 @@ export interface AppPrivacy {
     /**
      * 十六进制
      * "#002E00"
-     * 
+     *
      * @since 1.0.0
      */
     color: string;
-
-    /**
-     * new String[]{",","","和"}
-     * 
-     * @since 1.0.0
-     */
-    connectTexts:string[]
-
 }
 
 export interface CustomViewConfig extends UIConfig {}
