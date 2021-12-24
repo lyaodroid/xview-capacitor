@@ -1,8 +1,8 @@
 import { registerPlugin } from "@capacitor/core";
 
-import type { UMCommonPlugin } from "./definitions";
+import type { UMengPlugin } from "./definitions";
 
-const UMCommon = registerPlugin<UMCommonPlugin>("UMCommon");
+const UMeng = registerPlugin<UMengPlugin>("UMengPlugin");
 
 export * from "./definitions";
-export { UMCommon };
+export { UMeng };

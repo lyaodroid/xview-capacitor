@@ -1,4 +1,4 @@
-export interface UMCommonPlugin {
+export interface UMengPlugin {
     /**
      *
      * @since 1.0.0
